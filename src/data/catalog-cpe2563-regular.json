@@ -1,0 +1,606 @@
+{
+  "curriculumName": "cpe2563-regular",
+  "courses": [
+    {
+      "id": "c-001101",
+      "courseId": "001101",
+      "courseTitle": "English 1",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-140104",
+      "courseId": "140104",
+      "courseTitle": "Citizenship",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-206161",
+      "courseId": "206161",
+      "courseTitle": "Calculus 1",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-207105",
+      "courseId": "207105",
+      "courseTitle": "Physics 1",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-207115",
+      "courseId": "207115",
+      "courseTitle": "Physics Lab 1",
+      "creditHours": 1,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-259104",
+      "courseId": "259104",
+      "courseTitle": "Drawing",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-259106",
+      "courseId": "259106",
+      "courseTitle": "Workshop",
+      "creditHours": 1,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-259191",
+      "courseId": "259191",
+      "courseTitle": "Activities 1",
+      "creditHours": 1,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261103",
+      "courseId": "261103",
+      "courseTitle": "Basic CPE",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+
+    {
+      "id": "c-001102",
+      "courseId": "001102",
+      "courseTitle": "English 2",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-206162",
+      "courseId": "206162",
+      "courseTitle": "Calculus 2",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": ["206161"]
+    },
+    {
+      "id": "c-207106",
+      "courseId": "207106",
+      "courseTitle": "Physics 2",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": ["207105"]
+    },
+    {
+      "id": "c-207116",
+      "courseId": "207116",
+      "courseTitle": "Physics Lab 2",
+      "creditHours": 1,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": ["207115"]
+    },
+    {
+      "id": "c-252281",
+      "courseId": "252281",
+      "courseTitle": "Circuits",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261102",
+      "courseId": "261102",
+      "courseTitle": "Comp Prog",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "ge-1",
+      "courseId": null,
+      "courseTitle": "GE",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+
+    {
+      "id": "c-001225",
+      "courseId": "001225",
+      "courseTitle": "English in Sci",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": ["001102"]
+    },
+    {
+      "id": "c-206261",
+      "courseId": "206261",
+      "courseTitle": "Calculus 3",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": ["206162"]
+    },
+    {
+      "id": "c-261210",
+      "courseId": "261210",
+      "courseTitle": "Logic",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": ["207106"]
+    },
+    {
+      "id": "c-261212",
+      "courseId": "261212",
+      "courseTitle": "Logic Lab",
+      "creditHours": 1,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261216",
+      "courseId": "261216",
+      "courseTitle": "Discrete Math",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261217",
+      "courseId": "261217",
+      "courseTitle": "Data Structures",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": ["261102"]
+    },
+    {
+      "id": "c-261207",
+      "courseId": "261207",
+      "courseTitle": "CPE Lab",
+      "creditHours": 2,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": ["261103"]
+    },
+    {
+      "id": "ge-2",
+      "courseId": null,
+      "courseTitle": "GE",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+
+    {
+      "id": "c-001201",
+      "courseId": "001201",
+      "courseTitle": "English R/W",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": ["001102"]
+    },
+    {
+      "id": "c-261200",
+      "courseId": "261200",
+      "courseTitle": "OO Prog",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": ["261102"]
+    },
+    {
+      "id": "c-261208",
+      "courseId": "261208",
+      "courseTitle": "Numerical",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": ["206261"]
+    },
+    {
+      "id": "c-261214",
+      "courseId": "261214",
+      "courseTitle": "Microprocessors",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": ["261210", "252281"]
+    },
+    {
+      "id": "c-261215",
+      "courseId": "261215",
+      "courseTitle": "Embedded Lab",
+      "creditHours": 1,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261218",
+      "courseId": "261218",
+      "courseTitle": "Algorithms",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": ["261216", "261217"]
+    },
+    {
+      "id": "c-261332",
+      "courseId": "261332",
+      "courseTitle": "Data Comm",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": ["207106"]
+    },
+
+    {
+      "id": "c-261304",
+      "courseId": "261304",
+      "courseTitle": "Comp Arch",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": ["261214"]
+    },
+    {
+      "id": "c-261335",
+      "courseId": "261335",
+      "courseTitle": "Networks",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": ["261332"]
+    },
+    {
+      "id": "c-261336",
+      "courseId": "261336",
+      "courseTitle": "Networks Lab",
+      "creditHours": 1,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261342",
+      "courseId": "261342",
+      "courseTitle": "Database",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": ["261218"]
+    },
+    {
+      "id": "c-261343",
+      "courseId": "261343",
+      "courseTitle": "Database Lab",
+      "creditHours": 1,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "major-elect-1",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "ge-create-1",
+      "courseId": null,
+      "courseTitle": "Co-creator GE",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+
+    {
+      "id": "c-261305",
+      "courseId": "261305",
+      "courseTitle": "OS",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": ["261304"]
+    },
+    {
+      "id": "c-261306",
+      "courseId": "261306",
+      "courseTitle": "Prob & Stats",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": ["206261"]
+    },
+    {
+      "id": "c-261361",
+      "courseId": "261361",
+      "courseTitle": "Software Engr",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": ["261200"]
+    },
+    {
+      "id": "major-elect-2",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "ge-3",
+      "courseId": null,
+      "courseTitle": "GE",
+      "creditHours": 1,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "ge-digital-1",
+      "courseId": null,
+      "courseTitle": "Digital Lit GE",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+
+    {
+      "id": "c-261491",
+      "courseId": "261491",
+      "courseTitle": "Project Survey",
+      "creditHours": 1,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "major-elect-3",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "major-elect-4",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "major-elect-5",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "free-elect-1",
+      "courseId": null,
+      "courseTitle": "Free Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+
+    {
+      "id": "c-259192",
+      "courseId": "259192",
+      "courseTitle": "Activities 2",
+      "creditHours": 1,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261492",
+      "courseId": "261492",
+      "courseTitle": "Project",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": ["261491"]
+    },
+    {
+      "id": "c-261405",
+      "courseId": "261405",
+      "courseTitle": "Advanced CPE",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": ["261361"]
+    },
+    {
+      "id": "major-elect-6",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "free-elect-2",
+      "courseId": null,
+      "courseTitle": "Free Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": []
+    }
+  ]
+}

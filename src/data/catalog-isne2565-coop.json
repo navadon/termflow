@@ -1,0 +1,584 @@
+{
+  "curriculumName": "isne2565-coop",
+  "courses": [
+    {
+      "id": "c-206161",
+      "courseId": "206161",
+      "courseTitle": "Calculus 1",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261216",
+      "courseId": "261216",
+      "courseTitle": "Discrete Math",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-269102",
+      "courseId": "269102",
+      "courseTitle": "Basic Prog",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-269101",
+      "courseId": "269101",
+      "courseTitle": "Intro to ISNE",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-259191",
+      "courseId": "259191",
+      "courseTitle": "Prin Pro",
+      "creditHours": 1,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-259104",
+      "courseId": "259104",
+      "courseTitle": "Drawing",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-001101",
+      "courseId": "001101",
+      "courseTitle": "English 1",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+
+    {
+      "id": "c-206162",
+      "courseId": "206162",
+      "courseTitle": "Calculus 2",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": ["206161"]
+    },
+    {
+      "id": "c-261205",
+      "courseId": "261205",
+      "courseTitle": "Algorithms",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": ["269102"]
+    },
+    {
+      "id": "c-269103",
+      "courseId": "269103",
+      "courseTitle": "Prog ISNE",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": ["269102"]
+    },
+    {
+      "id": "c-269130",
+      "courseId": "269130",
+      "courseTitle": "Data Comm",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": ["269101"]
+    },
+    {
+      "id": "c-269105",
+      "courseId": "269105",
+      "courseTitle": "ISNE Lab",
+      "creditHours": 1,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-001102",
+      "courseId": "001102",
+      "courseTitle": "English 2",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": ["001101"]
+    },
+    {
+      "id": "c-140104",
+      "courseId": "140104",
+      "courseTitle": "Citizenship",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+
+    {
+      "id": "c-261200",
+      "courseId": "261200",
+      "courseTitle": "OO Prog",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": ["269102"]
+    },
+    {
+      "id": "c-269200",
+      "courseId": "269200",
+      "courseTitle": "Web Prog",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": ["269102"]
+    },
+    {
+      "id": "c-269202",
+      "courseId": "269202",
+      "courseTitle": "Algorithms ISNE",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": ["261205"]
+    },
+    {
+      "id": "c-261335",
+      "courseId": "261335",
+      "courseTitle": "Networks",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": ["269130"]
+    },
+    {
+      "id": "c-261336",
+      "courseId": "261336",
+      "courseTitle": "Networks Lab",
+      "creditHours": 1,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-269201",
+      "courseId": "269201",
+      "courseTitle": "ISNE Lab 2",
+      "creditHours": 1,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": ["269105"]
+    },
+    {
+      "id": "c-255201",
+      "courseId": "255201",
+      "courseTitle": "Analysis in IE",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-001225",
+      "courseId": "001225",
+      "courseTitle": "English in Sci",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": ["001102"]
+    },
+
+    {
+      "id": "c-261342",
+      "courseId": "261342",
+      "courseTitle": "Database",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": ["261205"]
+    },
+    {
+      "id": "c-261343",
+      "courseId": "261343",
+      "courseTitle": "Database Lab",
+      "creditHours": 1,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-269210",
+      "courseId": "269210",
+      "courseTitle": "Comp Arch",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261433",
+      "courseId": "261433",
+      "courseTitle": "Network Prog",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": ["261335"]
+    },
+    {
+      "id": "c-252281",
+      "courseId": "252281",
+      "courseTitle": "Circuits ISNE",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-001201",
+      "courseId": "001201",
+      "courseTitle": "English R/W",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": ["001102"]
+    },
+    {
+      "id": "ge-co-creator",
+      "courseId": null,
+      "courseTitle": "Co-creator GE",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+
+    {
+      "id": "c-261361",
+      "courseId": "261361",
+      "courseTitle": "Software Engr",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": ["261200"]
+    },
+    {
+      "id": "c-269340",
+      "courseId": "269340",
+      "courseTitle": "Data Centric",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": ["261342", "261343"]
+    },
+    {
+      "id": "free-elect-1",
+      "courseId": null,
+      "courseTitle": "Free Elective",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261305",
+      "courseId": "261305",
+      "courseTitle": "OS",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": ["269210"]
+    },
+    {
+      "id": "c-261434",
+      "courseId": "261434",
+      "courseTitle": "Network Design",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": ["261335"]
+    },
+    {
+      "id": "c-269430",
+      "courseId": "269430",
+      "courseTitle": "Wireless",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": ["261335"]
+    },
+    {
+      "id": "ge-digital-lit",
+      "courseId": null,
+      "courseTitle": "Digital Lit GE",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+
+    {
+      "id": "c-269462",
+      "courseId": "269462",
+      "courseTitle": "Intro HCI",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": ["261361"]
+    },
+    {
+      "id": "c-269360",
+      "courseId": "269360",
+      "courseTitle": "Platform Prog",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": ["261200"]
+    },
+    {
+      "id": "c-261446",
+      "courseId": "261446",
+      "courseTitle": "Info Systems",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": ["261205"]
+    },
+    {
+      "id": "c-269370",
+      "courseId": "269370",
+      "courseTitle": "Project Mgmt",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": ["261205"]
+    },
+    {
+      "id": "c-261447",
+      "courseId": "261447",
+      "courseTitle": "Network Security",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": ["261335"]
+    },
+    {
+      "id": "major-elect-1",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-269491",
+      "courseId": "269491",
+      "courseTitle": "Project Survey",
+      "creditHours": 1,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "ge-1",
+      "courseId": null,
+      "courseTitle": "GE",
+      "creditHours": 1,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+
+    {
+      "id": "c-269495",
+      "courseId": "269495",
+      "courseTitle": "Coop Education",
+      "creditHours": 6,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+
+    {
+      "id": "c-269470",
+      "courseId": "269470",
+      "courseTitle": "IT Mgmt",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": ["261446", "269370"]
+    },
+    {
+      "id": "free-elect-2",
+      "courseId": null,
+      "courseTitle": "Free Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "ge-2",
+      "courseId": null,
+      "courseTitle": "GE",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "ge-3",
+      "courseId": null,
+      "courseTitle": "GE",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "major-elect-2",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-269492",
+      "courseId": "269492",
+      "courseTitle": "Project",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": ["269491"]
+    },
+    {
+      "id": "c-259192",
+      "courseId": "259192",
+      "courseTitle": "Skills Pro",
+      "creditHours": 1,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": []
+    }
+  ]
+}
