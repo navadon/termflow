@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import ReactFlow, {
     Background,
     Controls,
@@ -44,7 +44,6 @@ const edgePassesThroughNode = (sx, sy, tx, ty, node) => {
     const nr = nl + parseFloat(node.style.width || COURSE_WIDTH);
     const nt = node.position.y;
     const nb = nt + parseFloat(node.style.height || COURSE_HEIGHT);
-    // ตรวจ 4 ด้านของ bounding box
     return (
         segmentsIntersect(sx, sy, tx, ty, nl, nt, nr, nt) ||
         segmentsIntersect(sx, sy, tx, ty, nl, nb, nr, nb) ||
@@ -60,7 +59,6 @@ const AvoidingEdge = ({
     const nodes = useStore((s) => s.nodeInternals);
     const edges = useStore((s) => s.edges);
 
-    // หา edges ทั้งหมดที่ออกจาก source node เดียวกัน → เรียงตาม targetY
     const siblingOutEdges = edges
         .filter(e => e.source === source)
         .map(e => {
@@ -94,11 +92,10 @@ const AvoidingEdge = ({
                     centerIndex = index;
                 }
             }
-        })
+        });
         return centerIndex;
     };
 
-    // หา edges ทั้งหมดที่เข้า target node เดียวกัน → เรียงตาม sourceY
     const siblingInEdges = edges
         .filter(e => e.target === target)
         .map(e => {
@@ -132,8 +129,7 @@ const AvoidingEdge = ({
                     centerIndex = index;
                 }
             }
-        })
-        console.log("Center In Index:", siblingInEdges[centerIndex]?.edgeId || 'N/A', target);
+        });
         return centerIndex;
     };
 
@@ -141,21 +137,16 @@ const AvoidingEdge = ({
         return (index - centerIndex) * HANDLE_SPREAD;
     };
 
-    // คำนวณ offset Y สำหรับ source handle
     const outIndex = siblingOutEdges.findIndex(e => e.edgeId === id);
-    const outCount = siblingOutEdges.length;
-    const HANDLE_SPREAD = 10; // px ระหว่างแต่ละเส้นบน handle
+    const HANDLE_SPREAD = 10;
     const outOffset = spreadOffset(outIndex, findCenterOutIndex());
 
-    // คำนวณ offset Y สำหรับ target handle
     const inIndex = siblingInEdges.findIndex(e => e.edgeId === id);
-    const inCount = siblingInEdges.length;
     const inOffset = spreadOffset(inIndex, findCenterInIndex());
 
     const adjustedSourceY = sourceY + outOffset;
     const adjustedTargetY = targetY + inOffset;
 
-    // หา nodes ที่ขวางเส้น (ใช้ตำแหน่งที่ปรับแล้ว)
     const blockingNodes = [];
     nodes.forEach((node) => {
         if (node.id === source || node.id === target) return;
@@ -180,7 +171,6 @@ const AvoidingEdge = ({
         const stepY = minTop - MARGIN;
         const offset = 22.5;
 
-        // วิ่งขึ้น → วิ่งขวาง → วิ่งลง (step line, หักมุม 90°)
         edgePath = [
             `M ${sourceX} ${adjustedSourceY}`,
             `L ${sourceX + offset} ${adjustedSourceY}`,
@@ -261,16 +251,94 @@ const isNodeInside = (courseNode, semesterNode) => {
 };
 
 export default function App() {
+    // --- BASE STATE (data only, no hover/visual effects) ---
     const [nodes, setNodes] = useState([]);
     const [edges, setEdges] = useState([]);
+
     const [selectedCurriculum, setSelectedCurriculum] = useState('CPE 2568 (Regular)');
     const [activePlanData, setActivePlanData] = useState(null);
     const [nodeRowsCount, setNodeRowsCount] = useState(10);
+
+    // --- VISUAL STATE (separate from data state) ---
+    const [hoveredNodeId, setHoveredNodeId] = useState(null);
+    const [selectedNodeId, setSelectedNodeId] = useState(null);
 
     const initialDragPos = useRef(null);
     const fileInputRef = useRef(null);
     const prevCurriculumRef = useRef(selectedCurriculum);
     const prevPlanRef = useRef(activePlanData);
+
+    // --- DERIVED DISPLAY STATE: computed from base state + visual state ---
+    // Edge highlight: computed live, never stored in base edges
+    const displayEdges = useMemo(() => {
+        if (!hoveredNodeId) return edges;
+        return edges.map(edge => {
+            if (edge.source === hoveredNodeId) {
+                return {
+                    ...edge,
+                    style: { stroke: '#3b82f6', strokeWidth: 3, opacity: 1, 
+                        filter: 'drop-shadow(0px 4px 8px rgb(0, 225, 255))' },
+                    markerEnd: { type: MarkerType.ArrowClosed, color: '#3b82f6' }
+                };
+            }
+            if (edge.target === hoveredNodeId) {
+                return {
+                    ...edge,
+                    style: { stroke: '#f59e0b', strokeWidth: 3, opacity: 1,
+                         filter: 'drop-shadow(0px 4px 8px rgb(255, 136, 0))' },
+                    markerEnd: { type: MarkerType.ArrowClosed, color: '#f59e0b' }
+                };
+            }
+            return edge;
+        });
+    }, [edges, hoveredNodeId]);
+
+    // Node hover bg: computed live, never stored in base nodes
+    const displayNodes = useMemo(() => {
+        return nodes.map(node => {
+            if (node.type !== 'default' || node.id.startsWith('sem-bg')) return node;
+            const isHovered = node.id === hoveredNodeId;
+            if (!isHovered) {
+                const hoverNode = nodes.find(n => n.id === hoveredNodeId);
+                if (hoverNode && hoverNode.data.prerequisites.includes(node.data.courseId)) {
+                    return {
+                        ...node,
+                        style: {
+                            ...node.style,
+                            // boxShadow: node.style?.border?.includes('red')
+                            //     ? node.style.boxShadow  // keep invalid-node red glow
+                            //     : '0 5px 10px rgba(255, 136, 0, 0.9)'
+                            boxShadow: '0 5px 10px rgba(255, 136, 0, 0.9)'
+                        }
+                    };
+                }
+                if (hoverNode && node.data.prerequisites.includes(hoverNode.data.courseId)) {
+                    return {
+                        ...node,
+                        style: {
+                            ...node.style,
+                            // boxShadow: node.style?.border?.includes('red')
+                            //     ? node.style.boxShadow  // keep invalid-node red glow
+                            //     : '0 5px 10px rgba(0, 201, 201, 0.9)'
+                            boxShadow: '0 5px 10px rgba(0, 201, 201, 0.9)'
+                        }
+                    };
+                }
+                return node;
+            }
+            return {
+                ...node,
+                className: 'node-hovered',
+                style: {
+                    ...node.style,
+                    filter: 'brightness(0.9)',
+                    boxShadow: node.style?.border?.includes('red')
+                        ? node.style.boxShadow  // keep invalid-node red glow
+                        : '0 10px 10px rgba(90, 90, 90, 0.9)'
+                }
+            };
+        });
+    }, [nodes, hoveredNodeId]);
 
     const createSemesterLabel = (year, sem, credits) => {
         const isSummer = sem === 3;
@@ -296,7 +364,6 @@ export default function App() {
         return (
             <div style={{ pointerEvents: 'none', width: '100%', height: '100%', position: 'relative' }}>
                 {placeholders}
-
                 <div style={{
                     paddingTop: '25px',
                     position: 'relative',
@@ -337,11 +404,8 @@ export default function App() {
 
         currentNodes.forEach(n => {
             if (n.id.startsWith('sem-bg')) semesterCreditMap[n.id] = 0;
-
             if (n.type === 'default' && !n.id.startsWith('sem-bg')) {
-                if (n.data.courseId) {
-                    courseIdToNodeId[n.data.courseId] = n.id;
-                }
+                if (n.data.courseId) courseIdToNodeId[n.data.courseId] = n.id;
             }
         });
 
@@ -356,7 +420,6 @@ export default function App() {
                 const parts = parentSem.id.split('-');
                 const year = parseInt(parts[2]);
                 const sem = parseInt(parts[3]);
-
                 nodeLocationMap[courseNode.id] = { year, sem };
                 semesterCreditMap[parentSem.id] += (courseNode.data.creditHours || 0);
             } else {
@@ -370,9 +433,15 @@ export default function App() {
                 const year = parseInt(parts[2]);
                 const sem = parseInt(parts[3]);
                 const credits = semesterCreditMap[node.id] || 0;
+                const isOverload = credits > 22;
                 return {
                     ...node,
-                    data: { ...node.data, label: createSemesterLabel(year, sem, credits) }
+                    data: { ...node.data, label: createSemesterLabel(year, sem, credits) },
+                    style: {
+                        ...node.style,
+                        border: isOverload ? '2px dashed #d9534f' : '2px dashed #bbb',
+                        boxShadow: isOverload ? '0 0 15px rgba(255,0,0,0.6)' : 'none',
+                    }
                 };
             }
 
@@ -380,12 +449,10 @@ export default function App() {
                 const myLoc = nodeLocationMap[node.id];
                 const prereqs = node.data.prerequisites || [];
 
-                // คำนวณ rowIndex จากตำแหน่ง Y ปัจจุบัน
                 const rowIndex = Math.round((node.position.y - TOP_PADDING) / (COURSE_HEIGHT + COURSE_GAP));
                 const currentRowIndex = Math.max(0, rowIndex);
 
                 let isInvalid = false;
-
                 prereqs.forEach(prereqCode => {
                     const prereqNodeId = courseIdToNodeId[prereqCode];
                     if (prereqNodeId) {
@@ -399,20 +466,13 @@ export default function App() {
 
                 const isMovedFromSuggested = myLoc.year !== node.data.suggestedYear || myLoc.sem !== node.data.suggestedSemester;
 
-                // กำหนดสีกรอบตามประเภท course
                 let borderColor = '#333';
                 const courseType = node.data.courseType;
-                if (courseType === 'math and sci') {
-                    borderColor = '#c9c900';
-                } else if (courseType === 'major courses') {
-                    borderColor = '#00008b';
-                } else if (courseType === 'gen engr') {
-                    borderColor = '#8b1c62';
-                } else if (courseType === 'gen edu') {
-                    borderColor = '#008800';
-                } else if (courseType === 'others') {
-                    borderColor = '#808080';
-                }
+                if (courseType === 'math and sci') borderColor = '#c9c900';
+                else if (courseType === 'major courses') borderColor = '#00008b';
+                else if (courseType === 'gen engr') borderColor = '#8b1c62';
+                else if (courseType === 'gen edu') borderColor = '#008800';
+                else if (courseType === 'others') borderColor = '#808080';
 
                 return {
                     ...node,
@@ -425,9 +485,19 @@ export default function App() {
                     style: {
                         ...node.style,
                         background: isMovedFromSuggested ? '#fffacd' : 'white',
+
+                        // border: isInvalid ? 'none' : `2px solid ${borderColor}`,
+                        // backgroundImage: isInvalid 
+                        //     ? 'linear-gradient(90deg, red 50%, transparent 50%), linear-gradient(90deg, red 50%, transparent 50%), linear-gradient(0deg, red 50%, transparent 50%), linear-gradient(0deg, red 50%, transparent 50%)' 
+                        //     : 'none',
+                        // backgroundSize: isInvalid ? '15px 4px, 15px 4px, 4px 15px, 4px 15px' : 'auto',
+                        // backgroundPosition: isInvalid ? '0 0,  0 100%, 0 0,  100% 0' : 'auto',
+                        // backgroundRepeat: isInvalid ? 'repeat-x, repeat-x, repeat-y, repeat-y' : 'repeat',
+                        // animation: isInvalid ? 'moveBorder 0.4s linear infinite' : 'none',
+                        
                         border: isInvalid ? '4px solid red' : `2px solid ${borderColor}`,
                         boxShadow: isInvalid ? '0 0 15px rgba(255,0,0,0.6)' : 'none',
-                        transition: 'background 0.3s ease, border 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease'
+                        cursor: 'pointer',
                     }
                 };
             }
@@ -439,15 +509,12 @@ export default function App() {
         const catalogData = curriculums[selectedCurriculum];
         if (!catalogData || !catalogData.courses) return;
 
-        // เช็คว่า curriculum หรือ plan เปลี่ยนหรือไม่
         const curriculumChanged = prevCurriculumRef.current !== selectedCurriculum;
         const planChanged = prevPlanRef.current !== activePlanData;
 
-        // อัปเดต refs
         prevCurriculumRef.current = selectedCurriculum;
         prevPlanRef.current = activePlanData;
 
-        // ถ้า curriculum หรือ plan เปลี่ยน → reset nodeRowsCount
         let newRowCount = nodeRowsCount;
         if (curriculumChanged || planChanged) {
             newRowCount = 10;
@@ -457,7 +524,6 @@ export default function App() {
                 newRowCount = catalogData.nodeRowsCount;
             }
 
-            // ค้นหา max rowIndex เพื่อให้ requiredRowCount
             let maxRowIndex = -1;
             if (activePlanData && Array.isArray(activePlanData)) {
                 maxRowIndex = Math.max(...activePlanData.map(p => p.rowIndex || 0), maxRowIndex);
@@ -465,7 +531,7 @@ export default function App() {
             if (catalogData.courses) {
                 maxRowIndex = Math.max(...catalogData.courses.map(c => c.rowIndex || 0), maxRowIndex);
             }
-            
+
             const requiredRowCount = maxRowIndex >= 0 ? Math.max(maxRowIndex + 1, newRowCount) : newRowCount;
             setNodeRowsCount(requiredRowCount);
             newRowCount = requiredRowCount;
@@ -531,12 +597,7 @@ export default function App() {
                 const colX = getSemesterX(year, sem);
                 const cardX = colX + (SEMESTER_WIDTH - COURSE_WIDTH) / 2;
 
-                // ลำดับความสำคัญในการเลือก rowIndex:
-                // 1. จากข้อมูล imported (activePlanData)
-                // 2. จากไฟล์ catalog ที่มี rowIndex
-                // 3. ใช้ index เป็นค่าเริ่มต้น
                 let rowIndex = index;
-
                 if (activePlanData) {
                     const savedCourse = activePlanData.find(p => p.id === course.id);
                     if (savedCourse && savedCourse.rowIndex !== undefined) {
@@ -566,7 +627,22 @@ export default function App() {
                         rowIndex: rowIndex,
                         courseType: course.courseType,
                         label: (
-                            <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start' }}>
+                            // onPointerEnter/Leave on the label div drives hover state.
+                            // onClick clears selection (click = select, not hover).
+                            // Using pointer events instead of mouse events for
+                            // better reliability during drag operations.
+                            <div
+                                onPointerEnter={() => setHoveredNodeId(course.id)}
+                                onPointerLeave={() => setHoveredNodeId(null)}
+                                onClick={() => setSelectedNodeId(prev => prev === course.id ? null : course.id)}
+                                style={{
+                                    textAlign: 'left',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    height: '100%',
+                                    justifyContent: 'flex-start',
+                                    userSelect: 'none'
+                                }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
                                     <div style={{ fontWeight: 'bold', fontSize: '18px', color: '#444' }}>
                                         {course.courseId || 'GenEd'}
@@ -605,6 +681,7 @@ export default function App() {
                         source: prereqCourse.id,
                         target: course.id,
                         type: 'avoiding',
+                        // Base style only — highlight is applied in displayEdges (useMemo)
                         style: { stroke: '#000000', strokeWidth: 2, opacity: 0.8 },
                         markerEnd: { type: MarkerType.ArrowClosed, color: '#000000' },
                     });
@@ -617,12 +694,20 @@ export default function App() {
 
     }, [selectedCurriculum, activePlanData, nodeRowsCount]);
 
+    // *** REMOVED: the useEffect that watched hoveredNodeId and called setEdges/setNodes ***
+    // That was the root cause of the flickering and highlight dropping.
+    // Edge and node visual state is now computed purely in useMemo (displayEdges / displayNodes)
+    // without touching the base state, so there are no race conditions or extra renders.
+
     const onNodesChange = useCallback((changes) => setNodes((nds) => applyNodeChanges(changes, nds)), []);
     const onEdgesChange = useCallback((changes) => setEdges((eds) => applyEdgeChanges(changes, eds)), []);
 
     const onNodeDragStart = useCallback((event, node) => {
         if (node.type === 'default' && !node.id.startsWith('sem-bg')) {
             initialDragPos.current = node.position;
+            setSelectedNodeId(null);
+            // NOTE: hoveredNodeId is intentionally NOT cleared here.
+            // The pointer is still on the node, so hover should stay active.
         }
     }, []);
 
@@ -664,11 +749,9 @@ export default function App() {
                         Math.abs(n.position.y - snappedPosition.y) < 1
                     );
 
-                    if (isOccupied) {
-                        finalPosition = initialDragPos.current || node.position;
-                    } else {
-                        finalPosition = snappedPosition;
-                    }
+                    finalPosition = isOccupied
+                        ? (initialDragPos.current || node.position)
+                        : snappedPosition;
                 }
 
                 const nodesWithSnap = currentNodes.map(n =>
@@ -677,6 +760,8 @@ export default function App() {
 
                 return updateGameState(nodesWithSnap);
             });
+            // NOTE: hoveredNodeId is intentionally NOT cleared here either.
+            // displayNodes/displayEdges will reflect the correct hover state via useMemo.
         }
     }, [nodeRowsCount]);
 
@@ -719,11 +804,9 @@ export default function App() {
                     setSelectedCurriculum(parsed.curriculumName);
                     setActivePlanData(parsed.plan);
 
-                    // ตั้งค่า nodeRowsCount จากข้อมูล imported
                     if (parsed.nodeRowsCount) {
                         setNodeRowsCount(parsed.nodeRowsCount);
                     } else if (parsed.plan && parsed.plan.length > 0) {
-                        // ถ้าไม่มี nodeRowsCount ก็ใช้ max row index + 1
                         const maxRowIndex = Math.max(0, ...parsed.plan.map(p => p.rowIndex || 0));
                         setNodeRowsCount(maxRowIndex + 1);
                     }
@@ -779,7 +862,7 @@ export default function App() {
             <div style={{
                 position: 'absolute',
                 top: 20,
-                right: 20, // --- MOVED TO TOP-RIGHT ---
+                right: 20,
                 zIndex: 10,
                 background: 'white',
                 padding: '12px 18px',
@@ -831,8 +914,8 @@ export default function App() {
             </div>
 
             <ReactFlow
-                nodes={nodes}
-                edges={edges}
+                nodes={displayNodes}
+                edges={displayEdges}
                 edgeTypes={edgeTypes}
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}

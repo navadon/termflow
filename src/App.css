@@ -40,3 +40,17 @@
 .read-the-docs {
   color: #888;
 } */
+
+@keyframes moveBorder {
+  0% {
+    background-position: 0 0,  0 100%, 0 0,  100% 0;
+  }
+  100% {
+    /* ขยับตำแหน่ง background ไปข้างหน้าเพื่อให้เส้นประดูวิ่ง */
+    background-position: 30px 0, -30px 100%, 0 -30px, 100% 30px;
+  }
+}
+
+.react-flow__node.node-hovered {
+    z-index: 9999 !important;
+}
