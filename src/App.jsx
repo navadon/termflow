@@ -214,7 +214,7 @@ const SEMESTER_WIDTH = 270;
 const SUMMER_WIDTH = 270;
 const GAP_BETWEEN_SEMESTERS = 20;
 const GAP_BETWEEN_YEARS = 20;
-const TOP_PADDING = 100;
+const TOP_PADDING = 120;
 
 const COURSE_WIDTH = 240;
 const COURSE_HEIGHT = 120;
@@ -264,6 +264,7 @@ export default function App() {
     const [selectedNodeId, setSelectedNodeId] = useState(null);
 
     const initialDragPos = useRef(null);
+    const lastValidNodePositions = useRef({});  // Track last position inside frame for each node
     const fileInputRef = useRef(null);
     const prevCurriculumRef = useRef(selectedCurriculum);
     const prevPlanRef = useRef(activePlanData);
@@ -342,7 +343,8 @@ export default function App() {
 
     const createSemesterLabel = (year, sem, credits) => {
         const isSummer = sem === 3;
-        const titleText = isSummer ? `Y${year}-Summer` : `Y${year}-${sem}`;
+        const titleText = isSummer ? `Year ${year} - Summer` : `Year ${year} - Semester ${sem}`;
+        const maxCredits = 22;
 
         const placeholders = [];
         for (let i = 0; i < nodeRowsCount; i++) {
@@ -365,32 +367,33 @@ export default function App() {
             <div style={{ pointerEvents: 'none', width: '100%', height: '100%', position: 'relative' }}>
                 {placeholders}
                 <div style={{
-                    paddingTop: '25px',
+                    paddingTop: '15px',
                     position: 'relative',
                     zIndex: 1,
                     display: 'flex',
-                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start',
                     alignItems: 'center',
-                    gap: '12px'
+                    gap: '8px'
                 }}>
                     <div style={{
-                        fontSize: '22px',
-                        fontWeight: '900',
+                        fontSize: '20px',
+                        fontWeight: '700',
                         color: '#333',
-                        textTransform: 'uppercase',
-                        fontFamily: 'monospace'
+                        textAlign: 'center',
+                        fontFamily: 'Arial, sans-serif'
                     }}>
                         {titleText}
                     </div>
                     <div style={{
-                        fontSize: '16px',
+                        fontSize: '18px',
                         fontWeight: 'bold',
                         color: '#fff',
-                        background: credits > 22 ? '#d9534f' : '#555',
+                        background: credits > maxCredits ? '#d9534f' : '#555',
                         padding: '4px 10px',
                         borderRadius: '12px',
                     }}>
-                        {credits} CR
+                        {credits} / {maxCredits} Credits
                     </div>
                 </div>
             </div>
@@ -547,13 +550,38 @@ export default function App() {
             if (c.courseId) courseLookup[c.courseId] = c;
         });
 
+        // Helper: คำนวณ total credits สำหรับเทอมนั้น ๆ
+        const calculateSemesterCredits = (year, sem) => {
+            let totalCredits = 0;
+            
+            // ใช้ activePlanData ถ้ามี (เพราะ user อาจลากมาแล้ว)
+            if (activePlanData && Array.isArray(activePlanData)) {
+                activePlanData.forEach(plan => {
+                    if (plan.selectedYear === year && plan.selectedSemester === sem) {
+                        totalCredits += plan.creditHours || 0;
+                    }
+                });
+            } else {
+                // ใช้ catalog data (ตำแหน่งเดิม)
+                catalogData.courses.forEach(course => {
+                    const courseYear = course.selectedYear ?? course.suggestedYear ?? 99;
+                    const courseSem = course.selectedSemester ?? course.suggestedSemester ?? 99;
+                    if (courseYear === year && courseSem === sem) {
+                        totalCredits += course.creditHours || 0;
+                    }
+                });
+            }
+            return totalCredits;
+        };
+
         for (let year = 1; year <= 8; year++) {
             for (let sem = 1; sem <= 3; sem++) {
                 const isSummer = sem === 3;
+                const semesterCredits = calculateSemesterCredits(year, sem);
                 generatedNodes.push({
                     id: `sem-bg-${year}-${sem}`,
                     type: 'default',
-                    data: { label: createSemesterLabel(year, sem, 0) },
+                    data: { label: createSemesterLabel(year, sem, semesterCredits) },
                     position: { x: getSemesterX(year, sem), y: 0 },
                     style: {
                         width: SEMESTER_WIDTH,
@@ -692,7 +720,75 @@ export default function App() {
         setEdges(generatedEdges);
         setNodes(updateGameState(generatedNodes));
 
-    }, [selectedCurriculum, activePlanData, nodeRowsCount]);
+    }, [selectedCurriculum, activePlanData]);
+
+    // Update semester height when nodeRowsCount changes (without regenerating nodes)
+    useEffect(() => {
+        const calculatedSemesterHeight = TOP_PADDING + nodeRowsCount * (COURSE_HEIGHT + COURSE_GAP);
+        
+        setNodes(prevNodes => {
+            return prevNodes.map(node => {
+                if (node.id.startsWith('sem-bg')) {
+                    const parts = node.id.split('-');
+                    const year = parseInt(parts[2]);
+                    const sem = parseInt(parts[3]);
+                    
+                    // Calculate total credits for this semester from current nodes
+                    let semesterCredits = 0;
+                    prevNodes.forEach(n => {
+                        if (n.data?.currentYear === year && n.data?.currentSemester === sem) {
+                            semesterCredits += n.data?.creditHours || 0;
+                        }
+                    });
+
+                    return {
+                        ...node,
+                        style: {
+                            ...node.style,
+                            height: calculatedSemesterHeight
+                        },
+                        data: {
+                            ...node.data,
+                            label: createSemesterLabel(year, sem, semesterCredits)
+                        }
+                    };
+                }
+                return node;
+            });
+        });
+    }, [nodeRowsCount]);
+
+    // Helper: ตรวจสอบว่าตำแหน่งอยู่ในกรอบ semester ใดหรือไม่
+    // ใช้ center ของ node เพื่อความแม่นยำ (ไม่อนุญาตให้อยู่ระหว่างกรอบ)
+    const isPositionInsideFrame = useCallback((position) => {
+        if (!position) return false;
+        
+        const nodeCenterX = position.x + (COURSE_WIDTH / 2);
+        const nodeCenterY = position.y + (COURSE_HEIGHT / 2);
+        
+        for (let year = 1; year <= 8; year++) {
+            for (let sem = 1; sem <= 3; sem++) {
+                const colX = getSemesterX(year, sem);
+                const frameLeft = colX + (SEMESTER_WIDTH - COURSE_WIDTH) / 2;
+                const frameRight = frameLeft + COURSE_WIDTH;
+                
+                for (let i = 0; i < nodeRowsCount; i++) {
+                    const slotY = TOP_PADDING + i * (COURSE_HEIGHT + COURSE_GAP);
+                    const slotBottom = slotY + COURSE_HEIGHT;
+                    
+                    if (
+                        nodeCenterX >= frameLeft &&
+                        nodeCenterX <= frameRight &&
+                        nodeCenterY >= slotY &&
+                        nodeCenterY <= slotBottom
+                    ) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }, [nodeRowsCount]);
 
     // *** REMOVED: the useEffect that watched hoveredNodeId and called setEdges/setNodes ***
     // That was the root cause of the flickering and highlight dropping.
@@ -705,11 +801,15 @@ export default function App() {
     const onNodeDragStart = useCallback((event, node) => {
         if (node.type === 'default' && !node.id.startsWith('sem-bg')) {
             initialDragPos.current = node.position;
+            // บันทึกตำแหน่งปัจจุบัน (ถ้าอยู่ในกรอบ) เป็น last valid position
+            if (isPositionInsideFrame(node.position)) {
+                lastValidNodePositions.current[node.id] = { ...node.position };
+            }
             setSelectedNodeId(null);
             // NOTE: hoveredNodeId is intentionally NOT cleared here.
             // The pointer is still on the node, so hover should stay active.
         }
-    }, []);
+    }, [isPositionInsideFrame]);
 
     const onNodeDragStop = useCallback((event, node) => {
         if (node.type === 'default' && !node.id.startsWith('sem-bg')) {
@@ -750,8 +850,22 @@ export default function App() {
                     );
 
                     finalPosition = isOccupied
-                        ? (initialDragPos.current || node.position)
+                        ? (lastValidNodePositions.current[node.id] || initialDragPos.current || node.position)
                         : snappedPosition;
+                    
+                    // ถ้า snap ได้สำเร็จ → บันทึกเป็น last valid position
+                    if (!isOccupied) {
+                        lastValidNodePositions.current[node.id] = { ...snappedPosition };
+                    }
+                } else {
+                    // ไม่ snap → ตรวจสอบว่าอยู่ในกรอบ frame ใดหรือไม่
+                    if (isPositionInsideFrame(node.position)) {
+                        finalPosition = node.position;
+                        lastValidNodePositions.current[node.id] = { ...node.position };
+                    } else {
+                        // อยู่นอกกรอบทั้งหมด → เด้งกลับไปตำแหน่งล่าสุดที่ถูกต้อง
+                        finalPosition = lastValidNodePositions.current[node.id] || initialDragPos.current || node.position;
+                    }
                 }
 
                 const nodesWithSnap = currentNodes.map(n =>
@@ -763,7 +877,7 @@ export default function App() {
             // NOTE: hoveredNodeId is intentionally NOT cleared here either.
             // displayNodes/displayEdges will reflect the correct hover state via useMemo.
         }
-    }, [nodeRowsCount]);
+    }, [nodeRowsCount, isPositionInsideFrame]);
 
     const handleExport = () => {
         const courseNodes = nodes.filter(n => n.type === 'default' && !n.id.startsWith('sem-bg'));
@@ -833,6 +947,27 @@ export default function App() {
         setNodeRowsCount(prev => prev + 1);
     };
 
+    const handleDeleteRow = () => {
+        // Check if there are nodes on the bottom row
+        const bottomRowIndex = nodeRowsCount - 1;
+        const bottomRowNodes = nodes.filter(n => 
+            n.type === 'default' && 
+            !n.id.startsWith('sem-bg') &&
+            n.data.rowIndex === bottomRowIndex
+        );
+
+        // Only delete row if it's empty or user confirms
+        if (bottomRowNodes.length > 0) {
+            // const confirmed = window.confirm(`${bottomRowNodes.length} course(s) on the last row will be moved or removed. Continue?`);
+            // if (!confirmed) return;
+            return; // Prevent deletion if there are nodes in the bottom row
+        }
+
+        if (nodeRowsCount > 1) {
+            setNodeRowsCount(prev => prev - 1);
+        }
+    };
+
     return (
         <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
 
@@ -856,6 +991,13 @@ export default function App() {
                     style={{ padding: '8px 16px', background: '#6c757d', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }}
                 >
                     + Add Row
+                </button>
+                <button
+                    onClick={handleDeleteRow}
+                    disabled={nodeRowsCount <= 1}
+                    style={{ padding: '8px 16px', background: nodeRowsCount <= 1 ? '#ccc' : '#dc3545', color: '#fff', border: 'none', borderRadius: '4px', cursor: nodeRowsCount <= 1 ? 'not-allowed' : 'pointer', fontWeight: 'bold', fontSize: '14px' }}
+                >
+                    - Delete Row
                 </button>
             </div>
 
