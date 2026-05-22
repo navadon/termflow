@@ -260,6 +260,7 @@
       "selectedYear": 2,
       "selectedSemester": 1,
       "prerequisites": [],
+      "corequisite": "261210",
       "rowIndex": 8,
       "courseType": "major courses"
     },
@@ -378,6 +379,7 @@
       "selectedYear": 2,
       "selectedSemester": 2,
       "prerequisites": [],
+      "corequisite": "261214",
       "rowIndex": 8,
       "courseType": "major courses"
     },
@@ -444,6 +446,7 @@
       "selectedYear": 3,
       "selectedSemester": 1,
       "prerequisites": [],
+      "corequisite": "261335",
       "rowIndex": 6,
       "courseType": "major courses"
     },
@@ -470,6 +473,7 @@
       "selectedYear": 3,
       "selectedSemester": 1,
       "prerequisites": [],
+      "corequisite": "261342",
       "rowIndex": 2,
       "courseType": "major courses"
     },

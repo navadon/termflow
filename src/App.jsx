@@ -262,6 +262,7 @@ export default function App() {
     // --- VISUAL STATE (separate from data state) ---
     const [hoveredNodeId, setHoveredNodeId] = useState(null);
     const [selectedNodeId, setSelectedNodeId] = useState(null);
+    const [tooltip, setTooltip] = useState(null);
 
     const initialDragPos = useRef(null);
     const lastValidNodePositions = useRef({});  // Track last position inside frame for each node
@@ -455,18 +456,35 @@ export default function App() {
                 const rowIndex = Math.round((node.position.y - TOP_PADDING) / (COURSE_HEIGHT + COURSE_GAP));
                 const currentRowIndex = Math.max(0, rowIndex);
 
-                let isInvalid = false;
+                const invalidReasons = [];
+
                 prereqs.forEach(prereqCode => {
                     const prereqNodeId = courseIdToNodeId[prereqCode];
                     if (prereqNodeId) {
                         const prereqLoc = nodeLocationMap[prereqNodeId];
                         if (prereqLoc) {
-                            if (prereqLoc.year > myLoc.year) isInvalid = true;
-                            if (prereqLoc.year === myLoc.year && prereqLoc.sem >= myLoc.sem) isInvalid = true;
+                            if (prereqLoc.year > myLoc.year || (prereqLoc.year === myLoc.year && prereqLoc.sem >= myLoc.sem)) {
+                                const prereqNode = currentNodes.find(n => n.id === prereqNodeId);
+                                const prereqTitle = prereqNode?.data?.courseId || prereqCode;
+                                invalidReasons.push(`ต้องผ่านวิชา ${prereqTitle} มาก่อน (prerequisite)`);
+                            }
                         }
                     }
                 });
 
+                if (node.data.corequisite) {
+                    const coreqNodeId = courseIdToNodeId[node.data.corequisite];
+                    if (coreqNodeId) {
+                        const coreqLoc = nodeLocationMap[coreqNodeId];
+                        if (coreqLoc && (coreqLoc.year !== myLoc.year || coreqLoc.sem !== myLoc.sem)) {
+                            const coreqNode = currentNodes.find(n => n.id === coreqNodeId);
+                            const coreqTitle = coreqNode?.data?.courseId || node.data.corequisite;
+                            invalidReasons.push(`ต้องลงพร้อมกับ ${coreqTitle} (corequisite)`);
+                        }
+                    }
+                }
+
+                const isInvalid = invalidReasons.length > 0;
                 const isMovedFromSuggested = myLoc.year !== node.data.suggestedYear || myLoc.sem !== node.data.suggestedSemester;
 
                 let borderColor = '#333';
@@ -483,7 +501,8 @@ export default function App() {
                         ...node.data,
                         currentYear: myLoc.year === 99 ? null : myLoc.year,
                         currentSemester: myLoc.sem === 99 ? null : myLoc.sem,
-                        rowIndex: currentRowIndex
+                        rowIndex: currentRowIndex,
+                        invalidReasons,
                     },
                     style: {
                         ...node.style,
@@ -648,6 +667,7 @@ export default function App() {
                         courseId: course.courseId,
                         creditHours: course.creditHours,
                         prerequisites: course.prerequisites,
+                        corequisite: course.corequisite,
                         suggestedYear: course.suggestedYear,
                         suggestedSemester: course.suggestedSemester,
                         currentYear: year === 99 ? null : year,
@@ -661,7 +681,10 @@ export default function App() {
                             // better reliability during drag operations.
                             <div
                                 onPointerEnter={() => setHoveredNodeId(course.id)}
-                                onPointerLeave={() => setHoveredNodeId(null)}
+                                onPointerLeave={() => {
+                                    setHoveredNodeId(null);
+                                    setTooltip(null);
+                                }}
                                 onClick={() => setSelectedNodeId(prev => prev === course.id ? null : course.id)}
                                 style={{
                                     textAlign: 'left',
@@ -721,6 +744,13 @@ export default function App() {
         setNodes(updateGameState(generatedNodes));
 
     }, [selectedCurriculum, activePlanData]);
+
+    useEffect(() => {
+        if (!hoveredNodeId) { setTooltip(null); return; }
+        const node = nodes.find(n => n.id === hoveredNodeId);
+        if (!node || !node.data.invalidReasons?.length) { setTooltip(null); return; }
+        setTooltip({ course: node.data, reasons: node.data.invalidReasons });
+    }, [hoveredNodeId, nodes]);
 
     // Update semester height when nodeRowsCount changes (without regenerating nodes)
     useEffect(() => {
@@ -906,6 +936,40 @@ export default function App() {
         document.body.removeChild(link);
     };
 
+    const handleExportDev = () => {
+        const catalogData = curriculums[selectedCurriculum];
+        if (!catalogData) return;
+
+        const courseNodes = nodes.filter(n => n.type === 'default' && !n.id.startsWith('sem-bg'));
+        const nodeMap = {};
+        courseNodes.forEach(n => { nodeMap[n.id] = n; });
+
+        const exportedCourses = catalogData.courses.map(course => {
+            const node = nodeMap[course.id];
+            return {
+                ...course,
+                selectedYear: node?.data.currentYear ?? course.selectedYear,
+                selectedSemester: node?.data.currentSemester ?? course.selectedSemester,
+                rowIndex: node?.data.rowIndex ?? course.rowIndex,
+            };
+        });
+
+        const exportData = {
+            curriculumName: catalogData.curriculumName,
+            nodeRowsCount: nodeRowsCount,
+            courses: exportedCourses,
+        };
+
+        const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${selectedCurriculum.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_catalog.json`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     const handleImport = (event) => {
         const file = event.target.files[0];
         if (!file) return;
@@ -1038,7 +1102,12 @@ export default function App() {
                     >
                         Export Plan
                     </button>
-
+                    <button
+                        onClick={handleExportDev}
+                        style={{ padding: '8px 16px', background: '#6f42c1', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }}
+                    >
+                        Export Catalog (Dev)
+                    </button>
                     <button
                         onClick={() => fileInputRef.current.click()}
                         style={{ padding: '8px 16px', background: '#28a745', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }}
@@ -1054,6 +1123,38 @@ export default function App() {
                     />
                 </div>
             </div>
+            
+            {tooltip && (
+                <div style={{
+                    position: 'fixed',
+                    bottom: 32,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    zIndex: 9999,
+                    background: '#1e1e1e',
+                    color: '#fff',
+                    borderRadius: '8px',
+                    padding: '10px 18px',
+                    maxWidth: '600px',
+                    boxShadow: '0 4px 16px rgba(0,0,0,0.4)',
+                    fontFamily: 'sans-serif',
+                    fontSize: '13px',
+                    pointerEvents: 'none',
+                    border: '1px solid #ff4444',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '10px',
+                }}>
+                    <div style={{ fontWeight: 'bold', color: '#ff6b6b', whiteSpace: 'nowrap' }}>
+                        ⚠ ลงวิชา {tooltip.course.courseId} ในปี {tooltip.course.currentYear} เทอม {tooltip.course.currentSemester} ไม่ได้เพราะ
+                    </div>
+                    <div>
+                        {tooltip.reasons.map((r, i) => (
+                            <div key={i} style={{ marginTop: i > 0 ? 4 : 0 }}>• {r}</div>
+                        ))}
+                    </div>
+                </div>
+            )}
 
             <ReactFlow
                 nodes={displayNodes}
