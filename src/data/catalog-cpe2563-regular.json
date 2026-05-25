@@ -1,5 +1,19 @@
 {
   "curriculumName": "cpe2563-regular",
+  "resources": [
+    {
+      "title": "CPE 2563 Plan Information",
+      "url": "https://docs.google.com/spreadsheets/d/1akVHKI5zZeqkFfwttSb0N19XjfGHZmdfoA5LGm4nnGo/edit?gid=1725912247#gid=1725912247"
+    },
+    {
+      "title": "CPE 2563 Study Program",
+      "url": "https://www.cpe.eng.cmu.ac.th/curriculum-thai.php?view_id=CPE-2563BE"
+    },
+    {
+      "title": "หลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์ หลักสูตรปรับปรุง พ.ศ. 2563",
+      "url": "https://reg.eng.cmu.ac.th/reg_curriculum/uploads/2567/7.CPE-2567_2567.pdf"
+    }
+  ],
   "courses": [
     {
       "id": "c-001101",
@@ -714,6 +728,5 @@
       "rowIndex": 7,
       "courseType": "others"
     }
-  ],
-  "nodeRowsCount": 12
+  ]
 }

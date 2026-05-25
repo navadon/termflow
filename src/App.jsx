@@ -257,12 +257,25 @@ export default function App() {
 
     const [selectedCurriculum, setSelectedCurriculum] = useState('CPE 2568 (Regular)');
     const [activePlanData, setActivePlanData] = useState(null);
-    const [nodeRowsCount, setNodeRowsCount] = useState(10);
+    const [nodeRowsCount, setNodeRowsCount] = useState(12);
 
     // --- VISUAL STATE (separate from data state) ---
     const [hoveredNodeId, setHoveredNodeId] = useState(null);
     const [selectedNodeId, setSelectedNodeId] = useState(null);
     const [tooltip, setTooltip] = useState(null);
+
+    // --- CUSTOM COURSES (user-added) ---
+    const [customCourses, setCustomCourses] = useState([]);
+    const [showAddCourseForm, setShowAddCourseForm] = useState(false);
+    const [showCourseTypeDropdown, setShowCourseTypeDropdown] = useState(false);
+    const [newCourseForm, setNewCourseForm] = useState({
+        courseId: '',
+        courseTitle: '',
+        creditHours: 3,
+        year: 1,
+        semester: 1,
+        courseType: 'others',
+    });
 
     const initialDragPos = useRef(null);
     const lastValidNodePositions = useRef({});  // Track last position inside frame for each node
@@ -487,6 +500,14 @@ export default function App() {
                 const isInvalid = invalidReasons.length > 0;
                 const isMovedFromSuggested = myLoc.year !== node.data.suggestedYear || myLoc.sem !== node.data.suggestedSemester;
 
+                const warningReasons = [];
+                if (isMovedFromSuggested && myLoc.year !== 99) {
+                    const sugYear = node.data.suggestedYear;
+                    const sugSem = node.data.suggestedSemester;
+                    const semLabel = sugSem === 3 ? 'Summer' : `เทอม ${sugSem}`;
+                    warningReasons.push(`แผนแนะนำให้ลงปี ${sugYear} ${semLabel}`);
+                }
+
                 let borderColor = '#333';
                 const courseType = node.data.courseType;
                 if (courseType === 'math and sci') borderColor = '#c9c900';
@@ -503,6 +524,7 @@ export default function App() {
                         currentSemester: myLoc.sem === 99 ? null : myLoc.sem,
                         rowIndex: currentRowIndex,
                         invalidReasons,
+                        warningReasons,
                     },
                     style: {
                         ...node.style,
@@ -696,7 +718,7 @@ export default function App() {
                                 }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
                                     <div style={{ fontWeight: 'bold', fontSize: '18px', color: '#444' }}>
-                                        {course.courseId || 'GenEd'}
+                                        {course.courseId || course.courseType || 'GenEd'}
                                     </div>
                                     <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
                                         {course.creditHours} CR
@@ -745,11 +767,107 @@ export default function App() {
 
     }, [selectedCurriculum, activePlanData]);
 
+    // --- Helper: build a custom course node object from a customCourse entry ---
+    const buildCustomNode = useCallback((course) => {
+        const year = course.selectedYear ?? 99;
+        const sem = course.selectedSemester ?? 99;
+        const rowIndex = course.rowIndex ?? 0;
+        const colX = getSemesterX(year, sem);
+        const cardX = colX + (SEMESTER_WIDTH - COURSE_WIDTH) / 2;
+        const cardY = TOP_PADDING + rowIndex * (COURSE_HEIGHT + COURSE_GAP);
+
+        const ct = course.courseType || 'others';
+        let customBorderColor = '#808080';
+        if (ct === 'math and sci') customBorderColor = '#c9c900';
+        else if (ct === 'major courses') customBorderColor = '#00008b';
+        else if (ct === 'gen engr') customBorderColor = '#8b1c62';
+        else if (ct === 'gen edu') customBorderColor = '#008800';
+
+        return {
+            id: course.id,
+            type: 'default',
+            sourcePosition: Position.Right,
+            targetPosition: Position.Left,
+            data: {
+                courseId: course.courseId,
+                courseTitle: course.courseTitle,
+                creditHours: course.creditHours,
+                prerequisites: [],
+                corequisite: null,
+                suggestedYear: year,
+                suggestedSemester: sem,
+                currentYear: year === 99 ? null : year,
+                currentSemester: sem === 99 ? null : sem,
+                rowIndex: rowIndex,
+                courseType: ct,
+                isCustom: true,
+                label: (
+                    <div
+                        onPointerEnter={() => setHoveredNodeId(course.id)}
+                        onPointerLeave={() => { setHoveredNodeId(null); setTooltip(null); }}
+                        onClick={() => setSelectedNodeId(prev => prev === course.id ? null : course.id)}
+                        style={{
+                            textAlign: 'left',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            justifyContent: 'flex-start',
+                            userSelect: 'none'
+                        }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
+                            <div style={{ fontWeight: 'bold', fontSize: '18px', color: customBorderColor }}>
+                                {course.courseId || 'Custom'}
+                            </div>
+                            <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+                                <div style={{ fontSize: '11px', color: '#fff', backgroundColor: '#7c3aed', padding: '1px 5px', borderRadius: '4px' }}>
+                                    custom
+                                </div>
+                                <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
+                                    {course.creditHours} CR
+                                </div>
+                            </div>
+                        </div>
+                        <div style={{ fontSize: '16px', lineHeight: '1.25', fontWeight: '600', color: '#000' }}>
+                            {course.courseTitle}
+                        </div>
+                    </div>
+                )
+            },
+            position: { x: cardX, y: cardY },
+            style: {
+                width: COURSE_WIDTH,
+                height: COURSE_HEIGHT,
+                background: 'white',
+                border: `2px solid ${customBorderColor}`,
+                borderRadius: '8px',
+                padding: '12px',
+                zIndex: 10
+            }
+        };
+    }, []);
+
+    // --- Sync custom courses into nodes without touching catalog nodes ---
+    useEffect(() => {
+        setNodes(prevNodes => {
+            // Remove old custom nodes
+            const nonCustomNodes = prevNodes.filter(n => !n.id.startsWith('custom-'));
+            // Build fresh custom nodes from current customCourses state
+            const newCustomNodes = customCourses.map(buildCustomNode);
+            return updateGameState([...nonCustomNodes, ...newCustomNodes]);
+        });
+    }, [customCourses, buildCustomNode]);
+
     useEffect(() => {
         if (!hoveredNodeId) { setTooltip(null); return; }
         const node = nodes.find(n => n.id === hoveredNodeId);
-        if (!node || !node.data.invalidReasons?.length) { setTooltip(null); return; }
-        setTooltip({ course: node.data, reasons: node.data.invalidReasons });
+        const hasInvalid = node?.data.invalidReasons?.length > 0;
+        const hasWarning = node?.data.warningReasons?.length > 0;
+        if (!node || (!hasInvalid && !hasWarning)) { setTooltip(null); return; }
+        setTooltip({
+            course: node.data,
+            reasons: node.data.invalidReasons || [],
+            warnings: node.data.warningReasons || [],
+        });
     }, [hoveredNodeId, nodes]);
 
     // Update semester height when nodeRowsCount changes (without regenerating nodes)
@@ -906,8 +1024,69 @@ export default function App() {
             });
             // NOTE: hoveredNodeId is intentionally NOT cleared here either.
             // displayNodes/displayEdges will reflect the correct hover state via useMemo.
+
+            // Sync custom course position back to customCourses state
+            if (node.id.startsWith('custom-')) {
+                setNodes(latestNodes => {
+                    const updatedNode = latestNodes.find(n => n.id === node.id);
+                    if (updatedNode) {
+                        setCustomCourses(prev => prev.map(c => c.id === node.id ? {
+                            ...c,
+                            selectedYear: updatedNode.data.currentYear,
+                            selectedSemester: updatedNode.data.currentSemester,
+                            rowIndex: updatedNode.data.rowIndex,
+                        } : c));
+                    }
+                    return latestNodes;
+                });
+            }
         }
     }, [nodeRowsCount, isPositionInsideFrame]);
+
+    const handleAddCourse = () => {
+        const { courseId, courseTitle, creditHours, year, semester, courseType } = newCourseForm;
+        if (!courseTitle.trim()) { alert('กรุณาใส่ชื่อวิชา'); return; }
+
+        const targetYear = parseInt(year);
+        const targetSem = parseInt(semester);
+
+        // Find the lowest row index that is free in the target semester
+        const occupiedRows = new Set();
+        nodes.forEach(n => {
+            if (n.type === 'default' && !n.id.startsWith('sem-bg')) {
+                if (n.data.currentYear === targetYear && n.data.currentSemester === targetSem) {
+                    occupiedRows.add(n.data.rowIndex);
+                }
+            }
+        });
+
+        let freeRow = 0;
+        while (occupiedRows.has(freeRow)) freeRow++;
+
+        // Expand rows if needed
+        if (freeRow >= nodeRowsCount) {
+            setNodeRowsCount(freeRow + 1);
+        }
+
+        const newId = `custom-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+        const newCourse = {
+            id: newId,
+            courseId: courseId.trim(),
+            courseTitle: courseTitle.trim(),
+            creditHours: parseInt(creditHours) || 0,
+            selectedYear: targetYear,
+            selectedSemester: targetSem,
+            rowIndex: freeRow,
+            courseType: courseType,
+        };
+
+        setCustomCourses(prev => [...prev, newCourse]);
+        setNewCourseForm(prev => ({ ...prev, courseId: '', courseTitle: '' }));
+    };
+
+    const handleDeleteCustomCourse = (courseId) => {
+        setCustomCourses(prev => prev.filter(c => c.id !== courseId));
+    };
 
     const handleExport = () => {
         const courseNodes = nodes.filter(n => n.type === 'default' && !n.id.startsWith('sem-bg'));
@@ -923,7 +1102,8 @@ export default function App() {
         const exportData = {
             curriculumName: selectedCurriculum,
             plan: plan,
-            nodeRowsCount: nodeRowsCount
+            nodeRowsCount: nodeRowsCount,
+            customCourses: customCourses,
         };
 
         const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
@@ -981,6 +1161,7 @@ export default function App() {
                 if (parsed.curriculumName && curriculums[parsed.curriculumName]) {
                     setSelectedCurriculum(parsed.curriculumName);
                     setActivePlanData(parsed.plan);
+                    setCustomCourses(parsed.customCourses || []);
 
                     if (parsed.nodeRowsCount) {
                         setNodeRowsCount(parsed.nodeRowsCount);
@@ -1002,6 +1183,7 @@ export default function App() {
     const handleDropdownChange = (e) => {
         setSelectedCurriculum(e.target.value);
         setActivePlanData(null);
+        setCustomCourses([]);
     };
 
     const screenHeight = typeof window !== 'undefined' ? window.innerHeight : 1000;
@@ -1032,6 +1214,31 @@ export default function App() {
         }
     };
 
+    const renderResources = () => {
+        const resources = curriculums[selectedCurriculum]?.resources;
+        if (!resources || resources.length === 0) return null;
+        return resources.map((res, i) => (
+            <a
+                key={i}
+                href={res.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                    color: '#ffffff',
+                    textDecoration: 'none',
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    padding: '6px 12px',
+                    borderRadius: '6px',
+                    border: '2px solid #6b009c',
+                    backgroundColor: '#9300ce',
+                }}
+            >
+                {res.title}
+            </a>
+        ));
+    };
+
     return (
         <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
 
@@ -1047,23 +1254,202 @@ export default function App() {
                 fontFamily: 'sans-serif',
                 border: '1px solid #ccc',
                 display: 'flex',
+                flexDirection: 'column',
                 gap: '10px',
-                alignItems: 'center'
             }}>
-                <button
-                    onClick={handleAddRow}
-                    style={{ padding: '8px 16px', background: '#6c757d', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }}
-                >
-                    + Add Row
-                </button>
-                <button
-                    onClick={handleDeleteRow}
-                    disabled={nodeRowsCount <= 1}
-                    style={{ padding: '8px 16px', background: nodeRowsCount <= 1 ? '#ccc' : '#dc3545', color: '#fff', border: 'none', borderRadius: '4px', cursor: nodeRowsCount <= 1 ? 'not-allowed' : 'pointer', fontWeight: 'bold', fontSize: '14px' }}
-                >
-                    - Delete Row
-                </button>
+                {/* Row controls */}
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                    <button
+                        onClick={handleAddRow}
+                        style={{ padding: '8px 16px', background: '#6c757d', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }}
+                    >
+                        + Add Row
+                    </button>
+                    <button
+                        onClick={handleDeleteRow}
+                        disabled={nodeRowsCount <= 1}
+                        style={{ padding: '8px 16px', background: nodeRowsCount <= 1 ? '#ccc' : '#dc3545', color: '#fff', border: 'none', borderRadius: '4px', cursor: nodeRowsCount <= 1 ? 'not-allowed' : 'pointer', fontWeight: 'bold', fontSize: '14px' }}
+                    >
+                        - Delete Row
+                    </button>
+                    <div style={{ width: '1px', height: '28px', background: '#ddd' }} />
+                    <button
+                        onClick={() => setShowAddCourseForm(prev => !prev)}
+                        style={{ padding: '8px 16px', background: showAddCourseForm ? '#5b21b6' : '#7c3aed', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }}
+                    >
+                        {showAddCourseForm ? '✕ ยกเลิก' : '＋ เพิ่มวิชา'}
+                    </button>
+                </div>
+
+                {/* Add course form */}
+                {showAddCourseForm && (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', paddingTop: '8px', borderTop: '1px solid #eee', minWidth: '340px' }}>
+                        <div style={{ fontWeight: 'bold', fontSize: '13px', color: '#5b21b6' }}>เพิ่มวิชาเอง</div>
+
+                        {/* Row 1: รหัสวิชา + ชื่อวิชา */}
+                        <div style={{ display: 'flex', gap: '12px' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                <label style={{ fontSize: '11px', fontWeight: 'bold', color: '#555' }}>รหัสวิชา</label>
+                                <input
+                                    placeholder="เช่น 261101"
+                                    value={newCourseForm.courseId}
+                                    onChange={e => setNewCourseForm(prev => ({ ...prev, courseId: e.target.value }))}
+                                    style={{ padding: '6px 8px', border: '1px solid #ccc', borderRadius: '4px', fontSize: '13px', width: '120px' }}
+                                />
+                            </div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', flex: 1 }}>
+                                <label style={{ fontSize: '11px', fontWeight: 'bold', color: '#555' }}>ชื่อวิชา <span style={{ color: '#dc3545' }}>*</span></label>
+                                <input
+                                    placeholder="ชื่อวิชาภาษาไทย/อังกฤษ"
+                                    value={newCourseForm.courseTitle}
+                                    onChange={e => setNewCourseForm(prev => ({ ...prev, courseTitle: e.target.value }))}
+                                    style={{ padding: '6px 8px', border: '1px solid #ccc', borderRadius: '4px', fontSize: '13px', width: '100%', boxSizing: 'border-box' }}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Row 2: หน่วยกิต + ปี + เทอม */}
+                        <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                <label style={{ fontSize: '11px', fontWeight: 'bold', color: '#555' }}>หน่วยกิต</label>
+                                <input
+                                    type="number"
+                                    min={0} max={9}
+                                    value={newCourseForm.creditHours}
+                                    onChange={e => setNewCourseForm(prev => ({ ...prev, creditHours: e.target.value }))}
+                                    style={{ padding: '6px 8px', border: '1px solid #ccc', borderRadius: '4px', fontSize: '13px', width: '70px' }}
+                                />
+                            </div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                <label style={{ fontSize: '11px', fontWeight: 'bold', color: '#555' }}>ปีการศึกษา</label>
+                                <select
+                                    value={newCourseForm.year}
+                                    onChange={e => setNewCourseForm(prev => ({ ...prev, year: e.target.value }))}
+                                    style={{ padding: '6px 8px', border: '1px solid #ccc', borderRadius: '4px', fontSize: '13px', cursor: 'pointer' }}
+                                >
+                                    {[1,2,3,4,5,6,7,8].map(y => <option key={y} value={y}>ปี {y}</option>)}
+                                </select>
+                            </div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                <label style={{ fontSize: '11px', fontWeight: 'bold', color: '#555' }}>ภาคเรียน</label>
+                                <select
+                                    value={newCourseForm.semester}
+                                    onChange={e => setNewCourseForm(prev => ({ ...prev, semester: e.target.value }))}
+                                    style={{ padding: '6px 8px', border: '1px solid #ccc', borderRadius: '4px', fontSize: '13px', cursor: 'pointer' }}
+                                >
+                                    <option value={1}>เทอม 1</option>
+                                    <option value={2}>เทอม 2</option>
+                                    <option value={3}>Summer</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        {/* Row 3: ประเภทวิชา + ปุ่มเพิ่ม */}
+                        <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                <label style={{ fontSize: '11px', fontWeight: 'bold', color: '#555' }}>ประเภทวิชา</label>
+                            {(() => {
+                                const COURSE_TYPE_OPTIONS = [
+                                    { value: 'math and sci', label: 'Math & Sci', color: '#c9c900' },
+                                    { value: 'major courses', label: 'Major',      color: '#00008b' },
+                                    { value: 'gen engr',      label: 'Gen Engr',   color: '#8b1c62' },
+                                    { value: 'gen edu',       label: 'Gen Edu',    color: '#008800' },
+                                    { value: 'others',        label: 'Others',     color: '#808080' },
+                                ];
+                                const selected = COURSE_TYPE_OPTIONS.find(o => o.value === newCourseForm.courseType) || COURSE_TYPE_OPTIONS[4];
+                                return (
+                                    <div style={{ position: 'relative' }}>
+                                        <button
+                                            onClick={() => setShowCourseTypeDropdown(prev => !prev)}
+                                            style={{
+                                                padding: '6px 10px', border: `2px solid ${selected.color}`,
+                                                borderRadius: '4px', fontSize: '13px', cursor: 'pointer',
+                                                fontWeight: 'bold', color: selected.color, background: 'white',
+                                                display: 'flex', alignItems: 'center', gap: '6px', whiteSpace: 'nowrap',
+                                            }}
+                                        >
+                                            <span style={{ width: 10, height: 10, borderRadius: '50%', background: selected.color, display: 'inline-block', flexShrink: 0 }} />
+                                            {selected.label}
+                                            <span style={{ fontSize: '10px', marginLeft: '2px' }}>▾</span>
+                                        </button>
+                                        {showCourseTypeDropdown && (
+                                            <div style={{
+                                                position: 'absolute', top: '110%', left: 0, zIndex: 999,
+                                                background: 'white', border: '1px solid #ccc', borderRadius: '6px',
+                                                boxShadow: '0 4px 12px rgba(0,0,0,0.15)', overflow: 'hidden', minWidth: '130px',
+                                            }}>
+                                                {COURSE_TYPE_OPTIONS.map(opt => (
+                                                    <div
+                                                        key={opt.value}
+                                                        onClick={() => { setNewCourseForm(prev => ({ ...prev, courseType: opt.value })); setShowCourseTypeDropdown(false); }}
+                                                        style={{
+                                                            padding: '7px 12px', cursor: 'pointer', fontSize: '13px',
+                                                            fontWeight: 'bold', color: opt.color,
+                                                            background: newCourseForm.courseType === opt.value ? '#f5f5f5' : 'white',
+                                                            display: 'flex', alignItems: 'center', gap: '8px',
+                                                        }}
+                                                        onMouseEnter={e => e.currentTarget.style.background = '#f0f0f0'}
+                                                        onMouseLeave={e => e.currentTarget.style.background = newCourseForm.courseType === opt.value ? '#f5f5f5' : 'white'}
+                                                    >
+                                                        <span style={{ width: 10, height: 10, borderRadius: '50%', background: opt.color, display: 'inline-block', flexShrink: 0 }} />
+                                                        {opt.label}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })()}
+                            </div>
+                            <button
+                                onClick={handleAddCourse}
+                                style={{ padding: '6px 20px', background: '#7c3aed', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '13px', alignSelf: 'flex-end' }}
+                            >
+                                เพิ่มวิชา
+                            </button>
+                        </div>
+                        {customCourses.length > 0 && (
+                            <div style={{ marginTop: '4px', maxHeight: '120px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                                <div style={{ fontSize: '12px', color: '#888', fontWeight: 'bold' }}>วิชาที่เพิ่มเอง ({customCourses.length})</div>
+                                {customCourses.map(c => (
+                                    <div key={c.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#f5f3ff', borderRadius: '4px', padding: '4px 8px', fontSize: '12px' }}>
+                                        <span style={{ color: '#5b21b6', fontWeight: 'bold', marginRight: '6px' }}>{c.courseId || '—'}</span>
+                                        <span style={{ flex: 1, color: '#333', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{c.courseTitle}</span>
+                                        <span style={{ color: '#888', marginLeft: '6px', whiteSpace: 'nowrap' }}>ปี{c.selectedYear} เทอม{c.selectedSemester === 3 ? ' S' : c.selectedSemester} • {c.creditHours}CR</span>
+                                        <button
+                                            onClick={() => handleDeleteCustomCourse(c.id)}
+                                            style={{ marginLeft: '8px', padding: '2px 6px', background: '#dc3545', color: '#fff', border: 'none', borderRadius: '3px', cursor: 'pointer', fontSize: '11px' }}
+                                        >
+                                            ✕
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                )}
             </div>
+
+            {curriculums[selectedCurriculum]?.resources?.length > 0 && (
+                <div style={{
+                    position: 'absolute',
+                    bottom: 20,
+                    left: 60,
+                    zIndex: 10,
+                    background: 'white',
+                    padding: '12px 18px',
+                    borderRadius: '8px',
+                    boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+                    fontFamily: 'sans-serif',
+                    border: '1px solid #ccc',
+                    display: 'flex',
+                    gap: '10px',
+                    alignItems: 'center'
+                }}>
+                    <strong>Resources Link</strong>
+                    {renderResources()}
+                </div>
+            )}
 
             <div style={{
                 position: 'absolute',
@@ -1135,24 +1521,46 @@ export default function App() {
                     color: '#fff',
                     borderRadius: '8px',
                     padding: '10px 18px',
-                    maxWidth: '600px',
+                    maxWidth: '700px',
                     boxShadow: '0 4px 16px rgba(0,0,0,0.4)',
                     fontFamily: 'sans-serif',
                     fontSize: '13px',
                     pointerEvents: 'none',
-                    border: '1px solid #ff4444',
+                    border: tooltip.reasons.length > 0 ? '1px solid #ff4444' : '1px solid #f59e0b',
                     display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '10px',
+                    flexDirection: 'column',
+                    gap: '6px',
                 }}>
-                    <div style={{ fontWeight: 'bold', color: '#ff6b6b', whiteSpace: 'nowrap' }}>
-                        ⚠ ลงวิชา {tooltip.course.courseId} ในปี {tooltip.course.currentYear} เทอม {tooltip.course.currentSemester} ไม่ได้เพราะ
-                    </div>
-                    <div>
-                        {tooltip.reasons.map((r, i) => (
-                            <div key={i} style={{ marginTop: i > 0 ? 4 : 0 }}>• {r}</div>
-                        ))}
-                    </div>
+                    {tooltip.reasons.length > 0 && (
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                            <div style={{ fontWeight: 'bold', color: '#ff6b6b', whiteSpace: 'nowrap' }}>
+                                ⚠ ลงวิชา {tooltip.course.courseId} ในปี {tooltip.course.currentYear} เทอม {tooltip.course.currentSemester} ไม่ได้เพราะ
+                            </div>
+                            <div>
+                                {tooltip.reasons.map((r, i) => (
+                                    <div key={i} style={{ marginTop: i > 0 ? 4 : 0 }}>• {r}</div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                    {tooltip.warnings.length > 0 && (
+                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', borderTop: tooltip.reasons.length > 0 ? '1px solid #444' : 'none', paddingTop: tooltip.reasons.length > 0 ? '6px' : 0 }}>
+                            <div style={{ fontWeight: 'bold', color: '#fbbf24', whiteSpace: 'nowrap' }}>
+                                {
+                                    tooltip.course.currentSemester === tooltip.course.suggestedSemester ? 
+                                    '⚡ คำเตือน: ' : 
+                                    '⚡ คำเตือน: โปรดตรวจสอบให้แน่ใจว่าวิชา' + 
+                                    (tooltip.course.courseId ? ` ${tooltip.course.courseId} เปิดสอนใน` : 'นี้เปิดสอนใน') + 
+                                    (tooltip.course.currentSemester === 3 ? ' Summer' : `เทอม ${tooltip.course.currentSemester}`)
+                                }
+                            </div>
+                            <div style={{ color: '#fde68a' }}>
+                                {tooltip.warnings.map((w, i) => (
+                                    <div key={i} style={{ marginTop: i > 0 ? 4 : 0 }}>• {w}</div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
             )}
 

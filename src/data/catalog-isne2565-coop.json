@@ -1,6 +1,19 @@
 {
   "curriculumName": "isne2565-coop",
-  "nodeRowsCount": 13,
+  "resources": [
+    {
+      "title": "ISNE 2565 Plan Information",
+      "url": "https://docs.google.com/spreadsheets/d/10NbOTigLb4iNtcWJes0kfE4jfMZ09rMINXladO0NHzE/edit?gid=241860609#gid=241860609"
+    },
+    {
+      "title": "ISNE 2565 Study Program",
+      "url": "https://www.cpe.eng.cmu.ac.th/curriculum-thai.php?view_id=ISNE-2566BE"
+    },
+    {
+      "title": "หลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมระบบสารสนเทศและเครือข่าย (หลักสูตรนานาชาติ) หลักสูตรปรับปรุง พ.ศ. 2566",
+      "url": "https://reg.eng.cmu.ac.th/reg_curriculum/uploads/2568/ISNE-2566_2568.pdf"
+    }
+  ],
   "courses": [
     {
       "id": "c-206161",
