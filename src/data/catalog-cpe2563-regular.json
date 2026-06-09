@@ -26,7 +26,7 @@
     {
       "id": "c-206161",
       "courseId": "206161",
-      "courseTitle": "Calculus 1",
+      "courseTitle": "Calc for Engr 1",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -100,7 +100,6 @@
       "selectedSemester": 1,
       "prerequisites": []
     },
-
     {
       "id": "c-001102",
       "courseId": "001102",
@@ -115,13 +114,15 @@
     {
       "id": "c-206162",
       "courseId": "206162",
-      "courseTitle": "Calculus 2",
+      "courseTitle": "Calc for Engr 2",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["206161"]
+      "prerequisites": [
+        "206161"
+      ]
     },
     {
       "id": "c-207106",
@@ -132,7 +133,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["207105"]
+      "prerequisites": [
+        "207105"
+      ]
     },
     {
       "id": "c-207116",
@@ -143,7 +146,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["207115"]
+      "prerequisites": [
+        "207115"
+      ]
     },
     {
       "id": "c-252281",
@@ -170,7 +175,7 @@
     {
       "id": "ge-1",
       "courseId": null,
-      "courseTitle": "GE",
+      "courseTitle": "GenEd Elective",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 2,
@@ -178,7 +183,6 @@
       "selectedSemester": 2,
       "prerequisites": []
     },
-
     {
       "id": "c-001225",
       "courseId": "001225",
@@ -188,7 +192,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["001102"]
+      "prerequisites": [
+        "001102"
+      ]
     },
     {
       "id": "c-206261",
@@ -199,7 +205,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["206162"]
+      "prerequisites": [
+        "206162"
+      ]
     },
     {
       "id": "c-261210",
@@ -210,7 +218,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["207106"]
+      "prerequisites": [
+        "207106"
+      ]
     },
     {
       "id": "c-261212",
@@ -243,7 +253,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["261102"]
+      "prerequisites": [
+        "261102"
+      ]
     },
     {
       "id": "c-261207",
@@ -254,12 +266,14 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["261103"]
+      "prerequisites": [
+        "261103"
+      ]
     },
     {
       "id": "ge-2",
       "courseId": null,
-      "courseTitle": "GE",
+      "courseTitle": "GenEd Elective",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 1,
@@ -267,7 +281,6 @@
       "selectedSemester": 1,
       "prerequisites": []
     },
-
     {
       "id": "c-001201",
       "courseId": "001201",
@@ -277,7 +290,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["001102"]
+      "prerequisites": [
+        "001102"
+      ]
     },
     {
       "id": "c-261200",
@@ -288,7 +303,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["261102"]
+      "prerequisites": [
+        "261102"
+      ]
     },
     {
       "id": "c-261208",
@@ -299,7 +316,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["206261"]
+      "prerequisites": [
+        "206261"
+      ]
     },
     {
       "id": "c-261214",
@@ -310,7 +329,10 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["261210", "252281"]
+      "prerequisites": [
+        "261210",
+        "252281"
+      ]
     },
     {
       "id": "c-261215",
@@ -332,7 +354,10 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["261216", "261217"]
+      "prerequisites": [
+        "261216",
+        "261217"
+      ]
     },
     {
       "id": "c-261332",
@@ -343,9 +368,10 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["207106"]
+      "prerequisites": [
+        "207106"
+      ]
     },
-
     {
       "id": "c-261304",
       "courseId": "261304",
@@ -355,7 +381,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261214"]
+      "prerequisites": [
+        "261214"
+      ]
     },
     {
       "id": "c-261335",
@@ -366,7 +394,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261332"]
+      "prerequisites": [
+        "261332"
+      ]
     },
     {
       "id": "c-261336",
@@ -388,7 +418,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261218"]
+      "prerequisites": [
+        "261218"
+      ]
     },
     {
       "id": "c-261343",
@@ -415,7 +447,7 @@
     {
       "id": "ge-create-1",
       "courseId": null,
-      "courseTitle": "Co-creator GE",
+      "courseTitle": "GenEd Co-creator",
       "creditHours": 3,
       "suggestedYear": 3,
       "suggestedSemester": 1,
@@ -423,7 +455,6 @@
       "selectedSemester": 1,
       "prerequisites": []
     },
-
     {
       "id": "c-261305",
       "courseId": "261305",
@@ -433,7 +464,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["261304"]
+      "prerequisites": [
+        "261304"
+      ]
     },
     {
       "id": "c-261306",
@@ -444,7 +477,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["206261"]
+      "prerequisites": [
+        "206261"
+      ]
     },
     {
       "id": "c-261361",
@@ -455,7 +490,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["261200"]
+      "prerequisites": [
+        "261200"
+      ]
     },
     {
       "id": "major-elect-2",
@@ -471,7 +508,7 @@
     {
       "id": "ge-3",
       "courseId": null,
-      "courseTitle": "GE",
+      "courseTitle": "GenEd Elective",
       "creditHours": 1,
       "suggestedYear": 3,
       "suggestedSemester": 2,
@@ -482,7 +519,7 @@
     {
       "id": "ge-digital-1",
       "courseId": null,
-      "courseTitle": "Digital Lit GE",
+      "courseTitle": "GenEd Digital Literacy",
       "creditHours": 3,
       "suggestedYear": 3,
       "suggestedSemester": 2,
@@ -490,7 +527,6 @@
       "selectedSemester": 2,
       "prerequisites": []
     },
-
     {
       "id": "c-261491",
       "courseId": "261491",
@@ -546,7 +582,6 @@
       "selectedSemester": 1,
       "prerequisites": []
     },
-
     {
       "id": "c-259192",
       "courseId": "259192",
@@ -567,7 +602,9 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "prerequisites": ["261491"]
+      "prerequisites": [
+        "261491"
+      ]
     },
     {
       "id": "c-261405",
@@ -578,7 +615,9 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "prerequisites": ["261361"]
+      "prerequisites": [
+        "261361"
+      ]
     },
     {
       "id": "major-elect-6",

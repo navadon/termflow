@@ -4,7 +4,7 @@
     {
       "id": "c-206161",
       "courseId": "206161",
-      "courseTitle": "Calculus 1",
+      "courseTitle": "Calc for Engr 1",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -48,7 +48,7 @@
     {
       "id": "c-259191",
       "courseId": "259191",
-      "courseTitle": "Prin Pro",
+      "courseTitle": "Prin Prof",
       "creditHours": 1,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -78,17 +78,18 @@
       "selectedSemester": 1,
       "prerequisites": []
     },
-
     {
       "id": "c-206162",
       "courseId": "206162",
-      "courseTitle": "Calculus 2",
+      "courseTitle": "Calc for Engr 2",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["206161"]
+      "prerequisites": [
+        "206161"
+      ]
     },
     {
       "id": "c-261205",
@@ -99,7 +100,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["269102"]
+      "prerequisites": [
+        "269102"
+      ]
     },
     {
       "id": "c-269103",
@@ -110,7 +113,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["269102"]
+      "prerequisites": [
+        "269102"
+      ]
     },
     {
       "id": "c-269130",
@@ -121,7 +126,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["269101"]
+      "prerequisites": [
+        "269101"
+      ]
     },
     {
       "id": "c-269105",
@@ -143,7 +150,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["001101"]
+      "prerequisites": [
+        "001101"
+      ]
     },
     {
       "id": "c-140104",
@@ -156,7 +165,6 @@
       "selectedSemester": 2,
       "prerequisites": []
     },
-
     {
       "id": "c-261200",
       "courseId": "261200",
@@ -166,7 +174,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["269102"]
+      "prerequisites": [
+        "269102"
+      ]
     },
     {
       "id": "c-269200",
@@ -177,7 +187,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["269102"]
+      "prerequisites": [
+        "269102"
+      ]
     },
     {
       "id": "c-269202",
@@ -188,7 +200,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["261205"]
+      "prerequisites": [
+        "261205"
+      ]
     },
     {
       "id": "c-261335",
@@ -199,7 +213,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["269130"]
+      "prerequisites": [
+        "269130"
+      ]
     },
     {
       "id": "c-261336",
@@ -221,7 +237,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["269105"]
+      "prerequisites": [
+        "269105"
+      ]
     },
     {
       "id": "c-255201",
@@ -243,9 +261,10 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["001102"]
+      "prerequisites": [
+        "001102"
+      ]
     },
-
     {
       "id": "c-261342",
       "courseId": "261342",
@@ -255,7 +274,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["261205"]
+      "prerequisites": [
+        "261205"
+      ]
     },
     {
       "id": "c-261343",
@@ -288,7 +309,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["261335"]
+      "prerequisites": [
+        "261335"
+      ]
     },
     {
       "id": "c-252281",
@@ -310,12 +333,14 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["001102"]
+      "prerequisites": [
+        "001102"
+      ]
     },
     {
       "id": "ge-co-creator",
       "courseId": null,
-      "courseTitle": "Co-creator GE",
+      "courseTitle": "GenEd Co-creator",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 2,
@@ -323,7 +348,6 @@
       "selectedSemester": 2,
       "prerequisites": []
     },
-
     {
       "id": "c-261361",
       "courseId": "261361",
@@ -333,7 +357,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261200"]
+      "prerequisites": [
+        "261200"
+      ]
     },
     {
       "id": "c-269340",
@@ -344,7 +370,10 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261342", "261343"]
+      "prerequisites": [
+        "261342",
+        "261343"
+      ]
     },
     {
       "id": "c-261305",
@@ -355,7 +384,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["269210"]
+      "prerequisites": [
+        "269210"
+      ]
     },
     {
       "id": "c-261434",
@@ -366,7 +397,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261335"]
+      "prerequisites": [
+        "261335"
+      ]
     },
     {
       "id": "c-269430",
@@ -377,12 +410,14 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261335"]
+      "prerequisites": [
+        "261335"
+      ]
     },
     {
       "id": "ge-digital-lit",
       "courseId": null,
-      "courseTitle": "Digital Lit GE",
+      "courseTitle": "GenEd Digital Literacy",
       "creditHours": 3,
       "suggestedYear": 3,
       "suggestedSemester": 1,
@@ -390,7 +425,6 @@
       "selectedSemester": 1,
       "prerequisites": []
     },
-
     {
       "id": "c-269462",
       "courseId": "269462",
@@ -400,7 +434,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["261361"]
+      "prerequisites": [
+        "261361"
+      ]
     },
     {
       "id": "c-269360",
@@ -411,7 +447,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["261200"]
+      "prerequisites": [
+        "261200"
+      ]
     },
     {
       "id": "c-261446",
@@ -422,7 +460,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["261205"]
+      "prerequisites": [
+        "261205"
+      ]
     },
     {
       "id": "c-269370",
@@ -433,7 +473,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["261205"]
+      "prerequisites": [
+        "261205"
+      ]
     },
     {
       "id": "c-261447",
@@ -444,7 +486,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["261335"]
+      "prerequisites": [
+        "261335"
+      ]
     },
     {
       "id": "major-elect-1",
@@ -460,7 +504,7 @@
     {
       "id": "ge-1",
       "courseId": null,
-      "courseTitle": "GE",
+      "courseTitle": "GenEd Elective",
       "creditHours": 1,
       "suggestedYear": 3,
       "suggestedSemester": 2,
@@ -468,7 +512,6 @@
       "selectedSemester": 2,
       "prerequisites": []
     },
-
     {
       "id": "c-269401",
       "courseId": "269401",
@@ -480,7 +523,6 @@
       "selectedSemester": 3,
       "prerequisites": []
     },
-
     {
       "id": "free-elect-1",
       "courseId": null,
@@ -495,7 +537,7 @@
     {
       "id": "ge-2",
       "courseId": null,
-      "courseTitle": "GE",
+      "courseTitle": "GenEd Elective",
       "creditHours": 3,
       "suggestedYear": 4,
       "suggestedSemester": 1,
@@ -506,7 +548,7 @@
     {
       "id": "ge-3",
       "courseId": null,
-      "courseTitle": "GE",
+      "courseTitle": "GenEd Elective",
       "creditHours": 3,
       "suggestedYear": 4,
       "suggestedSemester": 1,
@@ -536,7 +578,6 @@
       "selectedSemester": 1,
       "prerequisites": []
     },
-
     {
       "id": "c-269470",
       "courseId": "269470",
@@ -546,7 +587,10 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "prerequisites": ["261446", "269370"]
+      "prerequisites": [
+        "261446",
+        "269370"
+      ]
     },
     {
       "id": "free-elect-2",
@@ -579,12 +623,14 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "prerequisites": ["269491"]
+      "prerequisites": [
+        "269491"
+      ]
     },
     {
       "id": "c-259192",
       "courseId": "259192",
-      "courseTitle": "Skills Pro",
+      "courseTitle": "Skills Prof",
       "creditHours": 1,
       "suggestedYear": 4,
       "suggestedSemester": 2,

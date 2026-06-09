@@ -1,58 +1,556 @@
 {
   "curriculumName": "cpe2568-coop-s1",
   "courses": [
-    { "id": "gened-lang-1", "courseId": null, "courseTitle": "GenEd Language Literacy", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-206161", "courseId": "206161", "courseTitle": "Cal 1", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-259191", "courseId": "259191", "courseTitle": "Principle of Being Professional", "creditHours": 1, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-207105", "courseId": "207105", "courseTitle": "Physics 1", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-259104", "courseId": "259104", "courseTitle": "Engineering Drawing", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-261103", "courseId": "261103", "courseTitle": "Basic CPE", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-261216", "courseId": "261216", "courseTitle": "Discrete Mathematics", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-
-    { "id": "gened-lang-2", "courseId": null, "courseTitle": "GenEd Language Literacy", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 2, "selectedYear": 1, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-206162", "courseId": "206162", "courseTitle": "Cal 2", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 2, "selectedYear": 1, "selectedSemester": 2, "prerequisites": ["206161"] },
-    { "id": "c-252284", "courseId": "252284", "courseTitle": "Fundamentals of Electrical Engineering for Engineers", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 2, "selectedYear": 1, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-207106", "courseId": "207106", "courseTitle": "Physics 2", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 2, "selectedYear": 1, "selectedSemester": 2, "prerequisites": ["207105"] },
-    { "id": "c-261102", "courseId": "261102", "courseTitle": "Computer Programming", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 2, "selectedYear": 1, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-208150", "courseId": "208150", "courseTitle": "Probability and Statistics", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 2, "selectedYear": 1, "selectedSemester": 2, "prerequisites": [] },
-
-    { "id": "gened-lang-3", "courseId": null, "courseTitle": "GenEd Language Literacy", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "gened-global", "courseId": null, "courseTitle": "GenEd Global Citizen", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-206261", "courseId": "206261", "courseTitle": "Cal 3", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": ["206162"] },
-    { "id": "c-261210", "courseId": "261210", "courseTitle": "Logic", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": ["207106"] },
-    { "id": "c-261212", "courseId": "261212", "courseTitle": "Logic Lab", "creditHours": 1, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": ["207106"] },
-    { "id": "c-261217", "courseId": "261217", "courseTitle": "Data Structure", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": ["261102"] },
-    { "id": "c-261207", "courseId": "261207", "courseTitle": "CPE Lab", "creditHours": 2, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": ["261103"] },
-
-    { "id": "gened-digital", "courseId": null, "courseTitle": "GenEd Digital Literacy", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 2, "selectedYear": 2, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-206235", "courseId": "206235", "courseTitle": "Linear Algebra", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 2, "selectedYear": 2, "selectedSemester": 2, "prerequisites": ["206261"] },
-    { "id": "c-261314", "courseId": "261314", "courseTitle": "Embedded and Automation", "creditHours": 4, "suggestedYear": 2, "suggestedSemester": 2, "selectedYear": 2, "selectedSemester": 2, "prerequisites": ["261210", "252284"] },
-    { "id": "c-261332", "courseId": "261332", "courseTitle": "Data Communication", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 2, "selectedYear": 2, "selectedSemester": 2, "prerequisites": ["207106"] },
-    { "id": "c-261200", "courseId": "261200", "courseTitle": "Object-Oriented Programming", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 2, "selectedYear": 2, "selectedSemester": 2, "prerequisites": ["261102"] },
-    { "id": "c-261218", "courseId": "261218", "courseTitle": "Algorithm", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 2, "selectedYear": 2, "selectedSemester": 2, "prerequisites": ["261217", "261216"] },
-
-    { "id": "gened-creativity", "courseId": null, "courseTitle": "GenEd Creativity and Innovation", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 1, "selectedYear": 3, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "major-elec-1", "courseId": null, "courseTitle": "Major Elective", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 1, "selectedYear": 3, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-206355", "courseId": "206355", "courseTitle": "Numerical Methods", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 1, "selectedYear": 3, "selectedSemester": 1, "prerequisites": ["206261"] },
-    { "id": "c-261304", "courseId": "261304", "courseTitle": "Computer Architecture", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 1, "selectedYear": 3, "selectedSemester": 1, "prerequisites": ["261314"] },
-    { "id": "c-261335", "courseId": "261335", "courseTitle": "Computer Network", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 1, "selectedYear": 3, "selectedSemester": 1, "prerequisites": ["261332"] },
-    { "id": "c-261336", "courseId": "261336", "courseTitle": "Network Lab", "creditHours": 1, "suggestedYear": 3, "suggestedSemester": 1, "selectedYear": 3, "selectedSemester": 1, "prerequisites": ["261332"] },
-    { "id": "c-261341", "courseId": "261341", "courseTitle": "Database Systems", "creditHours": 4, "suggestedYear": 3, "suggestedSemester": 1, "selectedYear": 3, "selectedSemester": 1, "prerequisites": ["261218"] },
-
-    { "id": "gened-entrep", "courseId": null, "courseTitle": "GenEd Entrepreneur Skills", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "gened-elec", "courseId": null, "courseTitle": "GenEd Elective", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "major-elec-2", "courseId": null, "courseTitle": "Major Elective", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-261305", "courseId": "261305", "courseTitle": "Operating Systems", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": ["261304"] },
-    { "id": "c-261491", "courseId": "261491", "courseTitle": "Project survey", "creditHours": 1, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-261361", "courseId": "261361", "courseTitle": "Software Engineering", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": ["261200"] },
-    { "id": "c-261452", "courseId": "261452", "courseTitle": "Artificial Intelligence", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": ["261218", "208150"] },
-
-    { "id": "c-261495", "courseId": "261495", "courseTitle": "Co-op Education", "creditHours": 6, "suggestedYear": 4, "suggestedSemester": 1, "selectedYear": 4, "selectedSemester": 1, "prerequisites": [] },
-
-    { "id": "free-elec-1", "courseId": null, "courseTitle": "Free Elective", "creditHours": 3, "suggestedYear": 4, "suggestedSemester": 2, "selectedYear": 4, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "free-elec-2", "courseId": null, "courseTitle": "Free Elective", "creditHours": 3, "suggestedYear": 4, "suggestedSemester": 2, "selectedYear": 4, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "major-elec-3", "courseId": null, "courseTitle": "Major Elective", "creditHours": 3, "suggestedYear": 4, "suggestedSemester": 2, "selectedYear": 4, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-259192", "courseId": "259192", "courseTitle": "Skills for Professionalism and Entrepreneurship", "creditHours": 1, "suggestedYear": 4, "suggestedSemester": 2, "selectedYear": 4, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-261492", "courseId": "261492", "courseTitle": "Project", "creditHours": 3, "suggestedYear": 4, "suggestedSemester": 2, "selectedYear": 4, "selectedSemester": 2, "prerequisites": ["261491"] }
+    {
+      "id": "gened-lang-1",
+      "courseId": null,
+      "courseTitle": "GenEd Lang Literacy",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-206161",
+      "courseId": "206161",
+      "courseTitle": "Calc for Engr 1",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-259191",
+      "courseId": "259191",
+      "courseTitle": "Princ of Being Prof",
+      "creditHours": 1,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-207105",
+      "courseId": "207105",
+      "courseTitle": "Physics 1",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-259104",
+      "courseId": "259104",
+      "courseTitle": "Engineering Drawing",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261103",
+      "courseId": "261103",
+      "courseTitle": "Basic CPE",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261216",
+      "courseId": "261216",
+      "courseTitle": "Discrete Mathematics",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "gened-lang-2",
+      "courseId": null,
+      "courseTitle": "GenEd Lang Literacy",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-206162",
+      "courseId": "206162",
+      "courseTitle": "Calc for Engr 2",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "206161"
+      ]
+    },
+    {
+      "id": "c-252284",
+      "courseId": "252284",
+      "courseTitle": "Fund of Electrical Engineering for Engineers",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-207106",
+      "courseId": "207106",
+      "courseTitle": "Physics 2",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "207105"
+      ]
+    },
+    {
+      "id": "c-261102",
+      "courseId": "261102",
+      "courseTitle": "Computer Programming",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-208150",
+      "courseId": "208150",
+      "courseTitle": "Probability & Statistics",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "gened-lang-3",
+      "courseId": null,
+      "courseTitle": "GenEd Lang Literacy",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "gened-global",
+      "courseId": null,
+      "courseTitle": "GenEd Global Citizen",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-206261",
+      "courseId": "206261",
+      "courseTitle": "Cal 3",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "206162"
+      ]
+    },
+    {
+      "id": "c-261210",
+      "courseId": "261210",
+      "courseTitle": "Logic",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "207106"
+      ]
+    },
+    {
+      "id": "c-261212",
+      "courseId": "261212",
+      "courseTitle": "Logic Lab",
+      "creditHours": 1,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "207106"
+      ]
+    },
+    {
+      "id": "c-261217",
+      "courseId": "261217",
+      "courseTitle": "Data Structure",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261102"
+      ]
+    },
+    {
+      "id": "c-261207",
+      "courseId": "261207",
+      "courseTitle": "CPE Lab",
+      "creditHours": 2,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261103"
+      ]
+    },
+    {
+      "id": "gened-digital",
+      "courseId": null,
+      "courseTitle": "GenEd Digital Literacy",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-206235",
+      "courseId": "206235",
+      "courseTitle": "Linear Algebra",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "206261"
+      ]
+    },
+    {
+      "id": "c-261314",
+      "courseId": "261314",
+      "courseTitle": "Embedded & Automation",
+      "creditHours": 4,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261210",
+        "252284"
+      ]
+    },
+    {
+      "id": "c-261332",
+      "courseId": "261332",
+      "courseTitle": "Data Communication",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "207106"
+      ]
+    },
+    {
+      "id": "c-261200",
+      "courseId": "261200",
+      "courseTitle": "Object-Oriented Programming",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261102"
+      ]
+    },
+    {
+      "id": "c-261218",
+      "courseId": "261218",
+      "courseTitle": "Algorithm",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261217",
+        "261216"
+      ]
+    },
+    {
+      "id": "gened-creativity",
+      "courseId": null,
+      "courseTitle": "GenEd Creativity & Innovation",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "major-elec-1",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-206355",
+      "courseId": "206355",
+      "courseTitle": "Numerical Methods",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "206261"
+      ]
+    },
+    {
+      "id": "c-261304",
+      "courseId": "261304",
+      "courseTitle": "Computer Architecture",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261314"
+      ]
+    },
+    {
+      "id": "c-261335",
+      "courseId": "261335",
+      "courseTitle": "Computer Network",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261332"
+      ]
+    },
+    {
+      "id": "c-261336",
+      "courseId": "261336",
+      "courseTitle": "Network Lab",
+      "creditHours": 1,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261332"
+      ]
+    },
+    {
+      "id": "c-261341",
+      "courseId": "261341",
+      "courseTitle": "Database Systems",
+      "creditHours": 4,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261218"
+      ]
+    },
+    {
+      "id": "gened-entrep",
+      "courseId": null,
+      "courseTitle": "GenEd Entre Skills",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "gened-elec",
+      "courseId": null,
+      "courseTitle": "GenEd Elective",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "major-elec-2",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261305",
+      "courseId": "261305",
+      "courseTitle": "Operating Systems",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261304"
+      ]
+    },
+    {
+      "id": "c-261491",
+      "courseId": "261491",
+      "courseTitle": "Project Survey",
+      "creditHours": 1,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261361",
+      "courseId": "261361",
+      "courseTitle": "Software Engineering",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261200"
+      ]
+    },
+    {
+      "id": "c-261452",
+      "courseId": "261452",
+      "courseTitle": "Artificial Intelligence",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261218",
+        "208150"
+      ]
+    },
+    {
+      "id": "c-261495",
+      "courseId": "261495",
+      "courseTitle": "Co-op Education",
+      "creditHours": 6,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "free-elec-1",
+      "courseId": null,
+      "courseTitle": "Free Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "free-elec-2",
+      "courseId": null,
+      "courseTitle": "Free Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "major-elec-3",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-259192",
+      "courseId": "259192",
+      "courseTitle": "Skills for Prof & Entre",
+      "creditHours": 1,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261492",
+      "courseId": "261492",
+      "courseTitle": "Project",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261491"
+      ]
+    }
   ]
 }
