@@ -352,6 +352,7 @@ const updateGameState = (currentNodes) => {
       const prereqs = node.data.prerequisites || [];
 
       let isInvalid = false;
+      const missingPrereqs = [];
 
       prereqs.forEach(prereqCode => {
         const prereqNodeId = courseIdToNodeId[prereqCode];
@@ -361,6 +362,9 @@ const updateGameState = (currentNodes) => {
             if (prereqLoc.year > myLoc.year) isInvalid = true;
             if (prereqLoc.year === myLoc.year && prereqLoc.sem >= myLoc.sem) isInvalid = true;
           }
+        } else {
+          isInvalid = true;
+          missingPrereqs.push(prereqCode);
         }
       });
 
@@ -376,7 +380,8 @@ const updateGameState = (currentNodes) => {
           ...node.data,
           currentYear: myLoc.year === 99 ? null : myLoc.year,
           currentSemester: myLoc.sem === 99 ? null : myLoc.sem,
-          otherSelectedIds
+          otherSelectedIds,
+          missingPrereqs
         },
         style: {
           ...node.style,
@@ -459,16 +464,18 @@ export default function App() {
 
   const onSelectCourse = useCallback((id, selectedCourseId) => {
     setNodes((nds) => {
+      const option = LANG_LITERACY_OPTIONS.find(opt => opt.courseId === selectedCourseId);
+      const prereqs = option ? (option.prerequisites || []) : [];
+
       const updatedNodes = nds.map(node => {
         if (node.id === id) {
-          const option = LANG_LITERACY_OPTIONS.find(opt => opt.courseId === selectedCourseId);
           return {
             ...node,
             data: {
               ...node.data,
               courseId: selectedCourseId || null,
               courseTitle: option ? option.courseTitle : "GenEd Lang Literacy",
-              prerequisites: option ? (option.prerequisites || []) : []
+              prerequisites: prereqs
             }
           };
         }
