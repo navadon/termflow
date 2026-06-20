@@ -4,7 +4,7 @@
     {
       "id": "c-001101",
       "courseId": "001101",
-      "courseTitle": "English 1",
+      "courseTitle": "Fundamental English 1",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -59,7 +59,7 @@
     {
       "id": "c-259104",
       "courseId": "259104",
-      "courseTitle": "Drawing",
+      "courseTitle": "Engr Drawing",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -81,7 +81,7 @@
     {
       "id": "c-259191",
       "courseId": "259191",
-      "courseTitle": "Activities 1",
+      "courseTitle": "Princ of Being Pro",
       "creditHours": 1,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -186,7 +186,7 @@
     {
       "id": "c-001225",
       "courseId": "001225",
-      "courseTitle": "English in Sci",
+      "courseTitle": "English for Sci & Tech",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 1,
@@ -199,7 +199,7 @@
     {
       "id": "c-206261",
       "courseId": "206261",
-      "courseTitle": "Calculus 3",
+      "courseTitle": "Calc for Engr 3",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 1,
@@ -585,7 +585,7 @@
     {
       "id": "c-259192",
       "courseId": "259192",
-      "courseTitle": "Activities 2",
+      "courseTitle": "Skills for Pro & Entre",
       "creditHours": 1,
       "suggestedYear": 4,
       "suggestedSemester": 2,
@@ -658,14 +658,14 @@
       },
       {
         "courseId": "001201",
-        "courseTitle": "Critical Reading and Effective Writing",
+        "courseTitle": "Critical Reading & Effective Writing",
         "prerequisites": [
           "001102"
         ]
       },
       {
         "courseId": "001225",
-        "courseTitle": "English in Science and Technology Context",
+        "courseTitle": "English for Sci & Tech",
         "prerequisites": [
           "001102"
         ]
@@ -674,12 +674,12 @@
     "digitalLiteracy": [
       {
         "courseId": "204100",
-        "courseTitle": "Information Technology and Modern Life",
+        "courseTitle": "AI & Digital Essentials",
         "prerequisites": []
       },
       {
         "courseId": "261111",
-        "courseTitle": "Internet and Online Community",
+        "courseTitle": "Internet & Online Community in the Age of AI",
         "prerequisites": []
       },
       {
@@ -696,19 +696,19 @@
       },
       {
         "courseId": "259191",
-        "courseTitle": "Principle of Being Professional",
+        "courseTitle": "Princ of Being Pro",
         "prerequisites": []
       }
     ],
     "creativityInnovation": [
       {
         "courseId": "259192",
-        "courseTitle": "Skills for Professionalism and Entrepreneurship",
+        "courseTitle": "Skills for Pro & Entre",
         "prerequisites": []
       },
       {
         "courseId": "013110",
-        "courseTitle": "Psychology and Daily Life",
+        "courseTitle": "Psychology & Daily Life",
         "prerequisites": []
       },
       {
@@ -718,7 +718,7 @@
       },
       {
         "courseId": "176100",
-        "courseTitle": "Law and Modern World",
+        "courseTitle": "Law & Modern World",
         "prerequisites": []
       },
       {
@@ -728,17 +728,17 @@
       },
       {
         "courseId": "201117",
-        "courseTitle": "Mathematics and Science in Civilization",
+        "courseTitle": "Mathematics & Science in Civilization",
         "prerequisites": []
       },
       {
         "courseId": "201190",
-        "courseTitle": "Critical Thinking, Problem Solving and Science Communication",
+        "courseTitle": "Critical Thinking, Problem Solving & Science Communication",
         "prerequisites": []
       },
       {
         "courseId": "207109",
-        "courseTitle": "Life and the Universe",
+        "courseTitle": "Life & the Universe",
         "prerequisites": []
       },
       {
@@ -763,7 +763,7 @@
       },
       {
         "courseId": "703103",
-        "courseTitle": "Introduction to Entrepreneurship and Business",
+        "courseTitle": "Introduction to Entrepreneurship & Business",
         "prerequisites": []
       },
       {
@@ -773,7 +773,7 @@
       },
       {
         "courseId": "851103",
-        "courseTitle": "Life and Society through Media",
+        "courseTitle": "Life & Society through Media",
         "prerequisites": []
       },
       {
@@ -796,7 +796,7 @@
       },
       {
         "courseId": "211100",
-        "courseTitle": "Eating Well: Better Living and Disease Prevention",
+        "courseTitle": "Eating Well: Better Living & Disease Prevention",
         "prerequisites": []
       },
       {
@@ -806,12 +806,12 @@
       },
       {
         "courseId": "571116",
-        "courseTitle": "Health and Working in the Digital Age",
+        "courseTitle": "Health & Working in the Digital Age",
         "prerequisites": []
       },
       {
         "courseId": "701181",
-        "courseTitle": "Accounting for Non Accountants",
+        "courseTitle": "Basic Accounting for Entrepreneurs",
         "prerequisites": []
       },
       {
@@ -826,12 +826,12 @@
       },
       {
         "courseId": "259194",
-        "courseTitle": "Characteristics and Values for Being a Professional Entrepreneur",
+        "courseTitle": "Characteristics & Values for Being a Professional Entrepreneur",
         "prerequisites": []
       },
       {
         "courseId": "011100",
-        "courseTitle": "Man and Philosophy",
+        "courseTitle": "Man & Philosophy",
         "prerequisites": []
       },
       {
@@ -871,7 +871,7 @@
       },
       {
         "courseId": "259193",
-        "courseTitle": "Morality and Intelligence for Being a Professional",
+        "courseTitle": "Morality & Intelligence for Being a Professional",
         "prerequisites": []
       },
       {
@@ -881,7 +881,7 @@
       },
       {
         "courseId": "602102",
-        "courseTitle": "Life and Alternative Energy",
+        "courseTitle": "Life & Alternative Energy",
         "prerequisites": []
       },
       {
@@ -891,24 +891,24 @@
       },
       {
         "courseId": "951100",
-        "courseTitle": "Modern Life and Animation",
+        "courseTitle": "Modern Life & Animation",
         "prerequisites": []
       }
     ],
     "majorElective": [
       {
         "courseId": "261381",
-        "courseTitle": "",
+        "courseTitle": "Cybersecurity Management",
         "prerequisites": []
       },
       {
         "courseId": "261382",
-        "courseTitle": "Network Security and Technological Controls",
+        "courseTitle": "Network Security & Technological Controls",
         "prerequisites": []
       },
       {
         "courseId": "261383",
-        "courseTitle": "Cybersecurity Threat Analysis and Detection",
+        "courseTitle": "Cybersecurity Threat Analysis & Detection",
         "prerequisites": []
       },
       {
@@ -938,7 +938,7 @@
       },
       {
         "courseId": "261411",
-        "courseTitle": "Parallel Processing and Distributed Systems",
+        "courseTitle": "Parallel Processing & Distributed Systems",
         "prerequisites": []
       },
       {
@@ -953,7 +953,7 @@
       },
       {
         "courseId": "261424",
-        "courseTitle": "Remote Monitoring and Control Systems",
+        "courseTitle": "Remote Monitoring & Control Systems",
         "prerequisites": []
       },
       {
@@ -963,12 +963,12 @@
       },
       {
         "courseId": "261433",
-        "courseTitle": "Network Programming",
+        "courseTitle": "Network Prog",
         "prerequisites": []
       },
       {
         "courseId": "261434",
-        "courseTitle": "Computer Network Design and Management",
+        "courseTitle": "Net Design & Mgmt",
         "prerequisites": []
       },
       {
@@ -993,22 +993,22 @@
       },
       {
         "courseId": "261441",
-        "courseTitle": "Internet of Things and Big Data",
+        "courseTitle": "Internet of Things & Big Data",
         "prerequisites": []
       },
       {
         "courseId": "261444",
-        "courseTitle": "Advanced Database Systems",
+        "courseTitle": "Advanced DBMS",
         "prerequisites": []
       },
       {
         "courseId": "261446",
-        "courseTitle": "Information Systems",
+        "courseTitle": "Info Sys",
         "prerequisites": []
       },
       {
         "courseId": "261447",
-        "courseTitle": "Network and Information Security",
+        "courseTitle": "Net & Info Sec",
         "prerequisites": []
       },
       {
@@ -1018,7 +1018,7 @@
       },
       {
         "courseId": "261449",
-        "courseTitle": "Software Testing for Computer Engineering",
+        "courseTitle": "Software Testing",
         "prerequisites": []
       },
       {
@@ -1033,7 +1033,7 @@
       },
       {
         "courseId": "261457",
-        "courseTitle": "Digital Image and Video Compression",
+        "courseTitle": "Digital Image & Video Compression",
         "prerequisites": []
       },
       {
@@ -1048,7 +1048,7 @@
       },
       {
         "courseId": "261461",
-        "courseTitle": "Visual and Interactive Programming",
+        "courseTitle": "Visual & Interactive Programming",
         "prerequisites": []
       },
       {
@@ -1058,7 +1058,7 @@
       },
       {
         "courseId": "261468",
-        "courseTitle": "System Analysis and Design for Computer Engineering",
+        "courseTitle": "System Analysis & Design for Computer Engineering",
         "prerequisites": []
       },
       {
@@ -1068,7 +1068,7 @@
       },
       {
         "courseId": "261470",
-        "courseTitle": "Signals and Systems",
+        "courseTitle": "Signals & Systems",
         "prerequisites": []
       },
       {
@@ -1088,7 +1088,7 @@
       },
       {
         "courseId": "261475",
-        "courseTitle": "Modeling and Optimization for Big Data Analytics",
+        "courseTitle": "Modeling & Optimization for Big Data Analytics",
         "prerequisites": []
       },
       {
@@ -1108,12 +1108,12 @@
       },
       {
         "courseId": "261481",
-        "courseTitle": "",
+        "courseTitle": "Cybersecurity Incident Response",
         "prerequisites": []
       },
       {
         "courseId": "261482",
-        "courseTitle": "",
+        "courseTitle": "Cybersecurity Audit & Cyber Resilience",
         "prerequisites": []
       },
       {
@@ -1148,7 +1148,7 @@
       },
       {
         "courseId": "269430",
-        "courseTitle": "Wireless And Broadband Computer Networks",
+        "courseTitle": "Wireless & Broadband",
         "prerequisites": []
       },
       {
@@ -1168,7 +1168,7 @@
       },
       {
         "courseId": "269441",
-        "courseTitle": "Information Retrieval and Extraction",
+        "courseTitle": "Information Retrieval & Extraction",
         "prerequisites": []
       },
       {
@@ -1178,7 +1178,7 @@
       },
       {
         "courseId": "269462",
-        "courseTitle": "Introduction to Human-Computer Interaction",
+        "courseTitle": "Intro to HCI",
         "prerequisites": []
       },
       {

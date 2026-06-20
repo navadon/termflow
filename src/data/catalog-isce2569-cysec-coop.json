@@ -37,7 +37,7 @@
     {
       "id": "c-259191",
       "courseId": "259191",
-      "courseTitle": "Prin of Being Prof",
+      "courseTitle": "Princ of Being Pro",
       "creditHours": 1,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -164,7 +164,7 @@
     {
       "id": "c-261335",
       "courseId": "261335",
-      "courseTitle": "Comp Net",
+      "courseTitle": "Networks",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 1,
@@ -177,7 +177,7 @@
     {
       "id": "c-261336",
       "courseId": "261336",
-      "courseTitle": "Comp Net Lab",
+      "courseTitle": "Networks Lab",
       "creditHours": 1,
       "suggestedYear": 2,
       "suggestedSemester": 1,
@@ -214,7 +214,7 @@
     {
       "id": "c-269202",
       "courseId": "269202",
-      "courseTitle": "Algo for ISNE",
+      "courseTitle": "Algos for ISNE",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 1,
@@ -299,7 +299,7 @@
     {
       "id": "c-261305",
       "courseId": "261305",
-      "courseTitle": "Operating Systems",
+      "courseTitle": "OS",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 2,
@@ -419,7 +419,7 @@
     {
       "id": "c-267371",
       "courseId": "267371",
-      "courseTitle": "Pen Testing",
+      "courseTitle": "Pentest",
       "creditHours": 3,
       "suggestedYear": 3,
       "suggestedSemester": 2,
@@ -471,7 +471,7 @@
     {
       "id": "c-259192",
       "courseId": "259192",
-      "courseTitle": "Skills for Prof & Entre",
+      "courseTitle": "Skills for Pro & Entre",
       "creditHours": 1,
       "suggestedYear": 4,
       "suggestedSemester": 1,
@@ -506,7 +506,7 @@
     {
       "id": "c-267481",
       "courseId": "267481",
-      "courseTitle": "Digi Foren & Inci Resp",
+      "courseTitle": "DFIR",
       "creditHours": 3,
       "suggestedYear": 4,
       "suggestedSemester": 1,
@@ -519,7 +519,7 @@
     {
       "id": "c-267480",
       "courseId": "267480",
-      "courseTitle": "Cybersec Std & policy",
+      "courseTitle": "CSF",
       "creditHours": 3,
       "suggestedYear": 4,
       "suggestedSemester": 1,
@@ -566,7 +566,7 @@
     "languageLiteracy": [
       {
         "courseId": "001101",
-        "courseTitle": "Fundamental English",
+        "courseTitle": "Fundamental English 1",
         "prerequisites": []
       },
       {
@@ -578,12 +578,12 @@
       },
       {
         "courseId": "001225",
-        "courseTitle": "English for Science and Technology",
+        "courseTitle": "English for Sci & Tech",
         "prerequisites": []
       },
       {
         "courseId": "001201",
-        "courseTitle": "Critical Reading and Effective Writing",
+        "courseTitle": "Critical Reading & Effective Writing",
         "prerequisites": [
           "001102"
         ]
@@ -600,7 +600,7 @@
       },
       {
         "courseId": "001242",
-        "courseTitle": "Exploring Reading and Writing Skills",
+        "courseTitle": "Exploring Reading & Writing Skills",
         "prerequisites": []
       },
       {
@@ -612,12 +612,12 @@
     "digitalLiteracy": [
       {
         "courseId": "204100",
-        "courseTitle": "Artificial Intelligence and Digital Essentials",
+        "courseTitle": "AI & Digital Essentials",
         "prerequisites": []
       },
       {
         "courseId": "261111",
-        "courseTitle": "Internet and Online Community in the Age of AI",
+        "courseTitle": "Internet & Online Community in the Age of AI",
         "prerequisites": []
       }
     ],
@@ -636,12 +636,12 @@
       },
       {
         "courseId": "201116",
-        "courseTitle": "Science and Global Warming",
+        "courseTitle": "Science & Global Warming",
         "prerequisites": []
       },
       {
         "courseId": "201190",
-        "courseTitle": "Critical Thinking, Problem Solving and Science Communication",
+        "courseTitle": "Critical Thinking, Problem Solving & Science Communication",
         "prerequisites": []
       },
       {
@@ -671,12 +671,12 @@
       },
       {
         "courseId": "900100",
-        "courseTitle": "วิศวกรรมชีวการแพทย์ในชีวิตประจำวัน",
+        "courseTitle": "Biomedical Engineering in Everyday Life",
         "prerequisites": []
       },
       {
         "courseId": "951100",
-        "courseTitle": "Modern Life and Animation",
+        "courseTitle": "Modern Life & Animation",
         "prerequisites": []
       }
     ],
@@ -693,7 +693,7 @@
       },
       {
         "courseId": "703103",
-        "courseTitle": "Introduction to Entrepreneurship and Business",
+        "courseTitle": "Introduction to Entrepreneurship & Business",
         "prerequisites": []
       },
       {
@@ -715,7 +715,7 @@
       },
       {
         "courseId": "888106",
-        "courseTitle": "Communication and Networking in Online Society",
+        "courseTitle": "Communication & Networking in Online Society",
         "prerequisites": []
       },
       {
@@ -757,7 +757,7 @@
       },
       {
         "courseId": "261411",
-        "courseTitle": "Parallel Processing and Distributed Systems",
+        "courseTitle": "Parallel Processing & Distributed Systems",
         "prerequisites": []
       },
       {
@@ -777,12 +777,12 @@
       },
       {
         "courseId": "261441",
-        "courseTitle": "Internet of Things and Big Data",
+        "courseTitle": "Internet of Things & Big Data",
         "prerequisites": []
       },
       {
         "courseId": "261444",
-        "courseTitle": "Advanced Database Management System",
+        "courseTitle": "Advanced DBMS",
         "prerequisites": []
       },
       {
@@ -807,7 +807,7 @@
       },
       {
         "courseId": "261461",
-        "courseTitle": "Visual and Interactive Programming",
+        "courseTitle": "Visual & Interactive Programming",
         "prerequisites": []
       },
       {
@@ -817,7 +817,7 @@
       },
       {
         "courseId": "261468",
-        "courseTitle": "System Analysis and Design for Computer Engineering",
+        "courseTitle": "System Analysis & Design for Computer Engineering",
         "prerequisites": []
       },
       {
@@ -832,7 +832,7 @@
       },
       {
         "courseId": "261475",
-        "courseTitle": "Modeling and Optimization for Big Data Analytics",
+        "courseTitle": "Modeling & Optimization for Big Data Analytics",
         "prerequisites": []
       },
       {
@@ -852,7 +852,7 @@
       },
       {
         "courseId": "267465",
-        "courseTitle": "Security Orchestration, Automation, and Response",
+        "courseTitle": "Security Orchestration, Automation, & Response",
         "prerequisites": []
       },
       {
@@ -877,12 +877,12 @@
       },
       {
         "courseId": "269341",
-        "courseTitle": "Data Warehousing and Business Intelligence for Information Systems and Network Engineering",
+        "courseTitle": "Data Warehousing & Business Intelligence for Information Systems & Network Engineering",
         "prerequisites": []
       },
       {
         "courseId": "269400",
-        "courseTitle": "Advanced Information Systems and Network Technology",
+        "courseTitle": "Advanced Information Systems & Network Technology",
         "prerequisites": []
       },
       {
@@ -907,7 +907,7 @@
       },
       {
         "courseId": "269441",
-        "courseTitle": "Information Retrieval and Extraction",
+        "courseTitle": "Information Retrieval & Extraction",
         "prerequisites": []
       },
       {
@@ -927,7 +927,7 @@
       },
       {
         "courseId": "269471",
-        "courseTitle": "Advanced Project Management for Information System and Network Engineering",
+        "courseTitle": "Advanced Project Management for Information System & Network Engineering",
         "prerequisites": []
       },
       {
@@ -942,7 +942,7 @@
       },
       {
         "courseId": "269494",
-        "courseTitle": "Selected Topics in Information Systems and Network Engineering",
+        "courseTitle": "Selected Topics in Information Systems & Network Engineering",
         "prerequisites": []
       },
       {
@@ -967,7 +967,7 @@
       },
       {
         "courseId": "176104",
-        "courseTitle": "Rights and Duties of Citizen in Digital Age",
+        "courseTitle": "Rights & Duties of Citizen in Digital Age",
         "prerequisites": []
       },
       {
@@ -977,7 +977,7 @@
       },
       {
         "courseId": "267352",
-        "courseTitle": "Operating Systems Security",
+        "courseTitle": "OS Security",
         "prerequisites": []
       },
       {
@@ -987,47 +987,47 @@
       },
       {
         "courseId": "267371",
-        "courseTitle": "Penetration Testing",
+        "courseTitle": "Pentest",
         "prerequisites": []
       },
       {
         "courseId": "267480",
-        "courseTitle": "Cybersecurity Standards and Frameworks",
+        "courseTitle": "CSF",
         "prerequisites": []
       },
       {
         "courseId": "267481",
-        "courseTitle": "Digital Forensics and Incident Response",
+        "courseTitle": "DFIR",
         "prerequisites": []
       },
       {
         "courseId": "261361",
-        "courseTitle": "Software Engineering",
+        "courseTitle": "Software Engr",
         "prerequisites": []
       },
       {
         "courseId": "261434",
-        "courseTitle": "Computer Network Design and Management",
+        "courseTitle": "Net Design & Mgmt",
         "prerequisites": []
       },
       {
         "courseId": "261446",
-        "courseTitle": "Information Systems",
+        "courseTitle": "Info Sys",
         "prerequisites": []
       },
       {
         "courseId": "261449",
-        "courseTitle": "Software Testing for Computer Engineering",
+        "courseTitle": "Software Testing",
         "prerequisites": []
       },
       {
         "courseId": "269370",
-        "courseTitle": "Project Management for Information Systems and Network Engineering",
+        "courseTitle": "Proj Mgmt for ISNE",
         "prerequisites": []
       },
       {
         "courseId": "269470",
-        "courseTitle": "Information Technology Service Management",
+        "courseTitle": "ITSM",
         "prerequisites": []
       }
     ]
