@@ -677,7 +677,7 @@
       },
       {
         "courseId": "602100",
-        "courseTitle": "Introduction to Application of Biotechnology",
+        "courseTitle": "Intro to Application of Biotech",
         "prerequisites": []
       },
       {
@@ -724,7 +724,7 @@
       },
       {
         "courseId": "176105",
-        "courseTitle": "Legal Problem Management in Everyday Life",
+        "courseTitle": "Legal Problem Mgmt in Everyday Life",
         "prerequisites": []
       },
       {
@@ -744,7 +744,7 @@
       },
       {
         "courseId": "701185",
-        "courseTitle": "Simple Tax Management Technique",
+        "courseTitle": "Simple Tax Mgmt Technique",
         "prerequisites": []
       },
       {
@@ -754,7 +754,7 @@
       },
       {
         "courseId": "703103",
-        "courseTitle": "Introduction to Entrepreneurship & Business",
+        "courseTitle": "Intro to Entre & Business",
         "prerequisites": []
       },
       {
@@ -764,7 +764,7 @@
       },
       {
         "courseId": "851100",
-        "courseTitle": "Introduction to Communication for Entrepreneurs",
+        "courseTitle": "Intro to Comm for Entre",
         "prerequisites": []
       }
     ],
@@ -776,7 +776,7 @@
       },
       {
         "courseId": "204123",
-        "courseTitle": "Introduction to Data Science",
+        "courseTitle": "Intro to Data Science",
         "prerequisites": []
       },
       {
@@ -796,7 +796,7 @@
       },
       {
         "courseId": "012173",
-        "courseTitle": "Introduction to Religion",
+        "courseTitle": "Intro to Religion",
         "prerequisites": []
       },
       {
@@ -876,7 +876,7 @@
       },
       {
         "courseId": "154100",
-        "courseTitle": "Introduction to Geography",
+        "courseTitle": "Intro to Geography",
         "prerequisites": []
       },
       {
@@ -1153,7 +1153,7 @@
       },
       {
         "courseId": "261456",
-        "courseTitle": "Introduction to Computational Intelligence for Computer Engineering",
+        "courseTitle": "Intro to CI for CPE",
         "prerequisites": []
       },
       {
@@ -1193,7 +1193,7 @@
       },
       {
         "courseId": "261469",
-        "courseTitle": "Software Project Management for Computer Engineering",
+        "courseTitle": "Software Proj Mgmt for CPE",
         "prerequisites": []
       },
       {
@@ -1243,7 +1243,7 @@
       },
       {
         "courseId": "261485",
-        "courseTitle": "Cybersecurity Management",
+        "courseTitle": "Cyber Mgmt",
         "prerequisites": []
       },
       {
@@ -1323,7 +1323,7 @@
       },
       {
         "courseId": "269451",
-        "courseTitle": "Introduction to Neuro-Fuzzy Systems",
+        "courseTitle": "Intro to Neuro-Fuzzy Systems",
         "prerequisites": []
       },
       {

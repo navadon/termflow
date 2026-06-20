@@ -752,7 +752,7 @@
       },
       {
         "courseId": "703103",
-        "courseTitle": "Introduction to Entrepreneurship & Business",
+        "courseTitle": "Intro to Entre & Business",
         "prerequisites": []
       },
       {
@@ -767,7 +767,7 @@
       },
       {
         "courseId": "852100",
-        "courseTitle": "Introduction to Film",
+        "courseTitle": "Intro to Film",
         "prerequisites": []
       }
     ],
@@ -845,7 +845,7 @@
       },
       {
         "courseId": "254182",
-        "courseTitle": "Introduction to Energy",
+        "courseTitle": "Intro to Energy",
         "prerequisites": []
       },
       {
@@ -887,7 +887,7 @@
     "majorElective": [
       {
         "courseId": "261381",
-        "courseTitle": "Cybersecurity Management",
+        "courseTitle": "Cyber Mgmt",
         "prerequisites": []
       },
       {
@@ -1017,7 +1017,7 @@
       },
       {
         "courseId": "261456",
-        "courseTitle": "Introduction to Computational Intelligence for Computer Engineering",
+        "courseTitle": "Intro to CI for CPE",
         "prerequisites": []
       },
       {
@@ -1052,7 +1052,7 @@
       },
       {
         "courseId": "261469",
-        "courseTitle": "Software Project Management for Computer Engineering",
+        "courseTitle": "Software Proj Mgmt for CPE",
         "prerequisites": []
       },
       {

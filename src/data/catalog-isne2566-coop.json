@@ -738,7 +738,7 @@
       },
       {
         "courseId": "703103",
-        "courseTitle": "Introduction to Entrepreneurship & Business",
+        "courseTitle": "Intro to Entre & Business",
         "prerequisites": []
       },
       {
@@ -753,7 +753,7 @@
       },
       {
         "courseId": "852100",
-        "courseTitle": "Introduction to Film",
+        "courseTitle": "Intro to Film",
         "prerequisites": []
       }
     ],
@@ -924,7 +924,7 @@
       },
       {
         "courseId": "261456",
-        "courseTitle": "Introduction to Computational Intelligence for Computer Engineering",
+        "courseTitle": "Intro to CI for CPE",
         "prerequisites": []
       },
       {
@@ -1004,7 +1004,7 @@
       },
       {
         "courseId": "269451",
-        "courseTitle": "Introduction to Neuro-Fuzzy Systems",
+        "courseTitle": "Intro to Neuro-Fuzzy Systems",
         "prerequisites": []
       },
       {
@@ -1019,12 +1019,12 @@
       },
       {
         "courseId": "269471",
-        "courseTitle": "Advanced Project Management for Information System & Network Engineering",
+        "courseTitle": "Adv Proj Mgmt for ISNE",
         "prerequisites": []
       },
       {
         "courseId": "269472",
-        "courseTitle": "Risk Management in Software Project",
+        "courseTitle": "Risk Mgmt in Software Proj",
         "prerequisites": []
       },
       {
@@ -1059,7 +1059,7 @@
       },
       {
         "courseId": "261485",
-        "courseTitle": "Cybersecurity Management",
+        "courseTitle": "Cyber Mgmt",
         "prerequisites": []
       },
       {
