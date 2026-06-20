@@ -630,5 +630,551 @@
       "selectedSemester": 2,
       "prerequisites": []
     }
-  ]
+  ],
+  "options": {
+    "languageLiteracy": [
+      {
+        "courseId": "001101",
+        "courseTitle": "Fundamental English 1",
+        "prerequisites": []
+      },
+      {
+        "courseId": "001102",
+        "courseTitle": "Fundamental English 2",
+        "prerequisites": [
+          "001101"
+        ]
+      },
+      {
+        "courseId": "001201",
+        "courseTitle": "Critical Reading and Effective Writing",
+        "prerequisites": [
+          "001102"
+        ]
+      },
+      {
+        "courseId": "001225",
+        "courseTitle": "English in Science and Technology Context",
+        "prerequisites": [
+          "001102"
+        ]
+      }
+    ],
+    "digitalLiteracy": [
+      {
+        "courseId": "204100",
+        "courseTitle": "Information Technology and Modern Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261111",
+        "courseTitle": "Internet and Online Community",
+        "prerequisites": []
+      },
+      {
+        "courseId": "953111",
+        "courseTitle": "Software for Everyday Life",
+        "prerequisites": []
+      }
+    ],
+    "globalCitizenship": [
+      {
+        "courseId": "140104",
+        "courseTitle": "Citizenship",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259191",
+        "courseTitle": "Principle of Being Professional",
+        "prerequisites": []
+      }
+    ],
+    "creativityInnovation": [
+      {
+        "courseId": "259192",
+        "courseTitle": "Skills for Professionalism and Entrepreneurship",
+        "prerequisites": []
+      },
+      {
+        "courseId": "013110",
+        "courseTitle": "Psychology and Daily Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "050106",
+        "courseTitle": "Humanistic Arts",
+        "prerequisites": []
+      },
+      {
+        "courseId": "176100",
+        "courseTitle": "Law and Modern World",
+        "prerequisites": []
+      },
+      {
+        "courseId": "201114",
+        "courseTitle": "Environmental Science in Today's World",
+        "prerequisites": []
+      },
+      {
+        "courseId": "201117",
+        "courseTitle": "Mathematics and Science in Civilization",
+        "prerequisites": []
+      },
+      {
+        "courseId": "201190",
+        "courseTitle": "Critical Thinking, Problem Solving and Science Communication",
+        "prerequisites": []
+      },
+      {
+        "courseId": "207109",
+        "courseTitle": "Life and the Universe",
+        "prerequisites": []
+      },
+      {
+        "courseId": "207110",
+        "courseTitle": "Physics: the Science that Changed the World",
+        "prerequisites": []
+      },
+      {
+        "courseId": "368100",
+        "courseTitle": "Starting an Agribusiness in a Changing World",
+        "prerequisites": []
+      },
+      {
+        "courseId": "602201",
+        "courseTitle": "Agro-Industrial Vision",
+        "prerequisites": []
+      },
+      {
+        "courseId": "610111",
+        "courseTitle": "Packaging for Marketing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "703103",
+        "courseTitle": "Introduction to Entrepreneurship and Business",
+        "prerequisites": []
+      },
+      {
+        "courseId": "751100",
+        "courseTitle": "Economics for Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "851103",
+        "courseTitle": "Life and Society through Media",
+        "prerequisites": []
+      },
+      {
+        "courseId": "852100",
+        "courseTitle": "Introduction to Film",
+        "prerequisites": []
+      }
+    ],
+    "entrepreneurialSkills": [],
+    "geElective": [
+      {
+        "courseId": "201100",
+        "courseTitle": "Integrated Science",
+        "prerequisites": []
+      },
+      {
+        "courseId": "203100",
+        "courseTitle": "Chemistry in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "211100",
+        "courseTitle": "Eating Well: Better Living and Disease Prevention",
+        "prerequisites": []
+      },
+      {
+        "courseId": "462130",
+        "courseTitle": "Medications in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "571116",
+        "courseTitle": "Health and Working in the Digital Age",
+        "prerequisites": []
+      },
+      {
+        "courseId": "701181",
+        "courseTitle": "Accounting for Non Accountants",
+        "prerequisites": []
+      },
+      {
+        "courseId": "702101",
+        "courseTitle": "Finance for Daily Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "705191",
+        "courseTitle": "Smart Consumer",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259194",
+        "courseTitle": "Characteristics and Values for Being a Professional Entrepreneur",
+        "prerequisites": []
+      },
+      {
+        "courseId": "011100",
+        "courseTitle": "Man and Philosophy",
+        "prerequisites": []
+      },
+      {
+        "courseId": "109114",
+        "courseTitle": "Art in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "127100",
+        "courseTitle": "Politics in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "128100",
+        "courseTitle": "Basic Good Governance in Administration",
+        "prerequisites": []
+      },
+      {
+        "courseId": "154104",
+        "courseTitle": "Environmental Conservation",
+        "prerequisites": []
+      },
+      {
+        "courseId": "254182",
+        "courseTitle": "Introduction to Energy",
+        "prerequisites": []
+      },
+      {
+        "courseId": "256131",
+        "courseTitle": "Urban Mining",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259108",
+        "courseTitle": "Electricity in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259193",
+        "courseTitle": "Morality and Intelligence for Being a Professional",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259195",
+        "courseTitle": "Managing Activities for Development",
+        "prerequisites": []
+      },
+      {
+        "courseId": "602102",
+        "courseTitle": "Life and Alternative Energy",
+        "prerequisites": []
+      },
+      {
+        "courseId": "801100",
+        "courseTitle": "Architecture in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "951100",
+        "courseTitle": "Modern Life and Animation",
+        "prerequisites": []
+      }
+    ],
+    "majorElective": [
+      {
+        "courseId": "261381",
+        "courseTitle": "",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261382",
+        "courseTitle": "Network Security and Technological Controls",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261383",
+        "courseTitle": "Cybersecurity Threat Analysis and Detection",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261404",
+        "courseTitle": "Advanced Computer Engineering Laboratory",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261406",
+        "courseTitle": "Basic Compiler Design",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261407",
+        "courseTitle": "Fundamentals of Computation for Computer Engineers",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261408",
+        "courseTitle": "Quantum Computation",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261409",
+        "courseTitle": "Functional Programming",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261411",
+        "courseTitle": "Parallel Processing and Distributed Systems",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261414",
+        "courseTitle": "Digital System Design",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261421",
+        "courseTitle": "Computer Hardware Design",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261424",
+        "courseTitle": "Remote Monitoring and Control Systems",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261430",
+        "courseTitle": "Wireless Networks",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261433",
+        "courseTitle": "Network Programming",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261434",
+        "courseTitle": "Computer Network Design and Management",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261435",
+        "courseTitle": "Broadband Communication Networks",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261437",
+        "courseTitle": "Fundamentals of Queueing Theory for Computer Engineers",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261438",
+        "courseTitle": "Fundamentals of Multiprotocol Label Switching",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261439",
+        "courseTitle": "Wireless Communications for Computer Engineering",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261441",
+        "courseTitle": "Internet of Things and Big Data",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261444",
+        "courseTitle": "Advanced Database Systems",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261446",
+        "courseTitle": "Information Systems",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261447",
+        "courseTitle": "Network and Information Security",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261448",
+        "courseTitle": "Data Mining for Computer Engineering",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261449",
+        "courseTitle": "Software Testing for Computer Engineering",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261453",
+        "courseTitle": "Digital Image Processing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261456",
+        "courseTitle": "Introduction to Computational Intelligence for Computer Engineering",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261457",
+        "courseTitle": "Digital Image and Video Compression",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261458",
+        "courseTitle": "Machine Vision",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261459",
+        "courseTitle": "Deep Learning",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261461",
+        "courseTitle": "Visual and Interactive Programming",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261465",
+        "courseTitle": "Computer Graphics",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261468",
+        "courseTitle": "System Analysis and Design for Computer Engineering",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261469",
+        "courseTitle": "Software Project Management for Computer Engineering",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261470",
+        "courseTitle": "Signals and Systems",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261471",
+        "courseTitle": "Advanced Digital Signal Processing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261472",
+        "courseTitle": "Robotics",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261473",
+        "courseTitle": "Computer Aided Manufacturing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261475",
+        "courseTitle": "Modeling and Optimization for Big Data Analytics",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261476",
+        "courseTitle": "Biomedical Instruments",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261478",
+        "courseTitle": "Principles of Control Systems",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261479",
+        "courseTitle": "Bioinformatics Programming",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261481",
+        "courseTitle": "",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261482",
+        "courseTitle": "",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261493",
+        "courseTitle": "Seminar",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261494",
+        "courseTitle": "Selected Topics in Computer Engineering",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261497",
+        "courseTitle": "Selected Topics in Computer Software",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261498",
+        "courseTitle": "Selected Topics in Computer Networks",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261499",
+        "courseTitle": "Selected Topics in Computational Intelligence",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269421",
+        "courseTitle": "Computer Network Traffic Analysis",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269430",
+        "courseTitle": "Wireless And Broadband Computer Networks",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269431",
+        "courseTitle": "Wireless Sensor Network",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269432",
+        "courseTitle": "Peer-to-Peer Systems",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269433",
+        "courseTitle": "Computer Network Routing Protocols",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269441",
+        "courseTitle": "Information Retrieval and Extraction",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269461",
+        "courseTitle": "Personal Software Process Improvement",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269462",
+        "courseTitle": "Introduction to Human-Computer Interaction",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261400",
+        "courseTitle": "Computer Engineering Training",
+        "prerequisites": []
+      }
+    ]
+  }
 }

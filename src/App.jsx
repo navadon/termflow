@@ -24,7 +24,6 @@ import isce2569InfosysCoop from './data/catalog-isce2569-infosys-coop.json';
 import isce2569InfosysRegular from './data/catalog-isce2569-infosys-regular.json';
 import isne2565Coop from './data/catalog-isne2565-coop.json';
 import isne2565Regular from './data/catalog-isne2565-regular.json';
-import LANG_LITERACY_OPTIONS from './data/language-literacy-options.json';
 
 // --- 2. CREATE CURRICULUM DICTIONARY ---
 const curriculums = {
@@ -83,6 +82,32 @@ const isNodeInside = (courseNode, semesterNode) => {
   );
 };
 
+const getOptionType = (courseTitle) => {
+  if (!courseTitle) return null;
+  const title = courseTitle.toLowerCase().trim();
+  if (title.includes('lang') || title.includes('language')) return 'languageLiteracy';
+  if (title.includes('digital')) return 'digitalLiteracy';
+  if (title.includes('global')) return 'globalCitizenship';
+  if (title.includes('creativity') || title.includes('innovation') || title.includes('co-creator')) return 'creativityInnovation';
+  if (title.includes('entre')) return 'entrepreneurialSkills';
+  if (title.includes('gened elective') || title.includes('gen ed elective') || title.includes('gened elec') || title.includes('gen ed elec') || title === 'gened elective') return 'geElective';
+  if (title.includes('major elec') || title.includes('major elective')) return 'majorElective';
+  return null;
+};
+
+const getOptionPlaceholder = (optionType) => {
+  switch (optionType) {
+    case 'languageLiteracy': return 'Lang Literacy';
+    case 'digitalLiteracy': return 'Digital Literacy';
+    case 'globalCitizenship': return 'Global Citizenship';
+    case 'creativityInnovation': return 'Creativity & Innovation';
+    case 'entrepreneurialSkills': return 'Entre Skills';
+    case 'geElective': return 'GenEd Elective';
+    case 'majorElective': return 'Major Elective';
+    default: return 'Select Course';
+  }
+};
+
 const CourseNode = ({ id, data }) => {
   const isSummer = data.suggestedSemester === 3;
   const suggestedLabel = isSummer
@@ -90,14 +115,16 @@ const CourseNode = ({ id, data }) => {
     : `Y${data.suggestedYear}-${data.suggestedSemester}`;
   const isOffSchedule = data.currentYear !== data.suggestedYear || data.currentSemester !== data.suggestedSemester;
 
-  if (data.isLangLiteracy) {
+  if (data.optionType) {
+    const placeholder = getOptionPlaceholder(data.optionType);
+    const dropdownOptions = data.dropdownOptions || [];
     return (
       <>
         <Handle type="target" position={Position.Left} />
         <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
             <div style={{ fontWeight: 'bold', fontSize: '18px', color: '#444' }}>
-              GenEd
+              {data.courseId || (data.optionType === 'majorElective' ? 'Major Elect' : 'GenEd')}
               {isOffSchedule && (
                 <span style={{ fontSize: '14px', color: '#777', marginLeft: '6px', fontWeight: 'bold' }}>
                   {suggestedLabel}
@@ -135,8 +162,8 @@ const CourseNode = ({ id, data }) => {
                 whiteSpace: 'nowrap'
               }}
             >
-              <option value="">Lang Literacy</option>
-              {LANG_LITERACY_OPTIONS.map(opt => {
+              <option value="">{placeholder}</option>
+              {dropdownOptions.map(opt => {
                 const isTaken = data.otherSelectedIds?.includes(opt.courseId);
                 return (
                   <option
@@ -293,10 +320,16 @@ const updateGameState = (currentNodes) => {
   const semesterCreditMap = {};
   const courseIdToNodeId = {};
 
-  // Extract all currently selected Language Literacy course IDs
-  const selectedLangLiteracyIds = currentNodes
-    .filter(n => n.type === 'course' && n.data?.isLangLiteracy && n.data?.courseId)
-    .map(n => n.data.courseId);
+  // Extract all currently selected course IDs grouped by optionType
+  const selectedIdsByOptionType = {};
+  currentNodes.forEach(n => {
+    if (n.type === 'course' && n.data?.optionType && n.data?.courseId) {
+      if (!selectedIdsByOptionType[n.data.optionType]) {
+        selectedIdsByOptionType[n.data.optionType] = [];
+      }
+      selectedIdsByOptionType[n.data.optionType].push(n.data.courseId);
+    }
+  });
 
   currentNodes.forEach(n => {
     if (n.id.startsWith('sem-bg')) {
@@ -369,8 +402,9 @@ const updateGameState = (currentNodes) => {
       });
 
       const isMovedFromSuggested = myLoc.year !== node.data.suggestedYear || myLoc.sem !== node.data.suggestedSemester;
-      const otherSelectedIds = node.data.isLangLiteracy
-        ? selectedLangLiteracyIds.filter(id => id !== node.data.courseId)
+      const optionType = node.data.optionType;
+      const otherSelectedIds = optionType && selectedIdsByOptionType[optionType]
+        ? selectedIdsByOptionType[optionType].filter(id => id !== node.data.courseId)
         : [];
 
       return {
@@ -464,17 +498,22 @@ export default function App() {
 
   const onSelectCourse = useCallback((id, selectedCourseId) => {
     setNodes((nds) => {
-      const option = LANG_LITERACY_OPTIONS.find(opt => opt.courseId === selectedCourseId);
+      const targetNode = nds.find(n => n.id === id);
+      const optionType = targetNode?.data?.optionType;
+      const currOptions = curriculums[selectedCurriculum]?.options || {};
+      const dropdownOptions = optionType ? (currOptions[optionType] || []) : [];
+      const option = dropdownOptions.find(opt => opt.courseId === selectedCourseId);
       const prereqs = option ? (option.prerequisites || []) : [];
 
       const updatedNodes = nds.map(node => {
         if (node.id === id) {
+          const defaultTitle = node.data.originalTitle || "Select Course";
           return {
             ...node,
             data: {
               ...node.data,
               courseId: selectedCourseId || null,
-              courseTitle: option ? option.courseTitle : "GenEd Lang Literacy",
+              courseTitle: option ? option.courseTitle : defaultTitle,
               prerequisites: prereqs
             }
           };
@@ -485,7 +524,7 @@ export default function App() {
       setEdges(generateEdgesForNodes(finalNodes));
       return finalNodes;
     });
-  }, []);
+  }, [selectedCurriculum]);
 
   useEffect(() => {
     const catalogData = curriculums[selectedCurriculum];
@@ -549,7 +588,10 @@ export default function App() {
         const cardX = colX + (SEMESTER_WIDTH - COURSE_WIDTH) / 2;
         const cardY = TOP_PADDING + index * (COURSE_HEIGHT + COURSE_GAP);
 
-        const isLangLiteracy = course.courseTitle === "GenEd Lang Literacy" || course.courseTitle === "Gen Ed Lang Literacy" || course.courseTitle === "GenEd Language Literacy";
+        const optionType = course.courseId === null ? getOptionType(course.courseTitle) : null;
+        const currOptions = catalogData.options || {};
+        const dropdownOptions = optionType ? (currOptions[optionType] || []) : [];
+
         let completed = false;
         let courseId = course.courseId;
         let courseTitle = course.courseTitle;
@@ -559,9 +601,9 @@ export default function App() {
           const savedCourse = activePlanData.find(p => p.id === course.id);
           if (savedCourse) {
             completed = savedCourse.completed || false;
-            if (isLangLiteracy && savedCourse.courseId) {
+            if (optionType && savedCourse.courseId) {
               courseId = savedCourse.courseId;
-              const opt = LANG_LITERACY_OPTIONS.find(o => o.courseId === savedCourse.courseId);
+              const opt = dropdownOptions.find(o => o.courseId === savedCourse.courseId);
               if (opt) {
                 courseTitle = opt.courseTitle;
                 prerequisites = opt.prerequisites || [];
@@ -585,9 +627,11 @@ export default function App() {
             currentYear: year === 99 ? null : year,
             currentSemester: sem === 99 ? null : sem,
             courseTitle: courseTitle,
+            originalTitle: course.courseTitle,
             completed: completed,
             onToggleComplete: onToggleComplete,
-            isLangLiteracy: isLangLiteracy,
+            optionType: optionType,
+            dropdownOptions: dropdownOptions,
             onSelectCourse: onSelectCourse
           },
           position: { x: cardX, y: cardY },

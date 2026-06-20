@@ -559,8 +559,7 @@
       "suggestedYear": 4,
       "suggestedSemester": 2,
       "selectedYear": 4,
-      "selectedSemester": 2,
-      "prerequisites": []
+      "selectedSemester": 2
     }
   ]
 }
