@@ -584,7 +584,7 @@
       },
       {
         "courseId": "001241",
-        "courseTitle": "Oral Communication in English",
+        "courseTitle": "Oral Comm in English",
         "prerequisites": []
       },
       {
@@ -630,7 +630,7 @@
       },
       {
         "courseId": "201190",
-        "courseTitle": "Critical Thinking, Problem Solving & Science Communication",
+        "courseTitle": "Critical Thinking, Prob Solv & Sci Comm",
         "prerequisites": []
       },
       {
@@ -650,7 +650,7 @@
       },
       {
         "courseId": "271112",
-        "courseTitle": "Fundamentals of Rapid Prototyping for Robotics Engineering",
+        "courseTitle": "Fund of Rapid Prototyping for Robotics Engr",
         "prerequisites": []
       },
       {
@@ -660,7 +660,7 @@
       },
       {
         "courseId": "900100",
-        "courseTitle": "Biomedical Engineering in Everyday Life",
+        "courseTitle": "Biomed Engr in Everyday Life",
         "prerequisites": []
       },
       {
@@ -704,7 +704,7 @@
       },
       {
         "courseId": "888106",
-        "courseTitle": "Communication & Networking in Online Society",
+        "courseTitle": "Comm & Networking in Online Society",
         "prerequisites": []
       },
       {
@@ -746,7 +746,7 @@
       },
       {
         "courseId": "261411",
-        "courseTitle": "Parallel Processing & Distributed Systems",
+        "courseTitle": "Parallel Proc & Dist Sys",
         "prerequisites": []
       },
       {
@@ -756,12 +756,12 @@
       },
       {
         "courseId": "261435",
-        "courseTitle": "Broadband Communication Networks",
+        "courseTitle": "Broadband Comm Networks",
         "prerequisites": []
       },
       {
         "courseId": "261438",
-        "courseTitle": "Fundamentals of Multiprotocol Label Switching",
+        "courseTitle": "MPLS",
         "prerequisites": []
       },
       {
@@ -776,7 +776,7 @@
       },
       {
         "courseId": "261448",
-        "courseTitle": "Data Mining for Computer Engineering",
+        "courseTitle": "Data Mining for CPE",
         "prerequisites": []
       },
       {
@@ -801,12 +801,12 @@
       },
       {
         "courseId": "261465",
-        "courseTitle": "Computer Graphics",
+        "courseTitle": "CG",
         "prerequisites": []
       },
       {
         "courseId": "261468",
-        "courseTitle": "System Analysis & Design for Computer Engineering",
+        "courseTitle": "Sys Analysis & Design for CPE",
         "prerequisites": []
       },
       {
@@ -816,7 +816,7 @@
       },
       {
         "courseId": "261473",
-        "courseTitle": "Computer Aided Manufacturing",
+        "courseTitle": "CAM",
         "prerequisites": []
       },
       {
@@ -846,7 +846,7 @@
       },
       {
         "courseId": "267475",
-        "courseTitle": "Fundamentals of Malware Analysis",
+        "courseTitle": "Fund of Malware Analysis",
         "prerequisites": []
       },
       {
@@ -876,7 +876,7 @@
       },
       {
         "courseId": "269421",
-        "courseTitle": "Computer Network Traffic Analysis",
+        "courseTitle": "Net Traffic Analysis",
         "prerequisites": []
       },
       {
@@ -891,7 +891,7 @@
       },
       {
         "courseId": "269433",
-        "courseTitle": "Computer Network Routing Protocols",
+        "courseTitle": "Net Routing Protocols",
         "prerequisites": []
       },
       {

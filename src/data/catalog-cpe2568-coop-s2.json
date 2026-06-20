@@ -129,7 +129,7 @@
     {
       "id": "c-261102",
       "courseId": "261102",
-      "courseTitle": "Computer Programming",
+      "courseTitle": "Comp Prog",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 2,
@@ -586,7 +586,7 @@
       },
       {
         "courseId": "001241",
-        "courseTitle": "Oral Communication in English",
+        "courseTitle": "Oral Comm in English",
         "prerequisites": []
       },
       {
@@ -642,7 +642,7 @@
       },
       {
         "courseId": "201190",
-        "courseTitle": "Critical Thinking, Problem Solving & Science Communication",
+        "courseTitle": "Critical Thinking, Prob Solv & Sci Comm",
         "prerequisites": []
       },
       {
@@ -672,7 +672,7 @@
       },
       {
         "courseId": "271112",
-        "courseTitle": "Fundamentals of Rapid Prototyping for Robotics Engineering",
+        "courseTitle": "Fund of Rapid Prototyping for Robotics Engr",
         "prerequisites": []
       },
       {
@@ -707,7 +707,7 @@
       },
       {
         "courseId": "900100",
-        "courseTitle": "Biomedical Engineering in Everyday Life",
+        "courseTitle": "Biomed Engr in Everyday Life",
         "prerequisites": []
       },
       {
@@ -1008,12 +1008,12 @@
     "majorElective": [
       {
         "courseId": "261400",
-        "courseTitle": "Computer Engineering Training",
+        "courseTitle": "CPE Training",
         "prerequisites": []
       },
       {
         "courseId": "261404",
-        "courseTitle": "Advanced Computer Engineering Laboratory",
+        "courseTitle": "Advanced CPE Lab",
         "prerequisites": []
       },
       {
@@ -1028,7 +1028,7 @@
       },
       {
         "courseId": "261407",
-        "courseTitle": "Fundamentals of Computation for Computer Engineers",
+        "courseTitle": "Fund of Computation for CPE",
         "prerequisites": []
       },
       {
@@ -1043,12 +1043,12 @@
       },
       {
         "courseId": "261410",
-        "courseTitle": "Electronic Devices for Computer Engineering",
+        "courseTitle": "Elec Devices for CPE",
         "prerequisites": []
       },
       {
         "courseId": "261411",
-        "courseTitle": "Parallel Processing & Distributed Systems",
+        "courseTitle": "Parallel Proc & Dist Sys",
         "prerequisites": []
       },
       {
@@ -1058,17 +1058,17 @@
       },
       {
         "courseId": "261414",
-        "courseTitle": "Digital System Design",
+        "courseTitle": "Digital Sys Design",
         "prerequisites": []
       },
       {
         "courseId": "261421",
-        "courseTitle": "Computer Hardware Design",
+        "courseTitle": "Comp HW Design",
         "prerequisites": []
       },
       {
         "courseId": "261424",
-        "courseTitle": "Remote Monitoring & Control Systems",
+        "courseTitle": "Remote Mon & Ctrl Sys",
         "prerequisites": []
       },
       {
@@ -1088,22 +1088,22 @@
       },
       {
         "courseId": "261435",
-        "courseTitle": "Broadband Communication Networks",
+        "courseTitle": "Broadband Comm Networks",
         "prerequisites": []
       },
       {
         "courseId": "261437",
-        "courseTitle": "Fundamentals of Queueing Theory for Computer Engineers",
+        "courseTitle": "Fund of Queueing Theory for CPE",
         "prerequisites": []
       },
       {
         "courseId": "261438",
-        "courseTitle": "Fundamentals of Multiprotocol Label Switching",
+        "courseTitle": "MPLS",
         "prerequisites": []
       },
       {
         "courseId": "261439",
-        "courseTitle": "Wireless Communications for Computer Engineering",
+        "courseTitle": "Wireless Comm for CPE",
         "prerequisites": []
       },
       {
@@ -1128,7 +1128,7 @@
       },
       {
         "courseId": "261448",
-        "courseTitle": "Data Mining for Computer Engineering",
+        "courseTitle": "Data Mining for CPE",
         "prerequisites": []
       },
       {
@@ -1178,17 +1178,17 @@
       },
       {
         "courseId": "261464",
-        "courseTitle": "Computer Simulation Modeling & Analysis",
+        "courseTitle": "Comp Sim Modeling & Analysis",
         "prerequisites": []
       },
       {
         "courseId": "261465",
-        "courseTitle": "Computer Graphics",
+        "courseTitle": "CG",
         "prerequisites": []
       },
       {
         "courseId": "261468",
-        "courseTitle": "System Analysis & Design for Computer Engineering",
+        "courseTitle": "Sys Analysis & Design for CPE",
         "prerequisites": []
       },
       {
@@ -1213,12 +1213,12 @@
       },
       {
         "courseId": "261473",
-        "courseTitle": "Computer Aided Manufacturing",
+        "courseTitle": "CAM",
         "prerequisites": []
       },
       {
         "courseId": "261474",
-        "courseTitle": "Real-Time Computer Control",
+        "courseTitle": "Real-Time Comp Ctrl",
         "prerequisites": []
       },
       {
@@ -1233,7 +1233,7 @@
       },
       {
         "courseId": "261478",
-        "courseTitle": "Principles of Control Systems",
+        "courseTitle": "Ctrl Sys",
         "prerequisites": []
       },
       {
@@ -1248,7 +1248,7 @@
       },
       {
         "courseId": "261486",
-        "courseTitle": "Network Security & Technological Controls",
+        "courseTitle": "Net Sec & Tech Ctrl",
         "prerequisites": []
       },
       {
@@ -1273,27 +1273,27 @@
       },
       {
         "courseId": "261494",
-        "courseTitle": "Selected Topics in Computer Engineering",
+        "courseTitle": "Selected Topics in CPE",
         "prerequisites": []
       },
       {
         "courseId": "261497",
-        "courseTitle": "Selected Topics in Computer Software",
+        "courseTitle": "Selected Topics in Comp SW",
         "prerequisites": []
       },
       {
         "courseId": "261498",
-        "courseTitle": "Selected Topics in Computer Networks",
+        "courseTitle": "Selected Topics in Comp Networks",
         "prerequisites": []
       },
       {
         "courseId": "261499",
-        "courseTitle": "Selected Topics in Computational Intelligence",
+        "courseTitle": "Selected Topics in CI",
         "prerequisites": []
       },
       {
         "courseId": "269421",
-        "courseTitle": "Computer Network Traffic Analysis",
+        "courseTitle": "Net Traffic Analysis",
         "prerequisites": []
       },
       {
@@ -1313,7 +1313,7 @@
       },
       {
         "courseId": "269433",
-        "courseTitle": "Computer Network Routing Protocols",
+        "courseTitle": "Net Routing Protocols",
         "prerequisites": []
       },
       {
