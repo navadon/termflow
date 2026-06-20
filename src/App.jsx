@@ -22,8 +22,8 @@ import isce2569CysecCoop from './data/catalog-isce2569-cysec-coop.json';
 import isce2569CysecRegular from './data/catalog-isce2569-cysec-regular.json';
 import isce2569InfosysCoop from './data/catalog-isce2569-infosys-coop.json';
 import isce2569InfosysRegular from './data/catalog-isce2569-infosys-regular.json';
-import isne2565Coop from './data/catalog-isne2565-coop.json';
-import isne2565Regular from './data/catalog-isne2565-regular.json';
+import isne2566Coop from './data/catalog-isne2566-coop.json';
+import isne2566Regular from './data/catalog-isne2566-regular.json';
 
 // --- 2. CREATE CURRICULUM DICTIONARY ---
 const curriculums = {
@@ -36,8 +36,8 @@ const curriculums = {
   'ISCE 2569 CySec (Co-op)': isce2569CysecCoop,
   'ISCE 2569 InfoSys (Regular)': isce2569InfosysRegular,
   'ISCE 2569 InfoSys (Co-op)': isce2569InfosysCoop,
-  'ISNE 2565 (Regular)': isne2565Regular,
-  'ISNE 2565 (Co-op)': isne2565Coop
+  'ISNE 2566 (Regular)': isne2566Regular,
+  'ISNE 2566 (Co-op)': isne2566Coop
 };
 
 // --- CONFIGURATION ---
