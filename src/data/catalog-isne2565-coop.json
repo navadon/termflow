@@ -18,7 +18,7 @@
     {
       "id": "c-206161",
       "courseId": "206161",
-      "courseTitle": "Calculus 1",
+      "courseTitle": "Calc for Engr 1",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -70,7 +70,7 @@
     {
       "id": "c-259191",
       "courseId": "259191",
-      "courseTitle": "Prin Pro",
+      "courseTitle": "Prin Prof",
       "creditHours": 1,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -109,7 +109,7 @@
     {
       "id": "c-206162",
       "courseId": "206162",
-      "courseTitle": "Calculus 2",
+      "courseTitle": "Calc for Engr 2",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 2,
@@ -412,7 +412,7 @@
     {
       "id": "ge-co-creator",
       "courseId": null,
-      "courseTitle": "Co-creator GE",
+      "courseTitle": "GenEd Co-creator",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 2,
@@ -514,7 +514,7 @@
     {
       "id": "ge-digital-lit",
       "courseId": null,
-      "courseTitle": "Digital Lit GE",
+      "courseTitle": "GenEd Digital Literacy",
       "creditHours": 3,
       "suggestedYear": 3,
       "suggestedSemester": 1,
@@ -628,7 +628,7 @@
     {
       "id": "ge-1",
       "courseId": null,
-      "courseTitle": "GE",
+      "courseTitle": "GenEd Elective",
       "creditHours": 1,
       "suggestedYear": 3,
       "suggestedSemester": 2,
@@ -683,7 +683,7 @@
     {
       "id": "ge-2",
       "courseId": null,
-      "courseTitle": "GE",
+      "courseTitle": "GenEd Elective",
       "creditHours": 3,
       "suggestedYear": 4,
       "suggestedSemester": 2,
@@ -696,7 +696,7 @@
     {
       "id": "ge-3",
       "courseId": null,
-      "courseTitle": "GE",
+      "courseTitle": "GenEd Elective",
       "creditHours": 3,
       "suggestedYear": 4,
       "suggestedSemester": 2,
@@ -737,7 +737,7 @@
     {
       "id": "c-259192",
       "courseId": "259192",
-      "courseTitle": "Skills Pro",
+      "courseTitle": "Skills Prof",
       "creditHours": 1,
       "suggestedYear": 4,
       "suggestedSemester": 2,

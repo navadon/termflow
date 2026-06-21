@@ -4,7 +4,7 @@
     {
       "id": "gened-lang-1",
       "courseId": null,
-      "courseTitle": "Gen Ed Lang Literacy",
+      "courseTitle": "GenEd Lang Literacy",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -15,7 +15,7 @@
     {
       "id": "c-206161",
       "courseId": "206161",
-      "courseTitle": "Cal for Eng 1",
+      "courseTitle": "Calc for Engr 1",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -37,7 +37,7 @@
     {
       "id": "c-259191",
       "courseId": "259191",
-      "courseTitle": "Prin of Being Professional",
+      "courseTitle": "Prin of Being Prof",
       "creditHours": 1,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -70,7 +70,7 @@
     {
       "id": "gened-global-1",
       "courseId": null,
-      "courseTitle": "Gen Ed Global Citizen",
+      "courseTitle": "GenEd Global Citizen",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -81,7 +81,7 @@
     {
       "id": "gened-lang-2",
       "courseId": null,
-      "courseTitle": "Gen Ed Lang Literacy",
+      "courseTitle": "GenEd Lang Literacy",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 2,
@@ -92,13 +92,15 @@
     {
       "id": "c-206162",
       "courseId": "206162",
-      "courseTitle": "Cal for Eng 2",
+      "courseTitle": "Calc for Engr 2",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["206161"]
+      "prerequisites": [
+        "206161"
+      ]
     },
     {
       "id": "c-269130",
@@ -109,7 +111,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["267101"]
+      "prerequisites": [
+        "267101"
+      ]
     },
     {
       "id": "c-267102",
@@ -125,13 +129,15 @@
     {
       "id": "c-261205",
       "courseId": "261205",
-      "courseTitle": "Data Struct and Algo",
+      "courseTitle": "Data Struct & Algo",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["261102"]
+      "prerequisites": [
+        "261102"
+      ]
     },
     {
       "id": "c-255201",
@@ -147,7 +153,7 @@
     {
       "id": "gened-lang-3",
       "courseId": null,
-      "courseTitle": "Gen Ed Lang Literacy",
+      "courseTitle": "GenEd Lang Literacy",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 1,
@@ -164,7 +170,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["269130"]
+      "prerequisites": [
+        "269130"
+      ]
     },
     {
       "id": "c-261336",
@@ -180,13 +188,15 @@
     {
       "id": "c-267251",
       "courseId": "267251",
-      "courseTitle": "Net and Info Security",
+      "courseTitle": "Net & Info Security",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["269130"]
+      "prerequisites": [
+        "269130"
+      ]
     },
     {
       "id": "c-269202",
@@ -197,7 +207,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["261205"]
+      "prerequisites": [
+        "261205"
+      ]
     },
     {
       "id": "c-267221",
@@ -208,7 +220,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["261102"]
+      "prerequisites": [
+        "261102"
+      ]
     },
     {
       "id": "c-269210",
@@ -224,7 +238,7 @@
     {
       "id": "gened-digital-1",
       "courseId": null,
-      "courseTitle": "Gen Ed Digital Literacy",
+      "courseTitle": "GenEd Digital Literacy",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 2,
@@ -241,7 +255,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["261335"]
+      "prerequisites": [
+        "261335"
+      ]
     },
     {
       "id": "c-267222",
@@ -252,12 +268,14 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["261102"]
+      "prerequisites": [
+        "261102"
+      ]
     },
     {
       "id": "gened-entrep-1",
       "courseId": null,
-      "courseTitle": "Gen Ed Entrep Skills",
+      "courseTitle": "GenEd Entre Skills",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 2,
@@ -274,7 +292,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["261205"]
+      "prerequisites": [
+        "261205"
+      ]
     },
     {
       "id": "c-261305",
@@ -285,12 +305,14 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["269210"]
+      "prerequisites": [
+        "269210"
+      ]
     },
     {
       "id": "gened-create-1",
       "courseId": null,
-      "courseTitle": "Gen Ed Creativity & Innovation",
+      "courseTitle": "GenEd Creativity & Innovation",
       "creditHours": 3,
       "suggestedYear": 3,
       "suggestedSemester": 1,
@@ -307,7 +329,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261335"]
+      "prerequisites": [
+        "261335"
+      ]
     },
     {
       "id": "c-261434",
@@ -318,7 +342,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261335"]
+      "prerequisites": [
+        "261335"
+      ]
     },
     {
       "id": "c-261361",
@@ -329,7 +355,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["269202"]
+      "prerequisites": [
+        "269202"
+      ]
     },
     {
       "id": "c-267346",
@@ -340,7 +368,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261341"]
+      "prerequisites": [
+        "261341"
+      ]
     },
     {
       "id": "c-204342",
@@ -351,12 +381,14 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261305"]
+      "prerequisites": [
+        "261305"
+      ]
     },
     {
       "id": "gened-elect-1",
       "courseId": null,
-      "courseTitle": "Gen Ed Elec",
+      "courseTitle": "GenEd Elective",
       "creditHours": 3,
       "suggestedYear": 3,
       "suggestedSemester": 2,
@@ -384,7 +416,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["261361"]
+      "prerequisites": [
+        "261361"
+      ]
     },
     {
       "id": "c-261446",
@@ -395,7 +429,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["261205"]
+      "prerequisites": [
+        "261205"
+      ]
     },
     {
       "id": "c-269370",
@@ -406,7 +442,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["261205"]
+      "prerequisites": [
+        "261205"
+      ]
     },
     {
       "id": "c-267345",
@@ -417,7 +455,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["261205"]
+      "prerequisites": [
+        "261205"
+      ]
     },
     {
       "id": "free-elect-1",
@@ -483,12 +523,15 @@
       "suggestedSemester": 1,
       "selectedYear": 4,
       "selectedSemester": 1,
-      "prerequisites": ["261446", "269370"]
+      "prerequisites": [
+        "261446",
+        "269370"
+      ]
     },
     {
       "id": "c-259192",
       "courseId": "259192",
-      "courseTitle": "Skill for Prof and Enterp",
+      "courseTitle": "Skills for Prof & Entre",
       "creditHours": 1,
       "suggestedYear": 4,
       "suggestedSemester": 1,

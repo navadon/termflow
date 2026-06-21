@@ -1,59 +1,566 @@
 {
   "curriculumName": "isce2569-cysec-coop",
   "courses": [
-    { "id": "gened-1-1", "courseId": null, "courseTitle": "Gen Ed Lang Literacy", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-206161", "courseId": "206161", "courseTitle": "Cal for Eng 1", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-267101", "courseId": "267101", "courseTitle": "Intro to ISCE", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-259191", "courseId": "259191", "courseTitle": "Prin of Being Professional", "creditHours": 1, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-261102", "courseId": "261102", "courseTitle": "Comp Prog", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-261216", "courseId": "261216", "courseTitle": "Discrete Math for CPE", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "gened-1-1-b", "courseId": null, "courseTitle": "Gen Ed Global Citizen", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 1, "selectedYear": 1, "selectedSemester": 1, "prerequisites": [] },
-
-    { "id": "gened-1-2", "courseId": null, "courseTitle": "Gen Ed Lang Literacy", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 2, "selectedYear": 1, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-206162", "courseId": "206162", "courseTitle": "Cal for Eng 2", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 2, "selectedYear": 1, "selectedSemester": 2, "prerequisites": ["206161"] },
-    { "id": "c-269130", "courseId": "269130", "courseTitle": "Data Comm", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 2, "selectedYear": 1, "selectedSemester": 2, "prerequisites": ["267101"] },
-    { "id": "c-267102", "courseId": "267102", "courseTitle": "Basic Eng for ISCE", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 2, "selectedYear": 1, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-261205", "courseId": "261205", "courseTitle": "Data Struct and Algo", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 2, "selectedYear": 1, "selectedSemester": 2, "prerequisites": ["261102"] },
-    { "id": "c-255201", "courseId": "255201", "courseTitle": "Quan Anal in IE", "creditHours": 3, "suggestedYear": 1, "suggestedSemester": 2, "selectedYear": 1, "selectedSemester": 2, "prerequisites": [] },
-
-    { "id": "gened-2-1", "courseId": null, "courseTitle": "Gen Ed Lang Literacy", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-261335", "courseId": "261335", "courseTitle": "Comp Net", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": ["269130"] },
-    { "id": "c-261336", "courseId": "261336", "courseTitle": "Comp Net Lab", "creditHours": 1, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-267251", "courseId": "267251", "courseTitle": "Net and Info Security", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": ["269130"] },
-    { "id": "c-267221", "courseId": "267221", "courseTitle": "Front-End App Dev", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": ["261102"] },
-    { "id": "c-269202", "courseId": "269202", "courseTitle": "Algo for ISNE", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": ["261205"] },
-    { "id": "c-269210", "courseId": "269210", "courseTitle": "Comp Arch for ISNE", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 1, "selectedYear": 2, "selectedSemester": 1, "prerequisites": [] },
-
-    { "id": "gened-2-2", "courseId": null, "courseTitle": "Gen Ed Digital Literacy", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 2, "selectedYear": 2, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-269430", "courseId": "269430", "courseTitle": "Wireless & Broadband", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 2, "selectedYear": 2, "selectedSemester": 2, "prerequisites": ["261335"] },
-    { "id": "c-267222", "courseId": "267222", "courseTitle": "Back-end App Dev", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 2, "selectedYear": 2, "selectedSemester": 2, "prerequisites": ["261102"] },
-    { "id": "gened-entre", "courseId": null, "courseTitle": "Gen Ed Entrep Skills", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 2, "selectedYear": 2, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-261341", "courseId": "261341", "courseTitle": "Database Sys", "creditHours": 4, "suggestedYear": 2, "suggestedSemester": 2, "selectedYear": 2, "selectedSemester": 2, "prerequisites": ["261205"] },
-    { "id": "c-261305", "courseId": "261305", "courseTitle": "Operating Systems", "creditHours": 3, "suggestedYear": 2, "suggestedSemester": 2, "selectedYear": 2, "selectedSemester": 2, "prerequisites": ["269210"] },
-
-    { "id": "gened-innov", "courseId": null, "courseTitle": "Gen Ed Creativity & Innovation", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 1, "selectedYear": 3, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-267341", "courseId": "267341", "courseTitle": "Cloud Tech", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 1, "selectedYear": 3, "selectedSemester": 1, "prerequisites": ["261335"] },
-    { "id": "c-267351", "courseId": "267351", "courseTitle": "Ethical Hacking", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 1, "selectedYear": 3, "selectedSemester": 1, "prerequisites": ["267251"] },
-    { "id": "c-176104", "courseId": "176104", "courseTitle": "Right and Duty", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 1, "selectedYear": 3, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-267346", "courseId": "267346", "courseTitle": "Data Man & Big Data", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 1, "selectedYear": 3, "selectedSemester": 1, "prerequisites": ["261341"] },
-    { "id": "c-204342", "courseId": "204342", "courseTitle": "Cyber Def vs. Dark Arts", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 1, "selectedYear": 3, "selectedSemester": 1, "prerequisites": ["261305"] },
-
-    { "id": "gened-elec", "courseId": null, "courseTitle": "Gen Ed Elec", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "major-elec-1", "courseId": null, "courseTitle": "Major Elec", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-267491", "courseId": "267491", "courseTitle": "Project Survey", "creditHours": 1, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": [] },
-    { "id": "c-267371", "courseId": "267371", "courseTitle": "Pen Testing", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": ["267351"] },
-    { "id": "c-267360", "courseId": "267360", "courseTitle": "Defensive Security", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": ["267351"] },
-    { "id": "c-267345", "courseId": "267345", "courseTitle": "AI & ML", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": ["269202"] },
-    { "id": "c-267352", "courseId": "267352", "courseTitle": "OS Security", "creditHours": 3, "suggestedYear": 3, "suggestedSemester": 2, "selectedYear": 3, "selectedSemester": 2, "prerequisites": ["261305"] },
-
-    { "id": "c-259192", "courseId": "259192", "courseTitle": "Skill for Prof and Entrep", "creditHours": 1, "suggestedYear": 4, "suggestedSemester": 1, "selectedYear": 4, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "free-elec-1", "courseId": null, "courseTitle": "Free Elective", "creditHours": 3, "suggestedYear": 4, "suggestedSemester": 1, "selectedYear": 4, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "c-267492", "courseId": "267492", "courseTitle": "Project", "creditHours": 3, "suggestedYear": 4, "suggestedSemester": 1, "selectedYear": 4, "selectedSemester": 1, "prerequisites": ["267491"] },
-    { "id": "c-267481", "courseId": "267481", "courseTitle": "Digi Foren & Inci Resp", "creditHours": 3, "suggestedYear": 4, "suggestedSemester": 1, "selectedYear": 4, "selectedSemester": 1, "prerequisites": ["267351"] },
-    { "id": "c-267480", "courseId": "267480", "courseTitle": "Cybersec Std & policy", "creditHours": 3, "suggestedYear": 4, "suggestedSemester": 1, "selectedYear": 4, "selectedSemester": 1, "prerequisites": ["267360"] },
-    { "id": "free-elec-2", "courseId": null, "courseTitle": "Free Elective", "creditHours": 3, "suggestedYear": 4, "suggestedSemester": 1, "selectedYear": 4, "selectedSemester": 1, "prerequisites": [] },
-    { "id": "major-elec-2", "courseId": null, "courseTitle": "Major Elec", "creditHours": 3, "suggestedYear": 4, "suggestedSemester": 1, "selectedYear": 4, "selectedSemester": 1, "prerequisites": [] },
-
-    { "id": "c-267495", "courseId": "267495", "courseTitle": "Coop Ed", "creditHours": 6, "suggestedYear": 4, "suggestedSemester": 2, "selectedYear": 4, "selectedSemester": 2, "prerequisites": [] }
+    {
+      "id": "gened-1-1",
+      "courseId": null,
+      "courseTitle": "GenEd Lang Literacy",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-206161",
+      "courseId": "206161",
+      "courseTitle": "Calc for Engr 1",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-267101",
+      "courseId": "267101",
+      "courseTitle": "Intro to ISCE",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-259191",
+      "courseId": "259191",
+      "courseTitle": "Prin of Being Prof",
+      "creditHours": 1,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261102",
+      "courseId": "261102",
+      "courseTitle": "Comp Prog",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261216",
+      "courseId": "261216",
+      "courseTitle": "Discrete Math for CPE",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "gened-1-1-b",
+      "courseId": null,
+      "courseTitle": "GenEd Global Citizen",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "gened-1-2",
+      "courseId": null,
+      "courseTitle": "GenEd Lang Literacy",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-206162",
+      "courseId": "206162",
+      "courseTitle": "Calc for Engr 2",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "206161"
+      ]
+    },
+    {
+      "id": "c-269130",
+      "courseId": "269130",
+      "courseTitle": "Data Comm",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "267101"
+      ]
+    },
+    {
+      "id": "c-267102",
+      "courseId": "267102",
+      "courseTitle": "Basic Eng for ISCE",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261205",
+      "courseId": "261205",
+      "courseTitle": "Data Struct & Algo",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261102"
+      ]
+    },
+    {
+      "id": "c-255201",
+      "courseId": "255201",
+      "courseTitle": "Quan Anal in IE",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "gened-2-1",
+      "courseId": null,
+      "courseTitle": "GenEd Lang Literacy",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261335",
+      "courseId": "261335",
+      "courseTitle": "Comp Net",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "269130"
+      ]
+    },
+    {
+      "id": "c-261336",
+      "courseId": "261336",
+      "courseTitle": "Comp Net Lab",
+      "creditHours": 1,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-267251",
+      "courseId": "267251",
+      "courseTitle": "Net & Info Security",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "269130"
+      ]
+    },
+    {
+      "id": "c-267221",
+      "courseId": "267221",
+      "courseTitle": "Front-End App Dev",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261102"
+      ]
+    },
+    {
+      "id": "c-269202",
+      "courseId": "269202",
+      "courseTitle": "Algo for ISNE",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261205"
+      ]
+    },
+    {
+      "id": "c-269210",
+      "courseId": "269210",
+      "courseTitle": "Comp Arch for ISNE",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "gened-2-2",
+      "courseId": null,
+      "courseTitle": "GenEd Digital Literacy",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-269430",
+      "courseId": "269430",
+      "courseTitle": "Wireless & Broadband",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261335"
+      ]
+    },
+    {
+      "id": "c-267222",
+      "courseId": "267222",
+      "courseTitle": "Back-end App Dev",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261102"
+      ]
+    },
+    {
+      "id": "gened-entre",
+      "courseId": null,
+      "courseTitle": "GenEd Entre Skills",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-261341",
+      "courseId": "261341",
+      "courseTitle": "Database Sys",
+      "creditHours": 4,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261205"
+      ]
+    },
+    {
+      "id": "c-261305",
+      "courseId": "261305",
+      "courseTitle": "Operating Systems",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "269210"
+      ]
+    },
+    {
+      "id": "gened-innov",
+      "courseId": null,
+      "courseTitle": "GenEd Creativity & Innovation",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-267341",
+      "courseId": "267341",
+      "courseTitle": "Cloud Tech",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261335"
+      ]
+    },
+    {
+      "id": "c-267351",
+      "courseId": "267351",
+      "courseTitle": "Ethical Hacking",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "267251"
+      ]
+    },
+    {
+      "id": "c-176104",
+      "courseId": "176104",
+      "courseTitle": "Right & Duty",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-267346",
+      "courseId": "267346",
+      "courseTitle": "Data Man & Big Data",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261341"
+      ]
+    },
+    {
+      "id": "c-204342",
+      "courseId": "204342",
+      "courseTitle": "Cyber Def vs. Dark Arts",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261305"
+      ]
+    },
+    {
+      "id": "gened-elec",
+      "courseId": null,
+      "courseTitle": "GenEd Elective",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "major-elec-1",
+      "courseId": null,
+      "courseTitle": "Major Elec",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-267491",
+      "courseId": "267491",
+      "courseTitle": "Project Survey",
+      "creditHours": 1,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": []
+    },
+    {
+      "id": "c-267371",
+      "courseId": "267371",
+      "courseTitle": "Pen Testing",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "267351"
+      ]
+    },
+    {
+      "id": "c-267360",
+      "courseId": "267360",
+      "courseTitle": "Defensive Security",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "267351"
+      ]
+    },
+    {
+      "id": "c-267345",
+      "courseId": "267345",
+      "courseTitle": "AI & ML",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "269202"
+      ]
+    },
+    {
+      "id": "c-267352",
+      "courseId": "267352",
+      "courseTitle": "OS Security",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261305"
+      ]
+    },
+    {
+      "id": "c-259192",
+      "courseId": "259192",
+      "courseTitle": "Skills for Prof & Entre",
+      "creditHours": 1,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "free-elec-1",
+      "courseId": null,
+      "courseTitle": "Free Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-267492",
+      "courseId": "267492",
+      "courseTitle": "Project",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "267491"
+      ]
+    },
+    {
+      "id": "c-267481",
+      "courseId": "267481",
+      "courseTitle": "Digi Foren & Inci Resp",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "267351"
+      ]
+    },
+    {
+      "id": "c-267480",
+      "courseId": "267480",
+      "courseTitle": "Cybersec Std & policy",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "267360"
+      ]
+    },
+    {
+      "id": "free-elec-2",
+      "courseId": null,
+      "courseTitle": "Free Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "major-elec-2",
+      "courseId": null,
+      "courseTitle": "Major Elec",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": []
+    },
+    {
+      "id": "c-267495",
+      "courseId": "267495",
+      "courseTitle": "Coop Ed",
+      "creditHours": 6,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": []
+    }
   ]
 }

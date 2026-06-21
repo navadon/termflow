@@ -8,6 +8,7 @@ import ReactFlow, {
     Position,
     MarkerType,
     BaseEdge,
+    Handle,
     useStore,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
@@ -25,7 +26,7 @@ import isce2569InfosysCoop from './data/catalog-isce2569-infosys-coop.json';
 import isce2569InfosysRegular from './data/catalog-isce2569-infosys-regular.json';
 import isne2565Coop from './data/catalog-isne2565-coop.json';
 import isne2565Regular from './data/catalog-isne2565-regular.json';
-import templateCatalog from './data/catalog-template.json';
+import LANG_LITERACY_OPTIONS from './data/language-literacy-options.json';
 
 // --- CUSTOM EDGE: หลบ node ที่ขวางอยู่กลางทาง ---
 const segmentsIntersect = (ax1, ay1, ax2, ay2, bx1, by1, bx2, by2) => {
@@ -193,6 +194,138 @@ const AvoidingEdge = ({
 
 const edgeTypes = { avoiding: AvoidingEdge };
 
+const CourseNode = ({ id, data }) => {
+    const isSummer = data.suggestedSemester === 3;
+    const suggestedLabel = isSummer
+        ? `Y${data.suggestedYear}-Summer`
+        : `Y${data.suggestedYear}-${data.suggestedSemester}`;
+    const isOffSchedule = data.currentYear !== data.suggestedYear || data.currentSemester !== data.suggestedSemester;
+    const selectedCourseId = data.courseId || '';
+    const selectedOption = LANG_LITERACY_OPTIONS.find(opt => opt.courseId === selectedCourseId);
+    const courseTitle = selectedOption?.courseTitle || data.courseTitle;
+    const completed = !!data.completed;
+
+    const handleSelect = (event) => {
+        if (data.onSelectCourse) {
+            data.onSelectCourse(id, event.target.value);
+        }
+    };
+
+    const handleToggle = (event) => {
+        if (data.onToggleComplete) {
+            data.onToggleComplete(id, event.target.checked);
+        }
+    };
+
+    const handleMouseEnter = () => {
+        if (data.onHover) {
+            data.onHover(id);
+        }
+    };
+
+    const handleMouseLeave = () => {
+        if (data.onLeave) {
+            data.onLeave(id);
+        }
+    };
+
+    const handleClick = () => {
+        if (data.onClick) {
+            data.onClick(id);
+        }
+    };
+
+    return (
+        <>
+            <Handle type="target" position={Position.Left} />
+            <div
+                onPointerEnter={handleMouseEnter}
+                onPointerLeave={handleMouseLeave}
+                onClick={handleClick}
+                style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
+                    <div style={{ fontWeight: 'bold', fontSize: '18px', color: '#444' }}>
+                        {data.isLangLiteracy ? 'GenEd' : (data.courseId || 'GenEd')}
+                        {isOffSchedule && (
+                            <span style={{ fontSize: '14px', color: '#777', marginLeft: '6px', fontWeight: 'bold' }}>
+                                {suggestedLabel}
+                            </span>
+                        )}
+                    </div>
+                    <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
+                        {data.creditHours} CR
+                    </div>
+                </div>
+                {data.isLangLiteracy ? (
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', width: '100%', minWidth: 0 }}>
+                        <select
+                            value={selectedCourseId}
+                            className="nodrag"
+                            onChange={handleSelect}
+                            style={{
+                                flex: '1 1 0%',
+                                minWidth: 0,
+                                width: '100%',
+                                boxSizing: 'border-box',
+                                padding: '6px 8px',
+                                margin: 0,
+                                fontSize: '14px',
+                                fontWeight: '600',
+                                lineHeight: '1.25',
+                                color: '#000',
+                                borderRadius: '4px',
+                                border: '1px solid #ccc',
+                                cursor: 'pointer',
+                                maxWidth: '100%',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
+                                whiteSpace: 'nowrap'
+                            }}
+                        >
+                            <option value="">Select Language Literacy</option>
+                            {LANG_LITERACY_OPTIONS.map(opt => (
+                                <option
+                                    key={opt.courseId}
+                                    value={opt.courseId}
+                                    disabled={data.otherSelectedIds?.includes(opt.courseId)}
+                                >
+                                    {opt.courseId} {opt.courseTitle}
+                                </option>
+                            ))}
+                        </select>
+                        <input
+                            type="checkbox"
+                            className="nodrag"
+                            checked={completed}
+                            disabled={!selectedCourseId}
+                            onChange={handleToggle}
+                            title={!selectedCourseId ? 'Select a course first' : 'Mark as completed'}
+                            style={{
+                                cursor: selectedCourseId ? 'pointer' : 'not-allowed',
+                                width: '24px',
+                                height: '24px',
+                                minWidth: '24px',
+                                minHeight: '24px',
+                                flexShrink: 0,
+                                marginTop: '0px',
+                                accentColor: '#28a745'
+                            }}
+                        />
+                    </div>
+                ) : (
+                    <div style={{ fontSize: '16px', lineHeight: '1.25', fontWeight: '600', color: '#000' }}>
+                        {courseTitle}
+                    </div>
+                    
+                )}
+            </div>
+            <Handle type="source" position={Position.Right} />
+        </>
+    );
+};
+
+const nodeTypes = { course: CourseNode };
+
 // --- 2. CREATE CURRICULUM DICTIONARY ---
 const curriculums = {
     'CPE 2568 (Regular)': cpe2568Regular,
@@ -205,8 +338,7 @@ const curriculums = {
     'ISCE 2569 InfoSys (Regular)': isce2569InfosysRegular,
     'ISCE 2569 InfoSys (Co-op)': isce2569InfosysCoop,
     'ISNE 2565 (Regular)': isne2565Regular,
-    'ISNE 2565 (Co-op)': isne2565Coop,
-    'Template': templateCatalog
+    'ISNE 2565 (Co-op)': isne2565Coop
 };
 
 // --- CONFIGURATION ---
@@ -311,30 +443,25 @@ export default function App() {
     // Node hover bg: computed live, never stored in base nodes
     const displayNodes = useMemo(() => {
         return nodes.map(node => {
-            if (node.type !== 'default' || node.id.startsWith('sem-bg')) return node;
+            if (node.id.startsWith('sem-bg')) return node;
+            if (node.type !== 'default' && node.type !== 'course') return node;
             const isHovered = node.id === hoveredNodeId;
             if (!isHovered) {
                 const hoverNode = nodes.find(n => n.id === hoveredNodeId);
-                if (hoverNode && hoverNode.data.prerequisites.includes(node.data.courseId)) {
+                if (hoverNode && hoverNode.data?.prerequisites?.includes(node.data.courseId)) {
                     return {
                         ...node,
                         style: {
                             ...node.style,
-                            // boxShadow: node.style?.border?.includes('red')
-                            //     ? node.style.boxShadow  // keep invalid-node red glow
-                            //     : '0 5px 10px rgba(255, 136, 0, 0.9)'
                             boxShadow: '0 5px 10px rgba(255, 136, 0, 0.9)'
                         }
                     };
                 }
-                if (hoverNode && node.data.prerequisites.includes(hoverNode.data.courseId)) {
+                if (hoverNode && node.data?.prerequisites?.includes(hoverNode.data.courseId)) {
                     return {
                         ...node,
                         style: {
                             ...node.style,
-                            // boxShadow: node.style?.border?.includes('red')
-                            //     ? node.style.boxShadow  // keep invalid-node red glow
-                            //     : '0 5px 10px rgba(0, 201, 201, 0.9)'
                             boxShadow: '0 5px 10px rgba(0, 201, 201, 0.9)'
                         }
                     };
@@ -348,7 +475,7 @@ export default function App() {
                     ...node.style,
                     filter: 'brightness(0.9)',
                     boxShadow: node.style?.border?.includes('red')
-                        ? node.style.boxShadow  // keep invalid-node red glow
+                        ? node.style.boxShadow
                         : '0 10px 10px rgba(90, 90, 90, 0.9)'
                 }
             };
@@ -421,13 +548,17 @@ export default function App() {
 
         currentNodes.forEach(n => {
             if (n.id.startsWith('sem-bg')) semesterCreditMap[n.id] = 0;
-            if (n.type === 'default' && !n.id.startsWith('sem-bg')) {
+            if ((n.type === 'default' || n.type === 'course') && !n.id.startsWith('sem-bg')) {
                 if (n.data.courseId) courseIdToNodeId[n.data.courseId] = n.id;
             }
         });
 
+        const selectedLangLiteracyIds = currentNodes
+            .filter(n => (n.type === 'course') && n.data.isLangLiteracy && n.data.courseId)
+            .map(n => n.data.courseId);
+
         currentNodes.forEach(courseNode => {
-            if (courseNode.type !== 'default' || courseNode.id.startsWith('sem-bg')) return;
+            if ((courseNode.type !== 'default' && courseNode.type !== 'course') || courseNode.id.startsWith('sem-bg')) return;
 
             const parentSem = currentNodes.find(semNode =>
                 semNode.id.startsWith('sem-bg') && isNodeInside(courseNode, semNode)
@@ -462,7 +593,7 @@ export default function App() {
                 };
             }
 
-            if (node.type === 'default') {
+if (node.type === 'default' || node.type === 'course') {
                 const myLoc = nodeLocationMap[node.id];
                 const prereqs = node.data.prerequisites || [];
 
@@ -682,11 +813,12 @@ export default function App() {
 
                 generatedNodes.push({
                     id: course.id,
-                    type: 'default',
+                    type: 'course',
                     sourcePosition: Position.Right,
                     targetPosition: Position.Left,
                     data: {
                         courseId: course.courseId,
+                        courseTitle: course.courseTitle,
                         creditHours: course.creditHours,
                         prerequisites: course.prerequisites,
                         corequisite: course.corequisite,
@@ -696,39 +828,31 @@ export default function App() {
                         currentSemester: sem === 99 ? null : sem,
                         rowIndex: rowIndex,
                         courseType: course.courseType,
-                        label: (
-                            // onPointerEnter/Leave on the label div drives hover state.
-                            // onClick clears selection (click = select, not hover).
-                            // Using pointer events instead of mouse events for
-                            // better reliability during drag operations.
-                            <div
-                                onPointerEnter={() => setHoveredNodeId(course.id)}
-                                onPointerLeave={() => {
-                                    setHoveredNodeId(null);
-                                    setTooltip(null);
-                                }}
-                                onClick={() => setSelectedNodeId(prev => prev === course.id ? null : course.id)}
-                                style={{
-                                    textAlign: 'left',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    height: '100%',
-                                    justifyContent: 'flex-start',
-                                    userSelect: 'none'
-                                }}>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
-                                    <div style={{ fontWeight: 'bold', fontSize: '18px', color: '#444' }}>
-                                        {course.courseId || course.courseType || 'GenEd'}
-                                    </div>
-                                    <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
-                                        {course.creditHours} CR
-                                    </div>
-                                </div>
-                                <div style={{ fontSize: '16px', lineHeight: '1.25', fontWeight: '600', color: '#000' }}>
-                                    {course.courseTitle}
-                                </div>
-                            </div>
-                        )
+                        isLangLiteracy: course.courseId == null && /lang/i.test(course.courseTitle),
+                        completed: course.completed || false,
+                        onSelectCourse: (nodeId, selectedCourseId) => {
+                            setNodes((current) => updateGameState(current.map(n => n.id === nodeId ? {
+                                ...n,
+                                data: {
+                                    ...n.data,
+                                    courseId: selectedCourseId,
+                                    courseTitle: LANG_LITERACY_OPTIONS.find(opt => opt.courseId === selectedCourseId)?.courseTitle || n.data.courseTitle,
+                                    completed: false
+                                }
+                            } : n)));
+                        },
+                        onToggleComplete: (nodeId, completed) => {
+                            setNodes((current) => updateGameState(current.map(n => n.id === nodeId ? {
+                                ...n,
+                                data: {
+                                    ...n.data,
+                                    completed
+                                }
+                            } : n)));
+                        },
+                        onHover: (nodeId) => setHoveredNodeId(nodeId),
+                        onLeave: () => { setHoveredNodeId(null); setTooltip(null); },
+                        onClick: (nodeId) => setSelectedNodeId(prev => prev === nodeId ? null : nodeId),
                     },
                     position: { x: cardX, y: cardY },
                     style: {
@@ -947,7 +1071,7 @@ export default function App() {
     const onEdgesChange = useCallback((changes) => setEdges((eds) => applyEdgeChanges(changes, eds)), []);
 
     const onNodeDragStart = useCallback((event, node) => {
-        if (node.type === 'default' && !node.id.startsWith('sem-bg')) {
+        if ((node.type === 'default' || node.type === 'course') && !node.id.startsWith('sem-bg')) {
             initialDragPos.current = node.position;
             // บันทึกตำแหน่งปัจจุบัน (ถ้าอยู่ในกรอบ) เป็น last valid position
             if (isPositionInsideFrame(node.position)) {
@@ -960,7 +1084,7 @@ export default function App() {
     }, [isPositionInsideFrame]);
 
     const onNodeDragStop = useCallback((event, node) => {
-        if (node.type === 'default' && !node.id.startsWith('sem-bg')) {
+        if ((node.type === 'default' || node.type === 'course') && !node.id.startsWith('sem-bg')) {
             const nodeCenterX = node.position.x + (COURSE_WIDTH / 2);
             const nodeCenterY = node.position.y + (COURSE_HEIGHT / 2);
 
@@ -991,7 +1115,7 @@ export default function App() {
                 if (snappedPosition) {
                     const isOccupied = currentNodes.some(n =>
                         n.id !== node.id &&
-                        n.type === 'default' &&
+                        (n.type === 'default' || n.type === 'course') &&
                         !n.id.startsWith('sem-bg') &&
                         Math.abs(n.position.x - snappedPosition.x) < 1 &&
                         Math.abs(n.position.y - snappedPosition.y) < 1
@@ -1052,11 +1176,20 @@ export default function App() {
 
         // Find the lowest row index that is free in the target semester
         const occupiedRows = new Set();
+        
+        // Check catalog courses (type: 'default' or 'course')
         nodes.forEach(n => {
-            if (n.type === 'default' && !n.id.startsWith('sem-bg')) {
+            if ((n.type === 'default' || n.type === 'course') && !n.id.startsWith('sem-bg')) {
                 if (n.data.currentYear === targetYear && n.data.currentSemester === targetSem) {
                     occupiedRows.add(n.data.rowIndex);
                 }
+            }
+        });
+        
+        // Check custom courses
+        customCourses.forEach(c => {
+            if (c.selectedYear === targetYear && c.selectedSemester === targetSem) {
+                occupiedRows.add(c.rowIndex);
             }
         });
 
@@ -1089,7 +1222,7 @@ export default function App() {
     };
 
     const handleExport = () => {
-        const courseNodes = nodes.filter(n => n.type === 'default' && !n.id.startsWith('sem-bg'));
+        const courseNodes = nodes.filter(n => (n.type === 'default' || n.type === 'course') && !n.id.startsWith('sem-bg'));
 
         const plan = courseNodes.map(n => ({
             id: n.id,
@@ -1197,7 +1330,7 @@ export default function App() {
         // Check if there are nodes on the bottom row
         const bottomRowIndex = nodeRowsCount - 1;
         const bottomRowNodes = nodes.filter(n => 
-            n.type === 'default' && 
+            (n.type === 'default' || n.type === 'course') && 
             !n.id.startsWith('sem-bg') &&
             n.data.rowIndex === bottomRowIndex
         );
@@ -1567,6 +1700,7 @@ export default function App() {
             <ReactFlow
                 nodes={displayNodes}
                 edges={displayEdges}
+                nodeTypes={nodeTypes}
                 edgeTypes={edgeTypes}
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}

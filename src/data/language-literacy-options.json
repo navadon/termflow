@@ -1,0 +1,43 @@
+[
+  {
+    "courseId": "001101",
+    "courseTitle": "Fund English 1",
+    "prerequisites": []
+  },
+  {
+    "courseId": "001102",
+    "courseTitle": "Fund English 2",
+    "prerequisites": [
+      "001101"
+    ]
+  },
+  {
+    "courseId": "001225",
+    "courseTitle": "English for Science & Technology",
+    "prerequisites": [
+      "001102"
+    ]
+  },
+  {
+    "courseId": "001201",
+    "courseTitle": "Critical Reading & Effective Writing",
+    "prerequisites": [
+      "001102"
+    ]
+  },
+  {
+    "courseId": "001207",
+    "courseTitle": "English for Effective & Creative Communication 1",
+    "prerequisites": []
+  },
+  {
+    "courseId": "001208",
+    "courseTitle": "English for Effective & Creative Communication 2",
+    "prerequisites": []
+  },
+  {
+    "courseId": "001209",
+    "courseTitle": "English for Prof & Academic Contexts",
+    "prerequisites": []
+  }
+]
