@@ -1,24 +1,10 @@
 {
   "curriculumName": "cpe2563-coop",
-  "resources": [
-    {
-      "title": "CPE 2563 Plan Information",
-      "url": "https://docs.google.com/spreadsheets/d/1akVHKI5zZeqkFfwttSb0N19XjfGHZmdfoA5LGm4nnGo/edit?gid=1725912247#gid=1725912247"
-    },
-    {
-      "title": "CPE 2563 Study Program",
-      "url": "https://www.cpe.eng.cmu.ac.th/curriculum-thai.php?view_id=CPE-2563BE"
-    },
-    {
-      "title": "หลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์ หลักสูตรปรับปรุง พ.ศ. 2563",
-      "url": "https://reg.eng.cmu.ac.th/reg_curriculum/uploads/2567/7.CPE-2567_2567.pdf"
-    }
-  ],
   "courses": [
     {
       "id": "c-001101",
       "courseId": "001101",
-      "courseTitle": "English 1",
+      "courseTitle": "Fundamental English 1",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -83,7 +69,7 @@
     {
       "id": "c-259104",
       "courseId": "259104",
-      "courseTitle": "Drawing",
+      "courseTitle": "Engr Drawing",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -109,7 +95,7 @@
     {
       "id": "c-259191",
       "courseId": "259191",
-      "courseTitle": "Activities 1",
+      "courseTitle": "Princ of Being Pro",
       "creditHours": 1,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -154,7 +140,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["206161"],
+      "prerequisites": [
+        "206161"
+      ],
       "rowIndex": 0,
       "courseType": "math and sci"
     },
@@ -167,7 +155,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["207105"],
+      "prerequisites": [
+        "207105"
+      ],
       "rowIndex": 7,
       "courseType": "math and sci"
     },
@@ -180,7 +170,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": ["207115"],
+      "prerequisites": [
+        "207115"
+      ],
       "rowIndex": 8,
       "courseType": "math and sci"
     },
@@ -226,26 +218,30 @@
     {
       "id": "c-001225",
       "courseId": "001225",
-      "courseTitle": "English in Sci",
+      "courseTitle": "English for Sci & Tech",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["001102"],
+      "prerequisites": [
+        "001102"
+      ],
       "rowIndex": 10,
       "courseType": "gen edu"
     },
     {
       "id": "c-206261",
       "courseId": "206261",
-      "courseTitle": "Calculus 3",
+      "courseTitle": "Calc for Engr 3",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["206162"],
+      "prerequisites": [
+        "206162"
+      ],
       "rowIndex": 0,
       "courseType": "math and sci"
     },
@@ -258,7 +254,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["207106"],
+      "prerequisites": [
+        "207106"
+      ],
       "rowIndex": 7,
       "courseType": "major courses"
     },
@@ -272,7 +270,6 @@
       "selectedYear": 2,
       "selectedSemester": 1,
       "prerequisites": [],
-      "corequisite": "261210",
       "rowIndex": 8,
       "courseType": "major courses"
     },
@@ -298,7 +295,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["261102"],
+      "prerequisites": [
+        "261102"
+      ],
       "rowIndex": 2,
       "courseType": "major courses"
     },
@@ -311,7 +310,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": ["261103"],
+      "prerequisites": [
+        "261103"
+      ],
       "rowIndex": 4,
       "courseType": "major courses"
     },
@@ -337,7 +338,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["001102"],
+      "prerequisites": [
+        "001102"
+      ],
       "rowIndex": 10,
       "courseType": "gen edu"
     },
@@ -350,7 +353,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["261102"],
+      "prerequisites": [
+        "261102"
+      ],
       "rowIndex": 3,
       "courseType": "major courses"
     },
@@ -363,7 +368,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["206261"],
+      "prerequisites": [
+        "206261"
+      ],
       "rowIndex": 0,
       "courseType": "math and sci"
     },
@@ -376,7 +383,10 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["261210", "252281"],
+      "prerequisites": [
+        "261210",
+        "252281"
+      ],
       "rowIndex": 7,
       "courseType": "major courses"
     },
@@ -390,7 +400,6 @@
       "selectedYear": 2,
       "selectedSemester": 2,
       "prerequisites": [],
-      "corequisite": "261214",
       "rowIndex": 8,
       "courseType": "major courses"
     },
@@ -403,7 +412,10 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["261216", "261217"],
+      "prerequisites": [
+        "261216",
+        "261217"
+      ],
       "rowIndex": 1,
       "courseType": "major courses"
     },
@@ -416,7 +428,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": ["207106"],
+      "prerequisites": [
+        "207106"
+      ],
       "rowIndex": 5,
       "courseType": "major courses"
     },
@@ -429,7 +443,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261214"],
+      "prerequisites": [
+        "261214"
+      ],
       "rowIndex": 7,
       "courseType": "major courses"
     },
@@ -442,7 +458,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261332"],
+      "prerequisites": [
+        "261332"
+      ],
       "rowIndex": 5,
       "courseType": "major courses"
     },
@@ -456,7 +474,6 @@
       "selectedYear": 3,
       "selectedSemester": 1,
       "prerequisites": [],
-      "corequisite": "261335",
       "rowIndex": 6,
       "courseType": "major courses"
     },
@@ -469,7 +486,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": ["261218"],
+      "prerequisites": [
+        "261218"
+      ],
       "rowIndex": 1,
       "courseType": "major courses"
     },
@@ -483,7 +502,6 @@
       "selectedYear": 3,
       "selectedSemester": 1,
       "prerequisites": [],
-      "corequisite": "261342",
       "rowIndex": 2,
       "courseType": "major courses"
     },
@@ -522,7 +540,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["261304"],
+      "prerequisites": [
+        "261304"
+      ],
       "rowIndex": 7,
       "courseType": "major courses"
     },
@@ -535,7 +555,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["206261"],
+      "prerequisites": [
+        "206261"
+      ],
       "rowIndex": 0,
       "courseType": "math and sci"
     },
@@ -548,7 +570,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": ["261200"],
+      "prerequisites": [
+        "261200"
+      ],
       "rowIndex": 3,
       "courseType": "major courses"
     },
@@ -620,7 +644,7 @@
     {
       "id": "c-261495",
       "courseId": "261495",
-      "courseTitle": "Coop Education",
+      "courseTitle": "Co-op",
       "creditHours": 6,
       "suggestedYear": 4,
       "suggestedSemester": 1,
@@ -633,7 +657,7 @@
     {
       "id": "c-259192",
       "courseId": "259192",
-      "courseTitle": "Activities 2",
+      "courseTitle": "Skills for Pro & Entre",
       "creditHours": 1,
       "suggestedYear": 4,
       "suggestedSemester": 2,
@@ -652,7 +676,9 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "prerequisites": ["261491"],
+      "prerequisites": [
+        "261491"
+      ],
       "rowIndex": 2,
       "courseType": "major courses"
     },
@@ -665,7 +691,9 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "prerequisites": ["261361"],
+      "prerequisites": [
+        "261361"
+      ],
       "rowIndex": 3,
       "courseType": "major courses"
     },
@@ -707,6 +735,566 @@
       "prerequisites": [],
       "rowIndex": 7,
       "courseType": "others"
+    }
+  ],
+  "options": {
+    "languageLiteracy": [
+      {
+        "courseId": "001101",
+        "courseTitle": "Fundamental English 1",
+        "prerequisites": []
+      },
+      {
+        "courseId": "001102",
+        "courseTitle": "Fundamental English 2",
+        "prerequisites": [
+          "001101"
+        ]
+      },
+      {
+        "courseId": "001201",
+        "courseTitle": "Critical Reading & Effective Writing",
+        "prerequisites": [
+          "001102"
+        ]
+      },
+      {
+        "courseId": "001225",
+        "courseTitle": "English for Sci & Tech",
+        "prerequisites": [
+          "001102"
+        ]
+      }
+    ],
+    "digitalLiteracy": [
+      {
+        "courseId": "204100",
+        "courseTitle": "AI & Digital Essentials",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261111",
+        "courseTitle": "Internet & Online Community in the Age of AI",
+        "prerequisites": []
+      },
+      {
+        "courseId": "953111",
+        "courseTitle": "Software for Everyday Life",
+        "prerequisites": []
+      }
+    ],
+    "globalCitizenship": [
+      {
+        "courseId": "140104",
+        "courseTitle": "Citizenship",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259191",
+        "courseTitle": "Princ of Being Pro",
+        "prerequisites": []
+      }
+    ],
+    "creativityInnovation": [
+      {
+        "courseId": "259192",
+        "courseTitle": "Skills for Pro & Entre",
+        "prerequisites": []
+      },
+      {
+        "courseId": "013110",
+        "courseTitle": "Psychology & Daily Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "050106",
+        "courseTitle": "Humanistic Arts",
+        "prerequisites": []
+      },
+      {
+        "courseId": "176100",
+        "courseTitle": "Law & Modern World",
+        "prerequisites": []
+      },
+      {
+        "courseId": "201114",
+        "courseTitle": "Environmental Science in Today's World",
+        "prerequisites": []
+      },
+      {
+        "courseId": "201117",
+        "courseTitle": "Mathematics & Science in Civilization",
+        "prerequisites": []
+      },
+      {
+        "courseId": "201190",
+        "courseTitle": "Critical Thinking, Prob Solv & Sci Comm",
+        "prerequisites": []
+      },
+      {
+        "courseId": "207109",
+        "courseTitle": "Life & the Universe",
+        "prerequisites": []
+      },
+      {
+        "courseId": "207110",
+        "courseTitle": "Physics: the Science that Changed the World",
+        "prerequisites": []
+      },
+      {
+        "courseId": "368100",
+        "courseTitle": "Starting an Agribusiness in a Changing World",
+        "prerequisites": []
+      },
+      {
+        "courseId": "602201",
+        "courseTitle": "Agro-Industrial Vision",
+        "prerequisites": []
+      },
+      {
+        "courseId": "610111",
+        "courseTitle": "Packaging for Marketing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "703103",
+        "courseTitle": "Intro to Entre & Business",
+        "prerequisites": []
+      },
+      {
+        "courseId": "751100",
+        "courseTitle": "Economics for Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "851103",
+        "courseTitle": "Life & Society through Media",
+        "prerequisites": []
+      },
+      {
+        "courseId": "852100",
+        "courseTitle": "Intro to Film",
+        "prerequisites": []
+      }
+    ],
+    "entrepreneurialSkills": [],
+    "geElective": [
+      {
+        "courseId": "201100",
+        "courseTitle": "Integrated Science",
+        "prerequisites": []
+      },
+      {
+        "courseId": "203100",
+        "courseTitle": "Chemistry in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "211100",
+        "courseTitle": "Eating Well: Better Living & Disease Prevention",
+        "prerequisites": []
+      },
+      {
+        "courseId": "462130",
+        "courseTitle": "Medications in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "571116",
+        "courseTitle": "Health & Working in the Digital Age",
+        "prerequisites": []
+      },
+      {
+        "courseId": "701181",
+        "courseTitle": "Basic Accounting for Entrepreneurs",
+        "prerequisites": []
+      },
+      {
+        "courseId": "702101",
+        "courseTitle": "Finance for Daily Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "705191",
+        "courseTitle": "Smart Consumer",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259194",
+        "courseTitle": "Characteristics & Values for Being a Professional Entrepreneur",
+        "prerequisites": []
+      },
+      {
+        "courseId": "011100",
+        "courseTitle": "Man & Philosophy",
+        "prerequisites": []
+      },
+      {
+        "courseId": "109114",
+        "courseTitle": "Art in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "127100",
+        "courseTitle": "Politics in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "128100",
+        "courseTitle": "Basic Good Governance in Administration",
+        "prerequisites": []
+      },
+      {
+        "courseId": "154104",
+        "courseTitle": "Environmental Conservation",
+        "prerequisites": []
+      },
+      {
+        "courseId": "254182",
+        "courseTitle": "Intro to Energy",
+        "prerequisites": []
+      },
+      {
+        "courseId": "256131",
+        "courseTitle": "Urban Mining",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259108",
+        "courseTitle": "Electricity in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259193",
+        "courseTitle": "Morality & Intelligence for Being a Professional",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259195",
+        "courseTitle": "Managing Activities for Development",
+        "prerequisites": []
+      },
+      {
+        "courseId": "602102",
+        "courseTitle": "Life & Alternative Energy",
+        "prerequisites": []
+      },
+      {
+        "courseId": "801100",
+        "courseTitle": "Architecture in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "951100",
+        "courseTitle": "Modern Life & Animation",
+        "prerequisites": []
+      }
+    ],
+    "majorElective": [
+      {
+        "courseId": "261381",
+        "courseTitle": "Cyber Mgmt",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261382",
+        "courseTitle": "Network Security & Technological Controls",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261383",
+        "courseTitle": "Cybersecurity Threat Analysis & Detection",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261404",
+        "courseTitle": "Advanced CPE Lab",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261406",
+        "courseTitle": "Basic Compiler Design",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261407",
+        "courseTitle": "Fund of Computation for CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261408",
+        "courseTitle": "Quantum Computation",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261409",
+        "courseTitle": "Functional Programming",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261411",
+        "courseTitle": "Parallel Proc & Dist Sys",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261414",
+        "courseTitle": "Digital Sys Design",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261421",
+        "courseTitle": "Comp HW Design",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261424",
+        "courseTitle": "Remote Mon & Ctrl Sys",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261430",
+        "courseTitle": "Wireless Networks",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261433",
+        "courseTitle": "Network Prog",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261434",
+        "courseTitle": "Net Design & Mgmt",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261435",
+        "courseTitle": "Broadband Comm Networks",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261437",
+        "courseTitle": "Fund of Queueing Theory for CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261438",
+        "courseTitle": "MPLS",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261439",
+        "courseTitle": "Wireless Comm for CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261441",
+        "courseTitle": "Internet of Things & Big Data",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261444",
+        "courseTitle": "Advanced DBMS",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261446",
+        "courseTitle": "Info Sys",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261447",
+        "courseTitle": "Net & Info Sec",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261448",
+        "courseTitle": "Data Mining for CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261449",
+        "courseTitle": "Software Testing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261453",
+        "courseTitle": "Digital Image Processing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261456",
+        "courseTitle": "Intro to CI for CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261457",
+        "courseTitle": "Digital Image & Video Compression",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261458",
+        "courseTitle": "Machine Vision",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261459",
+        "courseTitle": "Deep Learning",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261461",
+        "courseTitle": "Visual & Interactive Programming",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261465",
+        "courseTitle": "CG",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261468",
+        "courseTitle": "Sys Analysis & Design for CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261469",
+        "courseTitle": "Software Proj Mgmt for CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261470",
+        "courseTitle": "Signals & Systems",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261471",
+        "courseTitle": "Advanced Digital Signal Processing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261472",
+        "courseTitle": "Robotics",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261473",
+        "courseTitle": "CAM",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261475",
+        "courseTitle": "Modeling & Optimization for Big Data Analytics",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261476",
+        "courseTitle": "Biomedical Instruments",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261478",
+        "courseTitle": "Ctrl Sys",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261479",
+        "courseTitle": "Bioinformatics Programming",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261481",
+        "courseTitle": "Cybersecurity Incident Response",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261482",
+        "courseTitle": "Cybersecurity Audit & Cyber Resilience",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261493",
+        "courseTitle": "Seminar",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261494",
+        "courseTitle": "Selected Topics in CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261497",
+        "courseTitle": "Selected Topics in Comp SW",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261498",
+        "courseTitle": "Selected Topics in Comp Networks",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261499",
+        "courseTitle": "Selected Topics in CI",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269421",
+        "courseTitle": "Net Traffic Analysis",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269430",
+        "courseTitle": "Wireless & Broadband",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269431",
+        "courseTitle": "Wireless Sensor Network",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269432",
+        "courseTitle": "Peer-to-Peer Systems",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269433",
+        "courseTitle": "Net Routing Protocols",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269441",
+        "courseTitle": "Information Retrieval & Extraction",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269461",
+        "courseTitle": "Personal Software Process Improvement",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269462",
+        "courseTitle": "Intro to HCI",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261400",
+        "courseTitle": "CPE Training",
+        "prerequisites": []
+      }
+    ]
+  },
+  "resources": [
+    {
+      "title": "CPE 2563 Plan Information",
+      "url": "https://docs.google.com/spreadsheets/d/1akVHKI5zZeqkFfwttSb0N19XjfGHZmdfoA5LGm4nnGo/edit?gid=1725912247#gid=1725912247"
+    },
+    {
+      "title": "CPE 2563 Study Program",
+      "url": "https://www.cpe.eng.cmu.ac.th/curriculum-thai.php?view_id=CPE-2563BE"
+    },
+    {
+      "title": "หลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์ หลักสูตรปรับปรุง พ.ศ. 2563",
+      "url": "https://reg.eng.cmu.ac.th/reg_curriculum/uploads/2567/7.CPE-2567_2567.pdf"
     }
   ]
 }

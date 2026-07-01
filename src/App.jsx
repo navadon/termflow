@@ -26,7 +26,32 @@ import isce2569InfosysCoop from './data/catalog-isce2569-infosys-coop.json';
 import isce2569InfosysRegular from './data/catalog-isce2569-infosys-regular.json';
 import isne2565Coop from './data/catalog-isne2565-coop.json';
 import isne2565Regular from './data/catalog-isne2565-regular.json';
-import LANG_LITERACY_OPTIONS from './data/language-literacy-options.json';
+
+const getOptionType = (courseTitle) => {
+    if (!courseTitle) return null;
+    const title = courseTitle.toLowerCase().trim();
+    if (title.includes('lang') || title.includes('language')) return 'languageLiteracy';
+    if (title.includes('digital')) return 'digitalLiteracy';
+    if (title.includes('global')) return 'globalCitizenship';
+    if (title.includes('creativity') || title.includes('innovation') || title.includes('co-creator')) return 'creativityInnovation';
+    if (title.includes('entre')) return 'entrepreneurialSkills';
+    if (title.includes('gened elective') || title.includes('gen ed elective') || title.includes('gened elec') || title.includes('gen ed elec') || title === 'gened elective') return 'geElective';
+    if (title.includes('major elec') || title.includes('major elective')) return 'majorElective';
+    return null;
+};
+
+const getOptionPlaceholder = (optionType) => {
+    switch (optionType) {
+        case 'languageLiteracy': return 'Lang Literacy';
+        case 'digitalLiteracy': return 'Digital Literacy';
+        case 'globalCitizenship': return 'Global Citizenship';
+        case 'creativityInnovation': return 'Creativity & Innovation';
+        case 'entrepreneurialSkills': return 'Entre Skills';
+        case 'geElective': return 'GenEd Elective';
+        case 'majorElective': return 'Major Elective';
+        default: return 'Select Course';
+    }
+};
 
 // --- CUSTOM EDGE: หลบ node ที่ขวางอยู่กลางทาง ---
 const segmentsIntersect = (ax1, ay1, ax2, ay2, bx1, by1, bx2, by2) => {
@@ -201,19 +226,13 @@ const CourseNode = ({ id, data }) => {
         : `Y${data.suggestedYear}-${data.suggestedSemester}`;
     const isOffSchedule = data.currentYear !== data.suggestedYear || data.currentSemester !== data.suggestedSemester;
     const selectedCourseId = data.courseId || '';
-    const selectedOption = LANG_LITERACY_OPTIONS.find(opt => opt.courseId === selectedCourseId);
+    const selectedOption = data.dropdownOptions?.find(opt => opt.courseId === selectedCourseId);
     const courseTitle = selectedOption?.courseTitle || data.courseTitle;
-    const completed = !!data.completed;
+    const isSemCompleted = !!data.isSemCompleted;
 
     const handleSelect = (event) => {
         if (data.onSelectCourse) {
             data.onSelectCourse(id, event.target.value);
-        }
-    };
-
-    const handleToggle = (event) => {
-        if (data.onToggleComplete) {
-            data.onToggleComplete(id, event.target.checked);
         }
     };
 
@@ -245,7 +264,7 @@ const CourseNode = ({ id, data }) => {
                 style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
                     <div style={{ fontWeight: 'bold', fontSize: '18px', color: '#444' }}>
-                        {data.isLangLiteracy ? 'GenEd' : (data.courseId || 'GenEd')}
+                        {data.optionType ? (data.courseId || getOptionPlaceholder(data.optionType)) : (data.courseId || 'GenEd')}
                         {isOffSchedule && (
                             <span style={{ fontSize: '14px', color: '#777', marginLeft: '6px', fontWeight: 'bold' }}>
                                 {suggestedLabel}
@@ -256,11 +275,12 @@ const CourseNode = ({ id, data }) => {
                         {data.creditHours} CR
                     </div>
                 </div>
-                {data.isLangLiteracy ? (
+                {data.optionType ? (
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', width: '100%', minWidth: 0 }}>
                         <select
                             value={selectedCourseId}
                             className="nodrag"
+                            disabled={isSemCompleted}
                             onChange={handleSelect}
                             style={{
                                 flex: '1 1 0%',
@@ -275,15 +295,15 @@ const CourseNode = ({ id, data }) => {
                                 color: '#000',
                                 borderRadius: '4px',
                                 border: '1px solid #ccc',
-                                cursor: 'pointer',
+                                cursor: isSemCompleted ? 'default' : 'pointer',
                                 maxWidth: '100%',
                                 overflow: 'hidden',
                                 textOverflow: 'ellipsis',
                                 whiteSpace: 'nowrap'
                             }}
                         >
-                            <option value="">Select Language Literacy</option>
-                            {LANG_LITERACY_OPTIONS.map(opt => (
+                            <option value="">{getOptionPlaceholder(data.optionType)}</option>
+                            {(data.dropdownOptions || []).map(opt => (
                                 <option
                                     key={opt.courseId}
                                     value={opt.courseId}
@@ -293,30 +313,12 @@ const CourseNode = ({ id, data }) => {
                                 </option>
                             ))}
                         </select>
-                        <input
-                            type="checkbox"
-                            className="nodrag"
-                            checked={completed}
-                            disabled={!selectedCourseId}
-                            onChange={handleToggle}
-                            title={!selectedCourseId ? 'Select a course first' : 'Mark as completed'}
-                            style={{
-                                cursor: selectedCourseId ? 'pointer' : 'not-allowed',
-                                width: '24px',
-                                height: '24px',
-                                minWidth: '24px',
-                                minHeight: '24px',
-                                flexShrink: 0,
-                                marginTop: '0px',
-                                accentColor: '#28a745'
-                            }}
-                        />
                     </div>
                 ) : (
                     <div style={{ fontSize: '16px', lineHeight: '1.25', fontWeight: '600', color: '#000' }}>
                         {courseTitle}
                     </div>
-                    
+
                 )}
             </div>
             <Handle type="source" position={Position.Right} />
@@ -346,7 +348,7 @@ const SEMESTER_WIDTH = 270;
 const SUMMER_WIDTH = 270;
 const GAP_BETWEEN_SEMESTERS = 20;
 const GAP_BETWEEN_YEARS = 20;
-const TOP_PADDING = 120;
+const TOP_PADDING = 160;
 
 const COURSE_WIDTH = 240;
 const COURSE_HEIGHT = 120;
@@ -388,13 +390,17 @@ export default function App() {
     const [edges, setEdges] = useState([]);
 
     const [selectedCurriculum, setSelectedCurriculum] = useState('CPE 2568 (Regular)');
+    const [dropdownValue, setDropdownValue] = useState('CPE 2568 (Regular)');
     const [activePlanData, setActivePlanData] = useState(null);
+    const [loadedFileName, setLoadedFileName] = useState(null);
     const [nodeRowsCount, setNodeRowsCount] = useState(12);
 
     // --- VISUAL STATE (separate from data state) ---
     const [hoveredNodeId, setHoveredNodeId] = useState(null);
     const [selectedNodeId, setSelectedNodeId] = useState(null);
     const [tooltip, setTooltip] = useState(null);
+    const [completedSemesters, setCompletedSemesters] = useState(new Set());
+    const completedSemestersRef = useRef(completedSemesters);
 
     // --- CUSTOM COURSES (user-added) ---
     const [customCourses, setCustomCourses] = useState([]);
@@ -415,28 +421,122 @@ export default function App() {
     const prevCurriculumRef = useRef(selectedCurriculum);
     const prevPlanRef = useRef(activePlanData);
 
+    const nodesRef = useRef([]);
+    useEffect(() => {
+        nodesRef.current = nodes;
+    }, [nodes]);
+
+    const checkCanCompleteSemester = useCallback((year, sem, completedSet) => {
+        for (let y = 1; y <= 8; y++) {
+            for (let s = 1; s <= 3; s++) {
+                if (y === year && s === sem) {
+                    return true;
+                }
+                const prevKey = `${y}-${s}`;
+                if (!completedSet.has(prevKey)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }, [nodes]);
+
+    const toggleSemesterComplete = useCallback((year, sem, credits) => {
+        const key = `${year}-${sem}`;
+        const currentCompleted = completedSemestersRef.current;
+
+        if (currentCompleted.has(key)) {
+            // check if subsequent semesters with courses are completed
+            let canUncomplete = true;
+            for (let y = year; y <= 8; y++) {
+                for (let s = 1; s <= 3; s++) {
+                    if (y === year && s <= sem) continue;
+                    const laterKey = `${y}-${s}`;
+                    if (currentCompleted.has(laterKey)) {
+                        canUncomplete = false;
+                        break;
+                    }
+                }
+                if (!canUncomplete) break;
+            }
+
+            if (!canUncomplete) {
+                alert('ไม่สามารถยกเลิกการสำเร็จการศึกษาของเทอมนี้ได้ เนื่องจากมีเทอมถัดไปที่สำเร็จการศึกษาแล้ว');
+                return;
+            }
+
+            setCompletedSemesters(prev => {
+                const next = new Set(prev);
+                next.delete(key);
+                return next;
+            });
+        } else {
+            if (!checkCanCompleteSemester(year, sem, currentCompleted)) {
+                alert('ไม่สามารถทำเครื่องหมายว่าสำเร็จการศึกษาได้ เนื่องจากเทอมก่อนหน้ายังไม่สำเร็จการศึกษา');
+                return;
+            }
+            if (credits > 22) {
+                alert('ไม่สามารถทำเครื่องหมายว่าสำเร็จการศึกษาได้ เนื่องจากหน่วยกิตเกิน 22 หน่วยกิต');
+                return;
+            }
+
+            const hasInvalidCourses = nodesRef.current.some(n =>
+                (n.type === 'default' || n.type === 'course') &&
+                !n.id.startsWith('sem-bg') &&
+                n.data.currentYear === year &&
+                n.data.currentSemester === sem &&
+                n.data.invalidReasons && n.data.invalidReasons.length > 0
+            );
+
+            if (hasInvalidCourses) {
+                alert('ไม่สามารถทำเครื่องหมายว่าสำเร็จการศึกษาได้ เนื่องจากมีวิชาที่ไม่ผ่านเงื่อนไขในเทอมนี้ (กรอบสีแดง)');
+                return;
+            }
+
+            setCompletedSemesters(prev => {
+                const next = new Set(prev);
+                next.add(key);
+                return next;
+            });
+        }
+    }, [nodes, checkCanCompleteSemester]);
+
     // --- DERIVED DISPLAY STATE: computed from base state + visual state ---
     // Edge highlight: computed live, never stored in base edges
     const displayEdges = useMemo(() => {
-        if (!hoveredNodeId) return edges;
+        if (!hoveredNodeId) {
+            return edges.map(edge => ({
+                ...edge,
+                style: { ...edge.style, pointerEvents: 'none' }
+            }));
+        }
         return edges.map(edge => {
             if (edge.source === hoveredNodeId) {
                 return {
                     ...edge,
-                    style: { stroke: '#3b82f6', strokeWidth: 3, opacity: 1, 
-                        filter: 'drop-shadow(0px 4px 8px rgb(0, 225, 255))' },
+                    style: {
+                        stroke: '#3b82f6', strokeWidth: 3, opacity: 1,
+                        filter: 'drop-shadow(0px 4px 8px rgb(0, 225, 255))',
+                        pointerEvents: 'none'
+                    },
                     markerEnd: { type: MarkerType.ArrowClosed, color: '#3b82f6' }
                 };
             }
             if (edge.target === hoveredNodeId) {
                 return {
                     ...edge,
-                    style: { stroke: '#f59e0b', strokeWidth: 3, opacity: 1,
-                         filter: 'drop-shadow(0px 4px 8px rgb(255, 136, 0))' },
+                    style: {
+                        stroke: '#f59e0b', strokeWidth: 3, opacity: 1,
+                        filter: 'drop-shadow(0px 4px 8px rgb(255, 136, 0))',
+                        pointerEvents: 'none'
+                    },
                     markerEnd: { type: MarkerType.ArrowClosed, color: '#f59e0b' }
                 };
             }
-            return edge;
+            return {
+                ...edge,
+                style: { ...edge.style, pointerEvents: 'none' }
+            };
         });
     }, [edges, hoveredNodeId]);
 
@@ -482,10 +582,13 @@ export default function App() {
         });
     }, [nodes, hoveredNodeId]);
 
-    const createSemesterLabel = (year, sem, credits) => {
+    const createSemesterLabel = (year, sem, credits, currentNodes = []) => {
         const isSummer = sem === 3;
         const titleText = isSummer ? `Year ${year} - Summer` : `Year ${year} - Semester ${sem}`;
         const maxCredits = 22;
+        const semKey = `${year}-${sem}`;
+        const isCompleted = completedSemestersRef.current.has(semKey);
+        const isClickable = isCompleted || checkCanCompleteSemester(year, sem, completedSemestersRef.current, currentNodes);
 
         const placeholders = [];
         for (let i = 0; i < nodeRowsCount; i++) {
@@ -536,6 +639,31 @@ export default function App() {
                     }}>
                         {credits} / {maxCredits} Credits
                     </div>
+                    <button
+                        className="nodrag nopan"
+                        disabled={!isClickable}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            if (isClickable) {
+                                toggleSemesterComplete(year, sem, credits);
+                            }
+                        }}
+                        style={{
+                            pointerEvents: 'auto',
+                            padding: '8px 16px',
+                            fontSize: '15px',
+                            fontWeight: 'bold',
+                            border: isCompleted ? '2px solid #28a745' : '2px solid #aaa',
+                            borderRadius: '8px',
+                            background: isCompleted ? '#28a745' : '#fff',
+                            color: isCompleted ? '#fff' : (isClickable ? '#666' : '#ccc'),
+                            cursor: isClickable ? 'pointer' : 'not-allowed',
+                            opacity: isClickable ? 1 : 0.6,
+                            transition: 'all 0.2s ease',
+                        }}
+                    >
+                        {isCompleted ? '✅ Completed' : '☐ Mark Complete'}
+                    </button>
                 </div>
             </div>
         );
@@ -553,9 +681,15 @@ export default function App() {
             }
         });
 
-        const selectedLangLiteracyIds = currentNodes
-            .filter(n => (n.type === 'course') && n.data.isLangLiteracy && n.data.courseId)
-            .map(n => n.data.courseId);
+        const selectedIdsByOptionType = {};
+        currentNodes.forEach(n => {
+            if ((n.type === 'default' || n.type === 'course') && n.data?.optionType && n.data?.courseId) {
+                if (!selectedIdsByOptionType[n.data.optionType]) {
+                    selectedIdsByOptionType[n.data.optionType] = [];
+                }
+                selectedIdsByOptionType[n.data.optionType].push(n.data.courseId);
+            }
+        });
 
         currentNodes.forEach(courseNode => {
             if ((courseNode.type !== 'default' && courseNode.type !== 'course') || courseNode.id.startsWith('sem-bg')) return;
@@ -582,18 +716,21 @@ export default function App() {
                 const sem = parseInt(parts[3]);
                 const credits = semesterCreditMap[node.id] || 0;
                 const isOverload = credits > 22;
+                const isSemCompleted = completedSemestersRef.current.has(`${year}-${sem}`);
+                const isSummer = sem === 3;
                 return {
                     ...node,
-                    data: { ...node.data, label: createSemesterLabel(year, sem, credits) },
+                    data: { ...node.data, label: createSemesterLabel(year, sem, credits, currentNodes) },
                     style: {
                         ...node.style,
-                        border: isOverload ? '2px dashed #d9534f' : '2px dashed #bbb',
+                        backgroundColor: isSemCompleted ? '#e8f5e9' : (isSummer ? '#fffcf0' : '#f4f4f9'),
+                        border: isOverload ? '2px dashed #d9534f' : (isSemCompleted ? '2px dashed #28a745' : '2px dashed #bbb'),
                         boxShadow: isOverload ? '0 0 15px rgba(255,0,0,0.6)' : 'none',
                     }
                 };
             }
 
-if (node.type === 'default' || node.type === 'course') {
+            if (node.type === 'default' || node.type === 'course') {
                 const myLoc = nodeLocationMap[node.id];
                 const prereqs = node.data.prerequisites || [];
 
@@ -647,8 +784,16 @@ if (node.type === 'default' || node.type === 'course') {
                 else if (courseType === 'gen edu') borderColor = '#008800';
                 else if (courseType === 'others') borderColor = '#808080';
 
+                const isSemCompleted = myLoc.year !== 99 && myLoc.sem !== 99 && completedSemestersRef.current.has(`${myLoc.year}-${myLoc.sem}`);
+
+                const optionType = node.data.optionType;
+                const otherSelectedIds = optionType && selectedIdsByOptionType[optionType]
+                    ? selectedIdsByOptionType[optionType].filter(id => id !== node.data.courseId)
+                    : [];
+
                 return {
                     ...node,
+                    draggable: !isSemCompleted,
                     data: {
                         ...node.data,
                         currentYear: myLoc.year === 99 ? null : myLoc.year,
@@ -656,10 +801,12 @@ if (node.type === 'default' || node.type === 'course') {
                         rowIndex: currentRowIndex,
                         invalidReasons,
                         warningReasons,
+                        isSemCompleted,
+                        otherSelectedIds,
                     },
                     style: {
                         ...node.style,
-                        background: isMovedFromSuggested ? '#fffacd' : 'white',
+                        background: isSemCompleted ? '#e8f5e9' : (isMovedFromSuggested ? '#fffacd' : 'white'),
 
                         // border: isInvalid ? 'none' : `2px solid ${borderColor}`,
                         // backgroundImage: isInvalid 
@@ -669,10 +816,10 @@ if (node.type === 'default' || node.type === 'course') {
                         // backgroundPosition: isInvalid ? '0 0,  0 100%, 0 0,  100% 0' : 'auto',
                         // backgroundRepeat: isInvalid ? 'repeat-x, repeat-x, repeat-y, repeat-y' : 'repeat',
                         // animation: isInvalid ? 'moveBorder 0.4s linear infinite' : 'none',
-                        
+
                         border: isInvalid ? '4px solid red' : `2px solid ${borderColor}`,
                         boxShadow: isInvalid ? '0 0 15px rgba(255,0,0,0.6)' : 'none',
-                        cursor: 'pointer',
+                        cursor: isSemCompleted ? 'default' : 'pointer',
                     }
                 };
             }
@@ -725,7 +872,7 @@ if (node.type === 'default' || node.type === 'course') {
         // Helper: คำนวณ total credits สำหรับเทอมนั้น ๆ
         const calculateSemesterCredits = (year, sem) => {
             let totalCredits = 0;
-            
+
             // ใช้ activePlanData ถ้ามี (เพราะ user อาจลากมาแล้ว)
             if (activePlanData && Array.isArray(activePlanData)) {
                 activePlanData.forEach(plan => {
@@ -811,16 +958,36 @@ if (node.type === 'default' || node.type === 'course') {
 
                 const cardY = TOP_PADDING + rowIndex * (COURSE_HEIGHT + COURSE_GAP);
 
+                const optionType = course.courseId === null ? getOptionType(course.courseTitle) : null;
+                const currOptions = catalogData.options || {};
+                const dropdownOptions = optionType ? (currOptions[optionType] || []) : [];
+
+                let courseId = course.courseId;
+                let courseTitle = course.courseTitle;
+                let prerequisites = course.prerequisites || [];
+
+                if (activePlanData) {
+                    const savedCourse = activePlanData.find(p => p.id === course.id);
+                    if (savedCourse && optionType && savedCourse.courseId) {
+                        courseId = savedCourse.courseId;
+                        const opt = dropdownOptions.find(o => o.courseId === savedCourse.courseId);
+                        if (opt) {
+                            courseTitle = opt.courseTitle;
+                            prerequisites = opt.prerequisites || [];
+                        }
+                    }
+                }
+
                 generatedNodes.push({
                     id: course.id,
                     type: 'course',
                     sourcePosition: Position.Right,
                     targetPosition: Position.Left,
                     data: {
-                        courseId: course.courseId,
-                        courseTitle: course.courseTitle,
+                        courseId: courseId,
+                        courseTitle: courseTitle,
                         creditHours: course.creditHours,
-                        prerequisites: course.prerequisites,
+                        prerequisites: prerequisites,
                         corequisite: course.corequisite,
                         suggestedYear: course.suggestedYear,
                         suggestedSemester: course.suggestedSemester,
@@ -828,27 +995,24 @@ if (node.type === 'default' || node.type === 'course') {
                         currentSemester: sem === 99 ? null : sem,
                         rowIndex: rowIndex,
                         courseType: course.courseType,
-                        isLangLiteracy: course.courseId == null && /lang/i.test(course.courseTitle),
-                        completed: course.completed || false,
+                        optionType: optionType,
+                        dropdownOptions: dropdownOptions,
                         onSelectCourse: (nodeId, selectedCourseId) => {
-                            setNodes((current) => updateGameState(current.map(n => n.id === nodeId ? {
-                                ...n,
-                                data: {
-                                    ...n.data,
-                                    courseId: selectedCourseId,
-                                    courseTitle: LANG_LITERACY_OPTIONS.find(opt => opt.courseId === selectedCourseId)?.courseTitle || n.data.courseTitle,
-                                    completed: false
+                            setNodes((current) => updateGameState(current.map(n => {
+                                if (n.id === nodeId) {
+                                    const opt = dropdownOptions.find(o => o.courseId === selectedCourseId);
+                                    return {
+                                        ...n,
+                                        data: {
+                                            ...n.data,
+                                            courseId: selectedCourseId,
+                                            courseTitle: opt ? opt.courseTitle : n.data.courseTitle,
+                                            prerequisites: opt ? (opt.prerequisites || []) : (n.data.prerequisites || []),
+                                        }
+                                    };
                                 }
-                            } : n)));
-                        },
-                        onToggleComplete: (nodeId, completed) => {
-                            setNodes((current) => updateGameState(current.map(n => n.id === nodeId ? {
-                                ...n,
-                                data: {
-                                    ...n.data,
-                                    completed
-                                }
-                            } : n)));
+                                return n;
+                            })));
                         },
                         onHover: (nodeId) => setHoveredNodeId(nodeId),
                         onLeave: () => { setHoveredNodeId(null); setTooltip(null); },
@@ -997,14 +1161,14 @@ if (node.type === 'default' || node.type === 'course') {
     // Update semester height when nodeRowsCount changes (without regenerating nodes)
     useEffect(() => {
         const calculatedSemesterHeight = TOP_PADDING + nodeRowsCount * (COURSE_HEIGHT + COURSE_GAP);
-        
+
         setNodes(prevNodes => {
             return prevNodes.map(node => {
                 if (node.id.startsWith('sem-bg')) {
                     const parts = node.id.split('-');
                     const year = parseInt(parts[2]);
                     const sem = parseInt(parts[3]);
-                    
+
                     // Calculate total credits for this semester from current nodes
                     let semesterCredits = 0;
                     prevNodes.forEach(n => {
@@ -1030,24 +1194,34 @@ if (node.type === 'default' || node.type === 'course') {
         });
     }, [nodeRowsCount]);
 
+    // Re-run updateGameState when completedSemesters changes
+    useEffect(() => {
+        completedSemestersRef.current = completedSemesters;
+        setNodes(prev => updateGameState(prev));
+    }, [completedSemesters]);
+
     // Helper: ตรวจสอบว่าตำแหน่งอยู่ในกรอบ semester ใดหรือไม่
     // ใช้ center ของ node เพื่อความแม่นยำ (ไม่อนุญาตให้อยู่ระหว่างกรอบ)
     const isPositionInsideFrame = useCallback((position) => {
         if (!position) return false;
-        
+
         const nodeCenterX = position.x + (COURSE_WIDTH / 2);
         const nodeCenterY = position.y + (COURSE_HEIGHT / 2);
-        
+
         for (let year = 1; year <= 8; year++) {
             for (let sem = 1; sem <= 3; sem++) {
+                const targetSemKey = `${year}-${sem}`;
+                if (completedSemestersRef.current.has(targetSemKey)) {
+                    continue;
+                }
                 const colX = getSemesterX(year, sem);
                 const frameLeft = colX + (SEMESTER_WIDTH - COURSE_WIDTH) / 2;
                 const frameRight = frameLeft + COURSE_WIDTH;
-                
+
                 for (let i = 0; i < nodeRowsCount; i++) {
                     const slotY = TOP_PADDING + i * (COURSE_HEIGHT + COURSE_GAP);
                     const slotBottom = slotY + COURSE_HEIGHT;
-                    
+
                     if (
                         nodeCenterX >= frameLeft &&
                         nodeCenterX <= frameRight &&
@@ -1092,6 +1266,10 @@ if (node.type === 'default' || node.type === 'course') {
 
             for (let year = 1; year <= 8; year++) {
                 for (let sem = 1; sem <= 3; sem++) {
+                    const targetSemKey = `${year}-${sem}`;
+                    if (completedSemestersRef.current.has(targetSemKey)) {
+                        continue;
+                    }
                     const colX = getSemesterX(year, sem);
                     const slotX = colX + (SEMESTER_WIDTH - COURSE_WIDTH) / 2;
                     for (let i = 0; i < nodeRowsCount; i++) {
@@ -1124,7 +1302,7 @@ if (node.type === 'default' || node.type === 'course') {
                     finalPosition = isOccupied
                         ? (lastValidNodePositions.current[node.id] || initialDragPos.current || node.position)
                         : snappedPosition;
-                    
+
                     // ถ้า snap ได้สำเร็จ → บันทึกเป็น last valid position
                     if (!isOccupied) {
                         lastValidNodePositions.current[node.id] = { ...snappedPosition };
@@ -1174,9 +1352,15 @@ if (node.type === 'default' || node.type === 'course') {
         const targetYear = parseInt(year);
         const targetSem = parseInt(semester);
 
+        const targetSemKey = `${targetYear}-${targetSem}`;
+        if (completedSemesters.has(targetSemKey)) {
+            alert('ไม่สามารถเพิ่มวิชาในเทอมที่สำเร็จการศึกษาแล้วได้');
+            return;
+        }
+
         // Find the lowest row index that is free in the target semester
         const occupiedRows = new Set();
-        
+
         // Check catalog courses (type: 'default' or 'course')
         nodes.forEach(n => {
             if ((n.type === 'default' || n.type === 'course') && !n.id.startsWith('sem-bg')) {
@@ -1185,7 +1369,7 @@ if (node.type === 'default' || node.type === 'course') {
                 }
             }
         });
-        
+
         // Check custom courses
         customCourses.forEach(c => {
             if (c.selectedYear === targetYear && c.selectedSemester === targetSem) {
@@ -1237,6 +1421,7 @@ if (node.type === 'default' || node.type === 'course') {
             plan: plan,
             nodeRowsCount: nodeRowsCount,
             customCourses: customCourses,
+            completedSemesters: Array.from(completedSemesters),
         };
 
         const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
@@ -1295,6 +1480,9 @@ if (node.type === 'default' || node.type === 'course') {
                     setSelectedCurriculum(parsed.curriculumName);
                     setActivePlanData(parsed.plan);
                     setCustomCourses(parsed.customCourses || []);
+                    setCompletedSemesters(new Set(parsed.completedSemesters || []));
+                    setLoadedFileName(file.name);
+                    setDropdownValue("");
 
                     if (parsed.nodeRowsCount) {
                         setNodeRowsCount(parsed.nodeRowsCount);
@@ -1314,9 +1502,14 @@ if (node.type === 'default' || node.type === 'course') {
     };
 
     const handleDropdownChange = (e) => {
-        setSelectedCurriculum(e.target.value);
+        const val = e.target.value;
+        if (val === "") return;
+        setDropdownValue(val);
+        setSelectedCurriculum(val);
         setActivePlanData(null);
         setCustomCourses([]);
+        setCompletedSemesters(new Set());
+        setLoadedFileName(null);
     };
 
     const screenHeight = typeof window !== 'undefined' ? window.innerHeight : 1000;
@@ -1329,8 +1522,8 @@ if (node.type === 'default' || node.type === 'course') {
     const handleDeleteRow = () => {
         // Check if there are nodes on the bottom row
         const bottomRowIndex = nodeRowsCount - 1;
-        const bottomRowNodes = nodes.filter(n => 
-            (n.type === 'default' || n.type === 'course') && 
+        const bottomRowNodes = nodes.filter(n =>
+            (n.type === 'default' || n.type === 'course') &&
             !n.id.startsWith('sem-bg') &&
             n.data.rowIndex === bottomRowIndex
         );
@@ -1371,6 +1564,18 @@ if (node.type === 'default' || node.type === 'course') {
             </a>
         ));
     };
+
+    const courseNodesForProgress = nodes.filter(n => (n.type === 'default' || n.type === 'course') && !n.id.startsWith('sem-bg'));
+    const totalCredits = courseNodesForProgress.reduce((sum, n) => sum + (n.data.creditHours || 0), 0);
+    const completedCredits = courseNodesForProgress.reduce((sum, n) => {
+        const year = n.data?.currentYear;
+        const sem = n.data?.currentSemester;
+        if (year && sem && completedSemesters.has(`${year}-${sem}`)) {
+            return sum + (n.data.creditHours || 0);
+        }
+        return sum;
+    }, 0);
+    const progressPercent = totalCredits > 0 ? Math.round((completedCredits / totalCredits) * 100) : 0;
 
     return (
         <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
@@ -1460,7 +1665,7 @@ if (node.type === 'default' || node.type === 'course') {
                                     onChange={e => setNewCourseForm(prev => ({ ...prev, year: e.target.value }))}
                                     style={{ padding: '6px 8px', border: '1px solid #ccc', borderRadius: '4px', fontSize: '13px', cursor: 'pointer' }}
                                 >
-                                    {[1,2,3,4,5,6,7,8].map(y => <option key={y} value={y}>ปี {y}</option>)}
+                                    {[1, 2, 3, 4, 5, 6, 7, 8].map(y => <option key={y} value={y}>ปี {y}</option>)}
                                 </select>
                             </div>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
@@ -1481,58 +1686,58 @@ if (node.type === 'default' || node.type === 'course') {
                         <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-end' }}>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                                 <label style={{ fontSize: '11px', fontWeight: 'bold', color: '#555' }}>ประเภทวิชา</label>
-                            {(() => {
-                                const COURSE_TYPE_OPTIONS = [
-                                    { value: 'math and sci', label: 'Math & Sci', color: '#c9c900' },
-                                    { value: 'major courses', label: 'Major',      color: '#00008b' },
-                                    { value: 'gen engr',      label: 'Gen Engr',   color: '#8b1c62' },
-                                    { value: 'gen edu',       label: 'Gen Edu',    color: '#008800' },
-                                    { value: 'others',        label: 'Others',     color: '#808080' },
-                                ];
-                                const selected = COURSE_TYPE_OPTIONS.find(o => o.value === newCourseForm.courseType) || COURSE_TYPE_OPTIONS[4];
-                                return (
-                                    <div style={{ position: 'relative' }}>
-                                        <button
-                                            onClick={() => setShowCourseTypeDropdown(prev => !prev)}
-                                            style={{
-                                                padding: '6px 10px', border: `2px solid ${selected.color}`,
-                                                borderRadius: '4px', fontSize: '13px', cursor: 'pointer',
-                                                fontWeight: 'bold', color: selected.color, background: 'white',
-                                                display: 'flex', alignItems: 'center', gap: '6px', whiteSpace: 'nowrap',
-                                            }}
-                                        >
-                                            <span style={{ width: 10, height: 10, borderRadius: '50%', background: selected.color, display: 'inline-block', flexShrink: 0 }} />
-                                            {selected.label}
-                                            <span style={{ fontSize: '10px', marginLeft: '2px' }}>▾</span>
-                                        </button>
-                                        {showCourseTypeDropdown && (
-                                            <div style={{
-                                                position: 'absolute', top: '110%', left: 0, zIndex: 999,
-                                                background: 'white', border: '1px solid #ccc', borderRadius: '6px',
-                                                boxShadow: '0 4px 12px rgba(0,0,0,0.15)', overflow: 'hidden', minWidth: '130px',
-                                            }}>
-                                                {COURSE_TYPE_OPTIONS.map(opt => (
-                                                    <div
-                                                        key={opt.value}
-                                                        onClick={() => { setNewCourseForm(prev => ({ ...prev, courseType: opt.value })); setShowCourseTypeDropdown(false); }}
-                                                        style={{
-                                                            padding: '7px 12px', cursor: 'pointer', fontSize: '13px',
-                                                            fontWeight: 'bold', color: opt.color,
-                                                            background: newCourseForm.courseType === opt.value ? '#f5f5f5' : 'white',
-                                                            display: 'flex', alignItems: 'center', gap: '8px',
-                                                        }}
-                                                        onMouseEnter={e => e.currentTarget.style.background = '#f0f0f0'}
-                                                        onMouseLeave={e => e.currentTarget.style.background = newCourseForm.courseType === opt.value ? '#f5f5f5' : 'white'}
-                                                    >
-                                                        <span style={{ width: 10, height: 10, borderRadius: '50%', background: opt.color, display: 'inline-block', flexShrink: 0 }} />
-                                                        {opt.label}
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </div>
-                                );
-                            })()}
+                                {(() => {
+                                    const COURSE_TYPE_OPTIONS = [
+                                        { value: 'math and sci', label: 'Math & Sci', color: '#c9c900' },
+                                        { value: 'major courses', label: 'Major', color: '#00008b' },
+                                        { value: 'gen engr', label: 'Gen Engr', color: '#8b1c62' },
+                                        { value: 'gen edu', label: 'Gen Edu', color: '#008800' },
+                                        { value: 'others', label: 'Others', color: '#808080' },
+                                    ];
+                                    const selected = COURSE_TYPE_OPTIONS.find(o => o.value === newCourseForm.courseType) || COURSE_TYPE_OPTIONS[4];
+                                    return (
+                                        <div style={{ position: 'relative' }}>
+                                            <button
+                                                onClick={() => setShowCourseTypeDropdown(prev => !prev)}
+                                                style={{
+                                                    padding: '6px 10px', border: `2px solid ${selected.color}`,
+                                                    borderRadius: '4px', fontSize: '13px', cursor: 'pointer',
+                                                    fontWeight: 'bold', color: selected.color, background: 'white',
+                                                    display: 'flex', alignItems: 'center', gap: '6px', whiteSpace: 'nowrap',
+                                                }}
+                                            >
+                                                <span style={{ width: 10, height: 10, borderRadius: '50%', background: selected.color, display: 'inline-block', flexShrink: 0 }} />
+                                                {selected.label}
+                                                <span style={{ fontSize: '10px', marginLeft: '2px' }}>▾</span>
+                                            </button>
+                                            {showCourseTypeDropdown && (
+                                                <div style={{
+                                                    position: 'absolute', top: '110%', left: 0, zIndex: 999,
+                                                    background: 'white', border: '1px solid #ccc', borderRadius: '6px',
+                                                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)', overflow: 'hidden', minWidth: '130px',
+                                                }}>
+                                                    {COURSE_TYPE_OPTIONS.map(opt => (
+                                                        <div
+                                                            key={opt.value}
+                                                            onClick={() => { setNewCourseForm(prev => ({ ...prev, courseType: opt.value })); setShowCourseTypeDropdown(false); }}
+                                                            style={{
+                                                                padding: '7px 12px', cursor: 'pointer', fontSize: '13px',
+                                                                fontWeight: 'bold', color: opt.color,
+                                                                background: newCourseForm.courseType === opt.value ? '#f5f5f5' : 'white',
+                                                                display: 'flex', alignItems: 'center', gap: '8px',
+                                                            }}
+                                                            onMouseEnter={e => e.currentTarget.style.background = '#f0f0f0'}
+                                                            onMouseLeave={e => e.currentTarget.style.background = newCourseForm.courseType === opt.value ? '#f5f5f5' : 'white'}
+                                                        >
+                                                            <span style={{ width: 10, height: 10, borderRadius: '50%', background: opt.color, display: 'inline-block', flexShrink: 0 }} />
+                                                            {opt.label}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                })()}
                             </div>
                             <button
                                 onClick={handleAddCourse}
@@ -1590,46 +1795,69 @@ if (node.type === 'default' || node.type === 'course') {
                 right: 20,
                 zIndex: 10,
                 background: 'white',
-                padding: '12px 18px',
+                padding: '8px 14px',
                 borderRadius: '8px',
                 boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
                 fontFamily: 'sans-serif',
                 border: '1px solid #ccc',
                 display: 'flex',
-                gap: '20px',
-                alignItems: 'center'
+                gap: '15px',
+                alignItems: 'center',
+                flexWrap: 'wrap'
             }}>
-                <div>
-                    <label style={{ fontWeight: 'bold', marginRight: '10px' }}>Curriculum:</label>
-                    <select
-                        value={selectedCurriculum}
-                        onChange={handleDropdownChange}
-                        style={{ padding: '6px 10px', fontSize: '15px', borderRadius: '4px', cursor: 'pointer', border: '1px solid #aaa' }}
-                    >
-                        {Object.keys(curriculums).map(name => (
-                            <option key={name} value={name}>{name}</option>
-                        ))}
-                    </select>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <label style={{ fontWeight: 'bold', fontSize: '13px' }}>Curriculum:</label>
+                        <select
+                            value={dropdownValue}
+                            onChange={handleDropdownChange}
+                            style={{ padding: '4px 8px', fontSize: '13px', borderRadius: '4px', cursor: 'pointer', border: '1px solid #aaa' }}
+                        >
+                            <option value="" disabled={!loadedFileName}></option>
+                            {Object.keys(curriculums).map(name => (
+                                <option key={name} value={name}>{name}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <div style={{ fontSize: '13px', color: '#333', marginTop: '1px', fontFamily: 'sans-serif' }}>
+                        <span style={{ fontWeight: 'bold' }}>Imported Plan: </span>
+                        {loadedFileName ? (
+                            <strong style={{ color: '#28a745' }}>{loadedFileName}</strong>
+                        ) : (
+                            <span style={{ color: '#888', fontStyle: 'italic' }}>None (Default template)</span>
+                        )}
+                    </div>
                 </div>
 
-                <div style={{ borderLeft: '1px solid #ddd', height: '30px' }}></div>
+                <div style={{ borderLeft: '1px solid #ddd', height: '24px' }}></div>
 
-                <div style={{ display: 'flex', gap: '10px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', minWidth: '150px' }}>
+                    <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#555', fontFamily: 'sans-serif' }}>
+                        Progress: {completedCredits} / {totalCredits} CR ({progressPercent}%)
+                    </div>
+                    <div style={{ width: '100%', height: '6px', backgroundColor: '#e0e0e0', borderRadius: '3px', overflow: 'hidden' }}>
+                        <div style={{ width: `${progressPercent}%`, height: '100%', backgroundColor: '#28a745', transition: 'width 0.3s ease' }} />
+                    </div>
+                </div>
+
+                <div style={{ borderLeft: '1px solid #ddd', height: '24px' }}></div>
+
+                <div style={{ display: 'flex', gap: '8px' }}>
                     <button
                         onClick={handleExport}
-                        style={{ padding: '8px 16px', background: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }}
+                        style={{ padding: '6px 12px', background: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
                     >
                         Export Plan
                     </button>
                     <button
                         onClick={handleExportDev}
-                        style={{ padding: '8px 16px', background: '#6f42c1', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }}
+                        style={{ padding: '6px 12px', background: '#6f42c1', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
                     >
                         Export Catalog (Dev)
                     </button>
                     <button
                         onClick={() => fileInputRef.current.click()}
-                        style={{ padding: '8px 16px', background: '#28a745', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '14px' }}
+                        style={{ padding: '6px 12px', background: '#28a745', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
                     >
                         Import Plan
                     </button>
@@ -1642,7 +1870,7 @@ if (node.type === 'default' || node.type === 'course') {
                     />
                 </div>
             </div>
-            
+
             {tooltip && (
                 <div style={{
                     position: 'fixed',
@@ -1680,11 +1908,11 @@ if (node.type === 'default' || node.type === 'course') {
                         <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', borderTop: tooltip.reasons.length > 0 ? '1px solid #444' : 'none', paddingTop: tooltip.reasons.length > 0 ? '6px' : 0 }}>
                             <div style={{ fontWeight: 'bold', color: '#fbbf24', whiteSpace: 'nowrap' }}>
                                 {
-                                    tooltip.course.currentSemester === tooltip.course.suggestedSemester ? 
-                                    '⚡ คำเตือน: ' : 
-                                    '⚡ คำเตือน: โปรดตรวจสอบให้แน่ใจว่าวิชา' + 
-                                    (tooltip.course.courseId ? ` ${tooltip.course.courseId} เปิดสอนใน` : 'นี้เปิดสอนใน') + 
-                                    (tooltip.course.currentSemester === 3 ? ' Summer' : `เทอม ${tooltip.course.currentSemester}`)
+                                    tooltip.course.currentSemester === tooltip.course.suggestedSemester ?
+                                        '⚡ คำเตือน: ' :
+                                        '⚡ คำเตือน: โปรดตรวจสอบให้แน่ใจว่าวิชา' +
+                                        (tooltip.course.courseId ? ` ${tooltip.course.courseId} เปิดสอนใน` : 'นี้เปิดสอนใน') +
+                                        (tooltip.course.currentSemester === 3 ? ' Summer' : `เทอม ${tooltip.course.currentSemester}`)
                                 }
                             </div>
                             <div style={{ color: '#fde68a' }}>

@@ -66,3 +66,8 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Disable pointer events on all React Flow edges so they don't block canvas panning */
+.react-flow__edge {
+  pointer-events: none !important;
+}

@@ -37,7 +37,7 @@
     {
       "id": "c-259191",
       "courseId": "259191",
-      "courseTitle": "Prin of Being Prof",
+      "courseTitle": "Princ of Being Pro",
       "creditHours": 1,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -164,7 +164,7 @@
     {
       "id": "c-261335",
       "courseId": "261335",
-      "courseTitle": "Comp Net",
+      "courseTitle": "Networks",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 1,
@@ -177,7 +177,7 @@
     {
       "id": "c-261336",
       "courseId": "261336",
-      "courseTitle": "Comp Net Lab",
+      "courseTitle": "Networks Lab",
       "creditHours": 1,
       "suggestedYear": 2,
       "suggestedSemester": 1,
@@ -201,7 +201,7 @@
     {
       "id": "c-269202",
       "courseId": "269202",
-      "courseTitle": "Algo for ISNE",
+      "courseTitle": "Algos for ISNE",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 1,
@@ -299,7 +299,7 @@
     {
       "id": "c-261305",
       "courseId": "261305",
-      "courseTitle": "Operating Systems",
+      "courseTitle": "OS",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 2,
@@ -336,7 +336,7 @@
     {
       "id": "c-261434",
       "courseId": "261434",
-      "courseTitle": "Net Design & Man",
+      "courseTitle": "Net Design & Mgmt",
       "creditHours": 3,
       "suggestedYear": 3,
       "suggestedSemester": 1,
@@ -349,7 +349,7 @@
     {
       "id": "c-261361",
       "courseId": "261361",
-      "courseTitle": "Software Engineering",
+      "courseTitle": "Software Engr",
       "creditHours": 3,
       "suggestedYear": 3,
       "suggestedSemester": 1,
@@ -423,7 +423,7 @@
     {
       "id": "c-261446",
       "courseId": "261446",
-      "courseTitle": "Information System",
+      "courseTitle": "Info Sys",
       "creditHours": 3,
       "suggestedYear": 3,
       "suggestedSemester": 2,
@@ -436,7 +436,7 @@
     {
       "id": "c-269370",
       "courseId": "269370",
-      "courseTitle": "Project Man for ISNE",
+      "courseTitle": "Proj Mgmt for ISNE",
       "creditHours": 3,
       "suggestedYear": 3,
       "suggestedSemester": 2,
@@ -517,7 +517,7 @@
     {
       "id": "c-269470",
       "courseId": "269470",
-      "courseTitle": "IT Service Man",
+      "courseTitle": "ITSM",
       "creditHours": 3,
       "suggestedYear": 4,
       "suggestedSemester": 1,
@@ -531,7 +531,7 @@
     {
       "id": "c-259192",
       "courseId": "259192",
-      "courseTitle": "Skills for Prof & Entre",
+      "courseTitle": "Skills for Pro & Entre",
       "creditHours": 1,
       "suggestedYear": 4,
       "suggestedSemester": 1,
@@ -550,5 +550,475 @@
       "selectedSemester": 2,
       "prerequisites": []
     }
-  ]
+  ],
+  "options": {
+    "languageLiteracy": [
+      {
+        "courseId": "001101",
+        "courseTitle": "Fundamental English 1",
+        "prerequisites": []
+      },
+      {
+        "courseId": "001102",
+        "courseTitle": "Fundamental English 2",
+        "prerequisites": [
+          "001101"
+        ]
+      },
+      {
+        "courseId": "001225",
+        "courseTitle": "English for Sci & Tech",
+        "prerequisites": []
+      },
+      {
+        "courseId": "001201",
+        "courseTitle": "Critical Reading & Effective Writing",
+        "prerequisites": [
+          "001102"
+        ]
+      },
+      {
+        "courseId": "001233",
+        "courseTitle": "English for Standardized Tests",
+        "prerequisites": []
+      },
+      {
+        "courseId": "001241",
+        "courseTitle": "Oral Comm in English",
+        "prerequisites": []
+      },
+      {
+        "courseId": "001242",
+        "courseTitle": "Exploring Reading & Writing Skills",
+        "prerequisites": []
+      },
+      {
+        "courseId": "001243",
+        "courseTitle": "Basics of Effective Essay Writing",
+        "prerequisites": []
+      }
+    ],
+    "digitalLiteracy": [
+      {
+        "courseId": "204100",
+        "courseTitle": "AI & Digital Essentials",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261111",
+        "courseTitle": "Internet & Online Community in the Age of AI",
+        "prerequisites": []
+      }
+    ],
+    "globalCitizenship": [
+      {
+        "courseId": "140104",
+        "courseTitle": "Citizenship",
+        "prerequisites": []
+      }
+    ],
+    "creativityInnovation": [
+      {
+        "courseId": "063101",
+        "courseTitle": "Learning for Self-Development",
+        "prerequisites": []
+      },
+      {
+        "courseId": "201116",
+        "courseTitle": "Science & Global Warming",
+        "prerequisites": []
+      },
+      {
+        "courseId": "201190",
+        "courseTitle": "Critical Thinking, Prob Solv & Sci Comm",
+        "prerequisites": []
+      },
+      {
+        "courseId": "203100",
+        "courseTitle": "Chemistry in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "210100",
+        "courseTitle": "World of Materials",
+        "prerequisites": []
+      },
+      {
+        "courseId": "271111",
+        "courseTitle": "Robotics Appreciation",
+        "prerequisites": []
+      },
+      {
+        "courseId": "271112",
+        "courseTitle": "Fund of Rapid Prototyping for Robotics Engr",
+        "prerequisites": []
+      },
+      {
+        "courseId": "273101",
+        "courseTitle": "Plasma Technology for Sustainability",
+        "prerequisites": []
+      },
+      {
+        "courseId": "900100",
+        "courseTitle": "Biomed Engr in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "951100",
+        "courseTitle": "Modern Life & Animation",
+        "prerequisites": []
+      }
+    ],
+    "entrepreneurialSkills": [
+      {
+        "courseId": "701185",
+        "courseTitle": "Simple Tax Mgmt Technique",
+        "prerequisites": []
+      },
+      {
+        "courseId": "702101",
+        "courseTitle": "Finance for Daily Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "703103",
+        "courseTitle": "Intro to Entre & Business",
+        "prerequisites": []
+      },
+      {
+        "courseId": "751100",
+        "courseTitle": "Economics for Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "888107",
+        "courseTitle": "Business Startup on Digital Platform",
+        "prerequisites": []
+      }
+    ],
+    "geElective": [
+      {
+        "courseId": "888102",
+        "courseTitle": "Big Data for Business",
+        "prerequisites": []
+      },
+      {
+        "courseId": "888106",
+        "courseTitle": "Comm & Networking in Online Society",
+        "prerequisites": []
+      },
+      {
+        "courseId": "154104",
+        "courseTitle": "Environmental Conservation",
+        "prerequisites": []
+      },
+      {
+        "courseId": "751107",
+        "courseTitle": "Economics of Sustainability",
+        "prerequisites": []
+      },
+      {
+        "courseId": "888108",
+        "courseTitle": "Smart Society",
+        "prerequisites": []
+      },
+      {
+        "courseId": "955113",
+        "courseTitle": "Gen AI for Business Mgmt",
+        "prerequisites": []
+      },
+      {
+        "courseId": "955115",
+        "courseTitle": "Generative Artificial Intelligence for Digital Innovation",
+        "prerequisites": []
+      }
+    ],
+    "majorElective": [
+      {
+        "courseId": "261408",
+        "courseTitle": "Quantum Computation",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261409",
+        "courseTitle": "Functional Programming",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261411",
+        "courseTitle": "Parallel Proc & Dist Sys",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261430",
+        "courseTitle": "Wireless Networks",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261435",
+        "courseTitle": "Broadband Comm Networks",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261438",
+        "courseTitle": "MPLS",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261441",
+        "courseTitle": "Internet of Things & Big Data",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261444",
+        "courseTitle": "Advanced DBMS",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261448",
+        "courseTitle": "Data Mining for CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261453",
+        "courseTitle": "Digital Image Processing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261456",
+        "courseTitle": "Intro to CI for CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261459",
+        "courseTitle": "Deep Learning",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261461",
+        "courseTitle": "Visual & Interactive Programming",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261465",
+        "courseTitle": "CG",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261468",
+        "courseTitle": "Sys Analysis & Design for CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261472",
+        "courseTitle": "Robotics",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261473",
+        "courseTitle": "CAM",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261475",
+        "courseTitle": "Modeling & Optimization for Big Data Analytics",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261476",
+        "courseTitle": "Biomedical Instruments",
+        "prerequisites": []
+      },
+      {
+        "courseId": "267440",
+        "courseTitle": "Principles of Data Privacy",
+        "prerequisites": []
+      },
+      {
+        "courseId": "267456",
+        "courseTitle": "Software Security Testing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "267465",
+        "courseTitle": "Security Orchestration, Automation, & Response",
+        "prerequisites": []
+      },
+      {
+        "courseId": "267475",
+        "courseTitle": "Fund of Malware Analysis",
+        "prerequisites": []
+      },
+      {
+        "courseId": "267476",
+        "courseTitle": "Intro to Cryptography",
+        "prerequisites": []
+      },
+      {
+        "courseId": "267485",
+        "courseTitle": "Social Engineering",
+        "prerequisites": []
+      },
+      {
+        "courseId": "267494",
+        "courseTitle": "Selected Topics in Cybersecurity",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269341",
+        "courseTitle": "Data Warehousing & Business Intelligence for Information Systems & Network Engineering",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269400",
+        "courseTitle": "Advanced Information Systems & Network Technology",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269421",
+        "courseTitle": "Net Traffic Analysis",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269431",
+        "courseTitle": "Wireless Sensor Network",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269432",
+        "courseTitle": "Peer-to-Peer Systems",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269433",
+        "courseTitle": "Net Routing Protocols",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269441",
+        "courseTitle": "Information Retrieval & Extraction",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269451",
+        "courseTitle": "Intro to Neuro-Fuzzy Systems",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269452",
+        "courseTitle": "Mobile Application Development",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269461",
+        "courseTitle": "Personal Software Process Improvement",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269471",
+        "courseTitle": "Adv Proj Mgmt for ISNE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269472",
+        "courseTitle": "Risk Mgmt in Software Proj",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269493",
+        "courseTitle": "Seminar",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269494",
+        "courseTitle": "Selected Topics in Information Systems & Network Engineering",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269496",
+        "courseTitle": "Selected Topics in Information Systems 1",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269497",
+        "courseTitle": "Selected Topics in Information Systems 2",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269498",
+        "courseTitle": "Selected Topics in Network Engineering 1",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269499",
+        "courseTitle": "Selected Topics in Network Engineering 2",
+        "prerequisites": []
+      },
+      {
+        "courseId": "176104",
+        "courseTitle": "Rights & Duties of Citizen in Digital Age",
+        "prerequisites": []
+      },
+      {
+        "courseId": "267351",
+        "courseTitle": "Ethical Hacking",
+        "prerequisites": []
+      },
+      {
+        "courseId": "267352",
+        "courseTitle": "OS Security",
+        "prerequisites": []
+      },
+      {
+        "courseId": "267360",
+        "courseTitle": "Defensive Security",
+        "prerequisites": []
+      },
+      {
+        "courseId": "267371",
+        "courseTitle": "Pentest",
+        "prerequisites": []
+      },
+      {
+        "courseId": "267480",
+        "courseTitle": "CSF",
+        "prerequisites": []
+      },
+      {
+        "courseId": "267481",
+        "courseTitle": "DFIR",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261361",
+        "courseTitle": "Software Engr",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261434",
+        "courseTitle": "Net Design & Mgmt",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261446",
+        "courseTitle": "Info Sys",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261449",
+        "courseTitle": "Software Testing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269370",
+        "courseTitle": "Proj Mgmt for ISNE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269470",
+        "courseTitle": "ITSM",
+        "prerequisites": []
+      }
+    ]
+  }
 }
