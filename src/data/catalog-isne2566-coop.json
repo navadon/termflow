@@ -82,7 +82,7 @@
     {
       "id": "c-001101",
       "courseId": "001101",
-      "courseTitle": "Fundamental English 1",
+      "courseTitle": "English 1",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -737,7 +737,7 @@
     "languageLiteracy": [
       {
         "courseId": "001101",
-        "courseTitle": "Fundamental English 1",
+        "courseTitle": "English 1",
         "prerequisites": []
       },
       {
