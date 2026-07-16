@@ -832,7 +832,7 @@ export default function App() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `${selectedCurriculum.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_plan.json`;
+    link.download = `${selectedCurriculum.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').toLowerCase()}_plan.json`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
