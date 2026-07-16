@@ -1,0 +1,1212 @@
+{
+  "curriculumName": "isne2566-coop",
+  "courses": [
+    {
+      "id": "c-206161",
+      "courseId": "206161",
+      "courseTitle": "Calc for Engr 1",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 0,
+      "courseType": "math and sci"
+    },
+    {
+      "id": "c-261216",
+      "courseId": "261216",
+      "courseTitle": "Discrete Math",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 1,
+      "courseType": "math and sci"
+    },
+    {
+      "id": "c-269102",
+      "courseId": "269102",
+      "courseTitle": "Basic Prog",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 2,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-269101",
+      "courseId": "269101",
+      "courseTitle": "Intro to ISNE",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 6,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-259191",
+      "courseId": "259191",
+      "courseTitle": "Princ of Being Pro",
+      "creditHours": 1,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 9,
+      "courseType": "gen engr"
+    },
+    {
+      "id": "c-259104",
+      "courseId": "259104",
+      "courseTitle": "Engr Drawing",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 10,
+      "courseType": "gen engr"
+    },
+    {
+      "id": "c-001101",
+      "courseId": "001101",
+      "courseTitle": "Fundamental English 1",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 11,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "c-206162",
+      "courseId": "206162",
+      "courseTitle": "Calc for Engr 2",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "206161"
+      ],
+      "rowIndex": 0,
+      "courseType": "math and sci"
+    },
+    {
+      "id": "c-261205",
+      "courseId": "261205",
+      "courseTitle": "Algorithms",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "269102"
+      ],
+      "rowIndex": 3,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-269103",
+      "courseId": "269103",
+      "courseTitle": "Prog ISNE",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "269102"
+      ],
+      "rowIndex": 4,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-269130",
+      "courseId": "269130",
+      "courseTitle": "Data Comm",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "269101"
+      ],
+      "rowIndex": 6,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-269105",
+      "courseId": "269105",
+      "courseTitle": "ISNE Lab",
+      "creditHours": 1,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 9,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-001102",
+      "courseId": "001102",
+      "courseTitle": "English 2",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "001101"
+      ],
+      "rowIndex": 11,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "c-140104",
+      "courseId": "140104",
+      "courseTitle": "Citizenship",
+      "creditHours": 3,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 12,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "c-261200",
+      "courseId": "261200",
+      "courseTitle": "OO Prog",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "269102"
+      ],
+      "rowIndex": 0,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-269200",
+      "courseId": "269200",
+      "courseTitle": "Web Prog",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "269102"
+      ],
+      "rowIndex": 1,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-269202",
+      "courseId": "269202",
+      "courseTitle": "Algos for ISNE",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261205"
+      ],
+      "rowIndex": 2,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-261335",
+      "courseId": "261335",
+      "courseTitle": "Networks",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "269130"
+      ],
+      "rowIndex": 6,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-261336",
+      "courseId": "261336",
+      "courseTitle": "Networks Lab",
+      "creditHours": 1,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 7,
+      "courseType": "major courses",
+      "corequisite": "261335"
+    },
+    {
+      "id": "c-269201",
+      "courseId": "269201",
+      "courseTitle": "ISNE Lab 2",
+      "creditHours": 1,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "269105"
+      ],
+      "rowIndex": 9,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-255201",
+      "courseId": "255201",
+      "courseTitle": "Analysis in IE",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 10,
+      "courseType": "gen engr"
+    },
+    {
+      "id": "c-001225",
+      "courseId": "001225",
+      "courseTitle": "English for Sci & Tech",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "001102"
+      ],
+      "rowIndex": 11,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "c-261342",
+      "courseId": "261342",
+      "courseTitle": "Database",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261205"
+      ],
+      "rowIndex": 4,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-261343",
+      "courseId": "261343",
+      "courseTitle": "Database Lab",
+      "creditHours": 1,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 5,
+      "courseType": "major courses",
+      "corequisite": "261342"
+    },
+    {
+      "id": "c-269210",
+      "courseId": "269210",
+      "courseTitle": "Comp Arch for ISNE",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 9,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-261433",
+      "courseId": "261433",
+      "courseTitle": "Network Prog",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261335"
+      ],
+      "rowIndex": 7,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-252281",
+      "courseId": "252281",
+      "courseTitle": "Circuits ISNE",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 10,
+      "courseType": "gen engr"
+    },
+    {
+      "id": "c-001201",
+      "courseId": "001201",
+      "courseTitle": "English R/W",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "001102"
+      ],
+      "rowIndex": 11,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "ge-co-creator",
+      "courseId": null,
+      "courseTitle": "GenEd Co-creator",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 12,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "c-261361",
+      "courseId": "261361",
+      "courseTitle": "Software Engr",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261200"
+      ],
+      "rowIndex": 0,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-269340",
+      "courseId": "269340",
+      "courseTitle": "Data Centric",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261342",
+        "261343"
+      ],
+      "rowIndex": 4,
+      "courseType": "major courses"
+    },
+    {
+      "id": "free-elect-1",
+      "courseId": null,
+      "courseTitle": "Free Elective",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 10,
+      "courseType": "others"
+    },
+    {
+      "id": "c-261305",
+      "courseId": "261305",
+      "courseTitle": "OS",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "269210"
+      ],
+      "rowIndex": 9,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-261434",
+      "courseId": "261434",
+      "courseTitle": "Net Design & Mgmt",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261335"
+      ],
+      "rowIndex": 6,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-269430",
+      "courseId": "269430",
+      "courseTitle": "Wireless & Broadband",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [
+        "261335"
+      ],
+      "rowIndex": 7,
+      "courseType": "major courses"
+    },
+    {
+      "id": "ge-digital-lit",
+      "courseId": null,
+      "courseTitle": "GenEd Digital Literacy",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 12,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "c-269462",
+      "courseId": "269462",
+      "courseTitle": "Intro to HCI",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261361"
+      ],
+      "rowIndex": 0,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-269360",
+      "courseId": "269360",
+      "courseTitle": "Platform Prog",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261200"
+      ],
+      "rowIndex": 1,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-261446",
+      "courseId": "261446",
+      "courseTitle": "Info Sys",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261205"
+      ],
+      "rowIndex": 2,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-269370",
+      "courseId": "269370",
+      "courseTitle": "Proj Mgmt for ISNE",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261205"
+      ],
+      "rowIndex": 3,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-261447",
+      "courseId": "261447",
+      "courseTitle": "Net & Info Sec",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261335"
+      ],
+      "rowIndex": 6,
+      "courseType": "major courses"
+    },
+    {
+      "id": "major-elect-1",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 8,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-269491",
+      "courseId": "269491",
+      "courseTitle": "Project Survey",
+      "creditHours": 1,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 4,
+      "courseType": "major courses"
+    },
+    {
+      "id": "ge-1",
+      "courseId": null,
+      "courseTitle": "GenEd Elective",
+      "creditHours": 1,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 12,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "c-269495",
+      "courseId": "269495",
+      "courseTitle": "Coop Education",
+      "creditHours": 6,
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 9,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-269470",
+      "courseId": "269470",
+      "courseTitle": "ITSM",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "261446",
+        "269370"
+      ],
+      "rowIndex": 2,
+      "courseType": "major courses"
+    },
+    {
+      "id": "free-elect-2",
+      "courseId": null,
+      "courseTitle": "Free Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 10,
+      "courseType": "others"
+    },
+    {
+      "id": "ge-2",
+      "courseId": null,
+      "courseTitle": "GenEd Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 11,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "ge-3",
+      "courseId": null,
+      "courseTitle": "GenEd Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 12,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "major-elect-2",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 8,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-269492",
+      "courseId": "269492",
+      "courseTitle": "Project",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": [
+        "269491"
+      ],
+      "rowIndex": 4,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-259192",
+      "courseId": "259192",
+      "courseTitle": "Skills for Pro & Entre",
+      "creditHours": 1,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "rowIndex": 9,
+      "courseType": "gen engr"
+    }
+  ],
+  "options": {
+    "languageLiteracy": [
+      {
+        "courseId": "001101",
+        "courseTitle": "Fundamental English 1",
+        "prerequisites": []
+      },
+      {
+        "courseId": "001102",
+        "courseTitle": "Fundamental English 2",
+        "prerequisites": [
+          "001101"
+        ]
+      },
+      {
+        "courseId": "001201",
+        "courseTitle": "Critical Reading & Effective Writing",
+        "prerequisites": [
+          "001102"
+        ]
+      },
+      {
+        "courseId": "001225",
+        "courseTitle": "English for Sci & Tech",
+        "prerequisites": [
+          "001102"
+        ]
+      }
+    ],
+    "digitalLiteracy": [
+      {
+        "courseId": "204100",
+        "courseTitle": "AI & Digital Essentials",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261111",
+        "courseTitle": "Internet & Online Community in the Age of AI",
+        "prerequisites": []
+      },
+      {
+        "courseId": "953111",
+        "courseTitle": "Software for Everyday Life",
+        "prerequisites": []
+      }
+    ],
+    "globalCitizenship": [
+      {
+        "courseId": "140104",
+        "courseTitle": "Citizenship",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259191",
+        "courseTitle": "Princ of Being Pro",
+        "prerequisites": []
+      }
+    ],
+    "creativityInnovation": [
+      {
+        "courseId": "013110",
+        "courseTitle": "Psychology & Daily Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "050106",
+        "courseTitle": "Humanistic Arts",
+        "prerequisites": []
+      },
+      {
+        "courseId": "176100",
+        "courseTitle": "Law & Modern World",
+        "prerequisites": []
+      },
+      {
+        "courseId": "201114",
+        "courseTitle": "Environmental Science in Today's World",
+        "prerequisites": []
+      },
+      {
+        "courseId": "201117",
+        "courseTitle": "Mathematics & Science in Civilization",
+        "prerequisites": []
+      },
+      {
+        "courseId": "201190",
+        "courseTitle": "Critical Thinking, Prob Solv & Sci Comm",
+        "prerequisites": []
+      },
+      {
+        "courseId": "207109",
+        "courseTitle": "Life & the Universe",
+        "prerequisites": []
+      },
+      {
+        "courseId": "207110",
+        "courseTitle": "Physics: the Science that Changed the World",
+        "prerequisites": []
+      },
+      {
+        "courseId": "368100",
+        "courseTitle": "Starting an Agribusiness in a Changing World",
+        "prerequisites": []
+      },
+      {
+        "courseId": "610111",
+        "courseTitle": "Packaging for Marketing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "703103",
+        "courseTitle": "Intro to Entre & Business",
+        "prerequisites": []
+      },
+      {
+        "courseId": "751100",
+        "courseTitle": "Economics for Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "851103",
+        "courseTitle": "Life & Society through Media",
+        "prerequisites": []
+      },
+      {
+        "courseId": "852100",
+        "courseTitle": "Intro to Film",
+        "prerequisites": []
+      }
+    ],
+    "entrepreneurialSkills": [
+      {
+        "courseId": "259192",
+        "courseTitle": "Skills for Pro & Entre",
+        "prerequisites": []
+      }
+    ],
+    "geElective": [
+      {
+        "courseId": "009103",
+        "courseTitle": "Information Literacy & Information Presentation",
+        "prerequisites": []
+      },
+      {
+        "courseId": "154130",
+        "courseTitle": "Geo-Information in Daily Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "201100",
+        "courseTitle": "Integrated Science",
+        "prerequisites": []
+      },
+      {
+        "courseId": "203100",
+        "courseTitle": "Chemistry in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "211100",
+        "courseTitle": "Eating Well: Better Living & Disease Prevention",
+        "prerequisites": []
+      },
+      {
+        "courseId": "462130",
+        "courseTitle": "Medications in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "571116",
+        "courseTitle": "Health & Working in the Digital Age",
+        "prerequisites": []
+      },
+      {
+        "courseId": "701181",
+        "courseTitle": "Basic Accounting for Entrepreneurs",
+        "prerequisites": []
+      },
+      {
+        "courseId": "702101",
+        "courseTitle": "Finance for Daily Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "705191",
+        "courseTitle": "Smart Consumer",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259194",
+        "courseTitle": "Characteristics & Values for Being a Professional Entrepreneur",
+        "prerequisites": []
+      },
+      {
+        "courseId": "109114",
+        "courseTitle": "Art in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "127100",
+        "courseTitle": "Politics in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "128100",
+        "courseTitle": "Basic Good Governance in Administration",
+        "prerequisites": []
+      },
+      {
+        "courseId": "154104",
+        "courseTitle": "Environmental Conservation",
+        "prerequisites": []
+      },
+      {
+        "courseId": "256131",
+        "courseTitle": "Urban Mining",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259193",
+        "courseTitle": "Morality & Intelligence for Being a Professional",
+        "prerequisites": []
+      },
+      {
+        "courseId": "259195",
+        "courseTitle": "Managing Activities for Development",
+        "prerequisites": []
+      },
+      {
+        "courseId": "801100",
+        "courseTitle": "Architecture in Everyday Life",
+        "prerequisites": []
+      },
+      {
+        "courseId": "951100",
+        "courseTitle": "Modern Life & Animation",
+        "prerequisites": []
+      }
+    ],
+    "majorElective": [
+      {
+        "courseId": "261408",
+        "courseTitle": "Quantum Computation",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261409",
+        "courseTitle": "Functional Programming",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261411",
+        "courseTitle": "Parallel Proc & Dist Sys",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261430",
+        "courseTitle": "Wireless Networks",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261435",
+        "courseTitle": "Broadband Comm Networks",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261438",
+        "courseTitle": "MPLS",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261441",
+        "courseTitle": "Internet of Things & Big Data",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261444",
+        "courseTitle": "Advanced DBMS",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261448",
+        "courseTitle": "Data Mining for CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261449",
+        "courseTitle": "Software Testing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261453",
+        "courseTitle": "Digital Image Processing",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261456",
+        "courseTitle": "Intro to CI for CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261459",
+        "courseTitle": "Deep Learning",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261461",
+        "courseTitle": "Visual & Interactive Programming",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261465",
+        "courseTitle": "CG",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261468",
+        "courseTitle": "Sys Analysis & Design for CPE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261472",
+        "courseTitle": "Robotics",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261473",
+        "courseTitle": "CAM",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261475",
+        "courseTitle": "Modeling & Optimization for Big Data Analytics",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261476",
+        "courseTitle": "Biomedical Instruments",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269341",
+        "courseTitle": "Data Warehousing & Business Intelligence for Information Systems & Network Engineering",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269400",
+        "courseTitle": "Advanced Information Systems & Network Technology",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269421",
+        "courseTitle": "Net Traffic Analysis",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269431",
+        "courseTitle": "Wireless Sensor Network",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269432",
+        "courseTitle": "Peer-to-Peer Systems",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269433",
+        "courseTitle": "Net Routing Protocols",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269441",
+        "courseTitle": "Information Retrieval & Extraction",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269451",
+        "courseTitle": "Intro to Neuro-Fuzzy Systems",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269452",
+        "courseTitle": "Mobile Application Development",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269461",
+        "courseTitle": "Personal Software Process Improvement",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269471",
+        "courseTitle": "Adv Proj Mgmt for ISNE",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269472",
+        "courseTitle": "Risk Mgmt in Software Proj",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269493",
+        "courseTitle": "Seminar",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269494",
+        "courseTitle": "Selected Topics in Information Systems & Network Engineering",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269496",
+        "courseTitle": "Selected Topics in Information Systems 1",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269497",
+        "courseTitle": "Selected Topics in Information Systems 2",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269498",
+        "courseTitle": "Selected Topics in Network Engineering 1",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269499",
+        "courseTitle": "Selected Topics in Network Engineering 2",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261485",
+        "courseTitle": "Cyber Mgmt",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261486",
+        "courseTitle": "Net Sec & Tech Ctrl",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261487",
+        "courseTitle": "Cybersecurity Threat Analysis & Detection",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261488",
+        "courseTitle": "Cybersecurity Incident Response",
+        "prerequisites": []
+      },
+      {
+        "courseId": "261489",
+        "courseTitle": "Cybersecurity Audit & Cyber Resilience",
+        "prerequisites": []
+      },
+      {
+        "courseId": "269401",
+        "courseTitle": "ISNE Training",
+        "prerequisites": []
+      }
+    ]
+  },
+  "resources": [
+    {
+      "title": "ISNE 2566 Plan Information",
+      "url": "https://docs.google.com/spreadsheets/d/10NbOTigLb4iNtcWJes0kfE4jfMZ09rMINXladO0NHzE/edit?gid=241860609#gid=241860609"
+    },
+    {
+      "title": "ISNE 2566 Study Program",
+      "url": "https://www.cpe.eng.cmu.ac.th/curriculum-thai.php?view_id=ISNE-2566BE"
+    },
+    {
+      "title": "หลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมระบบสารสนเทศและเครือข่าย (หลักสูตรนานาชาติ) หลักสูตรปรับปรุง พ.ศ. 2566",
+      "url": "https://reg.eng.cmu.ac.th/reg_curriculum/uploads/2568/ISNE-2566_2568.pdf"
+    }
+  ]
+}
