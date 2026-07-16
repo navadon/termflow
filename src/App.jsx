@@ -451,6 +451,18 @@ const updateGameState = (currentNodes, onToggleSemesterComplete = null) => {
   });
 };
 
+const AUTOSAVE_KEY = 'curriculum-planner-autosave';
+
+const loadAutosave = () => {
+  try {
+    const saved = JSON.parse(localStorage.getItem(AUTOSAVE_KEY));
+    if (saved && saved.curriculumName && curriculums[saved.curriculumName] && Array.isArray(saved.plan)) {
+      return saved;
+    }
+  } catch { /* corrupted or unavailable storage: fall through to defaults */ }
+  return null;
+};
+
 const generateEdgesForNodes = (currentNodes) => {
   const generatedEdges = [];
   const courseIdToNodeId = {};
@@ -482,23 +494,27 @@ const generateEdgesForNodes = (currentNodes) => {
 };
 
 export default function App() {
+  const autosaveRef = useRef(loadAutosave());
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
-  const [selectedCurriculum, setSelectedCurriculum] = useState('CPE 2568 (Regular)');
-  const [dropdownValue, setDropdownValue] = useState('CPE 2568 (Regular)');
-  const [activePlanData, setActivePlanData] = useState(null);
-  const [loadedFileName, setLoadedFileName] = useState(null);
+  const [selectedCurriculum, setSelectedCurriculum] = useState(autosaveRef.current?.curriculumName || 'CPE 2568 (Regular)');
+  const [dropdownValue, setDropdownValue] = useState(autosaveRef.current?.curriculumName || 'CPE 2568 (Regular)');
+  const [activePlanData, setActivePlanData] = useState(autosaveRef.current?.plan || null);
+  const [loadedFileName, setLoadedFileName] = useState(autosaveRef.current?.loadedFileName || null);
+  const [resetNonce, setResetNonce] = useState(0);
 
   const [hoveredNodeId, setHoveredNodeId] = useState(null);
 
   const initialDragPos = useRef(null);
   const fileInputRef = useRef(null);
+  const dirtyRef = useRef(false);
 
   const toggleSemesterRef = useRef(null);
   const onToggleSemesterComplete = useCallback((year, sem, completed) => {
     toggleSemesterRef.current?.(year, sem, completed);
   }, []);
   toggleSemesterRef.current = (year, sem, completed) => {
+    dirtyRef.current = true;
     setNodes((nds) => {
       const semNode = nds.find(n => n.id === `sem-bg-${year}-${sem}`);
       if (!semNode) return nds;
@@ -519,6 +535,7 @@ export default function App() {
   };
 
   const onToggleComplete = useCallback((id, completed) => {
+    dirtyRef.current = true;
     setNodes((nds) => {
       const updatedNodes = nds.map(node => {
         if (node.id === id) {
@@ -540,6 +557,7 @@ export default function App() {
   }, [onToggleSemesterComplete]);
 
   const onSelectCourse = useCallback((id, selectedCourseId) => {
+    dirtyRef.current = true;
     setNodes((nds) => {
       const targetNode = nds.find(n => n.id === id);
       const optionType = targetNode?.data?.optionType;
@@ -695,7 +713,39 @@ export default function App() {
     setEdges(generateEdgesForNodes(finalNodes));
     setNodes(finalNodes);
 
-  }, [selectedCurriculum, activePlanData, onToggleComplete, onSelectCourse, onToggleSemesterComplete]);
+  }, [selectedCurriculum, activePlanData, resetNonce, onToggleComplete, onSelectCourse, onToggleSemesterComplete]);
+
+  // Autosave: mirror the current plan into localStorage on every change
+  useEffect(() => {
+    const courseNodes = nodes.filter(n => n.type === 'course');
+    if (courseNodes.length === 0) return;
+    const plan = courseNodes.map(n => ({
+      id: n.id,
+      courseId: n.data.courseId,
+      selectedYear: n.data.currentYear,
+      selectedSemester: n.data.currentSemester,
+      completed: !!n.data.completed
+    }));
+    try {
+      localStorage.setItem(AUTOSAVE_KEY, JSON.stringify({
+        curriculumName: selectedCurriculum,
+        plan,
+        loadedFileName
+      }));
+    } catch { /* storage full or unavailable: autosave is best-effort */ }
+  }, [nodes, selectedCurriculum, loadedFileName]);
+
+  // Warn before closing the tab with unsaved changes
+  useEffect(() => {
+    const onBeforeUnload = (e) => {
+      if (dirtyRef.current) {
+        e.preventDefault();
+        e.returnValue = '';
+      }
+    };
+    window.addEventListener('beforeunload', onBeforeUnload);
+    return () => window.removeEventListener('beforeunload', onBeforeUnload);
+  }, []);
 
   const onNodesChange = useCallback((changes) => setNodes((nds) => applyNodeChanges(changes, nds)), []);
   const onEdgesChange = useCallback((changes) => setEdges((eds) => applyEdgeChanges(changes, eds)), []);
@@ -708,6 +758,7 @@ export default function App() {
 
   const onNodeDragStop = useCallback((event, node) => {
     if (node.type === 'course') {
+      dirtyRef.current = true;
       const nodeCenterX = node.position.x + (COURSE_WIDTH / 2);
       const nodeCenterY = node.position.y + (COURSE_HEIGHT / 2);
 
@@ -785,11 +836,17 @@ export default function App() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    dirtyRef.current = false;
   };
 
   const handleImport = (event) => {
     const file = event.target.files[0];
     if (!file) return;
+
+    if (dirtyRef.current && !window.confirm('Opening a plan will discard your unsaved changes. Continue?')) {
+      event.target.value = null;
+      return;
+    }
 
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -799,7 +856,8 @@ export default function App() {
           setSelectedCurriculum(parsed.curriculumName);
           setActivePlanData(parsed.plan);
           setLoadedFileName(file.name);
-          setDropdownValue("");
+          setDropdownValue(parsed.curriculumName);
+          dirtyRef.current = false;
         } else {
           alert("Unrecognized curriculum in the imported file!");
         }
@@ -813,11 +871,26 @@ export default function App() {
 
   const handleDropdownChange = (e) => {
     const val = e.target.value;
-    if (val === "") return;
+    if (val === "" || val === selectedCurriculum) return;
+    if (dirtyRef.current && !window.confirm('Switching curriculum will discard your unsaved changes. Continue?')) {
+      return;
+    }
     setDropdownValue(val);
     setSelectedCurriculum(val);
     setActivePlanData(null);
     setLoadedFileName(null);
+    dirtyRef.current = false;
+  };
+
+  const handleReset = () => {
+    if (!window.confirm(`Reset to the default ${selectedCurriculum} template? This discards the current plan.`)) {
+      return;
+    }
+    setActivePlanData(null);
+    setLoadedFileName(null);
+    setDropdownValue(selectedCurriculum);
+    setResetNonce(n => n + 1);
+    dirtyRef.current = false;
   };
 
   // Hover highlight: computed live from base nodes/edges, never stored back into state
@@ -915,7 +988,6 @@ export default function App() {
               onChange={handleDropdownChange}
               style={{ padding: '4px 8px', fontSize: '13px', borderRadius: '4px', cursor: 'pointer', border: '1px solid #aaa' }}
             >
-              <option value="" disabled={!loadedFileName}></option>
               {Object.keys(curriculums).map(name => (
                 <option key={name} value={name}>{name}</option>
               ))}
@@ -947,16 +1019,26 @@ export default function App() {
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
             onClick={handleExport}
+            title="Download the current plan as a JSON file"
             style={{ padding: '6px 12px', background: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
           >
-            Export Plan
+            Save Plan
           </button>
 
           <button
             onClick={() => fileInputRef.current.click()}
+            title="Open a previously saved plan file"
             style={{ padding: '6px 12px', background: '#28a745', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
           >
-            Import Plan
+            Open Plan
+          </button>
+
+          <button
+            onClick={handleReset}
+            title="Reset to the default template for this curriculum"
+            style={{ padding: '6px 12px', background: '#fff', color: '#666', border: '1px solid #aaa', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
+          >
+            Reset
           </button>
           <input
             type="file"
