@@ -110,7 +110,7 @@
     {
       "id": "c-261205",
       "courseId": "261205",
-      "courseTitle": "Algorithms",
+      "courseTitle": "Data Struct & Algo",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 2,
@@ -196,7 +196,7 @@
     {
       "id": "c-261200",
       "courseId": "261200",
-      "courseTitle": "OO Prog",
+      "courseTitle": "OOP",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 1,
@@ -285,7 +285,7 @@
     {
       "id": "c-255201",
       "courseId": "255201",
-      "courseTitle": "Analysis in IE",
+      "courseTitle": "Quan Anal in IE",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 1,
@@ -370,7 +370,7 @@
     {
       "id": "c-252281",
       "courseId": "252281",
-      "courseTitle": "Circuits ISNE",
+      "courseTitle": "Circuits for ISNE",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 2,
@@ -742,14 +742,14 @@
       },
       {
         "courseId": "001102",
-        "courseTitle": "Fundamental English 2",
+        "courseTitle": "English 2",
         "prerequisites": [
           "001101"
         ]
       },
       {
         "courseId": "001201",
-        "courseTitle": "Critical Reading & Effective Writing",
+        "courseTitle": "English R/W",
         "prerequisites": [
           "001102"
         ]
