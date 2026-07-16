@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import ReactFlow, {
   Background,
   Controls,
@@ -131,8 +131,29 @@ const CourseNode = ({ id, data }) => {
                 </span>
               )}
             </div>
-            <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
-              {data.creditHours} CR
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
+                {data.creditHours} CR
+              </div>
+              <input
+                type="checkbox"
+                className="nodrag"
+                checked={!!data.completed}
+                disabled={!data.courseId}
+                onChange={(e) => {
+                  if (data.onToggleComplete) {
+                    data.onToggleComplete(id, e.target.checked);
+                  }
+                }}
+                title={!data.courseId ? "Select a course first" : "Mark as completed"}
+                style={{
+                  cursor: data.courseId ? 'pointer' : 'not-allowed',
+                  width: '24px',
+                  height: '24px',
+                  flexShrink: 0,
+                  accentColor: '#28a745'
+                }}
+              />
             </div>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', width: '100%' }}>
@@ -156,7 +177,7 @@ const CourseNode = ({ id, data }) => {
                 borderRadius: '4px',
                 border: '1px solid #ccc',
                 cursor: 'pointer',
-                maxWidth: '160px',
+                width: '100%',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
                 whiteSpace: 'nowrap'
@@ -176,28 +197,6 @@ const CourseNode = ({ id, data }) => {
                 );
               })}
             </select>
-            <input
-              type="checkbox"
-              className="nodrag"
-              checked={!!data.completed}
-              disabled={!data.courseId}
-              onChange={(e) => {
-                if (data.onToggleComplete) {
-                  data.onToggleComplete(id, e.target.checked);
-                }
-              }}
-              title={!data.courseId ? "Select a course first" : "Mark as completed"}
-              style={{
-                cursor: data.courseId ? 'pointer' : 'not-allowed',
-                width: '24px',
-                height: '24px',
-                minWidth: '24px',
-                minHeight: '24px',
-                flexShrink: 0,
-                marginTop: '0px',
-                accentColor: '#28a745'
-              }}
-            />
           </div>
         </div>
         <Handle type="source" position={Position.Right} />
@@ -218,34 +217,32 @@ const CourseNode = ({ id, data }) => {
               </span>
             )}
           </div>
-          <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
-            {data.creditHours} CR
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
+              {data.creditHours} CR
+            </div>
+            <input
+              type="checkbox"
+              className="nodrag"
+              checked={!!data.completed}
+              onChange={(e) => {
+                if (data.onToggleComplete) {
+                  data.onToggleComplete(id, e.target.checked);
+                }
+              }}
+              title="Mark as completed"
+              style={{
+                cursor: 'pointer',
+                width: '24px',
+                height: '24px',
+                flexShrink: 0,
+                accentColor: '#28a745'
+              }}
+            />
           </div>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', width: '100%' }}>
-          <div style={{ fontSize: '16px', lineHeight: '1.25', fontWeight: '600', color: '#000', flex: 1 }}>
-            {data.courseTitle}
-          </div>
-          <input
-            type="checkbox"
-            className="nodrag"
-            checked={!!data.completed}
-            onChange={(e) => {
-              if (data.onToggleComplete) {
-                data.onToggleComplete(id, e.target.checked);
-              }
-            }}
-            style={{
-              cursor: 'pointer',
-              width: '24px',
-              height: '24px',
-              minWidth: '24px',
-              minHeight: '24px',
-              flexShrink: 0,
-              marginTop: '0px',
-              accentColor: '#28a745'
-            }}
-          />
+        <div style={{ fontSize: '16px', lineHeight: '1.25', fontWeight: '600', color: '#000' }}>
+          {data.courseTitle}
         </div>
       </div>
       <Handle type="source" position={Position.Right} />
@@ -257,7 +254,7 @@ const nodeTypes = {
   course: CourseNode
 };
 
-const createSemesterLabel = (year, sem, totalCredits, completedCredits = 0) => {
+const createSemesterLabel = (year, sem, totalCredits, completedCredits = 0, semStats = null, onToggleSemesterComplete = null) => {
   const isSummer = sem === 3;
   const titleText = isSummer ? `Y${year}-Summer` : `Y${year}-${sem}`;
 
@@ -310,12 +307,28 @@ const createSemesterLabel = (year, sem, totalCredits, completedCredits = 0) => {
         }}>
           {completedCredits}/{totalCredits} CR
         </div>
+        {semStats && semStats.completable > 0 && onToggleSemesterComplete && (
+          <input
+            type="checkbox"
+            className="nodrag nopan"
+            checked={semStats.completedCount === semStats.completable}
+            onChange={(e) => onToggleSemesterComplete(year, sem, e.target.checked)}
+            title="Mark all courses in this semester as completed"
+            style={{
+              pointerEvents: 'auto',
+              width: '24px',
+              height: '24px',
+              cursor: 'pointer',
+              accentColor: '#28a745'
+            }}
+          />
+        )}
       </div>
     </div>
   );
 };
 
-const updateGameState = (currentNodes) => {
+const updateGameState = (currentNodes, onToggleSemesterComplete = null) => {
   const nodeLocationMap = {};
   const semesterCreditMap = {};
   const courseIdToNodeId = {};
@@ -333,7 +346,7 @@ const updateGameState = (currentNodes) => {
 
   currentNodes.forEach(n => {
     if (n.id.startsWith('sem-bg')) {
-      semesterCreditMap[n.id] = { total: 0, completed: 0 };
+      semesterCreditMap[n.id] = { total: 0, completed: 0, completable: 0, completedCount: 0 };
     }
 
     if (n.type === 'course') {
@@ -357,11 +370,15 @@ const updateGameState = (currentNodes) => {
 
       nodeLocationMap[courseNode.id] = { year, sem };
       if (!semesterCreditMap[parentSem.id]) {
-        semesterCreditMap[parentSem.id] = { total: 0, completed: 0 };
+        semesterCreditMap[parentSem.id] = { total: 0, completed: 0, completable: 0, completedCount: 0 };
       }
       semesterCreditMap[parentSem.id].total += (courseNode.data.creditHours || 0);
+      if (courseNode.data.courseId) {
+        semesterCreditMap[parentSem.id].completable += 1;
+      }
       if (courseNode.data.completed) {
         semesterCreditMap[parentSem.id].completed += (courseNode.data.creditHours || 0);
+        semesterCreditMap[parentSem.id].completedCount += 1;
       }
     } else {
       nodeLocationMap[courseNode.id] = { year: 99, sem: 99 };
@@ -373,10 +390,10 @@ const updateGameState = (currentNodes) => {
       const parts = node.id.split('-');
       const year = parseInt(parts[2]);
       const sem = parseInt(parts[3]);
-      const semStats = semesterCreditMap[node.id] || { total: 0, completed: 0 };
+      const semStats = semesterCreditMap[node.id] || { total: 0, completed: 0, completable: 0, completedCount: 0 };
       return {
         ...node,
-        data: { ...node.data, label: createSemesterLabel(year, sem, semStats.total, semStats.completed) }
+        data: { ...node.data, label: createSemesterLabel(year, sem, semStats.total, semStats.completed, semStats, onToggleSemesterComplete) }
       };
     }
 
@@ -472,8 +489,34 @@ export default function App() {
   const [activePlanData, setActivePlanData] = useState(null);
   const [loadedFileName, setLoadedFileName] = useState(null);
 
+  const [hoveredNodeId, setHoveredNodeId] = useState(null);
+
   const initialDragPos = useRef(null);
   const fileInputRef = useRef(null);
+
+  const toggleSemesterRef = useRef(null);
+  const onToggleSemesterComplete = useCallback((year, sem, completed) => {
+    toggleSemesterRef.current?.(year, sem, completed);
+  }, []);
+  toggleSemesterRef.current = (year, sem, completed) => {
+    setNodes((nds) => {
+      const semNode = nds.find(n => n.id === `sem-bg-${year}-${sem}`);
+      if (!semNode) return nds;
+      const updatedNodes = nds.map(node => {
+        if (node.type === 'course' && node.data.courseId && isNodeInside(node, semNode)) {
+          return {
+            ...node,
+            draggable: !completed,
+            data: { ...node.data, completed }
+          };
+        }
+        return node;
+      });
+      const finalNodes = updateGameState(updatedNodes, onToggleSemesterComplete);
+      setEdges(generateEdgesForNodes(finalNodes));
+      return finalNodes;
+    });
+  };
 
   const onToggleComplete = useCallback((id, completed) => {
     setNodes((nds) => {
@@ -490,11 +533,11 @@ export default function App() {
         }
         return node;
       });
-      const finalNodes = updateGameState(updatedNodes);
+      const finalNodes = updateGameState(updatedNodes, onToggleSemesterComplete);
       setEdges(generateEdgesForNodes(finalNodes));
       return finalNodes;
     });
-  }, []);
+  }, [onToggleSemesterComplete]);
 
   const onSelectCourse = useCallback((id, selectedCourseId) => {
     setNodes((nds) => {
@@ -520,11 +563,11 @@ export default function App() {
         }
         return node;
       });
-      const finalNodes = updateGameState(updatedNodes);
+      const finalNodes = updateGameState(updatedNodes, onToggleSemesterComplete);
       setEdges(generateEdgesForNodes(finalNodes));
       return finalNodes;
     });
-  }, [selectedCurriculum]);
+  }, [selectedCurriculum, onToggleSemesterComplete]);
 
   useEffect(() => {
     const catalogData = curriculums[selectedCurriculum];
@@ -648,11 +691,11 @@ export default function App() {
       });
     });
 
-    const finalNodes = updateGameState(generatedNodes);
+    const finalNodes = updateGameState(generatedNodes, onToggleSemesterComplete);
     setEdges(generateEdgesForNodes(finalNodes));
     setNodes(finalNodes);
 
-  }, [selectedCurriculum, activePlanData, onToggleComplete, onSelectCourse]);
+  }, [selectedCurriculum, activePlanData, onToggleComplete, onSelectCourse, onToggleSemesterComplete]);
 
   const onNodesChange = useCallback((changes) => setNodes((nds) => applyNodeChanges(changes, nds)), []);
   const onEdgesChange = useCallback((changes) => setEdges((eds) => applyEdgeChanges(changes, eds)), []);
@@ -711,12 +754,12 @@ export default function App() {
           n.id === node.id ? { ...n, position: finalPosition } : n
         );
 
-        const finalNodes = updateGameState(nodesWithSnap);
+        const finalNodes = updateGameState(nodesWithSnap, onToggleSemesterComplete);
         setEdges(generateEdgesForNodes(finalNodes));
         return finalNodes;
       });
     }
-  }, []);
+  }, [onToggleSemesterComplete]);
 
   const handleExport = () => {
     const courseNodes = nodes.filter(n => n.type === 'course');
@@ -776,6 +819,66 @@ export default function App() {
     setActivePlanData(null);
     setLoadedFileName(null);
   };
+
+  // Hover highlight: computed live from base nodes/edges, never stored back into state
+  const displayEdges = useMemo(() => {
+    if (!hoveredNodeId) return edges;
+    return edges.map(edge => {
+      if (edge.source === hoveredNodeId) {
+        return {
+          ...edge,
+          style: {
+            ...edge.style,
+            stroke: '#3b82f6', strokeWidth: 3, opacity: 1,
+            filter: 'drop-shadow(0 0 4px #3b82f6)'
+          },
+          markerEnd: { type: MarkerType.ArrowClosed, color: '#3b82f6' },
+          zIndex: 5
+        };
+      }
+      if (edge.target === hoveredNodeId) {
+        return {
+          ...edge,
+          style: {
+            ...edge.style,
+            stroke: '#22c55e', strokeWidth: 3, opacity: 1,
+            filter: 'drop-shadow(0 0 4px #22c55e)'
+          },
+          markerEnd: { type: MarkerType.ArrowClosed, color: '#22c55e' },
+          zIndex: 5
+        };
+      }
+      return edge;
+    });
+  }, [edges, hoveredNodeId]);
+
+  const displayNodes = useMemo(() => {
+    if (!hoveredNodeId) return nodes;
+    const prereqIds = new Set();
+    const dependentIds = new Set();
+    edges.forEach(edge => {
+      if (edge.target === hoveredNodeId) prereqIds.add(edge.source);
+      if (edge.source === hoveredNodeId) dependentIds.add(edge.target);
+    });
+    return nodes.map(node => {
+      if (node.type !== 'course') return node;
+      if (node.id === hoveredNodeId) {
+        return { ...node, style: { ...node.style, boxShadow: '0 0 12px 3px rgba(245, 158, 11, 0.8)' } };
+      }
+      if (prereqIds.has(node.id)) {
+        return { ...node, style: { ...node.style, boxShadow: '0 0 12px 3px rgba(34, 197, 94, 0.8)' } };
+      }
+      if (dependentIds.has(node.id)) {
+        return { ...node, style: { ...node.style, boxShadow: '0 0 12px 3px rgba(59, 130, 246, 0.8)' } };
+      }
+      return node;
+    });
+  }, [nodes, edges, hoveredNodeId]);
+
+  const onNodeMouseEnter = useCallback((event, node) => {
+    if (node.type === 'course') setHoveredNodeId(node.id);
+  }, []);
+  const onNodeMouseLeave = useCallback(() => setHoveredNodeId(null), []);
 
   const screenHeight = typeof window !== 'undefined' ? window.innerHeight : 1000;
   const fitHeightZoom = screenHeight / 1600;
@@ -866,13 +969,15 @@ export default function App() {
       </div>
 
       <ReactFlow
-        nodes={nodes}
-        edges={edges}
+        nodes={displayNodes}
+        edges={displayEdges}
         nodeTypes={nodeTypes}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onNodeDragStart={onNodeDragStart}
         onNodeDragStop={onNodeDragStop}
+        onNodeMouseEnter={onNodeMouseEnter}
+        onNodeMouseLeave={onNodeMouseLeave}
         defaultViewport={{ x: 50, y: 50, zoom: fitHeightZoom }}
         minZoom={0.1}
       >
