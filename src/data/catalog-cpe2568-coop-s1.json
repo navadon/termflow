@@ -82,7 +82,7 @@
     {
       "id": "c-261216",
       "courseId": "261216",
-      "courseTitle": "Discrete Mathematics",
+      "courseTitle": "Discrete Math",
       "creditHours": 3,
       "suggestedYear": 1,
       "suggestedSemester": 1,
@@ -337,7 +337,7 @@
     {
       "id": "c-261200",
       "courseId": "261200",
-      "courseTitle": "Object-Oriented Programming",
+      "courseTitle": "OOP",
       "creditHours": 3,
       "suggestedYear": 2,
       "suggestedSemester": 2,
@@ -654,7 +654,7 @@
       },
       {
         "courseId": "001102",
-        "courseTitle": "Fundamental English 2",
+        "courseTitle": "English 2",
         "prerequisites": [
           "001101"
         ]
@@ -666,7 +666,7 @@
       },
       {
         "courseId": "001201",
-        "courseTitle": "Critical Reading & Effective Writing",
+        "courseTitle": "English R/W",
         "prerequisites": [
           "001102"
         ]
@@ -1013,7 +1013,7 @@
       },
       {
         "courseId": "176104",
-        "courseTitle": "Rights & Duties of Citizen in Digital Age",
+        "courseTitle": "Rights & Duties",
         "prerequisites": []
       },
       {
