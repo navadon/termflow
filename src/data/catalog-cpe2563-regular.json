@@ -10,7 +10,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 10,
+      "courseType": "gen edu"
     },
     {
       "id": "c-140104",
@@ -21,7 +23,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 11,
+      "courseType": "gen edu"
     },
     {
       "id": "c-206161",
@@ -32,7 +36,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 0,
+      "courseType": "math and sci"
     },
     {
       "id": "c-207105",
@@ -43,7 +49,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 7,
+      "courseType": "math and sci"
     },
     {
       "id": "c-207115",
@@ -54,7 +62,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 8,
+      "courseType": "math and sci"
     },
     {
       "id": "c-259104",
@@ -65,7 +75,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 9,
+      "courseType": "gen engr"
     },
     {
       "id": "c-259106",
@@ -76,7 +88,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 2,
+      "courseType": "gen engr"
     },
     {
       "id": "c-259191",
@@ -87,7 +101,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 1,
+      "courseType": "gen engr"
     },
     {
       "id": "c-261103",
@@ -98,7 +114,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 4,
+      "courseType": "major courses"
     },
     {
       "id": "c-001102",
@@ -109,7 +127,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 10,
+      "courseType": "gen edu"
     },
     {
       "id": "c-206162",
@@ -122,7 +142,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "206161"
-      ]
+      ],
+      "rowIndex": 0,
+      "courseType": "math and sci"
     },
     {
       "id": "c-207106",
@@ -135,7 +157,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "207105"
-      ]
+      ],
+      "rowIndex": 7,
+      "courseType": "math and sci"
     },
     {
       "id": "c-207116",
@@ -148,7 +172,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "207115"
-      ]
+      ],
+      "rowIndex": 8,
+      "courseType": "math and sci"
     },
     {
       "id": "c-252281",
@@ -159,7 +185,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 9,
+      "courseType": "gen engr"
     },
     {
       "id": "c-261102",
@@ -170,7 +198,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 3,
+      "courseType": "major courses"
     },
     {
       "id": "ge-1",
@@ -181,7 +211,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 11,
+      "courseType": "gen edu"
     },
     {
       "id": "c-001225",
@@ -194,7 +226,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "001102"
-      ]
+      ],
+      "rowIndex": 10,
+      "courseType": "gen edu"
     },
     {
       "id": "c-206261",
@@ -207,7 +241,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "206162"
-      ]
+      ],
+      "rowIndex": 0,
+      "courseType": "math and sci"
     },
     {
       "id": "c-261210",
@@ -220,7 +256,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "207106"
-      ]
+      ],
+      "rowIndex": 7,
+      "courseType": "major courses"
     },
     {
       "id": "c-261212",
@@ -231,7 +269,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 8,
+      "courseType": "major courses"
     },
     {
       "id": "c-261216",
@@ -242,7 +282,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 1,
+      "courseType": "math and sci"
     },
     {
       "id": "c-261217",
@@ -255,7 +297,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "261102"
-      ]
+      ],
+      "rowIndex": 2,
+      "courseType": "major courses"
     },
     {
       "id": "c-261207",
@@ -268,7 +312,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "261103"
-      ]
+      ],
+      "rowIndex": 4,
+      "courseType": "major courses"
     },
     {
       "id": "ge-2",
@@ -279,7 +325,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 11,
+      "courseType": "gen edu"
     },
     {
       "id": "c-001201",
@@ -292,7 +340,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "001102"
-      ]
+      ],
+      "rowIndex": 10,
+      "courseType": "gen edu"
     },
     {
       "id": "c-261200",
@@ -305,7 +355,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "261102"
-      ]
+      ],
+      "rowIndex": 3,
+      "courseType": "major courses"
     },
     {
       "id": "c-261208",
@@ -318,7 +370,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "206261"
-      ]
+      ],
+      "rowIndex": 0,
+      "courseType": "math and sci"
     },
     {
       "id": "c-261214",
@@ -332,7 +386,9 @@
       "prerequisites": [
         "261210",
         "252281"
-      ]
+      ],
+      "rowIndex": 7,
+      "courseType": "major courses"
     },
     {
       "id": "c-261215",
@@ -343,7 +399,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 8,
+      "courseType": "major courses"
     },
     {
       "id": "c-261218",
@@ -357,7 +415,9 @@
       "prerequisites": [
         "261216",
         "261217"
-      ]
+      ],
+      "rowIndex": 1,
+      "courseType": "major courses"
     },
     {
       "id": "c-261332",
@@ -370,7 +430,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "207106"
-      ]
+      ],
+      "rowIndex": 5,
+      "courseType": "major courses"
     },
     {
       "id": "c-261304",
@@ -383,7 +445,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "261214"
-      ]
+      ],
+      "rowIndex": 7,
+      "courseType": "major courses"
     },
     {
       "id": "c-261335",
@@ -396,7 +460,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "261332"
-      ]
+      ],
+      "rowIndex": 5,
+      "courseType": "major courses"
     },
     {
       "id": "c-261336",
@@ -407,7 +473,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 6,
+      "courseType": "major courses"
     },
     {
       "id": "c-261342",
@@ -420,7 +488,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "261218"
-      ]
+      ],
+      "rowIndex": 1,
+      "courseType": "major courses"
     },
     {
       "id": "c-261343",
@@ -431,7 +501,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 2,
+      "courseType": "major courses"
     },
     {
       "id": "major-elect-1",
@@ -442,7 +514,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 4,
+      "courseType": "major courses"
     },
     {
       "id": "ge-create-1",
@@ -453,7 +527,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 11,
+      "courseType": "gen edu"
     },
     {
       "id": "c-261305",
@@ -466,7 +542,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "261304"
-      ]
+      ],
+      "rowIndex": 7,
+      "courseType": "major courses"
     },
     {
       "id": "c-261306",
@@ -479,7 +557,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "206261"
-      ]
+      ],
+      "rowIndex": 0,
+      "courseType": "math and sci"
     },
     {
       "id": "c-261361",
@@ -492,7 +572,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "261200"
-      ]
+      ],
+      "rowIndex": 3,
+      "courseType": "major courses"
     },
     {
       "id": "major-elect-2",
@@ -503,7 +585,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 4,
+      "courseType": "major courses"
     },
     {
       "id": "ge-3",
@@ -514,7 +598,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 10,
+      "courseType": "gen edu"
     },
     {
       "id": "ge-digital-1",
@@ -525,7 +611,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 11,
+      "courseType": "gen edu"
     },
     {
       "id": "c-261491",
@@ -536,7 +624,9 @@
       "suggestedSemester": 1,
       "selectedYear": 4,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 2,
+      "courseType": "major courses"
     },
     {
       "id": "major-elect-3",
@@ -547,7 +637,9 @@
       "suggestedSemester": 1,
       "selectedYear": 4,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 4,
+      "courseType": "major courses"
     },
     {
       "id": "major-elect-4",
@@ -558,7 +650,9 @@
       "suggestedSemester": 1,
       "selectedYear": 4,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 5,
+      "courseType": "major courses"
     },
     {
       "id": "major-elect-5",
@@ -569,7 +663,9 @@
       "suggestedSemester": 1,
       "selectedYear": 4,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 6,
+      "courseType": "major courses"
     },
     {
       "id": "free-elect-1",
@@ -580,7 +676,9 @@
       "suggestedSemester": 1,
       "selectedYear": 4,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 7,
+      "courseType": "others"
     },
     {
       "id": "c-259192",
@@ -591,7 +689,9 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 1,
+      "courseType": "gen engr"
     },
     {
       "id": "c-261492",
@@ -604,7 +704,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "261491"
-      ]
+      ],
+      "rowIndex": 2,
+      "courseType": "major courses"
     },
     {
       "id": "c-261405",
@@ -617,7 +719,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "261361"
-      ]
+      ],
+      "rowIndex": 3,
+      "courseType": "major courses"
     },
     {
       "id": "major-elect-6",
@@ -628,7 +732,9 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 4,
+      "courseType": "major courses"
     },
     {
       "id": "free-elect-2",
@@ -639,7 +745,9 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "rowIndex": 7,
+      "courseType": "others"
     }
   ],
   "options": {
@@ -1187,5 +1295,19 @@
         "prerequisites": []
       }
     ]
-  }
+  },
+  "resources": [
+    {
+      "title": "CPE 2563 Plan Information",
+      "url": "https://docs.google.com/spreadsheets/d/1akVHKI5zZeqkFfwttSb0N19XjfGHZmdfoA5LGm4nnGo/edit?gid=1725912247#gid=1725912247"
+    },
+    {
+      "title": "CPE 2563 Study Program",
+      "url": "https://www.cpe.eng.cmu.ac.th/curriculum-thai.php?view_id=CPE-2563BE"
+    },
+    {
+      "title": "หลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมคอมพิวเตอร์ หลักสูตรปรับปรุง พ.ศ. 2563",
+      "url": "https://reg.eng.cmu.ac.th/reg_curriculum/uploads/2567/7.CPE-2567_2567.pdf"
+    }
+  ]
 }
