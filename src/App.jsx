@@ -13,17 +13,17 @@ import 'reactflow/dist/style.css';
 import './App.css';
 
 // --- 1. IMPORT ALL CATALOGS ---
-import cpe2563Coop from './data/catalog-cpe2563-coop.json';
-import cpe2563Regular from './data/catalog-cpe2563-regular.json';
-import cpe2568CoopS1 from './data/catalog-cpe2568-coop-s1.json';
-import cpe2568CoopS2 from './data/catalog-cpe2568-coop-s2.json';
-import cpe2568Regular from './data/catalog-cpe2568-regular.json';
-import isce2569CysecCoop from './data/catalog-isce2569-cysec-coop.json';
-import isce2569CysecRegular from './data/catalog-isce2569-cysec-regular.json';
-import isce2569InfosysCoop from './data/catalog-isce2569-infosys-coop.json';
-import isce2569InfosysRegular from './data/catalog-isce2569-infosys-regular.json';
-import isne2566Coop from './data/catalog-isne2566-coop.json';
-import isne2566Regular from './data/catalog-isne2566-regular.json';
+import cpe2563Coop from './data/curriculum-cpe2563-coop.json';
+import cpe2563Regular from './data/curriculum-cpe2563-regular.json';
+import cpe2568CoopS1 from './data/curriculum-cpe2568-coop-s1.json';
+import cpe2568CoopS2 from './data/curriculum-cpe2568-coop-s2.json';
+import cpe2568Regular from './data/curriculum-cpe2568-regular.json';
+import isce2569CysecCoop from './data/curriculum-isce2569-cysec-coop.json';
+import isce2569CysecRegular from './data/curriculum-isce2569-cysec-regular.json';
+import isce2569InfosysCoop from './data/curriculum-isce2569-infosys-coop.json';
+import isce2569InfosysRegular from './data/curriculum-isce2569-infosys-regular.json';
+import isne2566Coop from './data/curriculum-isne2566-coop.json';
+import isne2566Regular from './data/curriculum-isne2566-regular.json';
 
 // --- 2. CREATE CURRICULUM DICTIONARY ---
 const curriculums = {
@@ -588,13 +588,13 @@ export default function App() {
   }, [selectedCurriculum, onToggleSemesterComplete]);
 
   useEffect(() => {
-    const catalogData = curriculums[selectedCurriculum];
-    if (!catalogData || !catalogData.courses) return;
+    const curriculumData = curriculums[selectedCurriculum];
+    if (!curriculumData || !curriculumData.courses) return;
 
     const generatedNodes = [];
     const courseLookup = {};
 
-    catalogData.courses.forEach(c => {
+    curriculumData.courses.forEach(c => {
       if (c.courseId) courseLookup[c.courseId] = c;
     });
 
@@ -623,7 +623,7 @@ export default function App() {
     }
 
     const groupedCourses = {};
-    catalogData.courses.forEach(course => {
+    curriculumData.courses.forEach(course => {
       let year = course.selectedYear ?? course.suggestedYear ?? 99;
       let sem = course.selectedSemester ?? course.suggestedSemester ?? 99;
 
@@ -650,7 +650,7 @@ export default function App() {
         const cardY = TOP_PADDING + index * (COURSE_HEIGHT + COURSE_GAP);
 
         const optionType = course.courseId === null ? getOptionType(course.courseTitle) : null;
-        const currOptions = catalogData.options || {};
+        const currOptions = curriculumData.options || {};
         const dropdownOptions = optionType ? (currOptions[optionType] || []) : [];
 
         let completed = false;
