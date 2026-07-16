@@ -10,7 +10,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "gen edu",
+      "rowIndex": 11
     },
     {
       "id": "c-206161",
@@ -21,7 +23,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "math and sci",
+      "rowIndex": 0
     },
     {
       "id": "c-267101",
@@ -32,7 +36,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-259191",
@@ -43,7 +49,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "gen engr",
+      "rowIndex": 1
     },
     {
       "id": "c-261102",
@@ -54,7 +62,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "major courses",
+      "rowIndex": 3
     },
     {
       "id": "c-261216",
@@ -65,7 +75,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "math and sci",
+      "rowIndex": 1
     },
     {
       "id": "gened-1-1-b",
@@ -76,7 +88,9 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "gen edu",
+      "rowIndex": 11
     },
     {
       "id": "gened-1-2",
@@ -87,7 +101,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "gen edu",
+      "rowIndex": 11
     },
     {
       "id": "c-206162",
@@ -100,7 +116,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "206161"
-      ]
+      ],
+      "courseType": "math and sci",
+      "rowIndex": 0
     },
     {
       "id": "c-269130",
@@ -113,7 +131,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "267101"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 6
     },
     {
       "id": "c-267102",
@@ -124,7 +144,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-261205",
@@ -137,7 +159,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "261102"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 3
     },
     {
       "id": "c-255201",
@@ -148,7 +172,9 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "gen engr",
+      "rowIndex": 10
     },
     {
       "id": "gened-2-1",
@@ -159,7 +185,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "gen edu",
+      "rowIndex": 11
     },
     {
       "id": "c-261335",
@@ -172,7 +200,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "269130"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 5
     },
     {
       "id": "c-261336",
@@ -183,7 +213,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "major courses",
+      "rowIndex": 6
     },
     {
       "id": "c-267251",
@@ -196,7 +228,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "269130"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-267221",
@@ -209,7 +243,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "261102"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-269202",
@@ -222,7 +258,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "261205"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 2
     },
     {
       "id": "c-269210",
@@ -233,7 +271,9 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "major courses",
+      "rowIndex": 9
     },
     {
       "id": "gened-2-2",
@@ -244,7 +284,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "gen edu",
+      "rowIndex": 11
     },
     {
       "id": "c-269430",
@@ -257,7 +299,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "261335"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 7
     },
     {
       "id": "c-267222",
@@ -270,7 +314,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "261102"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "gened-entre",
@@ -281,7 +327,9 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "gen edu",
+      "rowIndex": 11
     },
     {
       "id": "c-261341",
@@ -294,7 +342,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "261205"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 2
     },
     {
       "id": "c-261305",
@@ -307,7 +357,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "269210"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 7
     },
     {
       "id": "gened-innov",
@@ -318,7 +370,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "gen edu",
+      "rowIndex": 11
     },
     {
       "id": "c-267341",
@@ -331,7 +385,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "261335"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-267351",
@@ -344,7 +400,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "267251"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-176104",
@@ -355,7 +413,9 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "gen edu",
+      "rowIndex": 11
     },
     {
       "id": "c-267346",
@@ -368,7 +428,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "261341"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-204342",
@@ -381,7 +443,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "261305"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "gened-elec",
@@ -392,7 +456,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "gen edu",
+      "rowIndex": 11
     },
     {
       "id": "major-elec-1",
@@ -403,7 +469,9 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-267371",
@@ -416,7 +484,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "267351"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-267360",
@@ -429,7 +499,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "267351"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-267345",
@@ -443,7 +515,9 @@
       "prerequisites": [
         "261205",
         "255201"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-267352",
@@ -456,7 +530,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "261305"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-267401",
@@ -467,7 +543,9 @@
       "suggestedSemester": 3,
       "selectedYear": 3,
       "selectedSemester": 3,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-259192",
@@ -478,7 +556,9 @@
       "suggestedSemester": 1,
       "selectedYear": 4,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "gen engr",
+      "rowIndex": 1
     },
     {
       "id": "c-267491",
@@ -489,7 +569,9 @@
       "suggestedSemester": 1,
       "selectedYear": 4,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "free-elec-1",
@@ -500,7 +582,9 @@
       "suggestedSemester": 1,
       "selectedYear": 4,
       "selectedSemester": 1,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "others",
+      "rowIndex": 7
     },
     {
       "id": "c-267481",
@@ -513,7 +597,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "267351"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "c-267480",
@@ -526,7 +612,9 @@
       "selectedSemester": 1,
       "prerequisites": [
         "267360"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "free-elec-2",
@@ -537,7 +625,9 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "others",
+      "rowIndex": 7
     },
     {
       "id": "c-267492",
@@ -550,7 +640,9 @@
       "selectedSemester": 2,
       "prerequisites": [
         "267491"
-      ]
+      ],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "major-elec-2",
@@ -561,7 +653,9 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "major courses",
+      "rowIndex": 4
     },
     {
       "id": "major-elec-3",
@@ -572,7 +666,9 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "prerequisites": []
+      "prerequisites": [],
+      "courseType": "major courses",
+      "rowIndex": 4
     }
   ],
   "options": {
