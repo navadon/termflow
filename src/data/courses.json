@@ -305,16 +305,6 @@
       ]
     ]
   },
-  "206235": {
-    "courseTitle": "Linear Algebra",
-    "courseType": "math and sci",
-    "creditHours": 3,
-    "prerequisites": [
-      [
-        "206261"
-      ]
-    ]
-  },
   "206261": {
     "courseTitle": "Calc for Engr 3",
     "courseType": "math and sci",
@@ -322,6 +312,18 @@
     "prerequisites": [
       [
         "206162"
+      ]
+    ]
+  },
+  "206325": {
+    "courseTitle": "Linear Algebra",
+    "courseType": "math and sci",
+    "creditHours": 3,
+    "prerequisites": [
+      [
+        "206112",
+        "206203",
+        "206261"
       ]
     ]
   },

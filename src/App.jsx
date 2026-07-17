@@ -43,7 +43,8 @@ const resolveOption = (opt) => {
     courseId: opt.courseId,
     courseTitle: base?.courseTitle,
     prerequisites: base?.prerequisites ?? [],
-    cod: !!base?.cod
+    cod: !!base?.cod,
+    corequisite: base?.corequisite ?? null
   };
 };
 
@@ -130,6 +131,26 @@ const getOptionPlaceholder = (optionType) => {
   }
 };
 
+// Sits under the course title: green COD when the department must consent,
+// and the "concurrent to" course when the official condition requires one.
+const CourseNoteLine = ({ cod, corequisite }) => {
+  if (!cod && !corequisite) return null;
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '3px', fontSize: '12px', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden' }}>
+      {cod && (
+        <span title="Consent of the Department required" style={{ fontWeight: 'bold', color: '#28a745' }}>
+          COD
+        </span>
+      )}
+      {corequisite && (
+        <span title={`Must be taken in the same semester as ${corequisite}`} style={{ color: '#777', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          concurrent to {corequisite}
+        </span>
+      )}
+    </div>
+  );
+};
+
 const CourseNode = ({ id, data }) => {
   const suggestedLabel = `Y${data.suggestedYear}-${data.suggestedSemester}`;
   const isOffSchedule = data.currentYear !== data.suggestedYear || data.currentSemester !== data.suggestedSemester;
@@ -151,11 +172,6 @@ const CourseNode = ({ id, data }) => {
               )}
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              {data.cod && (
-                <span title="Consent of the Department required" style={{ fontSize: '13px', fontWeight: 'bold', color: '#28a745' }}>
-                  COD
-                </span>
-              )}
               <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
                 {data.creditHours} CR
               </div>
@@ -222,6 +238,7 @@ const CourseNode = ({ id, data }) => {
               })}
             </select>
           </div>
+          <CourseNoteLine cod={data.cod} corequisite={data.corequisite} />
         </div>
         <Handle type="source" position={Position.Right} />
       </>
@@ -242,11 +259,6 @@ const CourseNode = ({ id, data }) => {
             )}
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            {data.cod && (
-              <span title="Consent of the Department required" style={{ fontSize: '13px', fontWeight: 'bold', color: '#28a745' }}>
-                COD
-              </span>
-            )}
             <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
               {data.creditHours} CR
             </div>
@@ -273,6 +285,7 @@ const CourseNode = ({ id, data }) => {
         <div style={{ fontSize: '16px', lineHeight: '1.25', fontWeight: '600', color: '#000' }}>
           {data.courseTitle}
         </div>
+        <CourseNoteLine cod={data.cod} corequisite={data.corequisite} />
       </div>
       <Handle type="source" position={Position.Right} />
     </>
@@ -620,7 +633,8 @@ export default function App() {
               courseId: selectedCourseId || null,
               courseTitle: option ? option.courseTitle : defaultTitle,
               prerequisites: prereqs,
-              cod: !!option?.cod
+              cod: !!option?.cod,
+              corequisite: option?.corequisite ?? null
             }
           };
         }
@@ -700,6 +714,7 @@ export default function App() {
         const baseCourseType = shared ? shared.courseType : course.courseType;
         const basePrerequisites = shared ? (shared.prerequisites ?? []) : (course.prerequisites || []);
         const baseCod = !!shared?.cod;
+        const baseCorequisite = shared?.corequisite ?? null;
 
         const optionType = course.courseId === null ? getOptionType(baseCourseTitle) : null;
         const currOptions = curriculumData.options || {};
@@ -710,6 +725,7 @@ export default function App() {
         let courseTitle = baseCourseTitle;
         let prerequisites = basePrerequisites;
         let cod = baseCod;
+        let corequisite = baseCorequisite;
 
         if (activePlanData) {
           const savedCourse = activePlanData.find(p => p.id === course.id);
@@ -722,6 +738,7 @@ export default function App() {
                 courseTitle = opt.courseTitle;
                 prerequisites = opt.prerequisites || [];
                 cod = !!opt.cod;
+                corequisite = opt.corequisite ?? null;
               }
             }
           }
@@ -745,6 +762,7 @@ export default function App() {
             originalTitle: baseCourseTitle,
             courseType: baseCourseType,
             cod: cod,
+            corequisite: corequisite,
             completed: completed,
             onToggleComplete: onToggleComplete,
             optionType: optionType,
