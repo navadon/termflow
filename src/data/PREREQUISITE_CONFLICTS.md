@@ -13,12 +13,21 @@ fetched for all 285 courses on 2026-07-17.
 - `corequisite` = "concurrent to" course.
 - `prerequisiteNote` = non-course conditions (year standing, e-Pro score, major restrictions).
 
-## Deviations from TQF (manual decisions)
+## Deviations from TQF (manual decisions, confirmed by the department head)
 
-- **206235 Linear Algebra** — no TQF record found in 1/2569 back through 1/2567;
-  kept the curriculum value `206261`.
 - **261304 Comp Arch** — TQF says `261214`, but CPE 2568 plans contain only the
   renumbered `261314`; stored as the OR group `["261214","261314"]`.
+
+## Corrections applied after review (2026-07-17)
+
+- **Linear Algebra was the wrong course code.** The curricula listed `206235`,
+  which has no TQF record; the real course is **206325**, prerequisite
+  `206112 or 206203 or 206261` (verified on TQF). Renamed in the CPE 2568
+  curricula and in `courses.json`.
+- **267491 Project Survey added to ISCE 2569 InfoSys (Co-op), Y3-2.** It was
+  missing from that plan while 267492 Project requires it — there is no co-op
+  exemption. This was the only invalid course left after the TQF import; all 11
+  curriculum templates now validate clean.
 
 ## Old curriculum data that TQF overruled (was in the JSON before 2026-07-17)
 

@@ -380,6 +380,15 @@
       "rowIndex": 4
     },
     {
+      "id": "c-267491",
+      "courseId": "267491",
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "rowIndex": 5
+    },
+    {
       "id": "free-elect-1",
       "courseId": null,
       "courseTitle": "Free Elective",
