@@ -24,6 +24,22 @@ import isce2569InfosysCoop from './data/curriculum-isce2569-infosys-coop.json';
 import isce2569InfosysRegular from './data/curriculum-isce2569-infosys-regular.json';
 import isne2566Coop from './data/curriculum-isne2566-coop.json';
 import isne2566Regular from './data/curriculum-isne2566-regular.json';
+import coursesData from './data/courses.json';
+
+// Curriculum files store only courseId + curriculum-specific placement; shared
+// course facts (title, credit hours, type, default prerequisites) live in
+// courses.json, keyed by courseId. A curriculum entry may set
+// prerequisitesOverride when its prerequisite differs from the shared default.
+const resolveCourse = (courseId) => coursesData[courseId] || null;
+
+const resolveOption = (opt) => {
+  const base = resolveCourse(opt.courseId);
+  return {
+    courseId: opt.courseId,
+    courseTitle: base?.courseTitle,
+    prerequisites: opt.prerequisitesOverride ?? base?.prerequisites ?? []
+  };
+};
 
 // --- 2. CREATE CURRICULUM DICTIONARY ---
 const curriculums = {
@@ -563,7 +579,7 @@ export default function App() {
       const targetNode = nds.find(n => n.id === id);
       const optionType = targetNode?.data?.optionType;
       const currOptions = curriculums[selectedCurriculum]?.options || {};
-      const dropdownOptions = optionType ? (currOptions[optionType] || []) : [];
+      const dropdownOptions = optionType ? (currOptions[optionType] || []).map(resolveOption) : [];
       const option = dropdownOptions.find(opt => opt.courseId === selectedCourseId);
       const prereqs = option ? (option.prerequisites || []) : [];
 
@@ -650,14 +666,22 @@ export default function App() {
         const cardX = colX + (SEMESTER_WIDTH - COURSE_WIDTH) / 2;
         const cardY = TOP_PADDING + index * (COURSE_HEIGHT + COURSE_GAP);
 
-        const optionType = course.courseId === null ? getOptionType(course.courseTitle) : null;
+        const shared = course.courseId ? resolveCourse(course.courseId) : null;
+        const baseCourseTitle = shared ? shared.courseTitle : course.courseTitle;
+        const baseCreditHours = shared ? shared.creditHours : course.creditHours;
+        const baseCourseType = shared ? shared.courseType : course.courseType;
+        const basePrerequisites = shared
+          ? (course.prerequisitesOverride ?? shared.prerequisites ?? [])
+          : (course.prerequisites || []);
+
+        const optionType = course.courseId === null ? getOptionType(baseCourseTitle) : null;
         const currOptions = curriculumData.options || {};
-        const dropdownOptions = optionType ? (currOptions[optionType] || []) : [];
+        const dropdownOptions = optionType ? (currOptions[optionType] || []).map(resolveOption) : [];
 
         let completed = false;
         let courseId = course.courseId;
-        let courseTitle = course.courseTitle;
-        let prerequisites = course.prerequisites;
+        let courseTitle = baseCourseTitle;
+        let prerequisites = basePrerequisites;
 
         if (activePlanData) {
           const savedCourse = activePlanData.find(p => p.id === course.id);
@@ -682,15 +706,15 @@ export default function App() {
           draggable: !completed,
           data: {
             courseId: courseId,
-            creditHours: course.creditHours,
+            creditHours: baseCreditHours,
             prerequisites: prerequisites || [],
             suggestedYear: course.suggestedYear,
             suggestedSemester: course.suggestedSemester,
             currentYear: year === 99 ? null : year,
             currentSemester: sem === 99 ? null : sem,
             courseTitle: courseTitle,
-            originalTitle: course.courseTitle,
-            courseType: course.courseType,
+            originalTitle: baseCourseTitle,
+            courseType: baseCourseType,
             completed: completed,
             onToggleComplete: onToggleComplete,
             optionType: optionType,

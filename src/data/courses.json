@@ -1,0 +1,1429 @@
+{
+  "001101": {
+    "courseTitle": "English 1",
+    "courseType": "gen edu",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "001102": {
+    "courseTitle": "English 2",
+    "courseType": "gen edu",
+    "creditHours": 3,
+    "prerequisites": [
+      "001101"
+    ]
+  },
+  "001201": {
+    "courseTitle": "English R/W",
+    "courseType": "gen edu",
+    "creditHours": 3,
+    "prerequisites": [
+      "001102"
+    ]
+  },
+  "001225": {
+    "courseTitle": "English for Sci & Tech",
+    "courseType": "gen edu",
+    "creditHours": 3,
+    "prerequisites": [
+      "001102"
+    ]
+  },
+  "001233": {
+    "courseTitle": "English for Standardized Tests",
+    "prerequisites": []
+  },
+  "001241": {
+    "courseTitle": "Oral Comm in English",
+    "prerequisites": []
+  },
+  "001242": {
+    "courseTitle": "Exploring Reading & Writing Skills",
+    "prerequisites": []
+  },
+  "001243": {
+    "courseTitle": "Basics of Effective Essay Writing",
+    "prerequisites": []
+  },
+  "004170": {
+    "courseTitle": "Thai Society & Culture",
+    "prerequisites": []
+  },
+  "009103": {
+    "courseTitle": "Information Literacy & Information Presentation",
+    "prerequisites": []
+  },
+  "011100": {
+    "courseTitle": "Man & Philosophy",
+    "prerequisites": []
+  },
+  "011157": {
+    "courseTitle": "Social Philosophy",
+    "prerequisites": []
+  },
+  "011159": {
+    "courseTitle": "Philosophy of Life, Society & Environment",
+    "prerequisites": []
+  },
+  "012173": {
+    "courseTitle": "Intro to Religion",
+    "prerequisites": []
+  },
+  "013110": {
+    "courseTitle": "Psychology & Daily Life",
+    "prerequisites": []
+  },
+  "050101": {
+    "courseTitle": "Lan Na Perspective in the 21st Century",
+    "prerequisites": []
+  },
+  "050104": {
+    "courseTitle": "Man & the Modern World",
+    "prerequisites": []
+  },
+  "050106": {
+    "courseTitle": "Humanistic Arts",
+    "prerequisites": []
+  },
+  "050111": {
+    "courseTitle": "Man & Quest for Knowledge",
+    "prerequisites": []
+  },
+  "050113": {
+    "courseTitle": "Locality in Globalization",
+    "prerequisites": []
+  },
+  "050121": {
+    "courseTitle": "Thai People in the ASEAN Community",
+    "prerequisites": []
+  },
+  "063101": {
+    "courseTitle": "Learning for Self-Development",
+    "prerequisites": []
+  },
+  "103271": {
+    "courseTitle": "Music Appreciation",
+    "prerequisites": []
+  },
+  "109100": {
+    "courseTitle": "Man & Art",
+    "prerequisites": []
+  },
+  "109114": {
+    "courseTitle": "Art in Everyday Life",
+    "prerequisites": []
+  },
+  "109115": {
+    "courseTitle": "Life & Aesthetics",
+    "prerequisites": []
+  },
+  "109118": {
+    "courseTitle": "Aesthetics in Lanna Art",
+    "prerequisites": []
+  },
+  "109119": {
+    "courseTitle": "Lanna Art Appreciation",
+    "prerequisites": []
+  },
+  "127100": {
+    "courseTitle": "Politics in Everyday Life",
+    "prerequisites": []
+  },
+  "128100": {
+    "courseTitle": "Basic Good Governance in Administration",
+    "prerequisites": []
+  },
+  "140103": {
+    "courseTitle": "Anti-Corruption in Thailand",
+    "prerequisites": []
+  },
+  "140104": {
+    "courseTitle": "Citizenship",
+    "courseType": "gen edu",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "140106": {
+    "courseTitle": "Sustainable Development Goals",
+    "prerequisites": []
+  },
+  "152100": {
+    "courseTitle": "Social Science Around Us",
+    "prerequisites": []
+  },
+  "154100": {
+    "courseTitle": "Intro to Geography",
+    "prerequisites": []
+  },
+  "154104": {
+    "courseTitle": "Environmental Conservation",
+    "prerequisites": []
+  },
+  "154130": {
+    "courseTitle": "Geo-Information in Daily Life",
+    "prerequisites": []
+  },
+  "154142": {
+    "courseTitle": "Climate Change & Society",
+    "prerequisites": []
+  },
+  "154153": {
+    "courseTitle": "Disaster in Modern World",
+    "prerequisites": []
+  },
+  "159100": {
+    "courseTitle": "Modern World in Everyday Life",
+    "prerequisites": []
+  },
+  "159151": {
+    "courseTitle": "Lanna Society & Culture",
+    "prerequisites": []
+  },
+  "168100": {
+    "courseTitle": "Gender Equality",
+    "prerequisites": []
+  },
+  "176100": {
+    "courseTitle": "Law & Modern World",
+    "prerequisites": []
+  },
+  "176102": {
+    "courseTitle": "Peace & Human Rights",
+    "prerequisites": []
+  },
+  "176104": {
+    "courseTitle": "Rights & Duties",
+    "courseType": "gen edu",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "176105": {
+    "courseTitle": "Legal Problem Mgmt in Everyday Life",
+    "prerequisites": []
+  },
+  "201100": {
+    "courseTitle": "Integrated Science",
+    "prerequisites": []
+  },
+  "201110": {
+    "courseTitle": "Integrated Mathematical Sciences",
+    "prerequisites": []
+  },
+  "201111": {
+    "courseTitle": "The World of Science",
+    "prerequisites": []
+  },
+  "201114": {
+    "courseTitle": "Environmental Science in Today's World",
+    "prerequisites": []
+  },
+  "201116": {
+    "courseTitle": "Science & Global Warming",
+    "prerequisites": []
+  },
+  "201117": {
+    "courseTitle": "Mathematics & Science in Civilization",
+    "prerequisites": []
+  },
+  "201190": {
+    "courseTitle": "Critical Thinking, Prob Solv & Sci Comm",
+    "prerequisites": []
+  },
+  "201192": {
+    "courseTitle": "Doi Suthep Study",
+    "prerequisites": []
+  },
+  "203100": {
+    "courseTitle": "Chemistry in Everyday Life",
+    "prerequisites": []
+  },
+  "204100": {
+    "courseTitle": "AI & Digital Essentials",
+    "prerequisites": []
+  },
+  "204123": {
+    "courseTitle": "Intro to Data Science",
+    "prerequisites": []
+  },
+  "204171": {
+    "courseTitle": "Artificial Intelligence Among Us",
+    "prerequisites": []
+  },
+  "204342": {
+    "courseTitle": "Cyber Def vs. Dark Arts",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261305"
+    ]
+  },
+  "205105": {
+    "courseTitle": "Earth Science & Civilization",
+    "prerequisites": []
+  },
+  "206161": {
+    "courseTitle": "Calc for Engr 1",
+    "courseType": "math and sci",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "206162": {
+    "courseTitle": "Calc for Engr 2",
+    "courseType": "math and sci",
+    "creditHours": 3,
+    "prerequisites": [
+      "206161"
+    ]
+  },
+  "206235": {
+    "courseTitle": "Linear Algebra",
+    "courseType": "math and sci",
+    "creditHours": 3,
+    "prerequisites": [
+      "206261"
+    ]
+  },
+  "206261": {
+    "courseTitle": "Calc for Engr 3",
+    "courseType": "math and sci",
+    "creditHours": 3,
+    "prerequisites": [
+      "206162"
+    ]
+  },
+  "206355": {
+    "courseTitle": "Numerical Methods",
+    "courseType": "math and sci",
+    "creditHours": 3,
+    "prerequisites": [
+      "206261"
+    ]
+  },
+  "207105": {
+    "courseTitle": "Physics 1",
+    "courseType": "math and sci",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "207106": {
+    "courseTitle": "Physics 2",
+    "courseType": "math and sci",
+    "creditHours": 3,
+    "prerequisites": [
+      "207105"
+    ]
+  },
+  "207109": {
+    "courseTitle": "Life & the Universe",
+    "prerequisites": []
+  },
+  "207110": {
+    "courseTitle": "Physics: the Science that Changed the World",
+    "prerequisites": []
+  },
+  "207115": {
+    "courseTitle": "Physics Lab 1",
+    "courseType": "math and sci",
+    "creditHours": 1,
+    "prerequisites": []
+  },
+  "207116": {
+    "courseTitle": "Physics Lab 2",
+    "courseType": "math and sci",
+    "creditHours": 1,
+    "prerequisites": [
+      "207115"
+    ]
+  },
+  "208150": {
+    "courseTitle": "Probability & Statistics",
+    "courseType": "math and sci",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "210100": {
+    "courseTitle": "World of Materials",
+    "prerequisites": []
+  },
+  "210110": {
+    "courseTitle": "General Biomaterials",
+    "prerequisites": []
+  },
+  "211100": {
+    "courseTitle": "Eating Well: Better Living & Disease Prevention",
+    "prerequisites": []
+  },
+  "215100": {
+    "courseTitle": "Microbiology in Everyday Life",
+    "prerequisites": []
+  },
+  "252281": {
+    "courseTitle": "Circuits for ISNE",
+    "courseType": "gen engr",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "252284": {
+    "courseTitle": "Fund of EE for Engr",
+    "courseType": "gen engr",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "254182": {
+    "courseTitle": "Intro to Energy",
+    "prerequisites": []
+  },
+  "255201": {
+    "courseTitle": "Quan Anal in IE",
+    "courseType": "gen engr",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "256131": {
+    "courseTitle": "Urban Mining",
+    "prerequisites": []
+  },
+  "259104": {
+    "courseTitle": "Engr Drawing",
+    "courseType": "gen engr",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "259106": {
+    "courseTitle": "Workshop",
+    "courseType": "gen engr",
+    "creditHours": 1,
+    "prerequisites": []
+  },
+  "259108": {
+    "courseTitle": "Electricity in Everyday Life",
+    "prerequisites": []
+  },
+  "259191": {
+    "courseTitle": "Princ of Being Pro",
+    "courseType": "gen engr",
+    "creditHours": 1,
+    "prerequisites": []
+  },
+  "259192": {
+    "courseTitle": "Skills for Pro & Entre",
+    "courseType": "gen engr",
+    "creditHours": 1,
+    "prerequisites": []
+  },
+  "259193": {
+    "courseTitle": "Morality & Intelligence for Being a Professional",
+    "prerequisites": []
+  },
+  "259194": {
+    "courseTitle": "Characteristics & Values for Being a Professional Entrepreneur",
+    "prerequisites": []
+  },
+  "259195": {
+    "courseTitle": "Managing Activities for Development",
+    "prerequisites": []
+  },
+  "261102": {
+    "courseTitle": "Comp Prog",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261103": {
+    "courseTitle": "Basic CPE",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261111": {
+    "courseTitle": "Internet & Online Community in the Age of AI",
+    "prerequisites": []
+  },
+  "261200": {
+    "courseTitle": "OOP",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261102"
+    ]
+  },
+  "261205": {
+    "courseTitle": "Data Struct & Algo",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261102"
+    ]
+  },
+  "261207": {
+    "courseTitle": "CPE Lab",
+    "courseType": "major courses",
+    "creditHours": 2,
+    "prerequisites": [
+      "261103"
+    ]
+  },
+  "261208": {
+    "courseTitle": "Numerical",
+    "courseType": "math and sci",
+    "creditHours": 3,
+    "prerequisites": [
+      "206261"
+    ]
+  },
+  "261210": {
+    "courseTitle": "Logic",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "207106"
+    ]
+  },
+  "261212": {
+    "courseTitle": "Logic Lab",
+    "courseType": "major courses",
+    "creditHours": 1,
+    "prerequisites": [
+      "207106"
+    ]
+  },
+  "261214": {
+    "courseTitle": "Microprocessors",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "252281",
+      "261210"
+    ]
+  },
+  "261215": {
+    "courseTitle": "Embedded Lab",
+    "courseType": "major courses",
+    "creditHours": 1,
+    "prerequisites": []
+  },
+  "261216": {
+    "courseTitle": "Discrete Math",
+    "courseType": "math and sci",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261217": {
+    "courseTitle": "Data Structures",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261102"
+    ]
+  },
+  "261218": {
+    "courseTitle": "Algorithms",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261216",
+      "261217"
+    ]
+  },
+  "261304": {
+    "courseTitle": "Comp Arch",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261314"
+    ]
+  },
+  "261305": {
+    "courseTitle": "OS",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "269210"
+    ]
+  },
+  "261306": {
+    "courseTitle": "Prob & Stats",
+    "courseType": "math and sci",
+    "creditHours": 3,
+    "prerequisites": [
+      "206261"
+    ]
+  },
+  "261314": {
+    "courseTitle": "Embedded & Automation",
+    "courseType": "major courses",
+    "creditHours": 4,
+    "prerequisites": [
+      "252284",
+      "261210"
+    ]
+  },
+  "261332": {
+    "courseTitle": "Data Comm",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "207106"
+    ]
+  },
+  "261335": {
+    "courseTitle": "Networks",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "269130"
+    ]
+  },
+  "261336": {
+    "courseTitle": "Networks Lab",
+    "courseType": "major courses",
+    "creditHours": 1,
+    "prerequisites": []
+  },
+  "261341": {
+    "courseTitle": "Database Sys",
+    "courseType": "major courses",
+    "creditHours": 4,
+    "prerequisites": [
+      "261205"
+    ]
+  },
+  "261342": {
+    "courseTitle": "Database",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261218"
+    ]
+  },
+  "261343": {
+    "courseTitle": "Database Lab",
+    "courseType": "major courses",
+    "creditHours": 1,
+    "prerequisites": []
+  },
+  "261361": {
+    "courseTitle": "Software Engr",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261200"
+    ]
+  },
+  "261381": {
+    "courseTitle": "Cyber Mgmt",
+    "prerequisites": []
+  },
+  "261382": {
+    "courseTitle": "Network Security & Technological Controls",
+    "prerequisites": []
+  },
+  "261383": {
+    "courseTitle": "Cybersecurity Threat Analysis & Detection",
+    "prerequisites": []
+  },
+  "261400": {
+    "courseTitle": "CPE Training",
+    "prerequisites": []
+  },
+  "261404": {
+    "courseTitle": "Advanced CPE Lab",
+    "prerequisites": []
+  },
+  "261405": {
+    "courseTitle": "Advanced CPE",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261406": {
+    "courseTitle": "Basic Compiler Design",
+    "prerequisites": []
+  },
+  "261407": {
+    "courseTitle": "Fund of Computation for CPE",
+    "prerequisites": []
+  },
+  "261408": {
+    "courseTitle": "Quantum Computation",
+    "prerequisites": []
+  },
+  "261409": {
+    "courseTitle": "Functional Programming",
+    "prerequisites": []
+  },
+  "261410": {
+    "courseTitle": "Elec Devices for CPE",
+    "prerequisites": []
+  },
+  "261411": {
+    "courseTitle": "Parallel Proc & Dist Sys",
+    "prerequisites": []
+  },
+  "261413": {
+    "courseTitle": "Very Large Scale Integrated Circuit Design",
+    "prerequisites": []
+  },
+  "261414": {
+    "courseTitle": "Digital Sys Design",
+    "prerequisites": []
+  },
+  "261421": {
+    "courseTitle": "Comp HW Design",
+    "prerequisites": []
+  },
+  "261424": {
+    "courseTitle": "Remote Mon & Ctrl Sys",
+    "prerequisites": []
+  },
+  "261430": {
+    "courseTitle": "Wireless Networks",
+    "prerequisites": []
+  },
+  "261433": {
+    "courseTitle": "Network Prog",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261434": {
+    "courseTitle": "Net Design & Mgmt",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261435": {
+    "courseTitle": "Broadband Comm Networks",
+    "prerequisites": []
+  },
+  "261437": {
+    "courseTitle": "Fund of Queueing Theory for CPE",
+    "prerequisites": []
+  },
+  "261438": {
+    "courseTitle": "MPLS",
+    "prerequisites": []
+  },
+  "261439": {
+    "courseTitle": "Wireless Comm for CPE",
+    "prerequisites": []
+  },
+  "261441": {
+    "courseTitle": "Internet of Things & Big Data",
+    "prerequisites": []
+  },
+  "261444": {
+    "courseTitle": "Advanced DBMS",
+    "prerequisites": []
+  },
+  "261446": {
+    "courseTitle": "Info Sys",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261447": {
+    "courseTitle": "Net & Info Sec",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261448": {
+    "courseTitle": "Data Mining for CPE",
+    "prerequisites": []
+  },
+  "261449": {
+    "courseTitle": "Software Testing",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261451": {
+    "courseTitle": "Neural Networks",
+    "prerequisites": []
+  },
+  "261452": {
+    "courseTitle": "Artificial Intelligence",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "208150",
+      "261218"
+    ]
+  },
+  "261453": {
+    "courseTitle": "Digital Image Processing",
+    "prerequisites": []
+  },
+  "261456": {
+    "courseTitle": "Intro to CI for CPE",
+    "prerequisites": []
+  },
+  "261457": {
+    "courseTitle": "Digital Image & Video Compression",
+    "prerequisites": []
+  },
+  "261458": {
+    "courseTitle": "Machine Vision",
+    "prerequisites": []
+  },
+  "261459": {
+    "courseTitle": "Deep Learning",
+    "prerequisites": []
+  },
+  "261461": {
+    "courseTitle": "Visual & Interactive Programming",
+    "prerequisites": []
+  },
+  "261464": {
+    "courseTitle": "Comp Sim Modeling & Analysis",
+    "prerequisites": []
+  },
+  "261465": {
+    "courseTitle": "CG",
+    "prerequisites": []
+  },
+  "261468": {
+    "courseTitle": "Sys Analysis & Design for CPE",
+    "prerequisites": []
+  },
+  "261469": {
+    "courseTitle": "Software Proj Mgmt for CPE",
+    "prerequisites": []
+  },
+  "261470": {
+    "courseTitle": "Signals & Systems",
+    "prerequisites": []
+  },
+  "261471": {
+    "courseTitle": "Advanced Digital Signal Processing",
+    "prerequisites": []
+  },
+  "261472": {
+    "courseTitle": "Robotics",
+    "prerequisites": []
+  },
+  "261473": {
+    "courseTitle": "CAM",
+    "prerequisites": []
+  },
+  "261474": {
+    "courseTitle": "Real-Time Comp Ctrl",
+    "prerequisites": []
+  },
+  "261475": {
+    "courseTitle": "Modeling & Optimization for Big Data Analytics",
+    "prerequisites": []
+  },
+  "261476": {
+    "courseTitle": "Biomedical Instruments",
+    "prerequisites": []
+  },
+  "261478": {
+    "courseTitle": "Ctrl Sys",
+    "prerequisites": []
+  },
+  "261479": {
+    "courseTitle": "Bioinformatics Programming",
+    "prerequisites": []
+  },
+  "261481": {
+    "courseTitle": "Cybersecurity Incident Response",
+    "prerequisites": []
+  },
+  "261482": {
+    "courseTitle": "Cybersecurity Audit & Cyber Resilience",
+    "prerequisites": []
+  },
+  "261485": {
+    "courseTitle": "Cyber Mgmt",
+    "prerequisites": []
+  },
+  "261486": {
+    "courseTitle": "Net Sec & Tech Ctrl",
+    "prerequisites": []
+  },
+  "261487": {
+    "courseTitle": "Cybersecurity Threat Analysis & Detection",
+    "prerequisites": []
+  },
+  "261488": {
+    "courseTitle": "Cybersecurity Incident Response",
+    "prerequisites": []
+  },
+  "261489": {
+    "courseTitle": "Cybersecurity Audit & Cyber Resilience",
+    "prerequisites": []
+  },
+  "261491": {
+    "courseTitle": "Project Survey",
+    "courseType": "major courses",
+    "creditHours": 1,
+    "prerequisites": []
+  },
+  "261492": {
+    "courseTitle": "Project",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261491"
+    ]
+  },
+  "261493": {
+    "courseTitle": "Seminar",
+    "prerequisites": []
+  },
+  "261494": {
+    "courseTitle": "Selected Topics in CPE",
+    "prerequisites": []
+  },
+  "261495": {
+    "courseTitle": "Co-op",
+    "courseType": "major courses",
+    "creditHours": 6,
+    "prerequisites": []
+  },
+  "261497": {
+    "courseTitle": "Selected Topics in Comp SW",
+    "prerequisites": []
+  },
+  "261498": {
+    "courseTitle": "Selected Topics in Comp Networks",
+    "prerequisites": []
+  },
+  "261499": {
+    "courseTitle": "Selected Topics in CI",
+    "prerequisites": []
+  },
+  "267101": {
+    "courseTitle": "Intro to ISCE",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "267102": {
+    "courseTitle": "Basic Eng for ISCE",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "267221": {
+    "courseTitle": "Front-End App Dev",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261102"
+    ]
+  },
+  "267222": {
+    "courseTitle": "Back-end App Dev",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261102"
+    ]
+  },
+  "267251": {
+    "courseTitle": "Net & Info Security",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "269130"
+    ]
+  },
+  "267341": {
+    "courseTitle": "Cloud Tech",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261335"
+    ]
+  },
+  "267345": {
+    "courseTitle": "AI & ML",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261205"
+    ]
+  },
+  "267346": {
+    "courseTitle": "Data Man & Big Data",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261341"
+    ]
+  },
+  "267351": {
+    "courseTitle": "Ethical Hacking",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "267352": {
+    "courseTitle": "OS Security",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "267360": {
+    "courseTitle": "Defensive Security",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "267371": {
+    "courseTitle": "Pentest",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "267401": {
+    "courseTitle": "Training for ISCE",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "267440": {
+    "courseTitle": "Principles of Data Privacy",
+    "prerequisites": []
+  },
+  "267456": {
+    "courseTitle": "Software Security Testing",
+    "prerequisites": []
+  },
+  "267465": {
+    "courseTitle": "Security Orchestration, Automation, & Response",
+    "prerequisites": []
+  },
+  "267475": {
+    "courseTitle": "Fund of Malware Analysis",
+    "prerequisites": []
+  },
+  "267476": {
+    "courseTitle": "Intro to Cryptography",
+    "prerequisites": []
+  },
+  "267480": {
+    "courseTitle": "CSF",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "267481": {
+    "courseTitle": "DFIR",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "267485": {
+    "courseTitle": "Social Engineering",
+    "prerequisites": []
+  },
+  "267491": {
+    "courseTitle": "Project Survey",
+    "courseType": "major courses",
+    "creditHours": 1,
+    "prerequisites": []
+  },
+  "267492": {
+    "courseTitle": "Project",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "267491"
+    ]
+  },
+  "267494": {
+    "courseTitle": "Selected Topics in Cybersecurity",
+    "prerequisites": []
+  },
+  "267495": {
+    "courseTitle": "Coop Ed",
+    "courseType": "major courses",
+    "creditHours": 6,
+    "prerequisites": []
+  },
+  "269101": {
+    "courseTitle": "Intro to ISNE",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "269102": {
+    "courseTitle": "Basic Prog",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "269103": {
+    "courseTitle": "Prog ISNE",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "269102"
+    ]
+  },
+  "269105": {
+    "courseTitle": "ISNE Lab",
+    "courseType": "major courses",
+    "creditHours": 1,
+    "prerequisites": []
+  },
+  "269130": {
+    "courseTitle": "Data Comm",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "267101"
+    ]
+  },
+  "269200": {
+    "courseTitle": "Web Prog",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "269102"
+    ]
+  },
+  "269201": {
+    "courseTitle": "ISNE Lab 2",
+    "courseType": "major courses",
+    "creditHours": 1,
+    "prerequisites": [
+      "269105"
+    ]
+  },
+  "269202": {
+    "courseTitle": "Algos for ISNE",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261205"
+    ]
+  },
+  "269210": {
+    "courseTitle": "Comp Arch for ISNE",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "269340": {
+    "courseTitle": "Data Centric",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261342",
+      "261343"
+    ]
+  },
+  "269341": {
+    "courseTitle": "Data Warehousing & Business Intelligence for Information Systems & Network Engineering",
+    "prerequisites": []
+  },
+  "269360": {
+    "courseTitle": "Platform Prog",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261200"
+    ]
+  },
+  "269370": {
+    "courseTitle": "Proj Mgmt for ISNE",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "269400": {
+    "courseTitle": "Advanced Information Systems & Network Technology",
+    "prerequisites": []
+  },
+  "269401": {
+    "courseTitle": "ISNE Training",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "269421": {
+    "courseTitle": "Net Traffic Analysis",
+    "prerequisites": []
+  },
+  "269430": {
+    "courseTitle": "Wireless & Broadband",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "261335"
+    ]
+  },
+  "269431": {
+    "courseTitle": "Wireless Sensor Network",
+    "prerequisites": []
+  },
+  "269432": {
+    "courseTitle": "Peer-to-Peer Systems",
+    "prerequisites": []
+  },
+  "269433": {
+    "courseTitle": "Net Routing Protocols",
+    "prerequisites": []
+  },
+  "269441": {
+    "courseTitle": "Information Retrieval & Extraction",
+    "prerequisites": []
+  },
+  "269451": {
+    "courseTitle": "Intro to Neuro-Fuzzy Systems",
+    "prerequisites": []
+  },
+  "269452": {
+    "courseTitle": "Mobile Application Development",
+    "prerequisites": []
+  },
+  "269461": {
+    "courseTitle": "Personal Software Process Improvement",
+    "prerequisites": []
+  },
+  "269462": {
+    "courseTitle": "Intro to HCI",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "269470": {
+    "courseTitle": "ITSM",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "269471": {
+    "courseTitle": "Adv Proj Mgmt for ISNE",
+    "prerequisites": []
+  },
+  "269472": {
+    "courseTitle": "Risk Mgmt in Software Proj",
+    "prerequisites": []
+  },
+  "269491": {
+    "courseTitle": "Project Survey",
+    "courseType": "major courses",
+    "creditHours": 1,
+    "prerequisites": []
+  },
+  "269492": {
+    "courseTitle": "Project",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      "269491"
+    ]
+  },
+  "269493": {
+    "courseTitle": "Seminar",
+    "prerequisites": []
+  },
+  "269494": {
+    "courseTitle": "Selected Topics in Information Systems & Network Engineering",
+    "prerequisites": []
+  },
+  "269495": {
+    "courseTitle": "Coop Education",
+    "courseType": "major courses",
+    "creditHours": 6,
+    "prerequisites": []
+  },
+  "269496": {
+    "courseTitle": "Selected Topics in Information Systems 1",
+    "prerequisites": []
+  },
+  "269497": {
+    "courseTitle": "Selected Topics in Information Systems 2",
+    "prerequisites": []
+  },
+  "269498": {
+    "courseTitle": "Selected Topics in Network Engineering 1",
+    "prerequisites": []
+  },
+  "269499": {
+    "courseTitle": "Selected Topics in Network Engineering 2",
+    "prerequisites": []
+  },
+  "271111": {
+    "courseTitle": "Robotics Appreciation",
+    "prerequisites": []
+  },
+  "271112": {
+    "courseTitle": "Fund of Rapid Prototyping for Robotics Engr",
+    "prerequisites": []
+  },
+  "273101": {
+    "courseTitle": "Plasma Technology for Sustainability",
+    "prerequisites": []
+  },
+  "357101": {
+    "courseTitle": "Household Insects & Garden Pests",
+    "prerequisites": []
+  },
+  "357110": {
+    "courseTitle": "Insects & Mankind",
+    "prerequisites": []
+  },
+  "359202": {
+    "courseTitle": "Plant & Food Safety",
+    "prerequisites": []
+  },
+  "360108": {
+    "courseTitle": "Plant Disease & Environmental Safety",
+    "prerequisites": []
+  },
+  "365221": {
+    "courseTitle": "Principles of Conservation",
+    "prerequisites": []
+  },
+  "365222": {
+    "courseTitle": "Aesthetic Natural Areas & Ecotourism",
+    "prerequisites": []
+  },
+  "368100": {
+    "courseTitle": "Starting an Agribusiness in a Changing World",
+    "prerequisites": []
+  },
+  "462130": {
+    "courseTitle": "Medications in Everyday Life",
+    "prerequisites": []
+  },
+  "515101": {
+    "courseTitle": "Radiation in Everyday Life",
+    "prerequisites": []
+  },
+  "571103": {
+    "courseTitle": "Friendship & Being Together",
+    "prerequisites": []
+  },
+  "571116": {
+    "courseTitle": "Health & Working in the Digital Age",
+    "prerequisites": []
+  },
+  "602100": {
+    "courseTitle": "Intro to Application of Biotech",
+    "prerequisites": []
+  },
+  "602101": {
+    "courseTitle": "Biotechnology & Modern World",
+    "prerequisites": []
+  },
+  "602102": {
+    "courseTitle": "Life & Alternative Energy",
+    "prerequisites": []
+  },
+  "602103": {
+    "courseTitle": "Agro-Industry & Quality of Life",
+    "prerequisites": []
+  },
+  "602201": {
+    "courseTitle": "Agro-Industrial Vision",
+    "prerequisites": []
+  },
+  "603200": {
+    "courseTitle": "Packaging in Daily Life",
+    "prerequisites": []
+  },
+  "610111": {
+    "courseTitle": "Packaging for Marketing",
+    "prerequisites": []
+  },
+  "610112": {
+    "courseTitle": "Food Product Innovation",
+    "prerequisites": []
+  },
+  "701181": {
+    "courseTitle": "Basic Accounting for Entrepreneurs",
+    "prerequisites": []
+  },
+  "701185": {
+    "courseTitle": "Simple Tax Mgmt Technique",
+    "prerequisites": []
+  },
+  "702101": {
+    "courseTitle": "Finance for Daily Life",
+    "prerequisites": []
+  },
+  "703103": {
+    "courseTitle": "Intro to Entre & Business",
+    "prerequisites": []
+  },
+  "705191": {
+    "courseTitle": "Smart Consumer",
+    "prerequisites": []
+  },
+  "751100": {
+    "courseTitle": "Economics for Everyday Life",
+    "prerequisites": []
+  },
+  "751107": {
+    "courseTitle": "Economics of Sustainability",
+    "prerequisites": []
+  },
+  "801100": {
+    "courseTitle": "Architecture in Everyday Life",
+    "prerequisites": []
+  },
+  "802100": {
+    "courseTitle": "Landscape Architecture in Everyday Life",
+    "prerequisites": []
+  },
+  "804100": {
+    "courseTitle": "Design Thinking in Emerging Architecture",
+    "prerequisites": []
+  },
+  "851100": {
+    "courseTitle": "Intro to Comm for Entre",
+    "prerequisites": []
+  },
+  "851103": {
+    "courseTitle": "Life & Society through Media",
+    "prerequisites": []
+  },
+  "852100": {
+    "courseTitle": "Intro to Film",
+    "prerequisites": []
+  },
+  "888102": {
+    "courseTitle": "Big Data for Business",
+    "prerequisites": []
+  },
+  "888106": {
+    "courseTitle": "Comm & Networking in Online Society",
+    "prerequisites": []
+  },
+  "888107": {
+    "courseTitle": "Business Startup on Digital Platform",
+    "prerequisites": []
+  },
+  "888108": {
+    "courseTitle": "Smart Society",
+    "prerequisites": []
+  },
+  "900100": {
+    "courseTitle": "Biomed Engr in Everyday Life",
+    "prerequisites": []
+  },
+  "951100": {
+    "courseTitle": "Modern Life & Animation",
+    "prerequisites": []
+  },
+  "953111": {
+    "courseTitle": "Software for Everyday Life",
+    "prerequisites": []
+  },
+  "955113": {
+    "courseTitle": "Gen AI for Business Mgmt",
+    "prerequisites": []
+  },
+  "955115": {
+    "courseTitle": "Generative Artificial Intelligence for Digital Innovation",
+    "prerequisites": []
+  }
+}
