@@ -1003,7 +1003,7 @@ export default function App() {
             <select
               value={dropdownValue}
               onChange={handleDropdownChange}
-              style={{ padding: '4px 8px', fontSize: '13px', borderRadius: '4px', cursor: 'pointer', border: '1px solid #aaa' }}
+              style={{ padding: '4px 8px', fontSize: '13px', borderRadius: '4px', cursor: 'pointer', border: '1px solid #aaa', width: '210px', boxSizing: 'border-box' }}
             >
               {Object.keys(curriculums).map(name => (
                 <option key={name} value={name}>{name}</option>
@@ -1017,7 +1017,7 @@ export default function App() {
               value={studentName}
               placeholder="John or 6X0612XXX"
               onChange={(e) => { setStudentName(e.target.value); setDirty(true); }}
-              style={{ padding: '3px 8px', fontSize: '13px', borderRadius: '4px', border: '1px solid #aaa', width: '140px' }}
+              style={{ padding: '3px 8px', fontSize: '13px', borderRadius: '4px', border: '1px solid #aaa', width: '210px', boxSizing: 'border-box' }}
             />
             {isDirty && (
               <span
