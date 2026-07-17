@@ -80,10 +80,7 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "rowIndex": 3,
-      "prerequisitesOverride": [
-        "269102"
-      ]
+      "rowIndex": 3
     },
     {
       "id": "c-269103",
@@ -101,10 +98,7 @@
       "suggestedSemester": 2,
       "selectedYear": 1,
       "selectedSemester": 2,
-      "rowIndex": 6,
-      "prerequisitesOverride": [
-        "269101"
-      ]
+      "rowIndex": 6
     },
     {
       "id": "c-269105",
@@ -140,10 +134,7 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "rowIndex": 0,
-      "prerequisitesOverride": [
-        "269102"
-      ]
+      "rowIndex": 0
     },
     {
       "id": "c-269200",
@@ -179,8 +170,7 @@
       "suggestedSemester": 1,
       "selectedYear": 2,
       "selectedSemester": 1,
-      "rowIndex": 7,
-      "corequisite": "261335"
+      "rowIndex": 7
     },
     {
       "id": "c-269201",
@@ -216,10 +206,7 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "rowIndex": 4,
-      "prerequisitesOverride": [
-        "261205"
-      ]
+      "rowIndex": 4
     },
     {
       "id": "c-261343",
@@ -228,8 +215,7 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "rowIndex": 5,
-      "corequisite": "261342"
+      "rowIndex": 5
     },
     {
       "id": "c-269210",
@@ -247,10 +233,7 @@
       "suggestedSemester": 2,
       "selectedYear": 2,
       "selectedSemester": 2,
-      "rowIndex": 7,
-      "prerequisitesOverride": [
-        "261335"
-      ]
+      "rowIndex": 7
     },
     {
       "id": "c-252281",
@@ -330,10 +313,7 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "rowIndex": 6,
-      "prerequisitesOverride": [
-        "261335"
-      ]
+      "rowIndex": 6
     },
     {
       "id": "c-269430",
@@ -364,10 +344,7 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "rowIndex": 0,
-      "prerequisitesOverride": [
-        "261361"
-      ]
+      "rowIndex": 0
     },
     {
       "id": "c-269360",
@@ -385,10 +362,7 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "rowIndex": 2,
-      "prerequisitesOverride": [
-        "261205"
-      ]
+      "rowIndex": 2
     },
     {
       "id": "c-269370",
@@ -397,10 +371,7 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "rowIndex": 3,
-      "prerequisitesOverride": [
-        "261205"
-      ]
+      "rowIndex": 3
     },
     {
       "id": "c-261447",
@@ -409,10 +380,7 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "rowIndex": 6,
-      "prerequisitesOverride": [
-        "261335"
-      ]
+      "rowIndex": 6
     },
     {
       "id": "major-elect-1",
@@ -465,11 +433,7 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "rowIndex": 2,
-      "prerequisitesOverride": [
-        "261446",
-        "269370"
-      ]
+      "rowIndex": 2
     },
     {
       "id": "free-elect-2",

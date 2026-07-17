@@ -9,41 +9,60 @@
     "courseTitle": "English 2",
     "courseType": "gen edu",
     "creditHours": 3,
-    "prerequisites": [
-      "001101"
-    ]
+    "prerequisites": []
   },
   "001201": {
+    "cod": true,
     "courseTitle": "English R/W",
     "courseType": "gen edu",
     "creditHours": 3,
+    "prerequisiteNote": "e-Pro score >= B1",
     "prerequisites": [
-      "001102"
+      [
+        "001101",
+        "001102"
+      ]
     ]
   },
   "001225": {
+    "cod": true,
     "courseTitle": "English for Sci & Tech",
     "courseType": "gen edu",
     "creditHours": 3,
+    "prerequisiteNote": "e-Pro score >= B1",
     "prerequisites": [
-      "001102"
+      [
+        "001101",
+        "001102"
+      ]
     ]
   },
   "001233": {
+    "cod": true,
     "courseTitle": "English for Standardized Tests",
+    "prerequisiteNote": "e-Pro score >= B1",
     "prerequisites": []
   },
   "001241": {
+    "cod": true,
     "courseTitle": "Oral Comm in English",
+    "prerequisiteNote": "e-Pro score >= B1",
     "prerequisites": []
   },
   "001242": {
+    "cod": true,
     "courseTitle": "Exploring Reading & Writing Skills",
+    "prerequisiteNote": "e-Pro score >= B1",
     "prerequisites": []
   },
   "001243": {
     "courseTitle": "Basics of Effective Essay Writing",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "001242",
+        "001311"
+      ]
+    ]
   },
   "004170": {
     "courseTitle": "Thai Society & Culture",
@@ -51,6 +70,7 @@
   },
   "009103": {
     "courseTitle": "Information Literacy & Information Presentation",
+    "prerequisiteNote": "for non-majors only",
     "prerequisites": []
   },
   "011100": {
@@ -71,6 +91,7 @@
   },
   "013110": {
     "courseTitle": "Psychology & Daily Life",
+    "prerequisiteNote": "for non-majors only",
     "prerequisites": []
   },
   "050101": {
@@ -185,20 +206,24 @@
   },
   "176100": {
     "courseTitle": "Law & Modern World",
+    "prerequisiteNote": "for non-majors only",
     "prerequisites": []
   },
   "176102": {
     "courseTitle": "Peace & Human Rights",
+    "prerequisiteNote": "for non-majors only",
     "prerequisites": []
   },
   "176104": {
     "courseTitle": "Rights & Duties",
     "courseType": "gen edu",
     "creditHours": 3,
+    "prerequisiteNote": "for non-majors only",
     "prerequisites": []
   },
   "176105": {
     "courseTitle": "Legal Problem Mgmt in Everyday Life",
+    "prerequisiteNote": "for non-majors only",
     "prerequisites": []
   },
   "201100": {
@@ -254,7 +279,10 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261305"
+      [
+        "204341",
+        "261305"
+      ]
     ]
   },
   "205105": {
@@ -272,7 +300,9 @@
     "courseType": "math and sci",
     "creditHours": 3,
     "prerequisites": [
-      "206161"
+      [
+        "206161"
+      ]
     ]
   },
   "206235": {
@@ -280,7 +310,9 @@
     "courseType": "math and sci",
     "creditHours": 3,
     "prerequisites": [
-      "206261"
+      [
+        "206261"
+      ]
     ]
   },
   "206261": {
@@ -288,7 +320,9 @@
     "courseType": "math and sci",
     "creditHours": 3,
     "prerequisites": [
-      "206162"
+      [
+        "206162"
+      ]
     ]
   },
   "206355": {
@@ -296,7 +330,12 @@
     "courseType": "math and sci",
     "creditHours": 3,
     "prerequisites": [
-      "206261"
+      [
+        "206112",
+        "206116",
+        "206203",
+        "206261"
+      ]
     ]
   },
   "207105": {
@@ -310,7 +349,9 @@
     "courseType": "math and sci",
     "creditHours": 3,
     "prerequisites": [
-      "207105"
+      [
+        "207105"
+      ]
     ]
   },
   "207109": {
@@ -332,7 +373,9 @@
     "courseType": "math and sci",
     "creditHours": 1,
     "prerequisites": [
-      "207115"
+      [
+        "207115"
+      ]
     ]
   },
   "208150": {
@@ -409,7 +452,11 @@
     "courseTitle": "Skills for Pro & Entre",
     "courseType": "gen engr",
     "creditHours": 1,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "259191"
+      ]
+    ]
   },
   "259193": {
     "courseTitle": "Morality & Intelligence for Being a Professional",
@@ -444,31 +491,44 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261102"
+      [
+        "261102",
+        "269102"
+      ]
     ]
   },
   "261205": {
+    "cod": true,
     "courseTitle": "Data Struct & Algo",
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261102"
+      [
+        "261102",
+        "269102"
+      ]
     ]
   },
   "261207": {
+    "cod": true,
     "courseTitle": "CPE Lab",
     "courseType": "major courses",
     "creditHours": 2,
     "prerequisites": [
-      "261103"
+      [
+        "261103"
+      ]
     ]
   },
   "261208": {
+    "cod": true,
     "courseTitle": "Numerical",
     "courseType": "math and sci",
     "creditHours": 3,
     "prerequisites": [
-      "206261"
+      [
+        "206162"
+      ]
     ]
   },
   "261210": {
@@ -476,27 +536,34 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "207106"
+      [
+        "207106"
+      ]
     ]
   },
   "261212": {
+    "corequisite": "261210",
     "courseTitle": "Logic Lab",
     "courseType": "major courses",
     "creditHours": 1,
-    "prerequisites": [
-      "207106"
-    ]
+    "prerequisites": []
   },
   "261214": {
+    "cod": true,
     "courseTitle": "Microprocessors",
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "252281",
-      "261210"
+      [
+        "261210"
+      ],
+      [
+        "252281"
+      ]
     ]
   },
   "261215": {
+    "corequisite": "261214",
     "courseTitle": "Embedded Lab",
     "courseType": "major courses",
     "creditHours": 1,
@@ -513,24 +580,35 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261102"
+      [
+        "261102"
+      ]
     ]
   },
   "261218": {
+    "cod": true,
     "courseTitle": "Algorithms",
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261216",
-      "261217"
+      [
+        "261216"
+      ],
+      [
+        "261217"
+      ]
     ]
   },
   "261304": {
+    "cod": true,
     "courseTitle": "Comp Arch",
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261314"
+      [
+        "261214",
+        "261314"
+      ]
     ]
   },
   "261305": {
@@ -538,24 +616,37 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "269210"
+      [
+        "261218",
+        "261304",
+        "269202",
+        "269210"
+      ]
     ]
   },
   "261306": {
+    "cod": true,
     "courseTitle": "Prob & Stats",
     "courseType": "math and sci",
     "creditHours": 3,
     "prerequisites": [
-      "206261"
+      [
+        "206162"
+      ]
     ]
   },
   "261314": {
+    "cod": true,
     "courseTitle": "Embedded & Automation",
     "courseType": "major courses",
     "creditHours": 4,
     "prerequisites": [
-      "252284",
-      "261210"
+      [
+        "261210"
+      ],
+      [
+        "252284"
+      ]
     ]
   },
   "261332": {
@@ -563,7 +654,9 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "207106"
+      [
+        "207106"
+      ]
     ]
   },
   "261335": {
@@ -571,10 +664,14 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "269130"
+      [
+        "261332",
+        "269130"
+      ]
     ]
   },
   "261336": {
+    "corequisite": "261335",
     "courseTitle": "Networks Lab",
     "courseType": "major courses",
     "creditHours": 1,
@@ -585,7 +682,10 @@
     "courseType": "major courses",
     "creditHours": 4,
     "prerequisites": [
-      "261205"
+      [
+        "261205",
+        "261218"
+      ]
     ]
   },
   "261342": {
@@ -593,10 +693,14 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261218"
+      [
+        "261205",
+        "261218"
+      ]
     ]
   },
   "261343": {
+    "corequisite": "261342",
     "courseTitle": "Database Lab",
     "courseType": "major courses",
     "creditHours": 1,
@@ -607,128 +711,236 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261200"
+      [
+        "261200",
+        "261218",
+        "269202"
+      ]
     ]
   },
   "261381": {
+    "cod": true,
     "courseTitle": "Cyber Mgmt",
     "prerequisites": []
   },
   "261382": {
+    "cod": true,
     "courseTitle": "Network Security & Technological Controls",
     "prerequisites": []
   },
   "261383": {
+    "cod": true,
     "courseTitle": "Cybersecurity Threat Analysis & Detection",
     "prerequisites": []
   },
   "261400": {
+    "cod": true,
     "courseTitle": "CPE Training",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261335"
+      ],
+      [
+        "261342"
+      ]
+    ]
   },
   "261404": {
     "courseTitle": "Advanced CPE Lab",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261200"
+      ]
+    ]
   },
   "261405": {
+    "cod": true,
     "courseTitle": "Advanced CPE",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261361"
+      ]
+    ]
   },
   "261406": {
     "courseTitle": "Basic Compiler Design",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261102"
+      ]
+    ]
   },
   "261407": {
     "courseTitle": "Fund of Computation for CPE",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261218"
+      ]
+    ]
   },
   "261408": {
+    "cod": true,
     "courseTitle": "Quantum Computation",
     "prerequisites": []
   },
   "261409": {
+    "cod": true,
     "courseTitle": "Functional Programming",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261216"
+      ],
+      [
+        "261217"
+      ]
+    ]
   },
   "261410": {
+    "cod": true,
     "courseTitle": "Elec Devices for CPE",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "252211",
+        "261210"
+      ]
+    ]
   },
   "261411": {
+    "cod": true,
     "courseTitle": "Parallel Proc & Dist Sys",
     "prerequisites": []
   },
   "261413": {
     "courseTitle": "Very Large Scale Integrated Circuit Design",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261210"
+      ]
+    ]
   },
   "261414": {
     "courseTitle": "Digital Sys Design",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261210"
+      ]
+    ]
   },
   "261421": {
     "courseTitle": "Comp HW Design",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261214",
+        "261304"
+      ]
+    ]
   },
   "261424": {
+    "cod": true,
     "courseTitle": "Remote Mon & Ctrl Sys",
     "prerequisites": []
   },
   "261430": {
     "courseTitle": "Wireless Networks",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261335"
+      ]
+    ]
   },
   "261433": {
     "courseTitle": "Network Prog",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261335"
+      ]
+    ]
   },
   "261434": {
     "courseTitle": "Net Design & Mgmt",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261335"
+      ]
+    ]
   },
   "261435": {
     "courseTitle": "Broadband Comm Networks",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261335"
+      ]
+    ]
   },
   "261437": {
+    "cod": true,
     "courseTitle": "Fund of Queueing Theory for CPE",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261306"
+      ],
+      [
+        "261335"
+      ]
+    ]
   },
   "261438": {
     "courseTitle": "MPLS",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261335"
+      ]
+    ]
   },
   "261439": {
+    "cod": true,
     "courseTitle": "Wireless Comm for CPE",
     "prerequisites": []
   },
   "261441": {
+    "cod": true,
     "courseTitle": "Internet of Things & Big Data",
     "prerequisites": []
   },
   "261444": {
     "courseTitle": "Advanced DBMS",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261341",
+        "261342"
+      ]
+    ]
   },
   "261446": {
     "courseTitle": "Info Sys",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261205",
+        "261217"
+      ]
+    ]
   },
   "261447": {
     "courseTitle": "Net & Info Sec",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261332",
+        "269130"
+      ]
+    ]
   },
   "261448": {
+    "cod": true,
     "courseTitle": "Data Mining for CPE",
     "prerequisites": []
   },
@@ -736,126 +948,185 @@
     "courseTitle": "Software Testing",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261361"
+      ]
+    ]
   },
   "261451": {
+    "cod": true,
     "courseTitle": "Neural Networks",
     "prerequisites": []
   },
   "261452": {
+    "cod": true,
     "courseTitle": "Artificial Intelligence",
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "208150",
-      "261218"
+      [
+        "208150"
+      ],
+      [
+        "261218"
+      ]
     ]
   },
   "261453": {
+    "cod": true,
     "courseTitle": "Digital Image Processing",
     "prerequisites": []
   },
   "261456": {
+    "cod": true,
     "courseTitle": "Intro to CI for CPE",
     "prerequisites": []
   },
   "261457": {
+    "cod": true,
     "courseTitle": "Digital Image & Video Compression",
     "prerequisites": []
   },
   "261458": {
+    "cod": true,
     "courseTitle": "Machine Vision",
     "prerequisites": []
   },
   "261459": {
+    "cod": true,
     "courseTitle": "Deep Learning",
     "prerequisites": []
   },
   "261461": {
     "courseTitle": "Visual & Interactive Programming",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261102",
+        "269102",
+        "229223"
+      ]
+    ]
   },
   "261464": {
+    "cod": true,
     "courseTitle": "Comp Sim Modeling & Analysis",
     "prerequisites": []
   },
   "261465": {
+    "cod": true,
     "courseTitle": "CG",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "259104"
+      ]
+    ]
   },
   "261468": {
+    "cod": true,
     "courseTitle": "Sys Analysis & Design for CPE",
     "prerequisites": []
   },
   "261469": {
+    "cod": true,
     "courseTitle": "Software Proj Mgmt for CPE",
     "prerequisites": []
   },
   "261470": {
+    "cod": true,
     "courseTitle": "Signals & Systems",
     "prerequisites": []
   },
   "261471": {
+    "cod": true,
     "courseTitle": "Advanced Digital Signal Processing",
     "prerequisites": []
   },
   "261472": {
+    "cod": true,
     "courseTitle": "Robotics",
     "prerequisites": []
   },
   "261473": {
+    "cod": true,
     "courseTitle": "CAM",
     "prerequisites": []
   },
   "261474": {
+    "cod": true,
     "courseTitle": "Real-Time Comp Ctrl",
     "prerequisites": []
   },
   "261475": {
+    "cod": true,
     "courseTitle": "Modeling & Optimization for Big Data Analytics",
     "prerequisites": []
   },
   "261476": {
+    "cod": true,
     "courseTitle": "Biomedical Instruments",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "252211",
+        "252281"
+      ]
+    ]
   },
   "261478": {
+    "cod": true,
     "courseTitle": "Ctrl Sys",
     "prerequisites": []
   },
   "261479": {
+    "cod": true,
     "courseTitle": "Bioinformatics Programming",
     "prerequisites": []
   },
   "261481": {
+    "cod": true,
     "courseTitle": "Cybersecurity Incident Response",
     "prerequisites": []
   },
   "261482": {
+    "cod": true,
     "courseTitle": "Cybersecurity Audit & Cyber Resilience",
     "prerequisites": []
   },
   "261485": {
+    "cod": true,
     "courseTitle": "Cyber Mgmt",
     "prerequisites": []
   },
   "261486": {
+    "cod": true,
     "courseTitle": "Net Sec & Tech Ctrl",
     "prerequisites": []
   },
   "261487": {
+    "cod": true,
     "courseTitle": "Cybersecurity Threat Analysis & Detection",
     "prerequisites": []
   },
   "261488": {
+    "cod": true,
     "courseTitle": "Cybersecurity Incident Response",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261485"
+      ]
+    ]
   },
   "261489": {
+    "cod": true,
     "courseTitle": "Cybersecurity Audit & Cyber Resilience",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261485"
+      ]
+    ]
   },
   "261491": {
+    "cod": true,
     "courseTitle": "Project Survey",
     "courseType": "major courses",
     "creditHours": 1,
@@ -866,32 +1137,40 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261491"
+      [
+        "261491"
+      ]
     ]
   },
   "261493": {
+    "cod": true,
     "courseTitle": "Seminar",
     "prerequisites": []
   },
   "261494": {
+    "cod": true,
     "courseTitle": "Selected Topics in CPE",
     "prerequisites": []
   },
   "261495": {
+    "cod": true,
     "courseTitle": "Co-op",
     "courseType": "major courses",
     "creditHours": 6,
     "prerequisites": []
   },
   "261497": {
+    "cod": true,
     "courseTitle": "Selected Topics in Comp SW",
     "prerequisites": []
   },
   "261498": {
+    "cod": true,
     "courseTitle": "Selected Topics in Comp Networks",
     "prerequisites": []
   },
   "261499": {
+    "cod": true,
     "courseTitle": "Selected Topics in CI",
     "prerequisites": []
   },
@@ -912,7 +1191,9 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261102"
+      [
+        "261102"
+      ]
     ]
   },
   "267222": {
@@ -920,7 +1201,9 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261102"
+      [
+        "261102"
+      ]
     ]
   },
   "267251": {
@@ -928,7 +1211,10 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "269130"
+      [
+        "261332",
+        "269130"
+      ]
     ]
   },
   "267341": {
@@ -936,95 +1222,167 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261335"
+      [
+        "261335"
+      ]
     ]
   },
   "267345": {
+    "cod": true,
     "courseTitle": "AI & ML",
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261205"
+      [
+        "255201"
+      ],
+      [
+        "261205"
+      ]
     ]
   },
   "267346": {
+    "cod": true,
     "courseTitle": "Data Man & Big Data",
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261341"
+      [
+        "261341"
+      ]
     ]
   },
   "267351": {
     "courseTitle": "Ethical Hacking",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261447",
+        "267251"
+      ]
+    ]
   },
   "267352": {
     "courseTitle": "OS Security",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261305"
+      ]
+    ]
   },
   "267360": {
     "courseTitle": "Defensive Security",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "267351"
+      ]
+    ]
   },
   "267371": {
     "courseTitle": "Pentest",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "267351"
+      ]
+    ]
   },
   "267401": {
+    "cod": true,
     "courseTitle": "Training for ISCE",
     "courseType": "major courses",
     "creditHours": 3,
+    "prerequisiteNote": "third year standing",
     "prerequisites": []
   },
   "267440": {
+    "cod": true,
     "courseTitle": "Principles of Data Privacy",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261341"
+      ]
+    ]
   },
   "267456": {
+    "cod": true,
     "courseTitle": "Software Security Testing",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "204342"
+      ]
+    ]
   },
   "267465": {
+    "cod": true,
     "courseTitle": "Security Orchestration, Automation, & Response",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "267360"
+      ]
+    ]
   },
   "267475": {
     "courseTitle": "Fund of Malware Analysis",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261305"
+      ],
+      [
+        "267351"
+      ]
+    ]
   },
   "267476": {
+    "cod": true,
     "courseTitle": "Intro to Cryptography",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261447",
+        "267251"
+      ]
+    ]
   },
   "267480": {
     "courseTitle": "CSF",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "267360"
+      ]
+    ]
   },
   "267481": {
     "courseTitle": "DFIR",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "267351"
+      ]
+    ]
   },
   "267485": {
     "courseTitle": "Social Engineering",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "267371"
+      ]
+    ]
   },
   "267491": {
+    "cod": true,
     "courseTitle": "Project Survey",
     "courseType": "major courses",
     "creditHours": 1,
+    "prerequisiteNote": "third year standing",
     "prerequisites": []
   },
   "267492": {
@@ -1032,17 +1390,23 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "267491"
+      [
+        "267491"
+      ]
     ]
   },
   "267494": {
+    "cod": true,
     "courseTitle": "Selected Topics in Cybersecurity",
+    "prerequisiteNote": "third year standing",
     "prerequisites": []
   },
   "267495": {
+    "cod": true,
     "courseTitle": "Coop Ed",
     "courseType": "major courses",
     "creditHours": 6,
+    "prerequisiteNote": "fourth year standing",
     "prerequisites": []
   },
   "269101": {
@@ -1062,7 +1426,10 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "269102"
+      [
+        "261102",
+        "269102"
+      ]
     ]
   },
   "269105": {
@@ -1076,7 +1443,10 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "267101"
+      [
+        "269101",
+        "267101"
+      ]
     ]
   },
   "269200": {
@@ -1084,7 +1454,10 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "269102"
+      [
+        "261102",
+        "269102"
+      ]
     ]
   },
   "269201": {
@@ -1092,7 +1465,9 @@
     "courseType": "major courses",
     "creditHours": 1,
     "prerequisites": [
-      "269105"
+      [
+        "269105"
+      ]
     ]
   },
   "269202": {
@@ -1100,7 +1475,9 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261205"
+      [
+        "261205"
+      ]
     ]
   },
   "269210": {
@@ -1114,75 +1491,126 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261342",
-      "261343"
+      [
+        "261342"
+      ],
+      [
+        "261343"
+      ]
     ]
   },
   "269341": {
     "courseTitle": "Data Warehousing & Business Intelligence for Information Systems & Network Engineering",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "269340"
+      ]
+    ]
   },
   "269360": {
     "courseTitle": "Platform Prog",
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261200"
+      [
+        "261200"
+      ]
     ]
   },
   "269370": {
     "courseTitle": "Proj Mgmt for ISNE",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261205"
+      ]
+    ]
   },
   "269400": {
     "courseTitle": "Advanced Information Systems & Network Technology",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "269360"
+      ]
+    ]
   },
   "269401": {
+    "cod": true,
     "courseTitle": "ISNE Training",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261335"
+      ],
+      [
+        "261342"
+      ]
+    ]
   },
   "269421": {
     "courseTitle": "Net Traffic Analysis",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261335"
+      ]
+    ]
   },
   "269430": {
     "courseTitle": "Wireless & Broadband",
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "261335"
+      [
+        "261335"
+      ]
     ]
   },
   "269431": {
     "courseTitle": "Wireless Sensor Network",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261335"
+      ]
+    ]
   },
   "269432": {
     "courseTitle": "Peer-to-Peer Systems",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261335"
+      ]
+    ]
   },
   "269433": {
     "courseTitle": "Net Routing Protocols",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261335"
+      ]
+    ]
   },
   "269441": {
+    "cod": true,
     "courseTitle": "Information Retrieval & Extraction",
     "prerequisites": []
   },
   "269451": {
     "courseTitle": "Intro to Neuro-Fuzzy Systems",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261205"
+      ]
+    ]
   },
   "269452": {
+    "cod": true,
     "courseTitle": "Mobile Application Development",
     "prerequisites": []
   },
   "269461": {
+    "cod": true,
     "courseTitle": "Personal Software Process Improvement",
     "prerequisites": []
   },
@@ -1190,23 +1618,43 @@
     "courseTitle": "Intro to HCI",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "261361"
+      ]
+    ]
   },
   "269470": {
     "courseTitle": "ITSM",
     "courseType": "major courses",
     "creditHours": 3,
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "269370"
+      ],
+      [
+        "261446"
+      ]
+    ]
   },
   "269471": {
     "courseTitle": "Adv Proj Mgmt for ISNE",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "269370"
+      ]
+    ]
   },
   "269472": {
     "courseTitle": "Risk Mgmt in Software Proj",
-    "prerequisites": []
+    "prerequisites": [
+      [
+        "269370"
+      ]
+    ]
   },
   "269491": {
+    "cod": true,
     "courseTitle": "Project Survey",
     "courseType": "major courses",
     "creditHours": 1,
@@ -1217,36 +1665,45 @@
     "courseType": "major courses",
     "creditHours": 3,
     "prerequisites": [
-      "269491"
+      [
+        "269491"
+      ]
     ]
   },
   "269493": {
+    "cod": true,
     "courseTitle": "Seminar",
     "prerequisites": []
   },
   "269494": {
+    "cod": true,
     "courseTitle": "Selected Topics in Information Systems & Network Engineering",
     "prerequisites": []
   },
   "269495": {
+    "cod": true,
     "courseTitle": "Coop Education",
     "courseType": "major courses",
     "creditHours": 6,
     "prerequisites": []
   },
   "269496": {
+    "cod": true,
     "courseTitle": "Selected Topics in Information Systems 1",
     "prerequisites": []
   },
   "269497": {
+    "cod": true,
     "courseTitle": "Selected Topics in Information Systems 2",
     "prerequisites": []
   },
   "269498": {
+    "cod": true,
     "courseTitle": "Selected Topics in Network Engineering 1",
     "prerequisites": []
   },
   "269499": {
+    "cod": true,
     "courseTitle": "Selected Topics in Network Engineering 2",
     "prerequisites": []
   },
@@ -1348,6 +1805,7 @@
   },
   "702101": {
     "courseTitle": "Finance for Daily Life",
+    "prerequisiteNote": "non-Finance/Banking majors only",
     "prerequisites": []
   },
   "703103": {

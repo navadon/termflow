@@ -306,10 +306,7 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "rowIndex": 8,
-      "prerequisitesOverride": [
-        "261332"
-      ]
+      "rowIndex": 8
     },
     {
       "id": "c-261336",
@@ -318,10 +315,7 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "rowIndex": 9,
-      "prerequisitesOverride": [
-        "261332"
-      ]
+      "rowIndex": 9
     },
     {
       "id": "c-261341",
@@ -330,10 +324,7 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "rowIndex": 2,
-      "prerequisitesOverride": [
-        "261218"
-      ]
+      "rowIndex": 2
     },
     {
       "id": "gened-entrep",
@@ -381,10 +372,7 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "rowIndex": 5,
-      "prerequisitesOverride": [
-        "261304"
-      ]
+      "rowIndex": 5
     },
     {
       "id": "c-261491",
@@ -489,8 +477,7 @@
         "courseId": "001102"
       },
       {
-        "courseId": "001225",
-        "prerequisitesOverride": []
+        "courseId": "001225"
       },
       {
         "courseId": "001201"
@@ -838,8 +825,7 @@
         "courseId": "261451"
       },
       {
-        "courseId": "261452",
-        "prerequisitesOverride": []
+        "courseId": "261452"
       },
       {
         "courseId": "261453"
@@ -932,8 +918,7 @@
         "courseId": "269421"
       },
       {
-        "courseId": "269430",
-        "prerequisitesOverride": []
+        "courseId": "269430"
       },
       {
         "courseId": "269431"

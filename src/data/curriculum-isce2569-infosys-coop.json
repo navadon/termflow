@@ -288,10 +288,7 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "rowIndex": 6,
-      "prerequisitesOverride": [
-        "261335"
-      ]
+      "rowIndex": 6
     },
     {
       "id": "c-261361",
@@ -300,10 +297,7 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "rowIndex": 3,
-      "prerequisitesOverride": [
-        "269202"
-      ]
+      "rowIndex": 3
     },
     {
       "id": "c-267346",
@@ -356,10 +350,7 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "rowIndex": 4,
-      "prerequisitesOverride": [
-        "261361"
-      ]
+      "rowIndex": 4
     },
     {
       "id": "c-261446",
@@ -368,10 +359,7 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "rowIndex": 2,
-      "prerequisitesOverride": [
-        "261205"
-      ]
+      "rowIndex": 2
     },
     {
       "id": "c-269370",
@@ -380,10 +368,7 @@
       "suggestedSemester": 2,
       "selectedYear": 3,
       "selectedSemester": 2,
-      "rowIndex": 3,
-      "prerequisitesOverride": [
-        "261205"
-      ]
+      "rowIndex": 3
     },
     {
       "id": "c-267345",
@@ -414,8 +399,7 @@
       "suggestedSemester": 1,
       "selectedYear": 4,
       "selectedSemester": 1,
-      "rowIndex": 4,
-      "prerequisitesOverride": []
+      "rowIndex": 4
     },
     {
       "id": "free-elect-2",
@@ -463,11 +447,7 @@
       "suggestedSemester": 1,
       "selectedYear": 4,
       "selectedSemester": 1,
-      "rowIndex": 2,
-      "prerequisitesOverride": [
-        "261446",
-        "269370"
-      ]
+      "rowIndex": 2
     },
     {
       "id": "c-259192",
@@ -497,8 +477,7 @@
         "courseId": "001102"
       },
       {
-        "courseId": "001225",
-        "prerequisitesOverride": []
+        "courseId": "001225"
       },
       {
         "courseId": "001201"
@@ -756,8 +735,7 @@
         "courseId": "267481"
       },
       {
-        "courseId": "261361",
-        "prerequisitesOverride": []
+        "courseId": "261361"
       },
       {
         "courseId": "261434"
