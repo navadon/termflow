@@ -136,7 +136,7 @@ const getOptionPlaceholder = (optionType) => {
 const CourseNoteLine = ({ cod, corequisite }) => {
   if (!cod && !corequisite) return null;
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '3px', fontSize: '12px', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '3px', fontSize: '14px', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden' }}>
       {cod && (
         <span title="Consent of the Department required" style={{ fontWeight: 'bold', color: '#28a745' }}>
           COD
