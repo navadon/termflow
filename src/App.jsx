@@ -24,6 +24,28 @@ import isce2569InfosysCoop from './data/curriculum-isce2569-infosys-coop.json';
 import isce2569InfosysRegular from './data/curriculum-isce2569-infosys-regular.json';
 import isne2566Coop from './data/curriculum-isne2566-coop.json';
 import isne2566Regular from './data/curriculum-isne2566-regular.json';
+import coursesData from './data/courses.json';
+
+// Curriculum files store only courseId + curriculum-specific placement; shared
+// course facts (title, credit hours, type, default prerequisites) live in
+// courses.json, keyed by courseId. A curriculum entry may set
+// prerequisitesOverride when its prerequisite differs from the shared default.
+const resolveCourse = (courseId) => coursesData[courseId] || null;
+
+// Prerequisites are stored as AND-of-OR groups: [["A","B"],["C"]] means
+// (A or B) and C. A flat ["A","B"] (legacy shape) is treated as A and B.
+const toPrereqGroups = (prereqs) =>
+  (prereqs || []).map(g => (Array.isArray(g) ? g : [g])).filter(g => g.length > 0);
+
+const resolveOption = (opt) => {
+  const base = resolveCourse(opt.courseId);
+  return {
+    courseId: opt.courseId,
+    courseTitle: base?.courseTitle,
+    prerequisites: base?.prerequisites ?? [],
+    cod: !!base?.cod
+  };
+};
 
 // --- 2. CREATE CURRICULUM DICTIONARY ---
 const curriculums = {
@@ -129,6 +151,11 @@ const CourseNode = ({ id, data }) => {
               )}
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              {data.cod && (
+                <span title="Consent of the Department required" style={{ fontSize: '13px', fontWeight: 'bold', color: '#28a745' }}>
+                  COD
+                </span>
+              )}
               <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
                 {data.creditHours} CR
               </div>
@@ -215,6 +242,11 @@ const CourseNode = ({ id, data }) => {
             )}
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            {data.cod && (
+              <span title="Consent of the Department required" style={{ fontSize: '13px', fontWeight: 'bold', color: '#28a745' }}>
+                COD
+              </span>
+            )}
             <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
               {data.creditHours} CR
             </div>
@@ -401,17 +433,26 @@ const updateGameState = (currentNodes, onToggleSemesterComplete = null) => {
       let isInvalid = false;
       const missingPrereqs = [];
 
-      prereqs.forEach(prereqCode => {
-        const prereqNodeId = courseIdToNodeId[prereqCode];
-        if (prereqNodeId) {
-          const prereqLoc = nodeLocationMap[prereqNodeId];
-          if (prereqLoc) {
-            if (prereqLoc.year > myLoc.year) isInvalid = true;
-            if (prereqLoc.year === myLoc.year && prereqLoc.sem >= myLoc.sem) isInvalid = true;
+      // Each group is an OR: satisfied if any member sits earlier in the plan.
+      // All groups must be satisfied (AND between groups).
+      toPrereqGroups(prereqs).forEach(group => {
+        let groupSatisfied = false;
+        let anyInPlan = false;
+        group.forEach(prereqCode => {
+          const prereqNodeId = courseIdToNodeId[prereqCode];
+          if (prereqNodeId) {
+            anyInPlan = true;
+            const prereqLoc = nodeLocationMap[prereqNodeId];
+            if (prereqLoc &&
+                (prereqLoc.year < myLoc.year ||
+                 (prereqLoc.year === myLoc.year && prereqLoc.sem < myLoc.sem))) {
+              groupSatisfied = true;
+            }
           }
-        } else {
+        });
+        if (!groupSatisfied) {
           isInvalid = true;
-          missingPrereqs.push(prereqCode);
+          if (!anyInPlan) missingPrereqs.push(group.join(' or '));
         }
       });
 
@@ -472,17 +513,19 @@ const generateEdgesForNodes = (currentNodes) => {
 
   currentNodes.forEach(node => {
     if (node.type === 'course' && node.data?.prerequisites) {
-      node.data.prerequisites.forEach(prereqId => {
-        const sourceId = courseIdToNodeId[prereqId];
-        if (sourceId) {
-          generatedEdges.push({
-            id: `e-${sourceId}-${node.id}`,
-            source: sourceId,
-            target: node.id,
-            style: { stroke: '#aaa', strokeWidth: 2, opacity: 0.8 },
-            markerEnd: { type: MarkerType.ArrowClosed, color: '#aaa' },
-          });
-        }
+      toPrereqGroups(node.data.prerequisites).forEach(group => {
+        group.forEach(prereqId => {
+          const sourceId = courseIdToNodeId[prereqId];
+          if (sourceId) {
+            generatedEdges.push({
+              id: `e-${sourceId}-${node.id}`,
+              source: sourceId,
+              target: node.id,
+              style: { stroke: '#aaa', strokeWidth: 2, opacity: 0.8 },
+              markerEnd: { type: MarkerType.ArrowClosed, color: '#aaa' },
+            });
+          }
+        });
       });
     }
   });
@@ -563,7 +606,7 @@ export default function App() {
       const targetNode = nds.find(n => n.id === id);
       const optionType = targetNode?.data?.optionType;
       const currOptions = curriculums[selectedCurriculum]?.options || {};
-      const dropdownOptions = optionType ? (currOptions[optionType] || []) : [];
+      const dropdownOptions = optionType ? (currOptions[optionType] || []).map(resolveOption) : [];
       const option = dropdownOptions.find(opt => opt.courseId === selectedCourseId);
       const prereqs = option ? (option.prerequisites || []) : [];
 
@@ -576,7 +619,8 @@ export default function App() {
               ...node.data,
               courseId: selectedCourseId || null,
               courseTitle: option ? option.courseTitle : defaultTitle,
-              prerequisites: prereqs
+              prerequisites: prereqs,
+              cod: !!option?.cod
             }
           };
         }
@@ -650,14 +694,22 @@ export default function App() {
         const cardX = colX + (SEMESTER_WIDTH - COURSE_WIDTH) / 2;
         const cardY = TOP_PADDING + index * (COURSE_HEIGHT + COURSE_GAP);
 
-        const optionType = course.courseId === null ? getOptionType(course.courseTitle) : null;
+        const shared = course.courseId ? resolveCourse(course.courseId) : null;
+        const baseCourseTitle = shared ? shared.courseTitle : course.courseTitle;
+        const baseCreditHours = shared ? shared.creditHours : course.creditHours;
+        const baseCourseType = shared ? shared.courseType : course.courseType;
+        const basePrerequisites = shared ? (shared.prerequisites ?? []) : (course.prerequisites || []);
+        const baseCod = !!shared?.cod;
+
+        const optionType = course.courseId === null ? getOptionType(baseCourseTitle) : null;
         const currOptions = curriculumData.options || {};
-        const dropdownOptions = optionType ? (currOptions[optionType] || []) : [];
+        const dropdownOptions = optionType ? (currOptions[optionType] || []).map(resolveOption) : [];
 
         let completed = false;
         let courseId = course.courseId;
-        let courseTitle = course.courseTitle;
-        let prerequisites = course.prerequisites;
+        let courseTitle = baseCourseTitle;
+        let prerequisites = basePrerequisites;
+        let cod = baseCod;
 
         if (activePlanData) {
           const savedCourse = activePlanData.find(p => p.id === course.id);
@@ -669,6 +721,7 @@ export default function App() {
               if (opt) {
                 courseTitle = opt.courseTitle;
                 prerequisites = opt.prerequisites || [];
+                cod = !!opt.cod;
               }
             }
           }
@@ -682,15 +735,16 @@ export default function App() {
           draggable: !completed,
           data: {
             courseId: courseId,
-            creditHours: course.creditHours,
+            creditHours: baseCreditHours,
             prerequisites: prerequisites || [],
             suggestedYear: course.suggestedYear,
             suggestedSemester: course.suggestedSemester,
             currentYear: year === 99 ? null : year,
             currentSemester: sem === 99 ? null : sem,
             courseTitle: courseTitle,
-            originalTitle: course.courseTitle,
-            courseType: course.courseType,
+            originalTitle: baseCourseTitle,
+            courseType: baseCourseType,
+            cod: cod,
             completed: completed,
             onToggleComplete: onToggleComplete,
             optionType: optionType,
