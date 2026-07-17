@@ -1015,7 +1015,7 @@ export default function App() {
             <input
               type="text"
               value={studentName}
-              placeholder="Student name or ID"
+              placeholder="John or 6X0612XXX"
               onChange={(e) => { setStudentName(e.target.value); setDirty(true); }}
               style={{ padding: '3px 8px', fontSize: '13px', borderRadius: '4px', border: '1px solid #aaa', width: '140px' }}
             />
