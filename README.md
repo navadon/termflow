@@ -1,16 +1,76 @@
-# React + Vite
+# curriculum-planner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A visual study-plan builder for academic advisors and students. Drag courses
+across semesters, check prerequisites on the fly, pick electives from
+dropdowns, and track completion per semester and per requirement category —
+all against the department's official curricula.
 
-Currently, two official plugins are available:
+Built with React, Vite, and [React Flow](https://reactflow.dev).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- **Semester board** — each academic year renders as three columns, labeled
+  Y1-1, Y1-2, Y1-3 (the third is the summer session, tinted yellow); courses
+  are cards you drag between semester slots.
+- **Prerequisite checking** — courses placed before their prerequisites are
+  flagged; hovering a course highlights its chain (prerequisites glow green,
+  dependent courses glow blue).
+- **Elective dropdowns** — GenEd and major-elective slots offer the allowed
+  options for that curriculum; an option already used elsewhere is disabled.
+- **Completion tracking** — per-course checkboxes, a per-semester
+  "mark all completed" checkbox, an overall credit progress bar, and a
+  breakdown by category (GenEd / Major / Others).
+- **Plans** — Save Plan downloads a JSON file, Open Plan restores one, Reset
+  returns to the curriculum's default template. The current plan is also
+  autosaved to the browser's localStorage on every change and restored on the
+  next visit. Destructive actions (switching curriculum, opening a file,
+  resetting, closing the tab) ask for confirmation when there are unsaved
+  changes.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting started
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev      # start the dev server (http://localhost:5173)
+npm run build    # production build
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Data model
+
+Two kinds of JSON, deliberately kept distinct:
+
+- **Curricula** (`src/data/curriculum-*.json`) — the fixed program structures
+  maintained by the department: one file per curriculum and plan type
+  (regular / co-op). Each file contains:
+  - `courses[]` — `id`, `courseId`, `courseTitle`, `creditHours`,
+    `prerequisites[]`, optional `corequisite`, `suggestedYear`,
+    `suggestedSemester`, `rowIndex` (layout row), and `courseType`
+    (`gen edu`, `math and sci`, `gen engr`, `major courses`, `others`).
+    Elective placeholder slots have `courseId: null`.
+  - `options{}` — per option type (language literacy, digital literacy,
+    GenEd elective, major elective, …), the list of allowed courses for the
+    dropdowns.
+  - `resources[]` — links to the official plan information and program pages.
+- **Plans** (`*_plan.json`, produced by Save Plan) — what a user creates for a
+  student: `curriculumName`, optional `studentName`, `savedAt`, and `plan[]`
+  with each course's chosen semester and completion state. Plans reference
+  courses by id, so they stay valid across cosmetic curriculum edits.
+
+### Editing curricula
+
+Course titles should be identical everywhere a `courseId` appears (course
+lists and option lists across all files). Schema changes (new fields, file
+renames) go in their own small PR before any feature that depends on them.
+
+## Contributing workflow
+
+- `main` is the source of truth; work happens on short-lived feature branches
+  merged via pull requests.
+- Curriculum JSON conflicts resolve in favor of `main` unless the branch
+  exists specifically to change the data.
+
+## Roadmap
+
+- Fill in `resources` for the ISCE 2569 curricula
+- Update the ISNE 2566 "Plan Information" link when the 2566 sheet exists
+- Advisor-side features: multiple advisees, plan comparison

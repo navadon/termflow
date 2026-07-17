@@ -109,10 +109,7 @@ const getOptionPlaceholder = (optionType) => {
 };
 
 const CourseNode = ({ id, data }) => {
-  const isSummer = data.suggestedSemester === 3;
-  const suggestedLabel = isSummer
-    ? `Y${data.suggestedYear}-Summer`
-    : `Y${data.suggestedYear}-${data.suggestedSemester}`;
+  const suggestedLabel = `Y${data.suggestedYear}-${data.suggestedSemester}`;
   const isOffSchedule = data.currentYear !== data.suggestedYear || data.currentSemester !== data.suggestedSemester;
 
   if (data.optionType) {
@@ -255,8 +252,7 @@ const nodeTypes = {
 };
 
 const createSemesterLabel = (year, sem, totalCredits, completedCredits = 0, semStats = null, onToggleSemesterComplete = null) => {
-  const isSummer = sem === 3;
-  const titleText = isSummer ? `Y${year}-Summer` : `Y${year}-${sem}`;
+  const titleText = `Y${year}-${sem}`;
 
   const placeholders = [];
   for (let i = 0; i < 10; i++) {
@@ -307,18 +303,19 @@ const createSemesterLabel = (year, sem, totalCredits, completedCredits = 0, semS
         }}>
           {completedCredits}/{totalCredits} CR
         </div>
-        {semStats && semStats.completable > 0 && onToggleSemesterComplete && (
+        {semStats && onToggleSemesterComplete && (
           <input
             type="checkbox"
             className="nodrag nopan"
-            checked={semStats.completedCount === semStats.completable}
+            checked={semStats.completable > 0 && semStats.completedCount === semStats.completable}
+            disabled={semStats.completable === 0}
             onChange={(e) => onToggleSemesterComplete(year, sem, e.target.checked)}
-            title="Mark all courses in this semester as completed"
+            title={semStats.completable === 0 ? 'No courses in this semester yet' : 'Mark all courses in this semester as completed'}
             style={{
               pointerEvents: 'auto',
               width: '24px',
               height: '24px',
-              cursor: 'pointer',
+              cursor: semStats.completable === 0 ? 'not-allowed' : 'pointer',
               accentColor: '#28a745'
             }}
           />
@@ -505,16 +502,20 @@ export default function App() {
 
   const [hoveredNodeId, setHoveredNodeId] = useState(null);
 
+  const [studentName, setStudentName] = useState(autosaveRef.current?.studentName || '');
+  const [isDirty, setIsDirty] = useState(false);
+
   const initialDragPos = useRef(null);
   const fileInputRef = useRef(null);
   const dirtyRef = useRef(false);
+  const setDirty = useCallback((v) => { dirtyRef.current = v; setIsDirty(v); }, []);
 
   const toggleSemesterRef = useRef(null);
   const onToggleSemesterComplete = useCallback((year, sem, completed) => {
     toggleSemesterRef.current?.(year, sem, completed);
   }, []);
   toggleSemesterRef.current = (year, sem, completed) => {
-    dirtyRef.current = true;
+    setDirty(true);
     setNodes((nds) => {
       const semNode = nds.find(n => n.id === `sem-bg-${year}-${sem}`);
       if (!semNode) return nds;
@@ -535,7 +536,7 @@ export default function App() {
   };
 
   const onToggleComplete = useCallback((id, completed) => {
-    dirtyRef.current = true;
+    setDirty(true);
     setNodes((nds) => {
       const updatedNodes = nds.map(node => {
         if (node.id === id) {
@@ -557,7 +558,7 @@ export default function App() {
   }, [onToggleSemesterComplete]);
 
   const onSelectCourse = useCallback((id, selectedCourseId) => {
-    dirtyRef.current = true;
+    setDirty(true);
     setNodes((nds) => {
       const targetNode = nds.find(n => n.id === id);
       const optionType = targetNode?.data?.optionType;
@@ -689,6 +690,7 @@ export default function App() {
             currentSemester: sem === 99 ? null : sem,
             courseTitle: courseTitle,
             originalTitle: course.courseTitle,
+            courseType: course.courseType,
             completed: completed,
             onToggleComplete: onToggleComplete,
             optionType: optionType,
@@ -730,10 +732,11 @@ export default function App() {
       localStorage.setItem(AUTOSAVE_KEY, JSON.stringify({
         curriculumName: selectedCurriculum,
         plan,
-        loadedFileName
+        loadedFileName,
+        studentName
       }));
     } catch { /* storage full or unavailable: autosave is best-effort */ }
-  }, [nodes, selectedCurriculum, loadedFileName]);
+  }, [nodes, selectedCurriculum, loadedFileName, studentName]);
 
   // Warn before closing the tab with unsaved changes
   useEffect(() => {
@@ -758,7 +761,7 @@ export default function App() {
 
   const onNodeDragStop = useCallback((event, node) => {
     if (node.type === 'course') {
-      dirtyRef.current = true;
+      setDirty(true);
       const nodeCenterX = node.position.x + (COURSE_WIDTH / 2);
       const nodeCenterY = node.position.y + (COURSE_HEIGHT / 2);
 
@@ -825,6 +828,8 @@ export default function App() {
 
     const exportData = {
       curriculumName: selectedCurriculum,
+      studentName: studentName.trim() || undefined,
+      savedAt: new Date().toISOString(),
       plan: plan
     };
 
@@ -836,7 +841,7 @@ export default function App() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    dirtyRef.current = false;
+    setDirty(false);
   };
 
   const handleImport = (event) => {
@@ -856,8 +861,9 @@ export default function App() {
           setSelectedCurriculum(parsed.curriculumName);
           setActivePlanData(parsed.plan);
           setLoadedFileName(file.name);
+          setStudentName(parsed.studentName || '');
           setDropdownValue(parsed.curriculumName);
-          dirtyRef.current = false;
+          setDirty(false);
         } else {
           alert("Unrecognized curriculum in the imported file!");
         }
@@ -879,7 +885,7 @@ export default function App() {
     setSelectedCurriculum(val);
     setActivePlanData(null);
     setLoadedFileName(null);
-    dirtyRef.current = false;
+    setDirty(false);
   };
 
   const handleReset = () => {
@@ -890,7 +896,7 @@ export default function App() {
     setLoadedFileName(null);
     setDropdownValue(selectedCurriculum);
     setResetNonce(n => n + 1);
-    dirtyRef.current = false;
+    setDirty(false);
   };
 
   // Hover highlight: computed live from base nodes/edges, never stored back into state
@@ -961,28 +967,39 @@ export default function App() {
   const completedCredits = courseNodes.reduce((sum, n) => sum + (n.data.completed ? (n.data.creditHours || 0) : 0), 0);
   const progressPercent = totalCredits > 0 ? Math.round((completedCredits / totalCredits) * 100) : 0;
 
+  const categoryOf = (courseType) => {
+    if (courseType === 'gen edu') return 'GenEd';
+    if (courseType === 'major courses') return 'Major';
+    return 'Others';
+  };
+  const categoryStats = { GenEd: { done: 0, total: 0 }, Major: { done: 0, total: 0 }, Others: { done: 0, total: 0 } };
+  courseNodes.forEach(n => {
+    const cat = categoryStats[categoryOf(n.data.courseType)];
+    const cr = n.data.creditHours || 0;
+    cat.total += cr;
+    if (n.data.completed) cat.done += cr;
+  });
+
   return (
-    <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
+    <div style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column' }}>
 
       <div style={{
-        position: 'absolute',
-        top: 20,
-        right: 20,
+        width: '100%',
+        boxSizing: 'border-box',
         zIndex: 10,
         background: 'white',
-        padding: '8px 14px',
-        borderRadius: '8px',
-        boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+        padding: '8px 16px',
+        borderBottom: '1px solid #ccc',
+        boxShadow: '0 2px 6px rgba(0,0,0,0.06)',
         fontFamily: 'sans-serif',
-        border: '1px solid #ccc',
         display: 'flex',
         gap: '15px',
         alignItems: 'center',
         flexWrap: 'wrap'
       }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <label style={{ fontWeight: 'bold', fontSize: '13px' }}>Curriculum:</label>
+            <label style={{ fontWeight: 'bold', fontSize: '13px', width: '78px' }}>Curriculum:</label>
             <select
               value={dropdownValue}
               onChange={handleDropdownChange}
@@ -993,28 +1010,46 @@ export default function App() {
               ))}
             </select>
           </div>
-          <div style={{ fontSize: '13px', color: '#333', marginTop: '1px', fontFamily: 'sans-serif' }}>
-            <span style={{ fontWeight: 'bold' }}>Imported Plan: </span>
-            {loadedFileName ? (
-              <strong style={{ color: '#28a745' }}>{loadedFileName}</strong>
-            ) : (
-              <span style={{ color: '#888', fontStyle: 'italic' }}>None (Default template)</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <label style={{ fontWeight: 'bold', fontSize: '13px', width: '78px' }}>Student:</label>
+            <input
+              type="text"
+              value={studentName}
+              placeholder="Student name or ID"
+              onChange={(e) => { setStudentName(e.target.value); setDirty(true); }}
+              style={{ padding: '3px 8px', fontSize: '13px', borderRadius: '4px', border: '1px solid #aaa', width: '140px' }}
+            />
+            {isDirty && (
+              <span
+                title="This plan has changes that are not saved to a file yet (autosaved in this browser)"
+                style={{ fontSize: '11px', fontWeight: 'bold', color: '#8a6d1a', background: '#fdf3d1', padding: '2px 8px', borderRadius: '10px' }}
+              >
+                edited
+              </span>
+            )}
+            {loadedFileName && (
+              <span style={{ fontSize: '11px', color: '#888' }} title="Loaded plan file">{loadedFileName}</span>
             )}
           </div>
         </div>
 
-        <div style={{ borderLeft: '1px solid #ddd', height: '24px' }}></div>
+        <div style={{ borderLeft: '1px solid #ddd', height: '32px' }}></div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', minWidth: '150px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', minWidth: '190px' }}>
           <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#555', fontFamily: 'sans-serif' }}>
             Progress: {completedCredits} / {totalCredits} CR ({progressPercent}%)
           </div>
           <div style={{ width: '100%', height: '6px', backgroundColor: '#e0e0e0', borderRadius: '3px', overflow: 'hidden' }}>
             <div style={{ width: `${progressPercent}%`, height: '100%', backgroundColor: '#28a745', transition: 'width 0.3s ease' }} />
           </div>
+          <div style={{ display: 'flex', gap: '10px', fontSize: '11px', color: '#777' }}>
+            {Object.entries(categoryStats).map(([name, s]) => (
+              <span key={name}>{name} {s.done}/{s.total}</span>
+            ))}
+          </div>
         </div>
 
-        <div style={{ borderLeft: '1px solid #ddd', height: '24px' }}></div>
+        <div style={{ borderLeft: '1px solid #ddd', height: '32px' }}></div>
 
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
@@ -1050,23 +1085,25 @@ export default function App() {
         </div>
       </div>
 
-      <ReactFlow
-        nodes={displayNodes}
-        edges={displayEdges}
-        nodeTypes={nodeTypes}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onNodeDragStart={onNodeDragStart}
-        onNodeDragStop={onNodeDragStop}
-        onNodeMouseEnter={onNodeMouseEnter}
-        onNodeMouseLeave={onNodeMouseLeave}
-        defaultViewport={{ x: 50, y: 50, zoom: fitHeightZoom }}
-        minZoom={0.1}
-      >
-        <Background color="#f0f0f0" gap={25} />
-        <Controls />
-        <MiniMap />
-      </ReactFlow>
+      <div style={{ flex: 1, minHeight: 0 }}>
+        <ReactFlow
+          nodes={displayNodes}
+          edges={displayEdges}
+          nodeTypes={nodeTypes}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          onNodeDragStart={onNodeDragStart}
+          onNodeDragStop={onNodeDragStop}
+          onNodeMouseEnter={onNodeMouseEnter}
+          onNodeMouseLeave={onNodeMouseLeave}
+          defaultViewport={{ x: 50, y: 50, zoom: fitHeightZoom }}
+          minZoom={0.1}
+        >
+          <Background color="#f0f0f0" gap={25} />
+          <Controls />
+          <MiniMap />
+        </ReactFlow>
+      </div>
     </div>
   );
 }
