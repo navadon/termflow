@@ -131,6 +131,62 @@ const getOptionPlaceholder = (optionType) => {
   }
 };
 
+// In-app replacement for window.alert / confirm / prompt. Native dialogs are
+// blocked in sandboxed iframes (embedded previews) and by some popup blockers.
+const DialogModal = ({ dialog, onClose }) => {
+  const inputRef = useRef(null);
+  useEffect(() => {
+    if (dialog?.type === 'prompt') inputRef.current?.focus();
+  }, [dialog]);
+  if (!dialog) return null;
+  const { type, message, defaultValue } = dialog;
+
+  const ok = () => onClose(type === 'prompt' ? (inputRef.current?.value ?? '') : true);
+  const cancel = () => onClose(type === 'prompt' ? null : false);
+
+  return (
+    <div
+      onKeyDown={(e) => { if (e.key === 'Escape') cancel(); }}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 1000,
+        background: 'rgba(0,0,0,0.35)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontFamily: 'sans-serif'
+      }}
+    >
+      <div style={{ background: '#fff', borderRadius: '8px', padding: '20px 24px', width: '360px', boxShadow: '0 10px 30px rgba(0,0,0,0.25)' }}>
+        <div style={{ fontSize: '14px', color: '#333', lineHeight: 1.5, whiteSpace: 'pre-wrap' }}>{message}</div>
+        {type === 'prompt' && (
+          <input
+            ref={inputRef}
+            type="text"
+            defaultValue={defaultValue || ''}
+            onKeyDown={(e) => { if (e.key === 'Enter') ok(); }}
+            style={{ marginTop: '12px', width: '100%', padding: '6px 8px', fontSize: '14px', border: '1px solid #aaa', borderRadius: '4px', boxSizing: 'border-box' }}
+          />
+        )}
+        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px', marginTop: '16px' }}>
+          {type !== 'alert' && (
+            <button
+              onClick={cancel}
+              style={{ padding: '6px 14px', background: '#fff', color: '#555', border: '1px solid #aaa', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '13px' }}
+            >
+              Cancel
+            </button>
+          )}
+          <button
+            onClick={ok}
+            autoFocus={type !== 'prompt'}
+            style={{ padding: '6px 14px', background: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '13px' }}
+          >
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Sits under the course title: green COD when the department must consent,
 // and the "concurrent to" course when the official condition requires one.
 const CourseNoteLine = ({ cod, corequisite }) => {
@@ -560,6 +616,16 @@ export default function App() {
 
   const [isDirty, setIsDirty] = useState(false);
 
+  const [dialog, setDialog] = useState(null);
+  const showDialog = useCallback((type, message, defaultValue) =>
+    new Promise(resolve => setDialog({ type, message, defaultValue, resolve })), []);
+  const closeDialog = useCallback((result) => {
+    setDialog(d => { d?.resolve(result); return null; });
+  }, []);
+  const appAlert = useCallback((message) => showDialog('alert', message), [showDialog]);
+  const appConfirm = useCallback((message) => showDialog('confirm', message), [showDialog]);
+  const appPrompt = useCallback((message, defaultValue) => showDialog('prompt', message, defaultValue), [showDialog]);
+
   const initialDragPos = useRef(null);
   const fileInputRef = useRef(null);
   const dirtyRef = useRef(false);
@@ -885,10 +951,10 @@ export default function App() {
     }
   }, [onToggleSemesterComplete]);
 
-  const handleExport = () => {
+  const handleExport = async () => {
     // File name identifies the student: 650610000_cpe_2568_regular_plan.json
     const suggested = (loadedFileName || '').match(/^(\d{6,})/)?.[1] || '';
-    const student = window.prompt('Student ID (or short name) for the file name:', suggested);
+    const student = await appPrompt('Student ID (or short name) for the file name:', suggested);
     if (student === null) return;
     const studentSlug = student.trim().replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').toLowerCase();
 
@@ -913,19 +979,21 @@ export default function App() {
     const link = document.createElement('a');
     link.href = url;
     const curriculumSlug = selectedCurriculum.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').toLowerCase();
-    link.download = `${studentSlug ? `${studentSlug}_` : ''}${curriculumSlug}_plan.json`;
+    const fileName = `${studentSlug ? `${studentSlug}_` : ''}${curriculumSlug}_plan.json`;
+    link.download = fileName;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    setLoadedFileName(fileName);
     setDirty(false);
   };
 
-  const handleImport = (event) => {
+  const handleImport = async (event) => {
     const file = event.target.files[0];
+    event.target.value = null;
     if (!file) return;
 
-    if (dirtyRef.current && !window.confirm('Opening a plan will discard your unsaved changes. Continue?')) {
-      event.target.value = null;
+    if (dirtyRef.current && !(await appConfirm('Opening a plan will discard your unsaved changes. Continue?'))) {
       return;
     }
 
@@ -940,20 +1008,19 @@ export default function App() {
           setDropdownValue(parsed.curriculumName);
           setDirty(false);
         } else {
-          alert("Unrecognized curriculum in the imported file!");
+          appAlert("Unrecognized curriculum in the imported file!");
         }
       } catch {
-        alert("Invalid JSON file.");
+        appAlert("Invalid JSON file.");
       }
     };
     reader.readAsText(file);
-    event.target.value = null;
   };
 
-  const handleDropdownChange = (e) => {
+  const handleDropdownChange = async (e) => {
     const val = e.target.value;
     if (val === "" || val === selectedCurriculum) return;
-    if (dirtyRef.current && !window.confirm('Switching curriculum will discard your unsaved changes. Continue?')) {
+    if (dirtyRef.current && !(await appConfirm('Switching curriculum will discard your unsaved changes. Continue?'))) {
       return;
     }
     setDropdownValue(val);
@@ -963,8 +1030,8 @@ export default function App() {
     setDirty(false);
   };
 
-  const handleReset = () => {
-    if (!window.confirm(`Reset to the default ${selectedCurriculum} template? This discards the current plan.`)) {
+  const handleReset = async () => {
+    if (!(await appConfirm(`Reset to the default ${selectedCurriculum} template? This discards the current plan.`))) {
       return;
     }
     setActivePlanData(null);
@@ -1174,6 +1241,8 @@ export default function App() {
           <MiniMap />
         </ReactFlow>
       </div>
+
+      <DialogModal dialog={dialog} onClose={closeDialog} />
     </div>
   );
 }
