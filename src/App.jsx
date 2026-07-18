@@ -558,7 +558,6 @@ export default function App() {
 
   const [hoveredNodeId, setHoveredNodeId] = useState(null);
 
-  const [studentName, setStudentName] = useState(autosaveRef.current?.studentName || '');
   const [isDirty, setIsDirty] = useState(false);
 
   const initialDragPos = useRef(null);
@@ -804,11 +803,10 @@ export default function App() {
       localStorage.setItem(AUTOSAVE_KEY, JSON.stringify({
         curriculumName: selectedCurriculum,
         plan,
-        loadedFileName,
-        studentName
+        loadedFileName
       }));
     } catch { /* storage full or unavailable: autosave is best-effort */ }
-  }, [nodes, selectedCurriculum, loadedFileName, studentName]);
+  }, [nodes, selectedCurriculum, loadedFileName]);
 
   // Warn before closing the tab with unsaved changes
   useEffect(() => {
@@ -888,6 +886,12 @@ export default function App() {
   }, [onToggleSemesterComplete]);
 
   const handleExport = () => {
+    // File name identifies the student: 650610000_cpe_2568_regular_plan.json
+    const suggested = (loadedFileName || '').match(/^(\d{6,})/)?.[1] || '';
+    const student = window.prompt('Student ID (or short name) for the file name:', suggested);
+    if (student === null) return;
+    const studentSlug = student.trim().replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').toLowerCase();
+
     const courseNodes = nodes.filter(n => n.type === 'course');
 
     const plan = courseNodes.map(n => ({
@@ -900,7 +904,6 @@ export default function App() {
 
     const exportData = {
       curriculumName: selectedCurriculum,
-      studentName: studentName.trim() || undefined,
       savedAt: new Date().toISOString(),
       plan: plan
     };
@@ -909,7 +912,8 @@ export default function App() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `${selectedCurriculum.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').toLowerCase()}_plan.json`;
+    const curriculumSlug = selectedCurriculum.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').toLowerCase();
+    link.download = `${studentSlug ? `${studentSlug}_` : ''}${curriculumSlug}_plan.json`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -933,7 +937,6 @@ export default function App() {
           setSelectedCurriculum(parsed.curriculumName);
           setActivePlanData(parsed.plan);
           setLoadedFileName(file.name);
-          setStudentName(parsed.studentName || '');
           setDropdownValue(parsed.curriculumName);
           setDirty(false);
         } else {
@@ -1075,33 +1078,28 @@ export default function App() {
             <select
               value={dropdownValue}
               onChange={handleDropdownChange}
-              style={{ padding: '4px 8px', fontSize: '13px', borderRadius: '4px', cursor: 'pointer', border: '1px solid #aaa' }}
+              style={{ padding: '4px 8px', fontSize: '13px', borderRadius: '4px', cursor: 'pointer', border: '1px solid #aaa', width: '210px', boxSizing: 'border-box' }}
             >
               {Object.keys(curriculums).map(name => (
                 <option key={name} value={name}>{name}</option>
               ))}
             </select>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <label style={{ fontWeight: 'bold', fontSize: '13px', width: '78px' }}>Student:</label>
-            <input
-              type="text"
-              value={studentName}
-              placeholder="John or 6X0612XXX"
-              onChange={(e) => { setStudentName(e.target.value); setDirty(true); }}
-              style={{ padding: '3px 8px', fontSize: '13px', borderRadius: '4px', border: '1px solid #aaa', width: '140px' }}
-            />
-            {isDirty && (
-              <span
-                title="This plan has changes that are not saved to a file yet (autosaved in this browser)"
-                style={{ fontSize: '11px', fontWeight: 'bold', color: '#8a6d1a', background: '#fdf3d1', padding: '2px 8px', borderRadius: '10px' }}
-              >
-                edited
-              </span>
-            )}
-            {loadedFileName && (
-              <span style={{ fontSize: '11px', color: '#888' }} title="Loaded plan file">{loadedFileName}</span>
-            )}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', minHeight: '20px' }}>
+            <label style={{ fontWeight: 'bold', fontSize: '13px', width: '78px' }}>Plan:</label>
+            <span
+              title={isDirty ? 'This plan has changes that are not saved to a file yet (autosaved in this browser)' : 'Loaded plan file'}
+              style={{
+                fontSize: '12px',
+                color: loadedFileName ? '#555' : '#999',
+                fontStyle: loadedFileName ? 'normal' : 'italic',
+                background: isDirty ? '#fdf3d1' : 'transparent',
+                padding: '2px 6px',
+                borderRadius: '4px'
+              }}
+            >
+              {loadedFileName || 'not saved to a file yet'}
+            </span>
           </div>
         </div>
 
