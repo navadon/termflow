@@ -781,6 +781,18 @@ export default function App() {
         const baseCod = !!shared?.cod;
         const baseCorequisite = shared?.corequisite ?? null;
 
+        // Requirement bucket (GenEd / Specialization / Free Elective): curriculum
+        // entry may override; otherwise slots classify by their label and
+        // concrete courses by courseType.
+        const slotTitle = (course.courseTitle || '').toLowerCase();
+        const requirementGroup = course.requirementGroup ?? (
+          course.courseId
+            ? (shared?.courseType === 'gen edu' ? 'gened' : 'specialization')
+            : (slotTitle.includes('free elec') ? 'free'
+              : (slotTitle.includes('major elec') || slotTitle.includes('training')) ? 'specialization'
+              : 'gened')
+        );
+
         const optionType = course.courseId === null ? getOptionType(baseCourseTitle) : null;
         const currOptions = curriculumData.options || {};
         const dropdownOptions = optionType ? (currOptions[optionType] || []).map(resolveOption) : [];
@@ -826,6 +838,7 @@ export default function App() {
             courseTitle: courseTitle,
             originalTitle: baseCourseTitle,
             courseType: baseCourseType,
+            requirementGroup: requirementGroup,
             cod: cod,
             corequisite: corequisite,
             completed: completed,
@@ -1109,14 +1122,11 @@ export default function App() {
   const completedCredits = courseNodes.reduce((sum, n) => sum + (n.data.completed ? (n.data.creditHours || 0) : 0), 0);
   const progressPercent = totalCredits > 0 ? Math.round((completedCredits / totalCredits) * 100) : 0;
 
-  const categoryOf = (courseType) => {
-    if (courseType === 'gen edu') return 'GenEd';
-    if (courseType === 'major courses') return 'Major';
-    return 'Others';
-  };
-  const categoryStats = { GenEd: { done: 0, total: 0 }, Major: { done: 0, total: 0 }, Others: { done: 0, total: 0 } };
+  // Official requirement structure, e.g. ISCE = GenEd 24 / Specialization 107 / Free 6
+  const categoryLabel = { gened: 'GenEd', specialization: 'Spec', free: 'Free' };
+  const categoryStats = { GenEd: { done: 0, total: 0 }, Spec: { done: 0, total: 0 }, Free: { done: 0, total: 0 } };
   courseNodes.forEach(n => {
-    const cat = categoryStats[categoryOf(n.data.courseType)];
+    const cat = categoryStats[categoryLabel[n.data.requirementGroup] || 'Spec'];
     const cr = n.data.creditHours || 0;
     cat.total += cr;
     if (n.data.completed) cat.done += cr;
