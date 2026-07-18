@@ -44,7 +44,8 @@
       "suggestedSemester": 1,
       "selectedYear": 1,
       "selectedSemester": 1,
-      "rowIndex": 9
+      "rowIndex": 9,
+      "requirementGroup": "gened"
     },
     {
       "id": "c-259104",
@@ -503,7 +504,8 @@
       "suggestedSemester": 2,
       "selectedYear": 4,
       "selectedSemester": 2,
-      "rowIndex": 9
+      "rowIndex": 9,
+      "requirementGroup": "gened"
     }
   ],
   "options": {

@@ -297,7 +297,8 @@
       "suggestedSemester": 1,
       "selectedYear": 3,
       "selectedSemester": 1,
-      "rowIndex": 11
+      "rowIndex": 11,
+      "requirementGroup": "specialization"
     },
     {
       "id": "c-267346",
