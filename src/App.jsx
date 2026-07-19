@@ -1272,7 +1272,7 @@ export default function App() {
         >
           <Background color="#f0f0f0" gap={25} />
           <Controls />
-          <MiniMap pannable zoomable />
+          <MiniMap pannable zoomable style={{ width: 240, height: 135 }} />
         </ReactFlow>
       </div>
 
