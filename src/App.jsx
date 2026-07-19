@@ -616,6 +616,15 @@ export default function App() {
 
   const [isDirty, setIsDirty] = useState(false);
 
+  // One-time hint that the canvas pans; dismissed forever on first pan or click
+  const [showPanHint, setShowPanHint] = useState(() => {
+    try { return !localStorage.getItem('curriculum-planner-pan-hint'); } catch { return false; }
+  });
+  const dismissPanHint = useCallback(() => {
+    setShowPanHint(false);
+    try { localStorage.setItem('curriculum-planner-pan-hint', '1'); } catch { /* best-effort */ }
+  }, []);
+
   const [dialog, setDialog] = useState(null);
   const showDialog = useCallback((type, message, defaultValue) =>
     new Promise(resolve => setDialog({ type, message, defaultValue, resolve })), []);
@@ -1232,7 +1241,21 @@ export default function App() {
         </div>
       </div>
 
-      <div style={{ flex: 1, minHeight: 0 }}>
+      <div style={{ flex: 1, minHeight: 0, position: 'relative' }}>
+        {showPanHint && (
+          <div
+            onClick={dismissPanHint}
+            style={{
+              position: 'absolute', bottom: '18px', left: '50%', transform: 'translateX(-50%)',
+              zIndex: 20, display: 'flex', alignItems: 'center', gap: '10px',
+              background: 'rgba(40,40,40,0.85)', color: '#fff', padding: '8px 14px',
+              borderRadius: '18px', fontSize: '13px', fontFamily: 'sans-serif', cursor: 'pointer'
+            }}
+          >
+            Drag to pan &nbsp;·&nbsp; Scroll to zoom
+            <span style={{ fontWeight: 'bold', opacity: 0.7 }}>✕</span>
+          </div>
+        )}
         <ReactFlow
           nodes={displayNodes}
           edges={displayEdges}
@@ -1243,12 +1266,13 @@ export default function App() {
           onNodeDragStop={onNodeDragStop}
           onNodeMouseEnter={onNodeMouseEnter}
           onNodeMouseLeave={onNodeMouseLeave}
+          onMoveStart={showPanHint ? dismissPanHint : undefined}
           defaultViewport={{ x: 50, y: 50, zoom: fitHeightZoom }}
           minZoom={0.1}
         >
           <Background color="#f0f0f0" gap={25} />
           <Controls />
-          <MiniMap />
+          <MiniMap pannable zoomable style={{ width: 240, height: 135 }} />
         </ReactFlow>
       </div>
 
