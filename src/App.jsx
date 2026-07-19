@@ -777,10 +777,26 @@ export default function App() {
       const courses = groupedCourses[key];
       const [year, sem] = key.split('-').map(Number);
 
-      courses.forEach((course, index) => {
+      // Restore each card to its saved row; courses without a saved row fill
+      // the remaining free rows top-down (keeps saved arrangement intact).
+      const savedRowOf = (course) => {
+        const saved = activePlanData?.find(p => p.id === course.id);
+        return Number.isInteger(saved?.rowIndex) && saved.rowIndex >= 0 ? saved.rowIndex : null;
+      };
+      const usedRows = new Set(courses.map(savedRowOf).filter(r => r !== null));
+      let nextFree = 0;
+      const rowFor = (course) => {
+        const saved = savedRowOf(course);
+        if (saved !== null) return saved;
+        while (usedRows.has(nextFree)) nextFree++;
+        usedRows.add(nextFree);
+        return nextFree;
+      };
+
+      courses.forEach(course => {
         const colX = getSemesterX(year, sem);
         const cardX = colX + (SEMESTER_WIDTH - COURSE_WIDTH) / 2;
-        const cardY = TOP_PADDING + index * (COURSE_HEIGHT + COURSE_GAP);
+        const cardY = TOP_PADDING + rowFor(course) * (COURSE_HEIGHT + COURSE_GAP);
 
         const shared = course.courseId ? resolveCourse(course.courseId) : null;
         const baseCourseTitle = shared ? shared.courseTitle : course.courseTitle;
@@ -885,6 +901,7 @@ export default function App() {
       courseId: n.data.courseId,
       selectedYear: n.data.currentYear,
       selectedSemester: n.data.currentSemester,
+      rowIndex: Math.max(0, Math.round((n.position.y - TOP_PADDING) / (COURSE_HEIGHT + COURSE_GAP))),
       completed: !!n.data.completed
     }));
     try {
@@ -987,6 +1004,7 @@ export default function App() {
       courseId: n.data.courseId,
       selectedYear: n.data.currentYear,
       selectedSemester: n.data.currentSemester,
+      rowIndex: Math.max(0, Math.round((n.position.y - TOP_PADDING) / (COURSE_HEIGHT + COURSE_GAP))),
       completed: !!n.data.completed
     }));
 
