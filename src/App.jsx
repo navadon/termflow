@@ -1210,15 +1210,17 @@ export default function App() {
         <div style={{ borderLeft: '1px solid #ddd', height: '32px' }}></div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', minWidth: '190px' }}>
-          <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#555', fontFamily: 'sans-serif' }}>
-            Progress: {completedCredits} / {totalCredits} CR ({progressPercent}%)
+          <div style={{ fontSize: '12px', fontWeight: 'bold', color: totalCredits > 0 && completedCredits === totalCredits ? '#28a745' : '#555', fontFamily: 'sans-serif' }}>
+            Progress: {completedCredits}/{totalCredits} CR ({progressPercent}%)
           </div>
           <div style={{ width: '100%', height: '6px', backgroundColor: '#e0e0e0', borderRadius: '3px', overflow: 'hidden' }}>
             <div style={{ width: `${progressPercent}%`, height: '100%', backgroundColor: '#28a745', transition: 'width 0.3s ease' }} />
           </div>
           <div style={{ display: 'flex', gap: '10px', fontSize: '11px', color: '#777' }}>
             {Object.entries(categoryStats).map(([name, s]) => (
-              <span key={name}>{name} {s.done}/{s.total}</span>
+              <span key={name} style={s.total > 0 && s.done === s.total ? { color: '#28a745', fontWeight: 'bold' } : undefined}>
+                {name} {s.done}/{s.total}
+              </span>
             ))}
           </div>
         </div>
