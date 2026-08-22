@@ -1,4 +1,4 @@
-# curriculum-planner
+# TermFlow
 
 A visual study-plan builder for academic advisors and students. Drag courses
 across semesters, check prerequisites on the fly, pick electives from
