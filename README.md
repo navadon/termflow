@@ -77,12 +77,14 @@ renames) go in their own small PR before any feature that depends on them.
 
 ## Credits
 
-- **Navadon Khunlertgit** — creator and direction. Set the direction, theme,
-  and overall orchestration of the project.
-- **Jedsadakorn Kritsadakul** — features and prototype. Proposed and built a
+- **Creator & direction** — Navadon Khunlertgit. Set the direction and theme,
+  designed the main flow and key features, and orchestrated the project.
+- **Features & prototype** — Jedsadakorn Kritsadakul. Proposed and built a
   working proof of concept on the `rev1` branch, including the course
   **color-highlighter** that lights up a prerequisite chain on hover, the
   per-semester **credit-overload indicator**, and richer course data such as
   corequisites, course types, and layout rows.
-- **Curriculum data** — Kaewta Lungta, Tiger Tanner, and Poonyaporn Intaphrom
-  prepared the input curriculum JSON files.
+- **Curriculum data** — prepared the input curriculum JSON files:
+  - Kaewta Lungta
+  - Poonyaporn Intaphrom
+  - Tiger Tanner

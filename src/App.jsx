@@ -193,7 +193,7 @@ const CREDITS = [
   {
     names: ['Navadon Khunlertgit'],
     role: 'Creator & direction',
-    detail: 'Set the direction, theme, and overall orchestration of the project.',
+    detail: 'Set the direction and theme, designed the main flow and key features, and orchestrated the project.',
   },
   {
     names: ['Jedsadakorn Kritsadakul'],
@@ -201,7 +201,7 @@ const CREDITS = [
     detail: 'Proposed and prototyped several features — the course color-highlighter that lights up a prerequisite chain on hover, the credit-overload indicator, and richer course data.',
   },
   {
-    names: ['Kaewta Lungta', 'Tiger Tanner', 'Poonyaporn Intaphrom'],
+    names: ['Kaewta Lungta', 'Poonyaporn Intaphrom', 'Tiger Tanner'],
     role: 'Curriculum data',
     detail: 'Prepared the input curriculum JSON files.',
   },
@@ -238,12 +238,10 @@ const CreditsModal = ({ open, onClose }) => {
                 borderTop: i === 0 ? 'none' : '1px solid #eee'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', flexWrap: 'wrap' }}>
-                <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>
-                  {c.names.join('  ·  ')}
-                </span>
-                <span style={{ fontSize: '11px', color: '#fff', background: '#007bff', padding: '1px 8px', borderRadius: '10px' }}>{c.role}</span>
-              </div>
+              <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#007bff', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{c.role}</div>
+              {c.names.map((n) => (
+                <div key={n} style={{ fontSize: '14px', fontWeight: 'bold', color: '#333', marginTop: '3px' }}>{n}</div>
+              ))}
               <div style={{ fontSize: '12px', color: '#666', lineHeight: 1.5, marginTop: '4px' }}>{c.detail}</div>
             </div>
           ))}
