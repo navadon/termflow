@@ -191,34 +191,27 @@ const DialogModal = ({ dialog, onClose }) => {
 // in the project README.
 const CREDITS = [
   {
-    name: 'Navadon Khunlertgit',
+    names: ['Navadon Khunlertgit'],
     role: 'Creator & direction',
-    detail: 'Set the direction, theme, and overall orchestration. Bootstrapped with Google Antigravity (the first version), then built out with Claude Code.',
+    detail: 'Set the direction, theme, and overall orchestration of the project.',
   },
   {
-    name: 'Jedsadakorn Kritsadakul',
-    role: 'Feature ideas',
-    detail: 'Proposed several features — including the course color-highlighter (hover a course to light up its prerequisite chain), the per-semester credit-overload indicator, and richer course data (corequisites, course types, layout rows).',
+    names: ['Jedsadakorn Kritsadakul'],
+    role: 'Features & prototype',
+    detail: 'Proposed and prototyped several features — the course color-highlighter that lights up a prerequisite chain on hover, the credit-overload indicator, and richer course data.',
   },
   {
-    name: 'Kaewta Lungta',
-    role: 'Curriculum data',
-    detail: 'Prepared the input curriculum JSON files.',
-  },
-  {
-    name: 'Tiger Tanner',
-    role: 'Curriculum data',
-    detail: 'Prepared the input curriculum JSON files.',
-  },
-  {
-    name: 'Poonyaporn Intaphrom',
+    names: ['Kaewta Lungta', 'Tiger Tanner', 'Poonyaporn Intaphrom'],
     role: 'Curriculum data',
     detail: 'Prepared the input curriculum JSON files.',
   },
 ];
 
+const REPO_URL = 'https://github.com/navadon/termflow';
+
 const CreditsModal = ({ open, onClose }) => {
   if (!open) return null;
+  const year = new Date().getFullYear();
   return (
     <div
       onClick={onClose}
@@ -235,19 +228,35 @@ const CreditsModal = ({ open, onClose }) => {
         style={{ background: '#fff', borderRadius: '8px', padding: '22px 26px', width: '440px', maxWidth: '90vw', maxHeight: '85vh', overflowY: 'auto', boxShadow: '0 10px 30px rgba(0,0,0,0.25)' }}
       >
         <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#222' }}>TermFlow</div>
-        <div style={{ fontSize: '12px', color: '#888', marginBottom: '16px' }}>Credits &amp; acknowledgements</div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          {CREDITS.map((c) => (
-            <div key={c.name}>
+        <div style={{ fontSize: '12px', color: '#888', marginBottom: '18px' }}>Credits &amp; acknowledgements</div>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {CREDITS.map((c, i) => (
+            <div
+              key={c.role}
+              style={{
+                padding: '12px 0',
+                borderTop: i === 0 ? 'none' : '1px solid #eee'
+              }}
+            >
               <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', flexWrap: 'wrap' }}>
-                <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>{c.name}</span>
+                <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>
+                  {c.names.join('  ·  ')}
+                </span>
                 <span style={{ fontSize: '11px', color: '#fff', background: '#007bff', padding: '1px 8px', borderRadius: '10px' }}>{c.role}</span>
               </div>
-              <div style={{ fontSize: '12px', color: '#666', lineHeight: 1.5, marginTop: '3px' }}>{c.detail}</div>
+              <div style={{ fontSize: '12px', color: '#666', lineHeight: 1.5, marginTop: '4px' }}>{c.detail}</div>
             </div>
           ))}
         </div>
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
+
+        <div style={{ borderTop: '1px solid #eee', marginTop: '6px', paddingTop: '14px', fontSize: '11px', color: '#999', lineHeight: 1.6 }}>
+          <a href={REPO_URL} target="_blank" rel="noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>
+            github.com/navadon/termflow
+          </a>
+          {'  ·  © '}{year}{' Navadon Khunlertgit'}
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '18px' }}>
           <button
             onClick={onClose}
             autoFocus
