@@ -187,6 +187,80 @@ const DialogModal = ({ dialog, onClose }) => {
   );
 };
 
+// Contributor credits, shown from the top-panel "Credits" button and mirrored
+// in the project README.
+const CREDITS = [
+  {
+    name: 'Navadon Khunlertgit',
+    role: 'Creator & direction',
+    detail: 'Set the direction, theme, and overall orchestration. Bootstrapped with Google Antigravity (the first version), then built out with Claude Code.',
+  },
+  {
+    name: 'Jedsadakorn Kritsadakul',
+    role: 'Feature ideas',
+    detail: 'Proposed several features — including the course color-highlighter (hover a course to light up its prerequisite chain), the per-semester credit-overload indicator, and richer course data (corequisites, course types, layout rows).',
+  },
+  {
+    name: 'Kaewta Lungta',
+    role: 'Curriculum data',
+    detail: 'Prepared the input curriculum JSON files.',
+  },
+  {
+    name: 'Tiger Tanner',
+    role: 'Curriculum data',
+    detail: 'Prepared the input curriculum JSON files.',
+  },
+  {
+    name: 'Poonyaporn Intaphrom',
+    role: 'Curriculum data',
+    detail: 'Prepared the input curriculum JSON files.',
+  },
+];
+
+const CreditsModal = ({ open, onClose }) => {
+  if (!open) return null;
+  return (
+    <div
+      onClick={onClose}
+      onKeyDown={(e) => { if (e.key === 'Escape') onClose(); }}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 1000,
+        background: 'rgba(0,0,0,0.35)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontFamily: 'sans-serif'
+      }}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{ background: '#fff', borderRadius: '8px', padding: '22px 26px', width: '440px', maxWidth: '90vw', maxHeight: '85vh', overflowY: 'auto', boxShadow: '0 10px 30px rgba(0,0,0,0.25)' }}
+      >
+        <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#222' }}>TermFlow</div>
+        <div style={{ fontSize: '12px', color: '#888', marginBottom: '16px' }}>Credits &amp; acknowledgements</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          {CREDITS.map((c) => (
+            <div key={c.name}>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', flexWrap: 'wrap' }}>
+                <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>{c.name}</span>
+                <span style={{ fontSize: '11px', color: '#fff', background: '#007bff', padding: '1px 8px', borderRadius: '10px' }}>{c.role}</span>
+              </div>
+              <div style={{ fontSize: '12px', color: '#666', lineHeight: 1.5, marginTop: '3px' }}>{c.detail}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
+          <button
+            onClick={onClose}
+            autoFocus
+            style={{ padding: '6px 14px', background: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '13px' }}
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Sits under the course title: green COD when the department must consent,
 // and the "concurrent to" course when the official condition requires one.
 const CourseNoteLine = ({ cod, corequisite }) => {
@@ -626,6 +700,7 @@ export default function App() {
   }, []);
 
   const [dialog, setDialog] = useState(null);
+  const [showCredits, setShowCredits] = useState(false);
   const showDialog = useCallback((type, message, defaultValue) =>
     new Promise(resolve => setDialog({ type, message, defaultValue, resolve })), []);
   const closeDialog = useCallback((result) => {
@@ -1259,6 +1334,14 @@ export default function App() {
             style={{ display: 'none' }}
           />
         </div>
+
+        <button
+          onClick={() => setShowCredits(true)}
+          title="Contributors and acknowledgements"
+          style={{ marginLeft: 'auto', padding: '6px 12px', background: 'transparent', color: '#888', border: '1px solid #ddd', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
+        >
+          Credits
+        </button>
       </div>
 
       <div style={{ flex: 1, minHeight: 0, position: 'relative' }}>
@@ -1296,6 +1379,7 @@ export default function App() {
         </ReactFlow>
       </div>
 
+      <CreditsModal open={showCredits} onClose={() => setShowCredits(false)} />
       <DialogModal dialog={dialog} onClose={closeDialog} />
     </div>
   );

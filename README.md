@@ -74,3 +74,18 @@ renames) go in their own small PR before any feature that depends on them.
 - Fill in `resources` for the ISCE 2569 curricula
 - Update the ISNE 2566 "Plan Information" link when the 2566 sheet exists
 - Advisor-side features: multiple advisees, plan comparison
+
+## Credits
+
+- **Navadon Khunlertgit** — creator and direction. Set the direction, theme,
+  and overall orchestration. Bootstrapped with Google Antigravity (the first
+  version), then built out with Claude Code.
+- **Jedsadakorn Kritsadakul** — feature ideas. Proposed several features on the
+  `rev1` branch, including the course **color-highlighter** (hover a course to
+  light up its prerequisite chain — prerequisites and dependent courses glow in
+  distinct colors), the per-semester **credit-overload indicator**, row
+  deletion, steadier drag-and-drop, and richer course data (corequisites,
+  course types, and layout rows).
+- **Kaewta Lungta** — prepared the input curriculum JSON files.
+- **Tiger Tanner** — prepared the input curriculum JSON files.
+- **Poonyaporn Intaphrom** — prepared the input curriculum JSON files.
