@@ -288,19 +288,22 @@ const CourseNoteLine = ({ cod, corequisite }) => {
   );
 };
 
-// Category colors for the card's left stripe (Okabe-Ito, colorblind-safe).
+// Category colors for the card's left stripe: CMU purple for GenEd, Science
+// gold (20xxxx), Engineering maroon (25xxxx). Keyed by courseType, except
+// Major Elective slots, which get their own color whatever course is picked.
 // Card backgrounds stay reserved for status (invalid / moved / completed).
 const COURSE_TYPES = [
-  { type: 'gen edu', label: 'GenEd', color: '#E69F00' },
-  { type: 'math and sci', label: 'Math & Sci', color: '#CC79A7' },
-  { type: 'gen engr', label: 'Gen Engr', color: '#009E73' },
+  { type: 'gen edu', label: 'GenEd', color: '#6F2C91' },
+  { type: 'math and sci', label: 'Math & Sci', color: '#C9A227' },
+  { type: 'gen engr', label: 'Gen Engr', color: '#800000' },
   { type: 'major courses', label: 'Major', color: '#0072B2' },
+  { type: 'major elective', label: 'Major Elect', color: '#009E73' },
   { type: 'others', label: 'Others', color: '#999999' },
 ];
 const COURSE_TYPE_COLOR = Object.fromEntries(COURSE_TYPES.map(t => [t.type, t.color]));
 
-const CategoryStripe = ({ courseType }) => {
-  const color = COURSE_TYPE_COLOR[courseType];
+const CategoryStripe = ({ courseType, optionType }) => {
+  const color = COURSE_TYPE_COLOR[optionType === 'majorElective' ? 'major elective' : courseType];
   if (!color) return null;
   return (
     <div style={{
@@ -320,7 +323,7 @@ const CourseNode = ({ id, data }) => {
     const dropdownOptions = data.dropdownOptions || [];
     return (
       <>
-        <CategoryStripe courseType={data.courseType} />
+        <CategoryStripe courseType={data.courseType} optionType={data.optionType} />
         <Handle type="target" position={Position.Left} />
         <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
@@ -408,7 +411,7 @@ const CourseNode = ({ id, data }) => {
 
   return (
     <>
-      <CategoryStripe courseType={data.courseType} />
+      <CategoryStripe courseType={data.courseType} optionType={data.optionType} />
       <Handle type="target" position={Position.Left} />
       <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
