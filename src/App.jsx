@@ -288,6 +288,29 @@ const CourseNoteLine = ({ cod, corequisite }) => {
   );
 };
 
+// Category colors for the card's left stripe (Okabe-Ito, colorblind-safe).
+// Card backgrounds stay reserved for status (invalid / moved / completed).
+const COURSE_TYPES = [
+  { type: 'gen edu', label: 'GenEd', color: '#E69F00' },
+  { type: 'math and sci', label: 'Math & Sci', color: '#CC79A7' },
+  { type: 'gen engr', label: 'Gen Engr', color: '#009E73' },
+  { type: 'major courses', label: 'Major', color: '#0072B2' },
+  { type: 'others', label: 'Others', color: '#999999' },
+];
+const COURSE_TYPE_COLOR = Object.fromEntries(COURSE_TYPES.map(t => [t.type, t.color]));
+
+const CategoryStripe = ({ courseType }) => {
+  const color = COURSE_TYPE_COLOR[courseType];
+  if (!color) return null;
+  return (
+    <div style={{
+      position: 'absolute', left: 0, top: 0, bottom: 0, width: '6px',
+      background: color, borderTopLeftRadius: '7px', borderBottomLeftRadius: '7px',
+      pointerEvents: 'none'
+    }} />
+  );
+};
+
 const CourseNode = ({ id, data }) => {
   const suggestedLabel = `Y${data.suggestedYear}-${data.suggestedSemester}`;
   const isOffSchedule = data.currentYear !== data.suggestedYear || data.currentSemester !== data.suggestedSemester;
@@ -297,6 +320,7 @@ const CourseNode = ({ id, data }) => {
     const dropdownOptions = data.dropdownOptions || [];
     return (
       <>
+        <CategoryStripe courseType={data.courseType} />
         <Handle type="target" position={Position.Left} />
         <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
@@ -384,6 +408,7 @@ const CourseNode = ({ id, data }) => {
 
   return (
     <>
+      <CategoryStripe courseType={data.courseType} />
       <Handle type="target" position={Position.Left} />
       <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
@@ -1305,6 +1330,17 @@ export default function App() {
               </span>
             ))}
           </div>
+        </div>
+
+        <div style={{ borderLeft: '1px solid #ddd', height: '32px' }}></div>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', columnGap: '10px', rowGap: '3px', maxWidth: '230px', fontSize: '11px', color: '#555' }}>
+          {COURSE_TYPES.map(t => (
+            <span key={t.type} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+              <span style={{ width: '4px', height: '12px', borderRadius: '2px', background: t.color }} />
+              {t.label}
+            </span>
+          ))}
         </div>
 
         <div style={{ borderLeft: '1px solid #ddd', height: '32px' }}></div>
