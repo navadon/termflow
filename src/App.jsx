@@ -288,13 +288,13 @@ const CourseNoteLine = ({ cod, corequisite }) => {
   );
 };
 
-// Category colors for the card's left stripe: CMU purple for GenEd, Science
-// gold (20xxxx), Engineering maroon (25xxxx). Keyed by courseType, except
+// Category colors for the card's left stripe: CMU brand Very Peri for GenEd,
+// CMU Candlelight for Math & Sci (20xxxx), Engineering maroon (25xxxx). Keyed by courseType, except
 // Major Elective slots, which get their own color whatever course is picked.
 // Card backgrounds stay reserved for status (invalid / moved / completed).
 const COURSE_TYPES = [
-  { type: 'gen edu', label: 'GenEd', color: '#6F2C91' },
-  { type: 'math and sci', label: 'Math & Sci', color: '#C9A227' },
+  { type: 'gen edu', label: 'GenEd', color: '#6868AC' },
+  { type: 'math and sci', label: 'Math & Sci', color: '#FAAC1E' },
   { type: 'gen engr', label: 'Gen Engr', color: '#800000' },
   { type: 'major courses', label: 'Major', color: '#0072B2' },
   { type: 'major elective', label: 'Major Elect', color: '#009E73' },
