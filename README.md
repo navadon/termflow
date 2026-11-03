@@ -88,3 +88,5 @@ renames) go in their own small PR before any feature that depends on them.
   - Kaewta Lungta
   - Poonyaporn Intaphrom
   - Tiger Tanner
+
+_Developed with AI assistance (Google Antigravity, Claude Code)._
