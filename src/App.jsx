@@ -417,7 +417,9 @@ const CourseNode = ({ id, data }) => {
       <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
           <div style={{ fontWeight: 'bold', fontSize: '18px', color: '#444' }}>
-            {data.courseId || 'GenEd'}
+            {data.courseId || (data.requirementGroup === 'free'
+              ? 'Free Elect'
+              : (COURSE_TYPES.find(t => t.type === data.courseType)?.label || 'Course'))}
             {isOffSchedule && (
               <span style={{ fontSize: '14px', color: '#777', marginLeft: '6px', fontWeight: 'bold' }}>
                 {suggestedLabel}
@@ -1287,6 +1289,10 @@ export default function App() {
         alignItems: 'center',
         flexWrap: 'wrap'
       }}>
+        <div style={{ fontSize: '22px', fontWeight: 'bold', color: '#222', letterSpacing: '-0.01em' }}>TermFlow</div>
+
+        <div style={{ borderLeft: '1px solid #ddd', height: '32px' }}></div>
+
         <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <label style={{ fontWeight: 'bold', fontSize: '13px', width: '78px' }}>Curriculum:</label>
