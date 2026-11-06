@@ -209,6 +209,107 @@ const CREDITS = [
 
 const REPO_URL = 'https://github.com/navadon/termflow';
 
+// "How to use" guide, opened from the top-panel button and automatically on a
+// visitor's first visit (until they close it once).
+const HOWTO_KEY = 'termflow-howto-seen';
+
+const HOWTO_STEPS = [
+  {
+    title: 'Pick your curriculum',
+    text: 'Choose your program from the Curriculum dropdown. Its default study plan loads on the board.',
+  },
+  {
+    title: 'Move courses',
+    text: 'Drag a card to another semester. Hover over a card to see its chain: prerequisites glow green and courses that depend on it glow blue.',
+  },
+  {
+    title: 'Choose electives',
+    text: 'Use the dropdown on GenEd and Major Elective slots. Options already used elsewhere in the plan are greyed out.',
+  },
+  {
+    title: 'Track progress',
+    text: 'Tick a course when you have passed it, or tick a semester box to mark the whole semester. The progress bar adds up your credits.',
+  },
+  {
+    title: 'Save your plan',
+    text: 'Save Plan downloads a file and Open Plan loads it back. Your plan is also kept in this browser automatically. Reset returns to the default plan.',
+  },
+];
+
+const HOWTO_COLORS = [
+  { swatch: '#fce8e6', label: 'Placed before its prerequisite' },
+  { swatch: '#fffacd', label: 'Moved from the default plan' },
+  { swatch: '#e8f5e9', label: 'Completed' },
+];
+
+const HowToModal = ({ open, onClose }) => {
+  if (!open) return null;
+  return (
+    <div
+      onClick={onClose}
+      onKeyDown={(e) => { if (e.key === 'Escape') onClose(); }}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 1000,
+        background: 'rgba(0,0,0,0.35)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontFamily: 'sans-serif'
+      }}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{ background: '#fff', borderRadius: '8px', padding: '22px 26px', width: '480px', maxWidth: '90vw', maxHeight: '85vh', overflowY: 'auto', boxShadow: '0 10px 30px rgba(0,0,0,0.25)' }}
+      >
+        <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#222' }}>TermFlow</div>
+        <div style={{ fontSize: '12px', color: '#888', marginBottom: '14px' }}>How to use</div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {HOWTO_STEPS.map((s, i) => (
+            <div key={s.title} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+              <div style={{ flex: '0 0 22px', height: '22px', borderRadius: '50%', background: '#007bff', color: '#fff', fontSize: '12px', fontWeight: 'bold', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{i + 1}</div>
+              <div>
+                <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>{s.title}</div>
+                <div style={{ fontSize: '12px', color: '#666', lineHeight: 1.5, marginTop: '2px' }}>{s.text}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ borderTop: '1px solid #eee', marginTop: '16px', paddingTop: '12px' }}>
+          <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#007bff', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>Card colors</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '12px', color: '#555' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ display: 'inline-flex', gap: '2px' }}>
+                {COURSE_TYPES.map(t => <span key={t.type} style={{ width: '4px', height: '14px', borderRadius: '1px', background: t.color }} />)}
+              </span>
+              Left stripe: course category (see the legend at the top)
+            </div>
+            {HOWTO_COLORS.map(c => (
+              <div key={c.label} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ width: '22px', height: '14px', borderRadius: '3px', background: c.swatch, border: '1px solid #ddd' }} />
+                {c.label}
+              </div>
+            ))}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ width: '22px', height: '14px', borderRadius: '3px', background: '#d9534f' }} />
+              Semester credit badge turns red above 22 credits
+            </div>
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '18px' }}>
+          <button
+            onClick={onClose}
+            autoFocus
+            style={{ padding: '6px 14px', background: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '13px' }}
+          >
+            Got it
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const CreditsModal = ({ open, onClose }) => {
   if (!open) return null;
   const year = new Date().getFullYear();
@@ -739,6 +840,13 @@ export default function App() {
 
   const [dialog, setDialog] = useState(null);
   const [showCredits, setShowCredits] = useState(false);
+  const [showHowTo, setShowHowTo] = useState(() => {
+    try { return !localStorage.getItem(HOWTO_KEY); } catch { return false; }
+  });
+  const closeHowTo = useCallback(() => {
+    setShowHowTo(false);
+    try { localStorage.setItem(HOWTO_KEY, '1'); } catch { /* best-effort */ }
+  }, []);
   const showDialog = useCallback((type, message, defaultValue) =>
     new Promise(resolve => setDialog({ type, message, defaultValue, resolve })), []);
   const closeDialog = useCallback((result) => {
@@ -1389,9 +1497,16 @@ export default function App() {
         </div>
 
         <button
+          onClick={() => setShowHowTo(true)}
+          title="Quick guide to using TermFlow"
+          style={{ marginLeft: 'auto', padding: '6px 12px', background: 'transparent', color: '#007bff', border: '1px solid #b8d4f5', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
+        >
+          How to use
+        </button>
+        <button
           onClick={() => setShowCredits(true)}
           title="Contributors and acknowledgements"
-          style={{ marginLeft: 'auto', padding: '6px 12px', background: 'transparent', color: '#888', border: '1px solid #ddd', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
+          style={{ padding: '6px 12px', background: 'transparent', color: '#888', border: '1px solid #ddd', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
         >
           Credits
         </button>
@@ -1432,6 +1547,7 @@ export default function App() {
         </ReactFlow>
       </div>
 
+      <HowToModal open={showHowTo} onClose={closeHowTo} />
       <CreditsModal open={showCredits} onClose={() => setShowCredits(false)} />
       <DialogModal dialog={dialog} onClose={closeDialog} />
     </div>

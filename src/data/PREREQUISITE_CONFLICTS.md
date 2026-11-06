@@ -17,6 +17,9 @@ fetched for all 285 courses on 2026-07-17.
 
 - **261304 Comp Arch** — TQF says `261214`, but CPE 2568 plans contain only the
   renumbered `261314`; stored as the OR group `["261214","261314"]`.
+  A petition to add 261314 to the official prerequisite was filed with the
+  registration office in November 2026; once TQF lists it, this is no longer
+  a deviation.
 
 ## Corrections applied after review (2026-07-17)
 
