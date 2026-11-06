@@ -139,7 +139,7 @@ const DialogModal = ({ dialog, onClose }) => {
     if (dialog?.type === 'prompt') inputRef.current?.focus();
   }, [dialog]);
   if (!dialog) return null;
-  const { type, message, defaultValue } = dialog;
+  const { type, message, defaultValue, showNotice } = dialog;
 
   const ok = () => onClose(type === 'prompt' ? (inputRef.current?.value ?? '') : true);
   const cancel = () => onClose(type === 'prompt' ? null : false);
@@ -165,6 +165,7 @@ const DialogModal = ({ dialog, onClose }) => {
             style={{ marginTop: '12px', width: '100%', padding: '6px 8px', fontSize: '14px', border: '1px solid #aaa', borderRadius: '4px', boxSizing: 'border-box' }}
           />
         )}
+        {showNotice && <ShortNotice />}
         <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px', marginTop: '16px' }}>
           {type !== 'alert' && (
             <button
@@ -209,14 +210,65 @@ const CREDITS = [
 
 const REPO_URL = 'https://github.com/navadon/termflow';
 
-// Shown in the How to use guide (seen on first visit) and the Credits modal,
-// and mirrored in the README.
-const DISCLAIMER = 'TermFlow is an independent planning tool. It is not an official service of the department, the Faculty of Engineering, or Chiang Mai University. Plans made here are for guidance only: they are not an approved study plan or a registration record, and they are not evidence that any requirement has been met. Course data may be out of date or contain errors. Always confirm with your academic advisor and the official university systems.';
+// Disclaimer and privacy notice, in English and Thai. Shown in the How to use
+// guide (seen on first visit) and the Credits modal, and mirrored in the README.
+// The privacy text must stay true to the code: the app makes no network
+// requests and keeps the plan only in localStorage and downloaded files.
+const NOTICES = [
+  {
+    lang: 'en',
+    items: [
+      {
+        heading: 'Unofficial tool.',
+        text: 'TermFlow is an independent planning tool. It is not an official service of the Department of Computer Engineering, the Faculty of Engineering, or Chiang Mai University. Plans made here are for guidance only: they are not an approved study plan or a registration record, and they are not evidence that any requirement has been met. Course data may be out of date or contain errors. Always confirm with your academic advisor and the official university systems.',
+      },
+      {
+        heading: 'Privacy.',
+        text: 'TermFlow does not collect or send any personal information. Your plan is stored only in your own browser and in plan files you download yourself. There are no accounts, cookies, or analytics. The site is hosted on GitHub Pages, which may log basic technical data such as IP addresses for security, under GitHub\'s privacy statement.',
+      },
+    ],
+  },
+  {
+    lang: 'th',
+    items: [
+      {
+        heading: 'เครื่องมือที่ไม่เป็นทางการ',
+        text: 'TermFlow เป็นเครื่องมือช่วยวางแผนการเรียนที่พัฒนาขึ้นโดยอิสระ ไม่ใช่บริการอย่างเป็นทางการของภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ หรือมหาวิทยาลัยเชียงใหม่ แผนการเรียนที่จัดทำในเว็บนี้ใช้เป็นแนวทางเท่านั้น ไม่ถือเป็นแผนการศึกษาที่ได้รับการอนุมัติหรือข้อมูลการลงทะเบียนเรียน และไม่สามารถใช้เป็นหลักฐานว่าได้ผ่านเงื่อนไขใด ๆ ข้อมูลกระบวนวิชาอาจไม่เป็นปัจจุบันหรือมีข้อผิดพลาด โปรดตรวจสอบกับอาจารย์ที่ปรึกษาและระบบทางการของมหาวิทยาลัยทุกครั้ง',
+      },
+      {
+        heading: 'ความเป็นส่วนตัว',
+        text: 'TermFlow ไม่เก็บรวบรวมและไม่ส่งข้อมูลส่วนบุคคลใด ๆ แผนการเรียนของคุณจัดเก็บไว้เฉพาะในเบราว์เซอร์ของคุณเองและในไฟล์แผนที่คุณดาวน์โหลดเอง ไม่มีระบบบัญชีผู้ใช้ คุกกี้ หรือระบบวิเคราะห์การใช้งาน เว็บไซต์นี้ให้บริการผ่าน GitHub Pages ซึ่งอาจบันทึกข้อมูลทางเทคนิคพื้นฐาน เช่น หมายเลข IP เพื่อความปลอดภัย ตามนโยบายความเป็นส่วนตัวของ GitHub',
+      },
+    ],
+  },
+];
 
 const DisclaimerBox = () => (
   <div style={{ marginTop: '16px', padding: '10px 12px', background: '#f7f7f7', border: '1px solid #e5e5e5', borderRadius: '6px', fontSize: '11px', color: '#666', lineHeight: 1.55 }}>
-    <span style={{ fontWeight: 'bold', color: '#444' }}>Unofficial tool. </span>
-    {DISCLAIMER}
+    {NOTICES.map((n, i) => (
+      <div key={n.lang} lang={n.lang} style={i === 0 ? undefined : { marginTop: '8px', paddingTop: '8px', borderTop: '1px solid #e5e5e5' }}>
+        {n.items.map((item, j) => (
+          <div key={item.heading} style={j === 0 ? undefined : { marginTop: '6px' }}>
+            <span style={{ fontWeight: 'bold', color: '#444' }}>{item.heading} </span>
+            {item.text}
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+);
+
+// Short form of the disclaimer, shown when a plan is saved or opened.
+const SHORT_NOTICE = [
+  { lang: 'en', text: 'This plan is for guidance only. It is not an approved study plan or evidence that any requirement has been met. Please confirm with your academic advisor.' },
+  { lang: 'th', text: 'แผนนี้ใช้เป็นแนวทางเท่านั้น ไม่ใช่แผนการศึกษาที่ได้รับการอนุมัติ และไม่สามารถใช้เป็นหลักฐานว่าได้ผ่านเงื่อนไขใด ๆ โปรดตรวจสอบกับอาจารย์ที่ปรึกษา' },
+];
+
+const ShortNotice = () => (
+  <div style={{ marginTop: '14px', padding: '8px 10px', background: '#f7f7f7', border: '1px solid #e5e5e5', borderRadius: '6px', fontSize: '11px', color: '#666', lineHeight: 1.5 }}>
+    {SHORT_NOTICE.map((n, i) => (
+      <div key={n.lang} lang={n.lang} style={i === 0 ? undefined : { marginTop: '4px' }}>{n.text}</div>
+    ))}
   </div>
 );
 
@@ -862,14 +914,14 @@ export default function App() {
     setShowHowTo(false);
     try { localStorage.setItem(HOWTO_KEY, '1'); } catch { /* best-effort */ }
   }, []);
-  const showDialog = useCallback((type, message, defaultValue) =>
-    new Promise(resolve => setDialog({ type, message, defaultValue, resolve })), []);
+  const showDialog = useCallback((type, message, defaultValue, showNotice = false) =>
+    new Promise(resolve => setDialog({ type, message, defaultValue, showNotice, resolve })), []);
   const closeDialog = useCallback((result) => {
     setDialog(d => { d?.resolve(result); return null; });
   }, []);
-  const appAlert = useCallback((message) => showDialog('alert', message), [showDialog]);
+  const appAlert = useCallback((message, showNotice) => showDialog('alert', message, undefined, showNotice), [showDialog]);
   const appConfirm = useCallback((message) => showDialog('confirm', message), [showDialog]);
-  const appPrompt = useCallback((message, defaultValue) => showDialog('prompt', message, defaultValue), [showDialog]);
+  const appPrompt = useCallback((message, defaultValue, showNotice) => showDialog('prompt', message, defaultValue, showNotice), [showDialog]);
 
   const initialDragPos = useRef(null);
   const fileInputRef = useRef(null);
@@ -1229,7 +1281,7 @@ export default function App() {
   const handleExport = async () => {
     // File name identifies the student: 650610000_cpe_2568_regular_plan.json
     const suggested = (loadedFileName || '').match(/^(\d{6,})/)?.[1] || '';
-    const student = await appPrompt('Student ID (or short name) for the file name:', suggested);
+    const student = await appPrompt('Student ID (or short name) for the file name:', suggested, true);
     if (student === null) return;
     const studentSlug = student.trim().replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').toLowerCase();
 
@@ -1283,6 +1335,7 @@ export default function App() {
           setLoadedFileName(file.name);
           setDropdownValue(parsed.curriculumName);
           setDirty(false);
+          appAlert(`Opened ${file.name}.`, true);
         } else {
           appAlert("Unrecognized curriculum in the imported file!");
         }

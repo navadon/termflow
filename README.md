@@ -30,11 +30,34 @@ Built with React, Vite, and [React Flow](https://reactflow.dev).
 ## Disclaimer
 
 TermFlow is an independent planning tool. It is not an official service of
-the department, the Faculty of Engineering, or Chiang Mai University. Plans
-made here are for guidance only: they are not an approved study plan or a
-registration record, and they are not evidence that any requirement has been
-met. Course data may be out of date or contain errors. Always confirm with
-your academic advisor and the official university systems.
+the Department of Computer Engineering, the Faculty of Engineering, or
+Chiang Mai University. Plans made here are for guidance only: they are not
+an approved study plan or a registration record, and they are not evidence
+that any requirement has been met. Course data may be out of date or contain
+errors. Always confirm with your academic advisor and the official
+university systems.
+
+TermFlow เป็นเครื่องมือช่วยวางแผนการเรียนที่พัฒนาขึ้นโดยอิสระ
+ไม่ใช่บริการอย่างเป็นทางการของภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ หรือมหาวิทยาลัยเชียงใหม่
+แผนการเรียนที่จัดทำในเว็บนี้ใช้เป็นแนวทางเท่านั้น
+ไม่ถือเป็นแผนการศึกษาที่ได้รับการอนุมัติหรือข้อมูลการลงทะเบียนเรียน
+และไม่สามารถใช้เป็นหลักฐานว่าได้ผ่านเงื่อนไขใด ๆ
+ข้อมูลกระบวนวิชาอาจไม่เป็นปัจจุบันหรือมีข้อผิดพลาด
+โปรดตรวจสอบกับอาจารย์ที่ปรึกษาและระบบทางการของมหาวิทยาลัยทุกครั้ง
+
+## Privacy
+
+TermFlow does not collect or send any personal information. Your plan is
+stored only in your own browser (localStorage) and in plan files you download
+yourself. There are no accounts, cookies, or analytics. The site is hosted on
+GitHub Pages, which may log basic technical data such as IP addresses for
+security, under GitHub's privacy statement.
+
+TermFlow ไม่เก็บรวบรวมและไม่ส่งข้อมูลส่วนบุคคลใด ๆ
+แผนการเรียนของคุณจัดเก็บไว้เฉพาะในเบราว์เซอร์ของคุณเองและในไฟล์แผนที่คุณดาวน์โหลดเอง
+ไม่มีระบบบัญชีผู้ใช้ คุกกี้ หรือระบบวิเคราะห์การใช้งาน
+เว็บไซต์นี้ให้บริการผ่าน GitHub Pages ซึ่งอาจบันทึกข้อมูลทางเทคนิคพื้นฐาน เช่น หมายเลข IP
+เพื่อความปลอดภัย ตามนโยบายความเป็นส่วนตัวของ GitHub
 
 ## Getting started
 
