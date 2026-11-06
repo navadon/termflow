@@ -217,7 +217,7 @@ const REPO_URL = 'https://github.com/navadon/termflow';
 const NOTICES = [
   {
     heading: 'Unofficial tool.',
-    text: 'TermFlow is an independent planning tool. It is not an official service of the Department of Computer Engineering, the Faculty of Engineering, or Chiang Mai University. Plans made here are for guidance only: they are not an approved study plan or a registration record, and they are not evidence that any requirement has been met. Course data may be out of date or contain errors. Always confirm with your academic advisor and the official university systems.',
+    text: 'TermFlow is an independent planning tool. It is not an official service of Department of Computer Engineering, Faculty of Engineering, or Chiang Mai University. Plans made here are for guidance only: they are not an approved study plan or a registration record, and they are not evidence that any requirement has been met. Course data may be out of date or contain errors. Always confirm with your academic advisor and the official university systems.',
   },
   {
     heading: 'Privacy.',
