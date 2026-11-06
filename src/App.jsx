@@ -209,6 +209,17 @@ const CREDITS = [
 
 const REPO_URL = 'https://github.com/navadon/termflow';
 
+// Shown in the How to use guide (seen on first visit) and the Credits modal,
+// and mirrored in the README.
+const DISCLAIMER = 'TermFlow is an independent planning tool. It is not an official service of the department, the Faculty of Engineering, or Chiang Mai University. Plans made here are for guidance only: they are not an approved study plan or a registration record, and they are not evidence that any requirement has been met. Course data may be out of date or contain errors. Always confirm with your academic advisor and the official university systems.';
+
+const DisclaimerBox = () => (
+  <div style={{ marginTop: '16px', padding: '10px 12px', background: '#f7f7f7', border: '1px solid #e5e5e5', borderRadius: '6px', fontSize: '11px', color: '#666', lineHeight: 1.55 }}>
+    <span style={{ fontWeight: 'bold', color: '#444' }}>Unofficial tool. </span>
+    {DISCLAIMER}
+  </div>
+);
+
 // "How to use" guide, opened from the top-panel button and automatically on a
 // visitor's first visit (until they close it once).
 const HOWTO_KEY = 'termflow-howto-seen';
@@ -296,6 +307,8 @@ const HowToModal = ({ open, onClose }) => {
           </div>
         </div>
 
+        <DisclaimerBox />
+
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '18px' }}>
           <button
             onClick={onClose}
@@ -354,6 +367,8 @@ const CreditsModal = ({ open, onClose }) => {
           </a>
           {'  ·  © '}{year}{' Navadon Khunlertgit'}
         </div>
+
+        <DisclaimerBox />
 
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '18px' }}>
           <button

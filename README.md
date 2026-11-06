@@ -27,6 +27,15 @@ Built with React, Vite, and [React Flow](https://reactflow.dev).
   resetting, closing the tab) ask for confirmation when there are unsaved
   changes.
 
+## Disclaimer
+
+TermFlow is an independent planning tool. It is not an official service of
+the department, the Faculty of Engineering, or Chiang Mai University. Plans
+made here are for guidance only: they are not an approved study plan or a
+registration record, and they are not evidence that any requirement has been
+met. Course data may be out of date or contain errors. Always confirm with
+your academic advisor and the official university systems.
+
 ## Getting started
 
 ```bash
