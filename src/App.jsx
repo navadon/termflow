@@ -1469,7 +1469,12 @@ export default function App() {
         flexWrap: 'wrap'
       }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-          <div style={{ fontSize: '22px', fontWeight: 750, color: HEADER.brand, letterSpacing: '0.2px', lineHeight: 1.1 }}>TermFlow</div>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', letterSpacing: '0.2px', lineHeight: 1.1 }}>
+            <span style={{ fontSize: '22px', fontWeight: 750, color: HEADER.brand }}>TermFlow</span>
+            <span style={{ fontSize: '15px', fontWeight: 500, color: HEADER.muted }}>
+              <b style={{ color: HEADER.text, fontWeight: 700 }}>Term</b> Planner, Course <b style={{ color: HEADER.text, fontWeight: 700 }}>Flow</b>
+            </span>
+          </div>
           <div style={{ fontSize: '11px', color: HEADER.muted }}>CPECMU · Unofficial</div>
         </div>
 
