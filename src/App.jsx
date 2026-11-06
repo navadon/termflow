@@ -855,6 +855,31 @@ const generateEdgesForNodes = (currentNodes) => {
   return generatedEdges;
 };
 
+// Top-panel look shared with PubPub (navadon.github.io/pubpub): lavender-to-blue
+// gradient, CMU gold underline, purple wordmark, and pill buttons.
+const HEADER = {
+  font: 'system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Thai", "Helvetica Neue", Arial, sans-serif',
+  bg: '#ebe4f8',
+  bg2: '#dfeaf8',
+  gold: '#f2d58a',
+  brand: '#7354b3',
+  text: '#2e2a4a',
+  muted: '#615d7e',
+  line: 'rgba(46, 42, 74, 0.18)',
+};
+
+const pillStyle = (variant) => ({
+  padding: '6px 12px',
+  borderRadius: '999px',
+  cursor: 'pointer',
+  fontFamily: HEADER.font,
+  fontWeight: 600,
+  fontSize: '12px',
+  ...(variant === 'primary'
+    ? { background: HEADER.brand, color: '#fff', border: `1px solid ${HEADER.brand}` }
+    : { background: 'rgba(255, 255, 255, 0.55)', color: HEADER.text, border: `1px solid ${HEADER.line}` }),
+});
+
 export default function App() {
   const autosaveRef = useRef(loadAutosave());
   const [nodes, setNodes] = useState([]);
@@ -1428,27 +1453,30 @@ export default function App() {
         width: '100%',
         boxSizing: 'border-box',
         zIndex: 10,
-        background: 'white',
-        padding: '8px 16px',
-        borderBottom: '1px solid #ccc',
-        boxShadow: '0 2px 6px rgba(0,0,0,0.06)',
-        fontFamily: 'sans-serif',
+        background: `linear-gradient(100deg, ${HEADER.bg}, ${HEADER.bg2})`,
+        color: HEADER.text,
+        padding: '10px 16px',
+        borderBottom: `3px solid ${HEADER.gold}`,
+        fontFamily: HEADER.font,
         display: 'flex',
         gap: '15px',
         alignItems: 'center',
         flexWrap: 'wrap'
       }}>
-        <div style={{ fontSize: '22px', fontWeight: 'bold', color: '#222', letterSpacing: '-0.01em' }}>TermFlow</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+          <div style={{ fontSize: '22px', fontWeight: 750, color: HEADER.brand, letterSpacing: '0.2px', lineHeight: 1.1 }}>TermFlow</div>
+          <div style={{ fontSize: '11px', color: HEADER.muted }}>CPECMU · Unofficial</div>
+        </div>
 
-        <div style={{ borderLeft: '1px solid #ddd', height: '32px' }}></div>
+        <div style={{ borderLeft: `1px solid ${HEADER.line}`, height: '32px' }}></div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <label style={{ fontWeight: 'bold', fontSize: '13px', width: '78px' }}>Curriculum:</label>
+            <label style={{ fontWeight: 600, fontSize: '13px', width: '78px' }}>Curriculum:</label>
             <select
               value={dropdownValue}
               onChange={handleDropdownChange}
-              style={{ padding: '4px 8px', fontSize: '13px', borderRadius: '4px', cursor: 'pointer', border: '1px solid #aaa', width: '210px', boxSizing: 'border-box' }}
+              style={{ padding: '4px 8px', fontSize: '13px', fontFamily: HEADER.font, color: HEADER.text, background: '#fff', borderRadius: '6px', cursor: 'pointer', border: `1px solid ${HEADER.line}`, width: '210px', boxSizing: 'border-box' }}
             >
               {Object.keys(curriculums).map(name => (
                 <option key={name} value={name}>{name}</option>
@@ -1456,14 +1484,14 @@ export default function App() {
             </select>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', minHeight: '20px' }}>
-            <label style={{ fontWeight: 'bold', fontSize: '13px', width: '78px' }}>Plan:</label>
+            <label style={{ fontWeight: 600, fontSize: '13px', width: '78px' }}>Plan:</label>
             <span
               title={isDirty ? 'This plan has changes that are not saved to a file yet (autosaved in this browser)' : 'Loaded plan file'}
               style={{
                 fontSize: '12px',
-                color: loadedFileName ? '#555' : '#999',
+                color: HEADER.muted,
                 fontStyle: loadedFileName ? 'normal' : 'italic',
-                background: isDirty ? '#fdf3d1' : 'transparent',
+                background: isDirty ? '#fdf4dc' : 'transparent',
                 padding: '2px 6px',
                 borderRadius: '4px'
               }}
@@ -1473,27 +1501,27 @@ export default function App() {
           </div>
         </div>
 
-        <div style={{ borderLeft: '1px solid #ddd', height: '32px' }}></div>
+        <div style={{ borderLeft: `1px solid ${HEADER.line}`, height: '32px' }}></div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '3px', minWidth: '190px' }}>
-          <div style={{ fontSize: '12px', fontWeight: 'bold', color: totalCredits > 0 && completedCredits === totalCredits ? '#28a745' : '#555', fontFamily: 'sans-serif' }}>
+          <div style={{ fontSize: '12px', fontWeight: 600, color: totalCredits > 0 && completedCredits === totalCredits ? '#2f8a5b' : HEADER.text }}>
             Progress: {completedCredits}/{totalCredits} CR ({progressPercent}%)
           </div>
-          <div style={{ width: '100%', height: '6px', backgroundColor: '#e0e0e0', borderRadius: '3px', overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: '6px', backgroundColor: 'rgba(46, 42, 74, 0.1)', borderRadius: '3px', overflow: 'hidden' }}>
             <div style={{ width: `${progressPercent}%`, height: '100%', backgroundColor: '#28a745', transition: 'width 0.3s ease' }} />
           </div>
-          <div style={{ display: 'flex', gap: '10px', fontSize: '11px', color: '#777' }}>
+          <div style={{ display: 'flex', gap: '10px', fontSize: '11px', color: HEADER.muted }}>
             {Object.entries(categoryStats).map(([name, s]) => (
-              <span key={name} style={s.total > 0 && s.done === s.total ? { color: '#28a745', fontWeight: 'bold' } : undefined}>
+              <span key={name} style={s.total > 0 && s.done === s.total ? { color: '#2f8a5b', fontWeight: 'bold' } : undefined}>
                 {name} {s.done}/{s.total}
               </span>
             ))}
           </div>
         </div>
 
-        <div style={{ borderLeft: '1px solid #ddd', height: '32px' }}></div>
+        <div style={{ borderLeft: `1px solid ${HEADER.line}`, height: '32px' }}></div>
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', columnGap: '10px', rowGap: '3px', maxWidth: '230px', fontSize: '11px', color: '#555' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', columnGap: '10px', rowGap: '3px', maxWidth: '230px', fontSize: '11px', color: HEADER.muted }}>
           {COURSE_TYPES.map(t => (
             <span key={t.type} style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
               <span style={{ width: '4px', height: '12px', borderRadius: '2px', background: t.color }} />
@@ -1502,29 +1530,32 @@ export default function App() {
           ))}
         </div>
 
-        <div style={{ borderLeft: '1px solid #ddd', height: '32px' }}></div>
+        <div style={{ borderLeft: `1px solid ${HEADER.line}`, height: '32px' }}></div>
 
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
+            className="tf-pill"
             onClick={handleExport}
             title="Download the current plan as a JSON file"
-            style={{ padding: '6px 12px', background: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
+            style={pillStyle('primary')}
           >
             Save Plan
           </button>
 
           <button
+            className="tf-pill"
             onClick={() => fileInputRef.current.click()}
             title="Open a previously saved plan file"
-            style={{ padding: '6px 12px', background: '#28a745', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
+            style={pillStyle('outline')}
           >
             Open Plan
           </button>
 
           <button
+            className="tf-pill"
             onClick={handleReset}
             title="Reset to the default template for this curriculum"
-            style={{ padding: '6px 12px', background: '#fff', color: '#666', border: '1px solid #aaa', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
+            style={pillStyle('outline')}
           >
             Reset
           </button>
@@ -1538,16 +1569,18 @@ export default function App() {
         </div>
 
         <button
+          className="tf-pill"
           onClick={() => setShowHowTo(true)}
           title="Quick guide to using TermFlow"
-          style={{ marginLeft: 'auto', padding: '6px 12px', background: 'transparent', color: '#007bff', border: '1px solid #b8d4f5', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
+          style={{ ...pillStyle('outline'), marginLeft: 'auto' }}
         >
           How to use
         </button>
         <button
+          className="tf-pill"
           onClick={() => setShowCredits(true)}
           title="Contributors and acknowledgements"
-          style={{ padding: '6px 12px', background: 'transparent', color: '#888', border: '1px solid #ddd', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '12px' }}
+          style={pillStyle('outline')}
         >
           Credits
         </button>
