@@ -133,6 +133,32 @@ const getOptionPlaceholder = (optionType) => {
 
 // In-app replacement for window.alert / confirm / prompt. Native dialogs are
 // blocked in sandboxed iframes (embedded previews) and by some popup blockers.
+// Theme shared with PubPub (navadon.github.io/pubpub), used by the top panel
+// and the popups: lavender-to-blue gradient, CMU gold underline, purple
+// wordmark and accents, and pill buttons.
+const HEADER = {
+  font: 'system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Thai", "Helvetica Neue", Arial, sans-serif',
+  bg: '#ebe4f8',
+  bg2: '#dfeaf8',
+  gold: '#f2d58a',
+  brand: '#7354b3',
+  text: '#2e2a4a',
+  muted: '#615d7e',
+  line: 'rgba(46, 42, 74, 0.18)',
+};
+
+const pillStyle = (variant) => ({
+  padding: '6px 12px',
+  borderRadius: '999px',
+  cursor: 'pointer',
+  fontFamily: HEADER.font,
+  fontWeight: 600,
+  fontSize: '12px',
+  ...(variant === 'primary'
+    ? { background: HEADER.brand, color: '#fff', border: `1px solid ${HEADER.brand}` }
+    : { background: 'rgba(255, 255, 255, 0.55)', color: HEADER.text, border: `1px solid ${HEADER.line}` }),
+});
+
 const DialogModal = ({ dialog, onClose }) => {
   const inputRef = useRef(null);
   useEffect(() => {
@@ -151,10 +177,10 @@ const DialogModal = ({ dialog, onClose }) => {
         position: 'fixed', inset: 0, zIndex: 1000,
         background: 'rgba(0,0,0,0.35)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontFamily: 'sans-serif'
+        fontFamily: HEADER.font
       }}
     >
-      <div style={{ background: '#fff', borderRadius: '8px', padding: '20px 24px', width: '360px', boxShadow: '0 10px 30px rgba(0,0,0,0.25)' }}>
+      <div style={{ background: '#fff', borderRadius: '12px', padding: '20px 24px', width: '360px', boxShadow: '0 10px 30px rgba(0,0,0,0.25)' }}>
         <div style={{ fontSize: '14px', color: '#333', lineHeight: 1.5, whiteSpace: 'pre-wrap' }}>{message}</div>
         {type === 'prompt' && (
           <input
@@ -162,7 +188,7 @@ const DialogModal = ({ dialog, onClose }) => {
             type="text"
             defaultValue={defaultValue || ''}
             onKeyDown={(e) => { if (e.key === 'Enter') ok(); }}
-            style={{ marginTop: '12px', width: '100%', padding: '6px 8px', fontSize: '14px', border: '1px solid #aaa', borderRadius: '4px', boxSizing: 'border-box' }}
+            style={{ marginTop: '12px', width: '100%', padding: '6px 8px', fontSize: '14px', border: `1px solid ${HEADER.line}`, borderRadius: '6px', fontFamily: HEADER.font, boxSizing: 'border-box' }}
           />
         )}
         {showNotice && <ShortNotice />}
@@ -170,7 +196,8 @@ const DialogModal = ({ dialog, onClose }) => {
           {type !== 'alert' && (
             <button
               onClick={cancel}
-              style={{ padding: '6px 14px', background: '#fff', color: '#555', border: '1px solid #aaa', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '13px' }}
+              className="tf-pill"
+              style={{ ...pillStyle('outline'), padding: '6px 16px', fontSize: '13px' }}
             >
               Cancel
             </button>
@@ -178,7 +205,8 @@ const DialogModal = ({ dialog, onClose }) => {
           <button
             onClick={ok}
             autoFocus={type !== 'prompt'}
-            style={{ padding: '6px 14px', background: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '13px' }}
+            className="tf-pill"
+            style={{ ...pillStyle('primary'), padding: '6px 16px', fontSize: '13px' }}
           >
             OK
           </button>
@@ -226,7 +254,7 @@ const NOTICES = [
 ];
 
 const DisclaimerBox = () => (
-  <div style={{ marginTop: '16px', padding: '10px 12px', background: '#f7f7f7', border: '1px solid #e5e5e5', borderRadius: '6px', fontSize: '11px', color: '#666', lineHeight: 1.55 }}>
+  <div style={{ marginTop: '16px', padding: '10px 12px', background: '#faf9fd', border: '1px solid #e8e6f1', borderRadius: '6px', fontSize: '11px', color: '#666', lineHeight: 1.55 }}>
     {NOTICES.map((item, i) => (
       <div key={item.heading} style={i === 0 ? undefined : { marginTop: '6px' }}>
         <span style={{ fontWeight: 'bold', color: '#444' }}>{item.heading} </span>
@@ -240,7 +268,7 @@ const DisclaimerBox = () => (
 const SHORT_NOTICE = 'This plan is for guidance only. It is not an approved study plan or evidence that any requirement has been met. Please confirm with your academic advisor.';
 
 const ShortNotice = () => (
-  <div style={{ marginTop: '14px', padding: '8px 10px', background: '#f7f7f7', border: '1px solid #e5e5e5', borderRadius: '6px', fontSize: '11px', color: '#666', lineHeight: 1.5 }}>
+  <div style={{ marginTop: '14px', padding: '8px 10px', background: '#faf9fd', border: '1px solid #e8e6f1', borderRadius: '6px', fontSize: '11px', color: '#666', lineHeight: 1.5 }}>
     {SHORT_NOTICE}
   </div>
 );
@@ -288,22 +316,22 @@ const HowToModal = ({ open, onClose }) => {
         position: 'fixed', inset: 0, zIndex: 1000,
         background: 'rgba(0,0,0,0.35)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontFamily: 'sans-serif'
+        fontFamily: HEADER.font
       }}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        style={{ background: '#fff', borderRadius: '8px', padding: '22px 26px', width: '480px', maxWidth: '90vw', maxHeight: '85vh', overflowY: 'auto', boxShadow: '0 10px 30px rgba(0,0,0,0.25)' }}
+        style={{ background: '#fff', borderRadius: '12px', padding: '22px 26px', width: '480px', maxWidth: '90vw', maxHeight: '85vh', overflowY: 'auto', boxShadow: '0 10px 30px rgba(0,0,0,0.25)' }}
       >
-        <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#222' }}>TermFlow</div>
-        <div style={{ fontSize: '12px', color: '#888', marginBottom: '14px' }}>How to use</div>
+        <div style={{ fontSize: '18px', fontWeight: 750, color: HEADER.brand, letterSpacing: '0.2px' }}>TermFlow</div>
+        <div style={{ fontSize: '12px', color: HEADER.muted, marginBottom: '14px' }}>How to use</div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {HOWTO_STEPS.map((s, i) => (
             <div key={s.title} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-              <div style={{ flex: '0 0 22px', height: '22px', borderRadius: '50%', background: '#007bff', color: '#fff', fontSize: '12px', fontWeight: 'bold', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{i + 1}</div>
+              <div style={{ flex: '0 0 22px', height: '22px', borderRadius: '50%', background: HEADER.brand, color: '#fff', fontSize: '12px', fontWeight: 'bold', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{i + 1}</div>
               <div>
-                <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#333' }}>{s.title}</div>
+                <div style={{ fontSize: '14px', fontWeight: 'bold', color: HEADER.text }}>{s.title}</div>
                 <div style={{ fontSize: '12px', color: '#666', lineHeight: 1.5, marginTop: '2px' }}>{s.text}</div>
               </div>
             </div>
@@ -311,7 +339,7 @@ const HowToModal = ({ open, onClose }) => {
         </div>
 
         <div style={{ borderTop: '1px solid #eee', marginTop: '16px', paddingTop: '12px' }}>
-          <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#007bff', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>Card colors</div>
+          <div style={{ fontSize: '12px', fontWeight: 'bold', color: HEADER.brand, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '8px' }}>Card colors</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '12px', color: '#555' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span style={{ display: 'inline-flex', gap: '2px' }}>
@@ -338,7 +366,8 @@ const HowToModal = ({ open, onClose }) => {
           <button
             onClick={onClose}
             autoFocus
-            style={{ padding: '6px 14px', background: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '13px' }}
+            className="tf-pill"
+            style={{ ...pillStyle('primary'), padding: '6px 16px', fontSize: '13px' }}
           >
             Got it
           </button>
@@ -359,15 +388,15 @@ const CreditsModal = ({ open, onClose }) => {
         position: 'fixed', inset: 0, zIndex: 1000,
         background: 'rgba(0,0,0,0.35)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontFamily: 'sans-serif'
+        fontFamily: HEADER.font
       }}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        style={{ background: '#fff', borderRadius: '8px', padding: '22px 26px', width: '440px', maxWidth: '90vw', maxHeight: '85vh', overflowY: 'auto', boxShadow: '0 10px 30px rgba(0,0,0,0.25)' }}
+        style={{ background: '#fff', borderRadius: '12px', padding: '22px 26px', width: '440px', maxWidth: '90vw', maxHeight: '85vh', overflowY: 'auto', boxShadow: '0 10px 30px rgba(0,0,0,0.25)' }}
       >
-        <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#222' }}>TermFlow</div>
-        <div style={{ fontSize: '12px', color: '#888', marginBottom: '18px' }}>Credits &amp; acknowledgements</div>
+        <div style={{ fontSize: '18px', fontWeight: 750, color: HEADER.brand, letterSpacing: '0.2px' }}>TermFlow</div>
+        <div style={{ fontSize: '12px', color: HEADER.muted, marginBottom: '18px' }}>Credits &amp; acknowledgements</div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           {CREDITS.map((c, i) => (
             <div
@@ -377,9 +406,9 @@ const CreditsModal = ({ open, onClose }) => {
                 borderTop: i === 0 ? 'none' : '1px solid #eee'
               }}
             >
-              <div style={{ fontSize: '12px', fontWeight: 'bold', color: '#007bff', textTransform: 'uppercase', letterSpacing: '0.04em' }}>{c.role}</div>
+              <div style={{ fontSize: '12px', fontWeight: 'bold', color: HEADER.brand, textTransform: 'uppercase', letterSpacing: '0.04em' }}>{c.role}</div>
               {c.names.map((n) => (
-                <div key={n} style={{ fontSize: '14px', fontWeight: 'bold', color: '#333', marginTop: '3px' }}>{n}</div>
+                <div key={n} style={{ fontSize: '14px', fontWeight: 'bold', color: HEADER.text, marginTop: '3px' }}>{n}</div>
               ))}
               <div style={{ fontSize: '12px', color: '#666', lineHeight: 1.5, marginTop: '4px' }}>{c.detail}</div>
             </div>
@@ -387,7 +416,7 @@ const CreditsModal = ({ open, onClose }) => {
         </div>
 
         <div style={{ borderTop: '1px solid #eee', marginTop: '6px', paddingTop: '14px', fontSize: '11px', color: '#999', lineHeight: 1.6 }}>
-          <a href={REPO_URL} target="_blank" rel="noreferrer" style={{ color: '#007bff', textDecoration: 'none' }}>
+          <a href={REPO_URL} target="_blank" rel="noreferrer" style={{ color: HEADER.brand, textDecoration: 'none' }}>
             github.com/navadon/termflow
           </a>
           {'  ·  © '}{year}{' Navadon Khunlertgit'}
@@ -399,7 +428,8 @@ const CreditsModal = ({ open, onClose }) => {
           <button
             onClick={onClose}
             autoFocus
-            style={{ padding: '6px 14px', background: '#007bff', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', fontSize: '13px' }}
+            className="tf-pill"
+            style={{ ...pillStyle('primary'), padding: '6px 16px', fontSize: '13px' }}
           >
             Close
           </button>
@@ -854,31 +884,6 @@ const generateEdgesForNodes = (currentNodes) => {
 
   return generatedEdges;
 };
-
-// Top-panel look shared with PubPub (navadon.github.io/pubpub): lavender-to-blue
-// gradient, CMU gold underline, purple wordmark, and pill buttons.
-const HEADER = {
-  font: 'system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Thai", "Helvetica Neue", Arial, sans-serif',
-  bg: '#ebe4f8',
-  bg2: '#dfeaf8',
-  gold: '#f2d58a',
-  brand: '#7354b3',
-  text: '#2e2a4a',
-  muted: '#615d7e',
-  line: 'rgba(46, 42, 74, 0.18)',
-};
-
-const pillStyle = (variant) => ({
-  padding: '6px 12px',
-  borderRadius: '999px',
-  cursor: 'pointer',
-  fontFamily: HEADER.font,
-  fontWeight: 600,
-  fontSize: '12px',
-  ...(variant === 'primary'
-    ? { background: HEADER.brand, color: '#fff', border: `1px solid ${HEADER.brand}` }
-    : { background: 'rgba(255, 255, 255, 0.55)', color: HEADER.text, border: `1px solid ${HEADER.line}` }),
-});
 
 export default function App() {
   const autosaveRef = useRef(loadAutosave());
@@ -1537,7 +1542,7 @@ export default function App() {
             className="tf-pill"
             onClick={handleExport}
             title="Download the current plan as a JSON file"
-            style={pillStyle('primary')}
+            style={pillStyle('outline')}
           >
             Save Plan
           </button>
@@ -1594,7 +1599,7 @@ export default function App() {
               position: 'absolute', bottom: '18px', left: '50%', transform: 'translateX(-50%)',
               zIndex: 20, display: 'flex', alignItems: 'center', gap: '10px',
               background: 'rgba(40,40,40,0.85)', color: '#fff', padding: '8px 14px',
-              borderRadius: '18px', fontSize: '13px', fontFamily: 'sans-serif', cursor: 'pointer'
+              borderRadius: '18px', fontSize: '13px', fontFamily: HEADER.font, cursor: 'pointer'
             }}
           >
             Drag to pan &nbsp;·&nbsp; Scroll to zoom
