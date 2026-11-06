@@ -1,5 +1,7 @@
 # TermFlow
 
+**Term** Planner, Course **Flow**
+
 A visual study-plan builder for academic advisors and students. Drag courses
 across semesters, check prerequisites on the fly, pick electives from
 dropdowns, and track completion per semester and per requirement category —
