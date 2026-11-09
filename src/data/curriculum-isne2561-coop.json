@@ -1,0 +1,779 @@
+{
+  "curriculumName": "isne2561-coop",
+  "courses": [
+    {
+      "id": "c-206161",
+      "courseId": "206161",
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "rowIndex": 0
+    },
+    {
+      "id": "c-207105",
+      "courseId": "207105",
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "rowIndex": 1
+    },
+    {
+      "id": "c-269102",
+      "courseId": "269102",
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "rowIndex": 2
+    },
+    {
+      "id": "c-269101",
+      "courseId": "269101",
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "rowIndex": 6
+    },
+    {
+      "id": "c-259191",
+      "courseId": "259191",
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "rowIndex": 9,
+      "requirementGroup": "gened"
+    },
+    {
+      "id": "c-259104",
+      "courseId": "259104",
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "rowIndex": 10
+    },
+    {
+      "id": "c-001101",
+      "courseId": "001101",
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "rowIndex": 11
+    },
+    {
+      "id": "c-206162",
+      "courseId": "206162",
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "rowIndex": 0
+    },
+    {
+      "id": "c-261205",
+      "courseId": "261205",
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "rowIndex": 3
+    },
+    {
+      "id": "c-269103",
+      "courseId": "269103",
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "rowIndex": 4
+    },
+    {
+      "id": "c-269130",
+      "courseId": "269130",
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "rowIndex": 6
+    },
+    {
+      "id": "c-269105",
+      "courseId": "269105",
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "rowIndex": 9
+    },
+    {
+      "id": "c-001102",
+      "courseId": "001102",
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "rowIndex": 11
+    },
+    {
+      "id": "c-140104",
+      "courseId": "140104",
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "rowIndex": 12
+    },
+    {
+      "id": "c-261200",
+      "courseId": "261200",
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "rowIndex": 0
+    },
+    {
+      "id": "c-269200",
+      "courseId": "269200",
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "rowIndex": 1
+    },
+    {
+      "id": "c-269202",
+      "courseId": "269202",
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "rowIndex": 2
+    },
+    {
+      "id": "c-261335",
+      "courseId": "261335",
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "rowIndex": 6
+    },
+    {
+      "id": "c-261336",
+      "courseId": "261336",
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "rowIndex": 7
+    },
+    {
+      "id": "c-269201",
+      "courseId": "269201",
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "rowIndex": 9
+    },
+    {
+      "id": "c-255201",
+      "courseId": "255201",
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "rowIndex": 10
+    },
+    {
+      "id": "c-001201",
+      "courseId": "001201",
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "rowIndex": 11
+    },
+    {
+      "id": "c-261342",
+      "courseId": "261342",
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "rowIndex": 4
+    },
+    {
+      "id": "c-261343",
+      "courseId": "261343",
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "rowIndex": 5
+    },
+    {
+      "id": "c-261433",
+      "courseId": "261433",
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "rowIndex": 7
+    },
+    {
+      "id": "c-269210",
+      "courseId": "269210",
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "rowIndex": 9
+    },
+    {
+      "id": "c-252281",
+      "courseId": "252281",
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "rowIndex": 10
+    },
+    {
+      "id": "c-001225",
+      "courseId": "001225",
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "rowIndex": 11
+    },
+    {
+      "id": "ge-co-creator",
+      "courseId": null,
+      "courseTitle": "GenEd Co-creator",
+      "creditHours": 3,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 12,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "c-261361",
+      "courseId": "261361",
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "rowIndex": 0
+    },
+    {
+      "id": "c-269340",
+      "courseId": "269340",
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "rowIndex": 4
+    },
+    {
+      "id": "c-261434",
+      "courseId": "261434",
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "rowIndex": 6
+    },
+    {
+      "id": "c-269430",
+      "courseId": "269430",
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "rowIndex": 7
+    },
+    {
+      "id": "c-261305",
+      "courseId": "261305",
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "rowIndex": 9
+    },
+    {
+      "id": "ge-digital-lit",
+      "courseId": null,
+      "courseTitle": "GenEd Digital Literacy",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 12,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "c-269360",
+      "courseId": "269360",
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "rowIndex": 1
+    },
+    {
+      "id": "c-261446",
+      "courseId": "261446",
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "rowIndex": 2
+    },
+    {
+      "id": "c-269370",
+      "courseId": "269370",
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "rowIndex": 3
+    },
+    {
+      "id": "c-261447",
+      "courseId": "261447",
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "rowIndex": 6
+    },
+    {
+      "id": "major-elect-1",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 8,
+      "courseType": "major courses"
+    },
+    {
+      "id": "ge-1",
+      "courseId": null,
+      "courseTitle": "GenEd Elective",
+      "creditHours": 1,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 12,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "free-elect-1",
+      "courseId": null,
+      "courseTitle": "Free Elective",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 1,
+      "selectedYear": 3,
+      "selectedSemester": 1,
+      "prerequisites": [],
+      "rowIndex": 10,
+      "courseType": "others"
+    },
+    {
+      "id": "c-269491",
+      "courseId": "269491",
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "rowIndex": 4
+    },
+    {
+      "id": "free-elect-2",
+      "courseId": null,
+      "courseTitle": "Free Elective",
+      "creditHours": 3,
+      "suggestedYear": 3,
+      "suggestedSemester": 2,
+      "selectedYear": 3,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 10,
+      "courseType": "others"
+    },
+    {
+      "id": "c-269495",
+      "courseId": "269495",
+      "suggestedYear": 4,
+      "suggestedSemester": 1,
+      "selectedYear": 4,
+      "selectedSemester": 1,
+      "rowIndex": 9
+    },
+    {
+      "id": "c-269400",
+      "courseId": "269400",
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "rowIndex": 1
+    },
+    {
+      "id": "c-269470",
+      "courseId": "269470",
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "rowIndex": 2
+    },
+    {
+      "id": "c-269492",
+      "courseId": "269492",
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "rowIndex": 4
+    },
+    {
+      "id": "major-elect-2",
+      "courseId": null,
+      "courseTitle": "Major Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 8,
+      "courseType": "major courses"
+    },
+    {
+      "id": "c-259192",
+      "courseId": "259192",
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "rowIndex": 9,
+      "requirementGroup": "gened"
+    },
+    {
+      "id": "ge-2",
+      "courseId": null,
+      "courseTitle": "GenEd Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 11,
+      "courseType": "gen edu"
+    },
+    {
+      "id": "ge-3",
+      "courseId": null,
+      "courseTitle": "GenEd Elective",
+      "creditHours": 3,
+      "suggestedYear": 4,
+      "suggestedSemester": 2,
+      "selectedYear": 4,
+      "selectedSemester": 2,
+      "prerequisites": [],
+      "rowIndex": 12,
+      "courseType": "gen edu"
+    }
+  ],
+  "options": {
+    "languageLiteracy": [
+      {
+        "courseId": "001101"
+      },
+      {
+        "courseId": "001102"
+      },
+      {
+        "courseId": "001201"
+      },
+      {
+        "courseId": "001225"
+      }
+    ],
+    "digitalLiteracy": [
+      {
+        "courseId": "204100"
+      },
+      {
+        "courseId": "261111"
+      },
+      {
+        "courseId": "953111"
+      }
+    ],
+    "globalCitizenship": [
+      {
+        "courseId": "140104"
+      },
+      {
+        "courseId": "259191"
+      }
+    ],
+    "creativityInnovation": [
+      {
+        "courseId": "013110"
+      },
+      {
+        "courseId": "050106"
+      },
+      {
+        "courseId": "176100"
+      },
+      {
+        "courseId": "201114"
+      },
+      {
+        "courseId": "201117"
+      },
+      {
+        "courseId": "201190"
+      },
+      {
+        "courseId": "207109"
+      },
+      {
+        "courseId": "207110"
+      },
+      {
+        "courseId": "368100"
+      },
+      {
+        "courseId": "610111"
+      },
+      {
+        "courseId": "703103"
+      },
+      {
+        "courseId": "751100"
+      },
+      {
+        "courseId": "851103"
+      },
+      {
+        "courseId": "852100"
+      }
+    ],
+    "entrepreneurialSkills": [
+      {
+        "courseId": "259192"
+      }
+    ],
+    "geElective": [
+      {
+        "courseId": "009103"
+      },
+      {
+        "courseId": "154130"
+      },
+      {
+        "courseId": "201100"
+      },
+      {
+        "courseId": "203100"
+      },
+      {
+        "courseId": "211100"
+      },
+      {
+        "courseId": "462130"
+      },
+      {
+        "courseId": "571116"
+      },
+      {
+        "courseId": "701181"
+      },
+      {
+        "courseId": "702101"
+      },
+      {
+        "courseId": "705191"
+      },
+      {
+        "courseId": "259194"
+      },
+      {
+        "courseId": "109114"
+      },
+      {
+        "courseId": "127100"
+      },
+      {
+        "courseId": "128100"
+      },
+      {
+        "courseId": "154104"
+      },
+      {
+        "courseId": "256131"
+      },
+      {
+        "courseId": "259193"
+      },
+      {
+        "courseId": "259195"
+      },
+      {
+        "courseId": "801100"
+      },
+      {
+        "courseId": "951100"
+      }
+    ],
+    "majorElective": [
+      {
+        "courseId": "261408"
+      },
+      {
+        "courseId": "261409"
+      },
+      {
+        "courseId": "261411"
+      },
+      {
+        "courseId": "261430"
+      },
+      {
+        "courseId": "261435"
+      },
+      {
+        "courseId": "261438"
+      },
+      {
+        "courseId": "261441"
+      },
+      {
+        "courseId": "261444"
+      },
+      {
+        "courseId": "261448"
+      },
+      {
+        "courseId": "261453"
+      },
+      {
+        "courseId": "261456"
+      },
+      {
+        "courseId": "261459"
+      },
+      {
+        "courseId": "261461"
+      },
+      {
+        "courseId": "261465"
+      },
+      {
+        "courseId": "261468"
+      },
+      {
+        "courseId": "261472"
+      },
+      {
+        "courseId": "261473"
+      },
+      {
+        "courseId": "261475"
+      },
+      {
+        "courseId": "261476"
+      },
+      {
+        "courseId": "269341"
+      },
+      {
+        "courseId": "269421"
+      },
+      {
+        "courseId": "269431"
+      },
+      {
+        "courseId": "269432"
+      },
+      {
+        "courseId": "269433"
+      },
+      {
+        "courseId": "269441"
+      },
+      {
+        "courseId": "269451"
+      },
+      {
+        "courseId": "269452"
+      },
+      {
+        "courseId": "269461"
+      },
+      {
+        "courseId": "269462"
+      },
+      {
+        "courseId": "269471"
+      },
+      {
+        "courseId": "269472"
+      },
+      {
+        "courseId": "269493"
+      },
+      {
+        "courseId": "269494"
+      },
+      {
+        "courseId": "269496"
+      },
+      {
+        "courseId": "269497"
+      },
+      {
+        "courseId": "269498"
+      },
+      {
+        "courseId": "269499"
+      },
+      {
+        "courseId": "269401"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "title": "หลักสูตรวิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมระบบสารสนเทศและเครือข่าย (หลักสูตรนานาชาติ) หลักสูตรปรับปรุง พ.ศ. 2561",
+      "url": "https://reg.eng.cmu.ac.th/reg_curriculum/uploads/2565/8.ISNE65_2565.pdf"
+    }
+  ]
+}

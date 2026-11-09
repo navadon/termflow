@@ -22,6 +22,8 @@ import isce2569CysecCoop from './data/curriculum-isce2569-cysec-coop.json';
 import isce2569CysecRegular from './data/curriculum-isce2569-cysec-regular.json';
 import isce2569InfosysCoop from './data/curriculum-isce2569-infosys-coop.json';
 import isce2569InfosysRegular from './data/curriculum-isce2569-infosys-regular.json';
+import isne2561Coop from './data/curriculum-isne2561-coop.json';
+import isne2561Regular from './data/curriculum-isne2561-regular.json';
 import isne2566Coop from './data/curriculum-isne2566-coop.json';
 import isne2566Regular from './data/curriculum-isne2566-regular.json';
 import coursesData from './data/courses.json';
@@ -60,7 +62,9 @@ const curriculums = {
   'ISCE 2569 InfoSys (Regular)': isce2569InfosysRegular,
   'ISCE 2569 InfoSys (Co-op)': isce2569InfosysCoop,
   'ISNE 2566 (Regular)': isne2566Regular,
-  'ISNE 2566 (Co-op)': isne2566Coop
+  'ISNE 2566 (Co-op)': isne2566Coop,
+  'ISNE 2561 (Regular)': isne2561Regular,
+  'ISNE 2561 (Co-op)': isne2561Coop
 };
 
 // --- CONFIGURATION ---

@@ -1531,6 +1531,8 @@
   },
   "269400": {
     "courseTitle": "Advanced Information Systems & Network Technology",
+    "courseType": "major courses",
+    "creditHours": 3,
     "prerequisites": [
       [
         "269360"
