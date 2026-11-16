@@ -224,6 +224,12 @@ const DialogModal = ({ dialog, onClose }) => {
 // in the project README.
 const CREDITS = [
   {
+    names: ['Chommanee Rujijanagul', 'Natcha Silakorn'],
+    role: 'Original idea',
+    detail: 'Proposed and built Nuaikit (Visualization of Curriculum Completion Progress), their senior project supervised by Navadon Khunlertgit and the starting point for TermFlow.',
+    link: { label: 'Watch the Nuaikit demo', url: 'https://www.youtube.com/watch?v=8o_dHdI0r7I' },
+  },
+  {
     names: ['Navadon Khunlertgit'],
     role: 'Creator & direction',
     detail: 'Set the direction and theme, designed the main flow and key features, and orchestrated the project.',
@@ -415,6 +421,11 @@ const CreditsModal = ({ open, onClose }) => {
                 <div key={n} style={{ fontSize: '14px', fontWeight: 'bold', color: HEADER.text, marginTop: '3px' }}>{n}</div>
               ))}
               <div style={{ fontSize: '12px', color: '#666', lineHeight: 1.5, marginTop: '4px' }}>{c.detail}</div>
+              {c.link && (
+                <a href={c.link.url} target="_blank" rel="noreferrer" style={{ display: 'inline-block', fontSize: '12px', color: HEADER.brand, textDecoration: 'none', marginTop: '4px' }}>
+                  {c.link.label} ↗
+                </a>
+              )}
             </div>
           ))}
         </div>

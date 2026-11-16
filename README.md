@@ -97,6 +97,12 @@ renames) go in their own small PR before any feature that depends on them.
 
 ## Credits
 
+- **Original idea** — proposed and built
+  [Nuaikit (Visualization of Curriculum Completion Progress)](https://www.youtube.com/watch?v=8o_dHdI0r7I),
+  their senior project supervised by Navadon Khunlertgit and the starting
+  point for TermFlow:
+  - Chommanee Rujijanagul
+  - Natcha Silakorn
 - **Creator & direction** — Navadon Khunlertgit. Set the direction and theme,
   designed the main flow and key features, and orchestrated the project.
 - **Features & prototype** — Jedsadakorn Kritsadakul. Proposed and built a
