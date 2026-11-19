@@ -1,0 +1,426 @@
+{
+  "curriculumName": "mcpe2569-plan2",
+  "courses": [
+    {
+      "id": "c-261701",
+      "courseId": "261701",
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "rowIndex": 0,
+      "requirementGroup": "required"
+    },
+    {
+      "id": "c-261702",
+      "courseId": "261702",
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "rowIndex": 1,
+      "requirementGroup": "required"
+    },
+    {
+      "id": "c-261703",
+      "courseId": "261703",
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "rowIndex": 2,
+      "requirementGroup": "required"
+    },
+    {
+      "id": "elective-1",
+      "courseId": null,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "rowIndex": 3,
+      "courseTitle": "Elective",
+      "slotLabel": "Elective",
+      "optionType": "majorElective",
+      "creditHours": 3,
+      "prerequisites": [],
+      "courseType": "major courses",
+      "requirementGroup": "elective"
+    },
+    {
+      "id": "milestone-1",
+      "courseId": null,
+      "suggestedYear": 1,
+      "suggestedSemester": 1,
+      "selectedYear": 1,
+      "selectedSemester": 1,
+      "rowIndex": 4,
+      "courseTitle": "Pass foreign language requirement",
+      "milestone": true,
+      "creditHours": 0,
+      "prerequisites": [],
+      "courseType": "others",
+      "requirementGroup": "milestone"
+    },
+    {
+      "id": "elective-2",
+      "courseId": null,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "rowIndex": 0,
+      "courseTitle": "Elective",
+      "slotLabel": "Elective",
+      "optionType": "majorElective",
+      "creditHours": 3,
+      "prerequisites": [],
+      "courseType": "major courses",
+      "requirementGroup": "elective"
+    },
+    {
+      "id": "elective-3",
+      "courseId": null,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "rowIndex": 1,
+      "courseTitle": "Elective",
+      "slotLabel": "Elective",
+      "optionType": "majorElective",
+      "creditHours": 3,
+      "prerequisites": [],
+      "courseType": "major courses",
+      "requirementGroup": "elective"
+    },
+    {
+      "id": "elective-4",
+      "courseId": null,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "rowIndex": 2,
+      "courseTitle": "Elective",
+      "slotLabel": "Elective",
+      "optionType": "majorElective",
+      "creditHours": 3,
+      "prerequisites": [],
+      "courseType": "major courses",
+      "requirementGroup": "elective"
+    },
+    {
+      "id": "elective-5",
+      "courseId": null,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "rowIndex": 3,
+      "courseTitle": "Elective",
+      "slotLabel": "Elective",
+      "optionType": "majorElective",
+      "creditHours": 3,
+      "prerequisites": [],
+      "courseType": "major courses",
+      "requirementGroup": "elective"
+    },
+    {
+      "id": "milestone-2",
+      "courseId": null,
+      "suggestedYear": 1,
+      "suggestedSemester": 2,
+      "selectedYear": 1,
+      "selectedSemester": 2,
+      "rowIndex": 4,
+      "courseTitle": "Present thesis proposal",
+      "milestone": true,
+      "creditHours": 0,
+      "prerequisites": [],
+      "courseType": "others",
+      "requirementGroup": "milestone"
+    },
+    {
+      "id": "c-261799-1",
+      "courseId": "261799",
+      "suggestedYear": 2,
+      "suggestedSemester": 1,
+      "selectedYear": 2,
+      "selectedSemester": 1,
+      "rowIndex": 0,
+      "creditHoursOverride": 6,
+      "part": 1,
+      "parts": 2,
+      "requirementGroup": "thesis"
+    },
+    {
+      "id": "c-261799-2",
+      "courseId": "261799",
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "rowIndex": 0,
+      "creditHoursOverride": 6,
+      "part": 2,
+      "parts": 2,
+      "requirementGroup": "thesis"
+    },
+    {
+      "id": "milestone-3",
+      "courseId": null,
+      "suggestedYear": 2,
+      "suggestedSemester": 2,
+      "selectedYear": 2,
+      "selectedSemester": 2,
+      "rowIndex": 1,
+      "courseTitle": "Thesis defense",
+      "milestone": true,
+      "creditHours": 0,
+      "prerequisites": [],
+      "courseType": "others",
+      "requirementGroup": "milestone"
+    }
+  ],
+  "options": {
+    "majorElective": [
+      {
+        "courseId": "261704"
+      },
+      {
+        "courseId": "261705"
+      },
+      {
+        "courseId": "261707"
+      },
+      {
+        "courseId": "261708"
+      },
+      {
+        "courseId": "261709"
+      },
+      {
+        "courseId": "261710"
+      },
+      {
+        "courseId": "261711"
+      },
+      {
+        "courseId": "261712"
+      },
+      {
+        "courseId": "261721"
+      },
+      {
+        "courseId": "261722"
+      },
+      {
+        "courseId": "261730"
+      },
+      {
+        "courseId": "261731"
+      },
+      {
+        "courseId": "261732"
+      },
+      {
+        "courseId": "261733"
+      },
+      {
+        "courseId": "261734"
+      },
+      {
+        "courseId": "261735"
+      },
+      {
+        "courseId": "261736"
+      },
+      {
+        "courseId": "261737"
+      },
+      {
+        "courseId": "261738"
+      },
+      {
+        "courseId": "261739"
+      },
+      {
+        "courseId": "261741"
+      },
+      {
+        "courseId": "261742"
+      },
+      {
+        "courseId": "261743"
+      },
+      {
+        "courseId": "261744"
+      },
+      {
+        "courseId": "261745"
+      },
+      {
+        "courseId": "261746"
+      },
+      {
+        "courseId": "261747"
+      },
+      {
+        "courseId": "261748"
+      },
+      {
+        "courseId": "261750"
+      },
+      {
+        "courseId": "261751"
+      },
+      {
+        "courseId": "261752"
+      },
+      {
+        "courseId": "261753"
+      },
+      {
+        "courseId": "261754"
+      },
+      {
+        "courseId": "261755"
+      },
+      {
+        "courseId": "261756"
+      },
+      {
+        "courseId": "261757"
+      },
+      {
+        "courseId": "261758"
+      },
+      {
+        "courseId": "261759"
+      },
+      {
+        "courseId": "261763"
+      },
+      {
+        "courseId": "261764"
+      },
+      {
+        "courseId": "261766"
+      },
+      {
+        "courseId": "261767"
+      },
+      {
+        "courseId": "261768"
+      },
+      {
+        "courseId": "261769"
+      },
+      {
+        "courseId": "261771"
+      },
+      {
+        "courseId": "261772"
+      },
+      {
+        "courseId": "261773"
+      },
+      {
+        "courseId": "261781"
+      },
+      {
+        "courseId": "261782"
+      },
+      {
+        "courseId": "261783"
+      },
+      {
+        "courseId": "261784"
+      },
+      {
+        "courseId": "261785"
+      },
+      {
+        "courseId": "261786"
+      },
+      {
+        "courseId": "270701"
+      },
+      {
+        "courseId": "270702"
+      },
+      {
+        "courseId": "270711"
+      },
+      {
+        "courseId": "270712"
+      },
+      {
+        "courseId": "270714"
+      },
+      {
+        "courseId": "270721"
+      },
+      {
+        "courseId": "261792"
+      },
+      {
+        "courseId": "261793"
+      },
+      {
+        "courseId": "261794"
+      },
+      {
+        "courseId": "261795"
+      },
+      {
+        "courseId": "261796"
+      },
+      {
+        "courseId": "261891"
+      },
+      {
+        "courseId": "261892"
+      },
+      {
+        "courseId": "261893"
+      },
+      {
+        "courseId": "261894"
+      },
+      {
+        "courseId": "261895"
+      },
+      {
+        "courseId": "261896"
+      },
+      {
+        "courseId": "270791"
+      },
+      {
+        "courseId": "270792"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "key": "required",
+      "label": "Required"
+    },
+    {
+      "key": "elective",
+      "label": "Elective"
+    },
+    {
+      "key": "thesis",
+      "label": "Thesis"
+    }
+  ],
+  "resources": [
+    {
+      "title": "Master of Engineering Program in Computer Engineering (Revised Curriculum 2569)",
+      "url": "https://www.mis.cmu.ac.th/TQF/TQF2/CurriculumPublic.aspx?EID=3544227f-137b-454a-b63a-6f8972320ee3"
+    }
+  ]
+}

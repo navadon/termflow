@@ -67,6 +67,14 @@ Two kinds of JSON, deliberately kept distinct:
     `suggestedSemester`, `rowIndex` (layout row), and `courseType`
     (`gen edu`, `math and sci`, `gen engr`, `major courses`, `others`).
     Elective placeholder slots have `courseId: null`.
+    Optional fields used by the master's (MCPE) plans:
+    `creditHoursOverride` with `part` / `parts` (one card per semester for a
+    thesis or independent study, shown as "Part 2 of 4 · 18/36 CR"),
+    `milestone: true` (a 0-credit item such as a proposal or defense),
+    `slotLabel` / `optionType` (an elective slot's label and option list), and
+    `requirementGroup`.
+  - `categories[]` — optional; the progress-breakdown categories
+    (`key`, `label`) when they differ from GenEd / Spec / Free.
   - `options{}` — per option type (language literacy, digital literacy,
     GenEd elective, major elective, …), the list of allowed courses for the
     dropdowns.

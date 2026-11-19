@@ -3,3 +3,9 @@
 .tf-pill:focus-visible {
   filter: brightness(0.95);
 }
+
+/* The default button in a popup keeps a visible ring so it reads as selected. */
+.tf-default:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(115, 84, 179, 0.35);
+}

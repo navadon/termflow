@@ -1176,6 +1176,482 @@
     "courseTitle": "Selected Topics in CI",
     "prerequisites": []
   },
+  "261701": {
+    "courseTitle": "Mathematics for Computer Engineering",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261702": {
+    "courseTitle": "Algorithm Analysis and Design",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261703": {
+    "courseTitle": "Research Methodology for Computer Engineering",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261704": {
+    "courseTitle": "Advanced Computer Architecture",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261705": {
+    "cod": true,
+    "courseTitle": "Advanced Operating System",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261707": {
+    "cod": true,
+    "courseTitle": "Probabilistic Analysis and Randomized Algorithms",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261708": {
+    "courseTitle": "Computer Engineering Systems Foundations",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261709": {
+    "courseTitle": "Computer Simulation Systems",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261710": {
+    "courseTitle": "Cybersecurity Management",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261711": {
+    "courseTitle": "Cybersecurity Penetration Testing",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261712": {
+    "courseTitle": "Cybersecurity Incident Response and Management",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261721": {
+    "courseTitle": "Computer Hardware Design",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261722": {
+    "cod": true,
+    "courseTitle": "Advanced Embedded Systems",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261730": {
+    "courseTitle": "Wireless Communications",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261731": {
+    "cod": true,
+    "courseTitle": "Parallel Processing and Distributed Systems",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261732": {
+    "cod": true,
+    "courseTitle": "Queueing Theory",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261733": {
+    "cod": true,
+    "courseTitle": "Design and Analysis of Computer Networks",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      [
+        "261732"
+      ]
+    ]
+  },
+  "261734": {
+    "cod": true,
+    "courseTitle": "Advanced Networks Programming",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      [
+        "261733"
+      ]
+    ]
+  },
+  "261735": {
+    "courseTitle": "Information Security",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261736": {
+    "courseTitle": "Wireless Networking",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261737": {
+    "cod": true,
+    "courseTitle": "Advanced Routing Protocols",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261738": {
+    "cod": true,
+    "courseTitle": "Multiprotocol Label Switching Technology",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261739": {
+    "cod": true,
+    "courseTitle": "Advanced Network Management",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261741": {
+    "cod": true,
+    "courseTitle": "Database Management Systems 1",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261742": {
+    "cod": true,
+    "courseTitle": "Database Management Systems 2",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      [
+        "261741"
+      ]
+    ]
+  },
+  "261743": {
+    "courseTitle": "Information Architecture",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261744": {
+    "cod": true,
+    "courseTitle": "Information Theory and Coding",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261745": {
+    "cod": true,
+    "courseTitle": "Data Mining",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261746": {
+    "courseTitle": "Human-Computer Interaction",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261747": {
+    "cod": true,
+    "courseTitle": "Information Technology Infrastructure Library",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261748": {
+    "cod": true,
+    "courseTitle": "Service-oriented Architecture",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261750": {
+    "courseTitle": "Deep Generative Models",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261751": {
+    "cod": true,
+    "courseTitle": "Advanced Neural Networks",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261752": {
+    "courseTitle": "Digital Image Analysis",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261753": {
+    "courseTitle": "Computer Vision",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261754": {
+    "courseTitle": "Advanced Pattern Recognition",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261755": {
+    "courseTitle": "Advanced Fuzzy Set Theory",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261756": {
+    "courseTitle": "Digital Video Processing",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261757": {
+    "cod": true,
+    "courseTitle": "Advanced Neuro-Fuzzy",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261758": {
+    "cod": true,
+    "courseTitle": "Image Registration",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261759": {
+    "cod": true,
+    "courseTitle": "Applied Artificial Intelligence for Computer Engineering",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261763": {
+    "courseTitle": "Advanced Computer Graphics",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261764": {
+    "courseTitle": "Advanced Software Engineering",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261766": {
+    "cod": true,
+    "courseTitle": "Advanced Object-oriented Programming",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261767": {
+    "courseTitle": "Computer Simulation for Engineering Problems",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261768": {
+    "cod": true,
+    "courseTitle": "Parallel Programming on Graphics Processing Units and Multi-Core Central Processing Units",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261769": {
+    "courseTitle": "Computational Media",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261771": {
+    "courseTitle": "Advanced Digital Signal Processing for Computer Engineering",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261772": {
+    "courseTitle": "Computer Application for Medical Instruments",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261773": {
+    "courseTitle": "Speech and Audio Signal Processing",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261781": {
+    "courseTitle": "Software Project Management",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261782": {
+    "cod": true,
+    "courseTitle": "Advanced Risk Management in Software Project",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": [
+      [
+        "261781"
+      ]
+    ]
+  },
+  "261783": {
+    "cod": true,
+    "courseTitle": "Software Requirement Analysis",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261784": {
+    "cod": true,
+    "courseTitle": "Formal Methods in Software Engineering",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261785": {
+    "cod": true,
+    "courseTitle": "Software Architecture",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261786": {
+    "cod": true,
+    "courseTitle": "Software Quality Assurance",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261792": {
+    "cod": true,
+    "courseTitle": "Selected Topics in Computer Engineering",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261793": {
+    "cod": true,
+    "courseTitle": "Selected Topics in Computer Software",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261794": {
+    "cod": true,
+    "courseTitle": "Selected Topics in Computer Network",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261795": {
+    "cod": true,
+    "courseTitle": "Selected Topics in Computational Intelligence",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261796": {
+    "courseTitle": "Selected Topics in Information Technology",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261797": {
+    "courseTitle": "Independent Study",
+    "courseType": "major courses",
+    "creditHours": 6,
+    "prerequisiteNote": "Approved proposal or concurrent to IS proposal",
+    "prerequisites": []
+  },
+  "261798": {
+    "courseTitle": "Master’s Thesis",
+    "courseType": "major courses",
+    "creditHours": 36,
+    "prerequisiteNote": "Approved proposal or concurrent to thesis proposal",
+    "prerequisites": []
+  },
+  "261799": {
+    "courseTitle": "Master’s Thesis",
+    "courseType": "major courses",
+    "creditHours": 12,
+    "prerequisiteNote": "Approved proposal or concurrent to thesis proposal",
+    "prerequisites": []
+  },
+  "261891": {
+    "cod": true,
+    "courseTitle": "Selected Topics in Computer Engineering 1",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261892": {
+    "cod": true,
+    "courseTitle": "Selected Topics in Computer Engineering 2",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261893": {
+    "cod": true,
+    "courseTitle": "Selected Topics in Computer Software 1",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261894": {
+    "cod": true,
+    "courseTitle": "Selected Topics in Computer Network 1",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261895": {
+    "cod": true,
+    "courseTitle": "Selected Topics in Computational Intelligence 1",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "261896": {
+    "cod": true,
+    "courseTitle": "Selected Topics in Information Technology 1",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
   "267101": {
     "courseTitle": "Intro to ISCE",
     "courseType": "major courses",
@@ -1709,6 +2185,54 @@
   "269499": {
     "cod": true,
     "courseTitle": "Selected Topics in Network Engineering 2",
+    "prerequisites": []
+  },
+  "270701": {
+    "courseTitle": "Data Management and Big Data",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "270702": {
+    "courseTitle": "Data Science Programming",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "270711": {
+    "courseTitle": "Data Governance",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "270712": {
+    "courseTitle": "Cloud Computing",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "270714": {
+    "courseTitle": "Integrated Data Operation",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "270721": {
+    "courseTitle": "Optimization",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "270791": {
+    "courseTitle": "Selected Topics in Data Engineering and Data Architecture 1",
+    "courseType": "major courses",
+    "creditHours": 3,
+    "prerequisites": []
+  },
+  "270792": {
+    "courseTitle": "Selected Topics in Data Engineering and Data Architecture 2",
+    "courseType": "major courses",
+    "creditHours": 3,
     "prerequisites": []
   },
   "271111": {

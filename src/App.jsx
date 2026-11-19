@@ -26,6 +26,9 @@ import isne2561Coop from './data/curriculum-isne2561-coop.json';
 import isne2561Regular from './data/curriculum-isne2561-regular.json';
 import isne2566Coop from './data/curriculum-isne2566-coop.json';
 import isne2566Regular from './data/curriculum-isne2566-regular.json';
+import mcpe2569Plan1 from './data/curriculum-mcpe2569-plan1.json';
+import mcpe2569Plan2 from './data/curriculum-mcpe2569-plan2.json';
+import mcpe2569Plan3 from './data/curriculum-mcpe2569-plan3.json';
 import coursesData from './data/courses.json';
 
 // Curriculum files store only courseId + curriculum-specific placement; shared
@@ -64,8 +67,19 @@ const curriculums = {
   'ISNE 2566 (Regular)': isne2566Regular,
   'ISNE 2566 (Co-op)': isne2566Coop,
   'ISNE 2561 (Regular)': isne2561Regular,
-  'ISNE 2561 (Co-op)': isne2561Coop
+  'ISNE 2561 (Co-op)': isne2561Coop,
+  'MCPE 2569 (Plan 1)': mcpe2569Plan1,
+  'MCPE 2569 (Plan 2)': mcpe2569Plan2,
+  'MCPE 2569 (Plan 3)': mcpe2569Plan3
 };
+
+// Progress-breakdown categories; a curriculum file may define its own
+// (e.g. master's plans use Required / Elective / Thesis).
+const DEFAULT_CATEGORIES = [
+  { key: 'gened', label: 'GenEd' },
+  { key: 'specialization', label: 'Spec' },
+  { key: 'free', label: 'Free' }
+];
 
 // --- CONFIGURATION ---
 const SEMESTER_WIDTH = 270;
@@ -316,6 +330,10 @@ const HOWTO_COLORS = [
   { swatch: '#e8f5e9', label: 'Completed' },
 ];
 
+// Focus the modal's main button without scrolling the modal to the bottom,
+// so long popups (How to use, Credits) open showing their top.
+const focusWithoutScroll = (el) => { if (el) el.focus({ preventScroll: true }); };
+
 const HowToModal = ({ open, onClose }) => {
   if (!open) return null;
   return (
@@ -375,8 +393,8 @@ const HowToModal = ({ open, onClose }) => {
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '18px' }}>
           <button
             onClick={onClose}
-            autoFocus
-            className="tf-pill"
+            ref={focusWithoutScroll}
+            className="tf-pill tf-default"
             style={{ ...pillStyle('primary'), padding: '6px 16px', fontSize: '13px' }}
           >
             Got it
@@ -442,8 +460,8 @@ const CreditsModal = ({ open, onClose }) => {
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '18px' }}>
           <button
             onClick={onClose}
-            autoFocus
-            className="tf-pill"
+            ref={focusWithoutScroll}
+            className="tf-pill tf-default"
             style={{ ...pillStyle('primary'), padding: '6px 16px', fontSize: '13px' }}
           >
             Close
@@ -515,7 +533,7 @@ const CourseNode = ({ id, data }) => {
         <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
             <div style={{ fontWeight: 'bold', fontSize: '18px', color: '#444' }}>
-              {data.courseId || (data.optionType === 'majorElective' ? 'Major Elect' : 'GenEd')}
+              {data.courseId || data.slotLabel || (data.optionType === 'majorElective' ? 'Major Elect' : 'GenEd')}
               {isOffSchedule && (
                 <span style={{ fontSize: '14px', color: '#777', marginLeft: '6px', fontWeight: 'bold' }}>
                   {suggestedLabel}
@@ -574,7 +592,7 @@ const CourseNode = ({ id, data }) => {
                 whiteSpace: 'nowrap'
               }}
             >
-              <option value="">{placeholder}</option>
+              <option value="">{data.slotLabel || placeholder}</option>
               {dropdownOptions.map(opt => {
                 const isTaken = data.otherSelectedIds?.includes(opt.courseId);
                 return (
@@ -603,7 +621,7 @@ const CourseNode = ({ id, data }) => {
       <div style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #eee', marginBottom: 8, paddingBottom: 4 }}>
           <div style={{ fontWeight: 'bold', fontSize: '18px', color: '#444' }}>
-            {data.courseId || (data.requirementGroup === 'free'
+            {data.courseId || (data.milestone ? 'Milestone' : data.requirementGroup === 'free'
               ? 'Free Elect'
               : (COURSE_TYPES.find(t => t.type === data.courseType)?.label || 'Course'))}
             {isOffSchedule && (
@@ -613,9 +631,11 @@ const CourseNode = ({ id, data }) => {
             )}
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
-              {data.creditHours} CR
-            </div>
+            {!data.milestone && (
+              <div style={{ fontSize: '14px', fontWeight: 'bold', color: '#666', backgroundColor: '#f0f0f0', padding: '2px 6px', borderRadius: '4px' }}>
+                {data.creditHours} CR
+              </div>
+            )}
             <input
               type="checkbox"
               className="nodrag"
@@ -639,6 +659,11 @@ const CourseNode = ({ id, data }) => {
         <div style={{ fontSize: '16px', lineHeight: '1.25', fontWeight: '600', color: '#000' }}>
           {data.courseTitle}
         </div>
+        {data.partInfo && (
+          <div style={{ fontSize: '13px', color: '#666', marginTop: '4px' }}>
+            Part {data.partInfo.part} of {data.partInfo.parts} · {data.partInfo.cumulative}/{data.partInfo.total} CR
+          </div>
+        )}
         <CourseNoteLine cod={data.cod} corequisite={data.corequisite} />
       </div>
       <Handle type="source" position={Position.Right} />
@@ -1106,7 +1131,20 @@ export default function App() {
 
         const shared = course.courseId ? resolveCourse(course.courseId) : null;
         const baseCourseTitle = shared ? shared.courseTitle : course.courseTitle;
-        const baseCreditHours = shared ? shared.creditHours : course.creditHours;
+        // A course split across semesters (thesis, independent study) has one
+        // card per semester, each carrying its share via creditHoursOverride.
+        const baseCreditHours = course.creditHoursOverride ?? (shared ? shared.creditHours : course.creditHours);
+        let partInfo = null;
+        if (course.part && course.parts) {
+          const siblings = curriculumData.courses.filter(c => c.courseId === course.courseId && c.part);
+          const creditOf = (c) => c.creditHoursOverride ?? shared?.creditHours ?? 0;
+          partInfo = {
+            part: course.part,
+            parts: course.parts,
+            cumulative: siblings.filter(c => c.part <= course.part).reduce((t, c) => t + creditOf(c), 0),
+            total: siblings.reduce((t, c) => t + creditOf(c), 0)
+          };
+        }
         const baseCourseType = shared ? shared.courseType : course.courseType;
         const basePrerequisites = shared ? (shared.prerequisites ?? []) : (course.prerequisites || []);
         const baseCod = !!shared?.cod;
@@ -1124,7 +1162,9 @@ export default function App() {
               : 'gened')
         );
 
-        const optionType = course.courseId === null ? getOptionType(baseCourseTitle) : null;
+        const optionType = course.courseId === null && !course.milestone
+          ? (course.optionType ?? getOptionType(baseCourseTitle))
+          : null;
         const currOptions = curriculumData.options || {};
         const dropdownOptions = optionType ? (currOptions[optionType] || []).map(resolveOption) : [];
 
@@ -1170,6 +1210,9 @@ export default function App() {
             originalTitle: baseCourseTitle,
             courseType: baseCourseType,
             requirementGroup: requirementGroup,
+            milestone: !!course.milestone,
+            slotLabel: course.slotLabel ?? null,
+            partInfo: partInfo,
             cod: cod,
             corequisite: corequisite,
             completed: completed,
@@ -1182,8 +1225,8 @@ export default function App() {
           style: {
             width: COURSE_WIDTH,
             height: COURSE_HEIGHT,
-            background: 'white',
-            border: '1px solid #333',
+            background: course.milestone ? '#fafafa' : 'white',
+            border: course.milestone ? '1px dashed #888' : '1px solid #333',
             borderRadius: '8px',
             padding: '12px',
             zIndex: 10
@@ -1457,10 +1500,15 @@ export default function App() {
   const progressPercent = totalCredits > 0 ? Math.round((completedCredits / totalCredits) * 100) : 0;
 
   // Official requirement structure, e.g. ISCE = GenEd 24 / Specialization 107 / Free 6
-  const categoryLabel = { gened: 'GenEd', specialization: 'Spec', free: 'Free' };
-  const categoryStats = { GenEd: { done: 0, total: 0 }, Spec: { done: 0, total: 0 }, Free: { done: 0, total: 0 } };
+  const customCategories = curriculums[selectedCurriculum]?.categories;
+  const categoryDefs = customCategories || DEFAULT_CATEGORIES;
+  const categoryLabel = Object.fromEntries(categoryDefs.map(c => [c.key, c.label]));
+  const categoryStats = Object.fromEntries(categoryDefs.map(c => [c.label, { done: 0, total: 0 }]));
   courseNodes.forEach(n => {
-    const cat = categoryStats[categoryLabel[n.data.requirementGroup] || 'Spec'];
+    // Undergrad files fall back to Spec; custom lists skip groups they don't name (milestones).
+    const label = categoryLabel[n.data.requirementGroup] || (customCategories ? null : 'Spec');
+    const cat = label && categoryStats[label];
+    if (!cat) return;
     const cr = n.data.creditHours || 0;
     cat.total += cr;
     if (n.data.completed) cat.done += cr;
