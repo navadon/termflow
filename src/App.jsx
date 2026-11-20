@@ -405,6 +405,61 @@ const HowToModal = ({ open, onClose }) => {
   );
 };
 
+// Official documents for the selected curriculum (its `resources` list).
+const ReferencesModal = ({ open, onClose, curriculumName, resources }) => {
+  if (!open) return null;
+  return (
+    <div
+      onClick={onClose}
+      onKeyDown={(e) => { if (e.key === 'Escape') onClose(); }}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 1000,
+        background: 'rgba(0,0,0,0.35)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontFamily: HEADER.font
+      }}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{ background: '#fff', borderRadius: '12px', padding: '22px 26px', width: '480px', maxWidth: '90vw', maxHeight: '85vh', overflowY: 'auto', boxShadow: '0 10px 30px rgba(0,0,0,0.25)' }}
+      >
+        <div style={{ fontSize: '18px', fontWeight: 750, color: HEADER.brand, letterSpacing: '0.2px' }}>References</div>
+        <div style={{ fontSize: '12px', color: HEADER.muted, marginBottom: '14px' }}>Official documents for {curriculumName}</div>
+        {resources.length === 0 ? (
+          <div style={{ fontSize: '13px', color: '#666' }}>No references for this curriculum yet.</div>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {resources.map((r, i) => (
+              <a
+                key={r.url}
+                href={r.url}
+                target="_blank"
+                rel="noreferrer"
+                style={{ display: 'block', padding: '10px 0', borderTop: i === 0 ? 'none' : '1px solid #eee', fontSize: '13px', lineHeight: 1.45, color: HEADER.brand, textDecoration: 'none' }}
+              >
+                {r.title} ↗
+              </a>
+            ))}
+          </div>
+        )}
+        <div style={{ fontSize: '11px', color: '#999', lineHeight: 1.5, marginTop: '12px' }}>
+          If anything in TermFlow differs from these documents, the official documents are correct.
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '18px' }}>
+          <button
+            onClick={onClose}
+            ref={focusWithoutScroll}
+            className="tf-pill tf-default"
+            style={{ ...pillStyle('primary'), padding: '6px 16px', fontSize: '13px' }}
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const CreditsModal = ({ open, onClose }) => {
   if (!open) return null;
   const year = new Date().getFullYear();
@@ -950,6 +1005,7 @@ export default function App() {
 
   const [dialog, setDialog] = useState(null);
   const [showCredits, setShowCredits] = useState(false);
+  const [showReferences, setShowReferences] = useState(false);
   const [showHowTo, setShowHowTo] = useState(() => {
     try { return !localStorage.getItem(HOWTO_KEY); } catch { return false; }
   });
@@ -1643,9 +1699,17 @@ export default function App() {
 
         <button
           className="tf-pill"
+          onClick={() => setShowReferences(true)}
+          title="Official curriculum documents for the selected curriculum"
+          style={{ ...pillStyle('outline'), marginLeft: 'auto' }}
+        >
+          References
+        </button>
+        <button
+          className="tf-pill"
           onClick={() => setShowHowTo(true)}
           title="Quick guide to using TermFlow"
-          style={{ ...pillStyle('outline'), marginLeft: 'auto' }}
+          style={pillStyle('outline')}
         >
           How to use
         </button>
@@ -1695,6 +1759,12 @@ export default function App() {
       </div>
 
       <HowToModal open={showHowTo} onClose={closeHowTo} />
+      <ReferencesModal
+        open={showReferences}
+        onClose={() => setShowReferences(false)}
+        curriculumName={selectedCurriculum}
+        resources={curriculums[selectedCurriculum]?.resources || []}
+      />
       <CreditsModal open={showCredits} onClose={() => setShowCredits(false)} />
       <DialogModal dialog={dialog} onClose={closeDialog} />
     </div>

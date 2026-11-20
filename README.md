@@ -78,7 +78,8 @@ Two kinds of JSON, deliberately kept distinct:
   - `options{}` — per option type (language literacy, digital literacy,
     GenEd elective, major elective, …), the list of allowed courses for the
     dropdowns.
-  - `resources[]` — links to the official plan information and program pages.
+  - `resources[]` — links to the official documents (TQF curriculum page,
+    plan information, program pages), listed in the References popup.
 - **Plans** (`*_plan.json`, produced by Save Plan) — what a user creates for a
   student: `curriculumName`, optional `studentName`, `savedAt`, and `plan[]`
   with each course's chosen semester and completion state. Plans reference
@@ -99,7 +100,6 @@ renames) go in their own small PR before any feature that depends on them.
 
 ## Roadmap
 
-- Fill in `resources` for the ISCE 2569 curricula
 - Update the ISNE 2566 "Plan Information" link when the 2566 sheet exists
 - Advisor-side features: multiple advisees, plan comparison
 
