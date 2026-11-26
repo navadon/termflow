@@ -1,0 +1,10 @@
+Copyright (c) Navadon Khunlertgit. All rights reserved.
+
+This repository contains the published build of TermFlow. You may use the
+TermFlow website at https://navadon.github.io/termflow/. No other rights are
+granted: you may not copy, modify, redistribute, or reuse these files, in
+whole or in part, without written permission from the copyright holder.
+
+The build includes third-party open-source libraries (including React and
+React Flow, both under the MIT License), which remain under their own
+licenses.
